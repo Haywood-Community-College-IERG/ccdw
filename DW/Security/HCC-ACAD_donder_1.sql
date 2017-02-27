@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [HCC-ACAD\donder]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [us_english];
+

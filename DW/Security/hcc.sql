@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [hcc]
+    AUTHORIZATION [dbo];
+
