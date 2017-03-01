@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [input].[StudentCourses] (
-    [StudentCoursesID]                   INT             NOT NULL,
+    [StudentCoursesID]                   INT             NOT NULL IDENTITY,
     [CoursesID]                          INT             NULL,
     [PersonsID]                          INT             NULL,
     [CampusID]                          NVARCHAR (10)   NULL,
@@ -71,6 +71,8 @@
     [Military Branch]                   NVARCHAR (100)  NULL,
     [Employed While Enrolled]           NVARCHAR (3)    NULL,
     [Employed After Exit]               NVARCHAR (3)    NULL,
-    [RECORD_HASH]                       NVARCHAR (64)   NULL
+    [RECORD_HASH]                       NVARCHAR (64)   NULL, 
+    CONSTRAINT [FK_StudentCourses_Persons] FOREIGN KEY ([PersonsID]) REFERENCES [Persons]([PersonsID]), 
+    CONSTRAINT [FK_StudentCourses_Courses] FOREIGN KEY ([CoursesID]) REFERENCES [Courses]([CoursesID])
 );
 
