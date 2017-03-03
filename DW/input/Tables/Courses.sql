@@ -38,6 +38,7 @@
     [Total Enrollment]             INT            NULL,
     [Total Enrollment - First Day] INT            NULL,
     [Total Enrollment - Census]    INT            NULL,
-    [RECORD_HASH]                  NVARCHAR (64)  NULL
+    [RECORD_HASH]                  NVARCHAR (64)  NULL, 
+    CONSTRAINT [PK_Courses] PRIMARY KEY ([CoursesID])
 );
 

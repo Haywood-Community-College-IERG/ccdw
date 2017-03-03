@@ -43,6 +43,7 @@
     [Last Changed]                   DATE           NULL,
     [Person Change Operator]         VARCHAR (8)    NULL,
     [Alien Status Code]              VARCHAR (1)    NULL,
-    [RECORD_HASH]                    VARCHAR (32)   NULL
+    [RECORD_HASH]                    VARCHAR (32)   NULL, 
+    CONSTRAINT [PK_Persons] PRIMARY KEY ([PersonsID])
 );
 

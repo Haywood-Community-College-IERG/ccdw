@@ -114,6 +114,13 @@
     <Build Include="input\Tables\StudentPrograms.sql" />
     <Build Include="input\Tables\Terms.sql" />
     <Build Include="input\Views\StudentPrograms_Active.sql" />
+    <Build Include="dw\Tables\DimStudents.sql" />
+    <Build Include="dw\Tables\FactEnrollments.sql" />
+    <Build Include="dw\Tables\DimTerms.sql" />
+    <Build Include="dw\Tables\DimCourses.sql" />
+    <Build Include="dw\Tables\DimPrograms.sql" />
+    <Build Include="input\Tables\AllDWTables_DROP.sql" />
+    <Build Include="input\Tables\AllDWTables.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DW.refactorlog" />
