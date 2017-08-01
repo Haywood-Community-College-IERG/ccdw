@@ -34,9 +34,9 @@ sql:
 informer:
   # Full path to root path where export files are located
   # export_path: K:/DW/
-  export_path: L:/TISS/RIE/CCDW/test/TESTDATA/
+  export_path: L:/TISS/RIE/gitRepo/temp/TESTDATA/
 
-  archive_path: L:/TISS/RIE/CCDW/test/TESTARCHIVE/
+  archive_path: L:/TISS/RIE/gitRepo/temp/TESTARCHIVE/
   ### You should not have to change the following items
 
   # Prefix for all informer reports

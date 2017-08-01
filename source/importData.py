@@ -1,5 +1,4 @@
 import csv
-# import pymssql
 import os
 import sys
 import yaml
@@ -12,12 +11,13 @@ from os import path
 from string import Template
 from sqlalchemy import exc
 # walk_dir = "C:/Users/kcsmith5/Desktop/pyCSV2SQL/test/"
-
-with open("L:/TISS/RIE/CCDW/test/config.yml","r") as ymlfile:
+# class errPass( Exception ):
+#     continue
+with open("config.yml","r") as ymlfile:
     cfg = yaml.load(ymlfile)
 
 walk_dir = cfg['informer']['export_path']
-
+errCheck = False
 print('walk_dir = ' + walk_dir)
 
 #print('walk_dir (absolute) = ' + os.path.abspath(walk_dir))
@@ -80,11 +80,12 @@ for index, types in enumerate(dataType):
 #     if types == 'K':
 #         usageType[index] = fieldNames[index]
 keyList = pd.concat([fieldNames,usageType], axis=1)
-print (keyList)
+keyList = keyList.append(['DataDatetime',sqlalchemy.types.DateTime()],ignore_index=True)
+#print (keyList)
 kList = list(keyList.set_index('ids').to_dict().values()).pop()
 
 result = pd.concat([fieldNames,dataType], axis=1)
-
+result = result.append(['DataDatetime',sqlalchemy.types.DateTime()],ignore_index=True)
 #print(result)
 
 dTypes = list(result.set_index('ids').to_dict().values()).pop()
@@ -148,6 +149,7 @@ def executeSQL_MERGE(inputFrame, sqlName, dTyper,kLister):
     except exc.SQLAlchemyError:
         print ("......executing sql command - skipped ["+str(exc.SQLAlchemyError)+"]" )
     except pyodbc.Error as ex:
+        errCheck = True
         sqlState = ex.args[1]
         with open("log.txt", "w") as log:
             log.write("Error in File: %f \t Error: %s \n" % (sqlName,sqlState))
@@ -157,59 +159,67 @@ def executeSQL_MERGE(inputFrame, sqlName, dTyper,kLister):
        rtn = engine.execute("DELETE FROM [{0}].[{1}]\n\nCOMMIT".format(cfg['sql']['schema'],sqlName))
 
     except exc.SQLAlchemyError:
-        print ("......executing sql command - skipped ["+str(exc.SQLAlchemyError)+"]" )
+        print ("......executing sql command - skipped ["+str(exc.SQLAlchemyError.args[1])+"]" )
 
 print('=========begin loop===========')
 for root, subdirs, files in os.walk(walk_dir):
     print('--\nroot = ' + root)
     print('_______________________________________________________________________')
+    # try:
     for subdir in subdirs:
         print('_______________________________________________________________________')
         print('\t- subdirectory ' + subdir)
     for file in files:
         if file.endswith('.csv'):
-            #if file.find('__')!=-1:
-                with open(root + '/' + file, "r") as csvinput:
-                    print("Processing "+file+"...")
+            with open(root + '/' + file, "r") as csvinput:
+                print("Processing "+file+"...")
+                inputFrame = pd.read_csv(csvinput,dtype='str')
+                inputFrame = inputFrame.replace(np.nan, '', regex=True)
+                del inputFrame['DataDatetime']
+                columnHeaders = list(inputFrame)
+                # print(inputFrame)
+                columnArray = np.asarray(columnHeaders)
+                #print(dictio)
+                dTyper = {k: dTypes[k] for k in dTypes.keys() & columnArray}
+                kLister = {k: kList[k] for k in kList.keys() & columnArray}
+                for k, v in list(kLister.items()):
+                    if v != 'K':
+                        del kLister[k]
+                #print(list(kLister.keys()))
+                # print(dTyper)
+                one,two,three = root.rpartition('/')
+                #print(three)
+                if '\\' in three:
+                    head, sep, tail = three.rpartition('\\')
+                    sqlName = head[:-5]
+                else:
+                    sqlName = three[:-5]
+                # print(sqlName)
 
-                    inputFrame = pd.read_csv(csvinput,dtype='str')
-                    inputFrame = inputFrame.replace(np.nan, '', regex=True)
-                    del inputFrame['Current Date']
-                    columnHeaders = list(inputFrame)
-                    # print(inputFrame)
-                    columnArray = np.asarray(columnHeaders)
-                    #print(dictio)
-                    dTyper = {k: dTypes[k] for k in dTypes.keys() & columnArray}
-                    kLister = {k: kList[k] for k in kList.keys() & columnArray}
-                    for k, v in list(kLister.items()):
-                        if v != 'K':
-                            del kLister[k]
-                    #print(list(kLister.keys()))
-                    # print(dTyper)
-                    one,two,three = root.rpartition('/')
-                    #print(three)
-                    if '\\' in three:
-                        head, sep, tail = three.rpartition('\\')
-                        sqlName = head[:-5]
-                    else:
-                        sqlName = three[:-5]
-                    # print(sqlName)
+                # Check if fields exist, alter table for any missing fields
+                # error on file if field exists and has a different type
 
-                    # Check if fields exist, alter table for any missing fields
-                    # error on file if field exists and has a different type
+                inputFrame.to_sql(sqlName, engine, flavor=None, schema=cfg['sql']['schema'], if_exists='append',
+                                     index=False, index_label=None, chunksize=None, dtype=dTyper)
+                
+                executeSQL_MERGE(inputFrame, sqlName, dTyper, kLister)
+                if(errCheck):
+                    errCheck = False
+                    print('Error in file: %s \t the folder will be skipped' % file)
+                    break
+                    # raise errPass
 
-                    inputFrame.to_sql(sqlName, engine, flavor=None, schema=cfg['sql']['schema'], if_exists='append',
-                                         index=False, index_label=None, chunksize=None, dtype=dTyper)
-                    
-                    executeSQL_MERGE(inputFrame, sqlName, dTyper, kLister)
-                    
-                    print('...wrote to history')
-                    #print("PRESS ENTER TO CONTINUE.")
-                    #wait = input()
 
-                    print("...archiving file")
-                    # Archive file
+                print('...wrote to history')
+                #print("PRESS ENTER TO CONTINUE.")
+                #wait = input()
 
-                    print("...Done")
+                print("...archiving file")
+                # Archive file
+
+                print("...Done")
+    # except errPass:
+    #     print('Error in file: %s \t the folder will be skipped' % file)
+    #     pass                   
 
 print("DONE!!!!")
