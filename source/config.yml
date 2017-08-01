@@ -1,0 +1,45 @@
+ # Define school specific parameters
+school:
+  name: Haywood Community College
+  abbrev: HCC
+  ipeds: 198668
+  fice: 008083
+  usgov: 37087
+  ncccs: 842
+  instid: 0019844
+
+# Define database specific parameters
+sql:
+  # Name of the database server
+  server: researchvm.haywood.edu
+  # Name of the database on the above server
+  db: RIE
+  # Driver for ODBC connections
+  driver: ODBC Driver 13 for SQL Server
+
+  ### You should not have to change the following items
+
+  # Schema in above database where loaded data will be uploaded
+  schema: input
+  # Schema in above database where final data wharehouse data will be uploaded
+  schema_ccdw: ccdw
+
+  # Template file names for create, merge, and alter table statements
+  create: Create_TEMPLATE.sql
+  merge_scd1: Merge_TEMPLATE_SCD1.sql
+  merge_scd2: Merge_TEMPLATE_SCD2.sql
+  alter: Alter_TEMPLATE.sql
+
+# Define informer specific parameters
+informer:
+  # Full path to root path where export files are located
+  # export_path: K:/DW/
+  export_path: L:/TISS/RIE/CCDW/test/TESTDATA/
+
+  archive_path: L:/TISS/RIE/CCDW/test/TESTARCHIVE/
+  ### You should not have to change the following items
+
+  # Prefix for all informer reports
+  prefix: DW_
+  # The latest version of reports that appear in the above location
+  latest_version: 1001
