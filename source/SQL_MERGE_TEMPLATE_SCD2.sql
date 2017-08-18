@@ -2,8 +2,8 @@
 INSERT INTO ${TableSchema}.${TableName}_History
     SELECT 
         ${TableColumns},
-        [EffectiveDate],
-        [ExpirationDate],
+        [EffectiveDatetime],
+        [ExpirationDatetime],
         [CurrentFlag] 
     FROM
     (MERGE INTO ${TableSchema}.${TableName}_History DEST
@@ -17,29 +17,32 @@ INSERT INTO ${TableSchema}.${TableName}_History
             INSERT 
             (
                     ${TableColumns},
-                    EffectiveDate,
-                    ExpirationDate, 
+                    EffectiveDatetime,
+                    ExpirationDatetime, 
                     CurrentFlag
             )
             VALUES 
             (  
                     ${TableColumns_SRC},
-                    GETDATE(),
+                    CAST(SRC.DataDatetime AS datetime2),
                     NULL, 
                     'Y'
             )
 
         /* No record sxists in the source table so mark record expired */
+        /* We are assuming no records will ever be deleted! */
+        /*
         WHEN NOT MATCHED BY SOURCE 
-        AND DEST.ExpirationDate IS NULL
+        AND DEST.ExpirationDatetime IS NULL
         AND DEST.CurrentFlag = 'Y' 
         THEN
             UPDATE SET DEST.CurrentFlag = 'N', 
-                        DEST.ExpirationDate = COALESCE(DEST.ExpirationDate,GETDATE())
+                        DEST.ExpirationDatetime = COALESCE(DEST.ExpirationDatetime, "${TableDefaultDate}")
+        */
 
         /* This marks the older record to be outdated for SCD Type 2 */
         WHEN MATCHED 
-        AND DEST.ExpirationDate IS NULL
+        AND DEST.ExpirationDatetime IS NULL
         AND DEST.CurrentFlag = 'Y' 
         AND EXISTS
             (SELECT ${TableColumns2_SRC} 
@@ -48,12 +51,12 @@ INSERT INTO ${TableSchema}.${TableName}_History
             )
             THEN UPDATE SET 
                 DEST.CurrentFlag = 'N', 
-                DEST.ExpirationDate = COALESCE(DEST.ExpirationDate,GETDATE())
+                DEST.ExpirationDatetime = CAST(SRC.DataDatetime AS datetime2)
 
         OUTPUT $$ACTION Action_Taken,
             ${TableColumns_SRC},
-            GETDATE() AS EffectiveDate, 
-            NULL AS ExpirationDate, 
+            CAST(SRC.DataDatetime AS datetime2) AS EffectiveDatetime, 
+            NULL AS ExpirationDatetime, 
             'Y' AS CurrentFlag
         ) AS MERGE_OUT
     WHERE MERGE_OUT.Action_Taken = 'UPDATE'
