@@ -91,8 +91,8 @@ def getDataTypes(file=''):
     # Why is DataDatetime added to the keyList?
     # keyList = keyList.append([['DataDatetime',sqlalchemy.types.DateTime()]],ignore_index=True)
     kList = list(keyList.set_index('ids').to_dict().values()).pop()
-    kList
+
     result = pd.concat([fieldNames,dataType], axis=1)
     dTypes = list(result.set_index('ids').to_dict().values()).pop()
-    dTypes
+    
     return(kList,dTypes)
