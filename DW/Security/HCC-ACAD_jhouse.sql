@@ -1,2 +1,0 @@
-﻿CREATE USER [HCC-ACAD\jhouse] FOR LOGIN [HCC-ACAD\jhouse];
-

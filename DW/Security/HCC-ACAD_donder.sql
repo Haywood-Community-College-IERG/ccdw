@@ -1,2 +1,0 @@
-﻿CREATE USER [HCC-ACAD\donder] FOR LOGIN [HCC-ACAD\donder];
-
