@@ -6,4 +6,4 @@ SELECT ${primaryKeys}
   ${str2}
  WHERE 
    ${str3}
-   AND COALESCE([${associationKeys}],'') != ''
+   COALESCE([${associationKeys}],'') != ''

@@ -40,7 +40,6 @@ informer:
   export_path: K:/DW/
   export_path_wStatus: K:/DW___wStatus/
   export_path_meta: K:/META/
-  export_path_meta_cdd: K:/META/CDD/
   log_path: ./log/
   meta_custom: ./META__CUSTOM_CDD.csv
 

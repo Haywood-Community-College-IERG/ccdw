@@ -28,6 +28,10 @@ engine = export.engine(cfg['sql']['driver'], cfg['sql']['server'], cfg['sql']['d
 
 kList, dTypes, aTypes, aNames, typers = meta.getDataTypes()
 
+# !!!
+# !!! Needs to check for existence of schemas before trying to create any tables
+# !!!
+
 print('=========begin loop===========')
 #loops through each directory and subDirectory pass by each file.
 with open(os.path.join(log_path,"log_{0}.txt".format( datetime.datetime.now().strftime("%Y-%m-%d_%H%M%S%f") )), "w", 1) as log:
