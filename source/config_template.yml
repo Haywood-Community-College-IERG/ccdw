@@ -1,0 +1,65 @@
+ # Define school specific parameters
+school:
+  name: Haywood Community College
+  abbrev: HCC
+  ipeds: 198668
+  fice: 008083
+  usgov: 37087
+  ncccs: 842
+  instid: 0019844
+
+# Define database specific parameters
+sql:
+  # Name of the database server
+  server: researchvm.haywood.edu
+  # Name of the database on the above server
+  db: RIE_DEV
+  # Driver for ODBC connections
+  driver: ODBC Driver 13 for SQL Server
+
+  ### You should not have to change the following items
+
+  # Schema in above database where loaded data will be uploaded
+  schema: testInput
+  # Schema in above database where loaded data will be moved to history
+  schema_history: testHistory
+  # Schema in above database where final data wharehouse data will be uploaded
+  schema_ccdw: ccdw
+
+  # Template file names for create, merge, and alter table statements
+  #create: Create_TEMPLATE.sql
+  merge_scd1: SQL_MERGE_TEMPLATE_SCD1.sql
+  merge_scd2: SQL_MERGE_TEMPLATE_SCD2.sql
+  add_Columns: SQL_ALTER_TEMPLATE.sql
+  create_view: SQL_VIEW_TEMPLATE.sql
+  create_view2: SQL_VIEW2_TEMPLATE.sql
+  create_keys: SQL_PRIMARY_KEY_TEMPLATE.sql
+  #alter: Alter_TEMPLATE.sql
+
+# Define informer specific parameters
+informer:
+  # Full path to root path where export files are located
+  #export_path: K:/DW/
+  #export_path_wStatus: K:/DW___wStatus/
+  export_path: L:/TISS/RIE/gitRepo/temp/TESTDATA/
+  export_path_wStatus: K:/DW___wStatus/
+  export_path_meta: K:/META/
+  export_path_meta_cdd: K:/META/CDD/
+  log_path: L:/TISS/RIE/gitRepo/ccdw/source/log/
+  meta_custom: META__CUSTOM_CDD.csv
+
+
+  # Paths for output and archive files
+  #archive_path: L:/TISS/RIE/ccdw/Archive/
+  archive_path: L:/TISS/RIE/gitRepo/temp/TESTARCHIVE/
+  archive_path_wStatus: L:/TISS/RIE/CCDW/Archive/wStatus/
+  invalid_path_wStatus: L:/TISS/RIE/CCDW/Archive/wStatus_INVALID/
+
+  ###
+  ### You should not have to change the following items
+  ###
+  
+  # Prefix for all informer reports
+  prefix: DW_
+  # The latest version of reports that appear in the above location
+  latest_version: 1001
