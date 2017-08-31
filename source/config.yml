@@ -13,16 +13,16 @@ sql:
   # Name of the database server
   server: researchvm.haywood.edu
   # Name of the database on the above server
-  db: RIE
+  db: RIE_DEV
   # Driver for ODBC connections
   driver: ODBC Driver 13 for SQL Server
 
   ### You should not have to change the following items
 
   # Schema in above database where loaded data will be uploaded
-  schema: input
+  schema: testInput
   # Schema in above database where loaded data will be moved to history
-  schema_history: history
+  schema_history: testHistory
   # Schema in above database where final data wharehouse data will be uploaded
   schema_ccdw: ccdw
 
@@ -31,6 +31,9 @@ sql:
   merge_scd1: SQL_MERGE_TEMPLATE_SCD1.sql
   merge_scd2: SQL_MERGE_TEMPLATE_SCD2.sql
   add_Columns: SQL_ALTER_TEMPLATE.sql
+  create_view: SQL_VIEW_TEMPLATE.sql
+  create_view2: SQL_VIEW2_TEMPLATE.sql
+  create_keys: SQL_PRIMARY_KEY_TEMPLATE.sql
   #alter: Alter_TEMPLATE.sql
 
 # Define informer specific parameters
@@ -42,7 +45,9 @@ informer:
   export_path_wStatus: K:/DW___wStatus/
   export_path_meta: K:/META/
   export_path_meta_cdd: K:/META/CDD/
+  log_path: L:/TISS/RIE/gitRepo/ccdw/source/log/
   meta_custom: META__CUSTOM_CDD.csv
+
 
   # Paths for output and archive files
   #archive_path: L:/TISS/RIE/ccdw/Archive/

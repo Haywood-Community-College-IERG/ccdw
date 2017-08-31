@@ -24,7 +24,7 @@ prefix = cfg['informer']['prefix']
 
 pattern = r'{0}(?P<fnpat>.*)___.*|(?P<fnpat>.*)___.*'.format(prefix)
 
-# Some files have dates that are way out there. Let's mark those as invalid
+# Some files have dates that are way out there. Let's mark as invalid those that are more than a year out
 invalid_date = date.today() + timedelta(365)
 
 # All the status fields in association with one another
@@ -50,28 +50,7 @@ engine = export.engine(cfg['sql']['driver'],
                        cfg['sql']['db'],
                        cfg['sql']['schema'])
 
-# This will expand a dataframe by splitting a MV column into individual rows 
-def explode(df, cols, split_on=','):
-    """
-    Explode dataframe on the given column, split on given delimeter
-
-    From: https://stackoverflow.com/questions/38651008/splitting-multiple-columns-into-rows-in-pandas-dataframe
-    """
-    cols_sep = list(set(df.columns) - set(cols))
-    df_cols = df[cols_sep]
-    explode_len = df[cols[0]].str.split(split_on).map(len)
-    repeat_list = []
-    for r, e in zip(df_cols.as_matrix(), explode_len):
-        repeat_list.extend([list(r)]*e)
-    df_repeat = pd.DataFrame(repeat_list, columns=cols_sep)
-    df_explode = pd.concat([df[col].str.split(split_on, expand=True).stack().str.strip().reset_index(drop=True)
-                            for col in cols], axis=1)
-    df_explode.columns = cols
-    return pd.concat((df_repeat, df_explode), axis=1)
-
 def processfile(df, fn, d):
-    #columnArray = np.asarray(list(df.columns.values))
-    #df.reset_index(inplace=True)
     columnHeaders = list(df.columns.values)
     columnArray = np.asarray(columnHeaders)
     kList, dTypes = meta.getDataTypes()
@@ -81,12 +60,10 @@ def processfile(df, fn, d):
         if v != 'K':
             del kLister[k]
 
-    #log.write("dTyper: %s\n" % (dTyper))
-    #log.write("kLister: %s\n" % (kLister))
-
     try:
         print("Updating fn = "+fn+", d = "+d)
         export.executeSQL_UPDATE(engine, df, fn, dTyper, kLister, log)
+
         # Define and create the directory for all the output files
         # directory = '{path}/{folder}'.format(path=invalid_path,folder=fn)
         # os.makedirs(directory,exist_ok=True)
@@ -138,9 +115,6 @@ for root, subdirs, files in os.walk(export_path):
             # Keep the latest record of any duplicated rows by all colums except the status fields
             df = df.drop_duplicates(set(df.columns).symmetric_difference(set(df_status_only)),keep='last')
 
-            # Set the index to the keys of the file for the groupby/splitting below
-            #df = df.set_index(file_keys)
-
             # Make datetime variable an actual datetime instead of a string, then sort
             df.sort_values(by='DataDatetime')
 
@@ -148,24 +122,22 @@ for root, subdirs, files in os.walk(export_path):
             os.makedirs(invalid_path,exist_ok=True)
 
             # Remove from the dataframe all rows with an invalid date
-            #df[df_status_datetime[0]] = pd.to_datetime(df[df_status_datetime[0]])
+            # Keep the status date/time fields as string, as that is what they are in the database
             df[pd.to_datetime(df[df_status_datetime[0]])>invalid_date].to_csv('{path}/{fn}_INVALID.csv'.format(path=invalid_path,fn=fn))
             df = df[pd.to_datetime(df[df_status_datetime[0]])<=invalid_date]
 
             # Now, group by the date field and create cumulative files for each date in the file
             try:
+                # This keeps the last record per day
                 for d in sorted(df['DataDatetime'].dt.strftime('%Y-%m-%d').unique()):
                     processfile(df.loc[df[df_status_datetime[0]] == d].groupby(file_keys,as_index=False).last(), fn, d)
 
-                # for key, data in df.groupby(df[df_status_datetime[0]],as_index=False):
-                # for key, data in df.groupby(df['DataDatetime'],as_index=False):
-                #     processfile(data, fn, key)
+                # If you want cumulative files (i.e., all the most recent records up to this date), use this
                 #for d in sorted(df['DataDatetime'].dt.strftime('%Y-%m-%d').unique()):
-                #    processfile(df.loc[df[df_status_datetime[0]] <= d].groupby(file_keys,as_index=False).last(),
-                    #processfile(df.loc[df[df_status_datetime[0]] <= d].groupby(file_keys,as_index=False).last(), fn, d)
+                #    processfile(df.loc[df[df_status_datetime[0]] <= d].groupby(file_keys,as_index=False).last(), fn, d)
             except:
                 print('\t ---Error in file: %s' % fn)
 
         print(".....archiving file "+file)
-        export.archive(fn,file,export_path,archive_path)
+        export.archive("",file,export_path,archive_path)
 

@@ -1,5 +1,5 @@
-MERGE INTO ${TableSchema}.${TableName}_History DEST
-USING ${TableSchema}.${TableName} SRC ON (
+MERGE INTO ${TableSchema_DEST}.${TableName} DEST
+USING ${TableSchema_SRC}.${TableName} SRC ON (
     -- DEST.[TableKey] = SRC.[TableKey]
     ${TableKeys_CMP}
 )
