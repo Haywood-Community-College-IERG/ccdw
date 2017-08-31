@@ -240,4 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-log
+/import/log/*
+/import/config.yml
+support
+_Archive.zip
