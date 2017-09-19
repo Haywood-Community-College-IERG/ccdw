@@ -17,7 +17,8 @@ run_datetime = datetime.datetime.now().strftime("%Y-%m-%d_%H%M%S%f")
 def timestamp():
     return( datetime.datetime.now().isoformat() )
 
-log = open(os.path.join(log_path,"log_{0}.txt".format( run_datetime )), "w", 1)
+with open("config.yml","r") as ymlfile:
+    cfg = yaml.load(ymlfile)
 
 parser = argparse.ArgumentParser(description='Import CCDW data')
 parser.add_argument('--nodb', dest='writedb', action='store_false', default=True,
@@ -32,19 +33,18 @@ writedb = args.writedb
 diffs = args.diffs
 refresh = args.refresh
 
+export_path = cfg['informer']['export_path']
+archive_path = cfg['informer']['archive_path']
+log_path = cfg['informer']['log_path']
+
+log = open(os.path.join(log_path,"log_{0}.txt".format( run_datetime )), "w", 1)
+
 print( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}]".format( writedb, diffs, refresh ) )
 log.write( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}]\n".format( writedb, diffs, refresh ) )
 
 # Import local packages
 import meta
 import export
-
-with open("config.yml","r") as ymlfile:
-    cfg = yaml.load(ymlfile)
-
-export_path = cfg['informer']['export_path']
-archive_path = cfg['informer']['archive_path']
-log_path = cfg['informer']['log_path']
 
 engine = export.engine(cfg['sql']['driver'], cfg['sql']['server'], cfg['sql']['db'], cfg['sql']['schema'])
 
