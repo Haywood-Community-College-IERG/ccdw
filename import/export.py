@@ -22,13 +22,18 @@ global newColumnCheck
 with open("config.yml","r") as ymlfile:
     export_cfg = yaml.load(ymlfile)
 
+sql_schema = export_cfg['sql']['schema']
+sql_schema_history = export_cfg['sql']['schema_history']
+
 # executeSQL_INSERT() - attempts to create SQL code from csv files and push it to the SQL server
-def executeSQL_INSERT(engine, inputFrame, sqlName, dTyper, log):
+def executeSQL_INSERT(engine, df, sqlName, dTyper, log):
     
+    print( "Create blank dataframe to create SQL table {0}\n".format( sqlName ) )    
+
     #attempt to push a blank data frame in order to make sure the table exists on the server
-    blankFrame = pd.DataFrame(columns=inputFrame.columns)
+    blankFrame = pd.DataFrame(columns=df.columns)
     try:
-        blankFrame.to_sql(sqlName, engine, flavor=None, schema=export_cfg['sql']['schema'], if_exists='fail',
+        blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema, if_exists='fail',
                  index=False, index_label=None, chunksize=None, dtype=dTyper)
     except ValueError as er:
         pass
@@ -37,15 +42,17 @@ def executeSQL_INSERT(engine, inputFrame, sqlName, dTyper, log):
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
         raise
 
+    print( "Push {0} data to SQL schema {1}".format( sqlName, sql_schema ) )
+
     #Attempt to push the new data to the existing SQL Table.
-    executeSQLAppend(engine, blankFrame, sqlName, dTyper, log, export_cfg['sql']['schema'])
+    executeSQLAppend(engine, blankFrame, sqlName, dTyper, log, sql_schema)
     try:
-        print(".creating SQL from inputFrame")
-        inputFrame.to_sql(sqlName, engine, flavor=None, schema=export_cfg['sql']['schema'], if_exists='append',
+        print(".creating SQL from df")
+        df.to_sql(sqlName, engine, flavor=None, schema=sql_schema, if_exists='append',
                  index=False, index_label=None, chunksize=None, dtype=dTyper)
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
-        print (".creating SQL from inputFrame - skippeSd SQL Alchemy ERROR ["+str(er.args[0])+"]" )
+        print (".creating SQL from df - skippeSd SQL Alchemy ERROR ["+str(er.args[0])+"]" )
         # log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
         sys.stdout.flush()
         log.write("Error in File: \t %s \n\n Error: %s \n DataTypes: %s \n\n\n" % (sqlName,er, dTyper))
@@ -54,12 +61,14 @@ def executeSQL_INSERT(engine, inputFrame, sqlName, dTyper, log):
     
 
 # executeSQL_MERGE() - Creates SQL Code based on current Table/Dataframe by using a Template then pushes to History
-def executeSQL_MERGE(engine, inputFrame, sqlName, dTyper,kLister, aTypes, aNames, typers, log):
+def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers, log):
     # Create String to pass to Template file to generate SQL Code
     TableKeys= list(kLister.keys()) 
-    
+
+    log.write( "Create blank dataframe for output\n" )    
+
     # Create and push a blankFrame with no data to SQL Database for History Tables
-    blankFrame = pd.DataFrame(columns=inputFrame.columns)
+    blankFrame = pd.DataFrame(columns=df.columns)
     del blankFrame['DataDatetime']
 
     TableColumns= list(blankFrame.columns) 
@@ -79,10 +88,10 @@ def executeSQL_MERGE(engine, inputFrame, sqlName, dTyper,kLister, aTypes, aNames
     
      # We are treating all non-key columns as Type 2 SCD at this time (20170721)
     TableColumns2= TableColumns 
-    TableDefaultDate = min(inputFrame['DataDatetime'])
+    TableDefaultDate = min(df['DataDatetime'])
     
-    flds = {'TableSchema_SRC'      : export_cfg['sql']['schema'], 
-            'TableSchema_DEST'     : export_cfg['sql']['schema_history'],
+    flds = {'TableSchema_SRC'      : sql_schema, 
+            'TableSchema_DEST'     : sql_schema_history,
             'TableName'            : sqlName,
             'TableKeys'            : ', '.join("[{0}]".format(k) for k in TableKeys),
             'TableColumns'         : ', '.join("[{0}]".format(c) for c in TableColumns),
@@ -95,7 +104,7 @@ def executeSQL_MERGE(engine, inputFrame, sqlName, dTyper,kLister, aTypes, aNames
             'TableColumns2_SRC'    : ', '.join("SRC.[{0}]".format(c) for c in TableColumns2),
             'TableColumns2_DEST'   : ', '.join("DEST.[{0}]".format(c) for c in TableColumns2),
             'TableDefaultDate'     : TableDefaultDate,
-            'viewSchema'           : export_cfg['sql']['schema_history'],
+            'viewSchema'           : sql_schema_history,
             'viewName'             : sqlName + '_Current',
             'viewName2'            : sqlName + '_test',
             'pkName'               : 'pk_' + sqlName,
@@ -112,7 +121,7 @@ def executeSQL_MERGE(engine, inputFrame, sqlName, dTyper,kLister, aTypes, aNames
     #code for first time creation of history table only
     for num in range(1):
         try:
-            blankFrame.to_sql(sqlName, engine, flavor=None, schema=export_cfg['sql']['schema_history'], if_exists='fail',
+            blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema_history, if_exists='fail',
                              index=False, index_label=None, chunksize=None, dtype=blankTyper)
         except:
             print('--History created skipping key and view creation--')
@@ -129,9 +138,9 @@ def executeSQL_MERGE(engine, inputFrame, sqlName, dTyper,kLister, aTypes, aNames
                         data = 'NUMERIC'
                     elif type(dTyper[i]) == sqlalchemy.sql.sqltypes.Date:
                         data = 'DATE'
-                    notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL'.format(export_cfg['sql']['schema_history'],sqlName,i,data)
+                    notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL'.format(sql_schema_history,sqlName,i,data)
                     engine.execute(notNull)
-                notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL'.format(export_cfg['sql']['schema_history'],sqlName,'EffectiveDatetime','DATETIME')
+                notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL'.format(sql_schema_history,sqlName,'EffectiveDatetime','DATETIME')
                 engine.execute(notNull)
                 #create keys for history table
                 engine.execute(resultKeys)
@@ -195,7 +204,7 @@ def executeSQL_MERGE(engine, inputFrame, sqlName, dTyper,kLister, aTypes, aNames
 
                     flds2 = {
                             'TableName'            : sqlName,
-                            'viewSchema'           : export_cfg['sql']['schema_history'],
+                            'viewSchema'           : sql_schema_history,
                             'viewName2'            : view_Name.replace('.', '_'),
                             'primaryKeys'          : ', '.join("[{0}]".format(c) for c in kLister),
                             'str1'                 : str1,
@@ -218,19 +227,19 @@ def executeSQL_MERGE(engine, inputFrame, sqlName, dTyper,kLister, aTypes, aNames
                 input()
     try:
         print("..creating History Table")
-        blankFrame.to_sql(sqlName, engine, flavor=None, schema=export_cfg['sql']['schema_history'], if_exists='append',
+        blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema_history, if_exists='append',
                          index=False, index_label=None, chunksize=None, dtype=blankTyper)
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
-        print ("-creating SQL from inputFrame - skippeSd SQL Alchemy ERROR ["+str(er.args[0])+"]" )
-        log.write("Error in File: \t %s \n\n Error: %s \n DataTypes: %s \n\n\n" % (sqlName,er, dTyper))
+        print ("-creating SQL from df - skippeSd SQL Alchemy ERROR ["+str(er.args[0])+"]" )
+        log.write("Error in File: \t %s \n\n Error: %s \n DataTypes: %s \n\n\n" % (sqlName, er, dTyper))
         raise
 
     print("..wrote to table")
 
     #Attempt to push the Column data to the existing SQL Table if there are new Columns to be added.
     try:
-        executeSQLAppend(engine, blankFrame, sqlName, dTyper, log, export_cfg['sql']['schema_history'])
+        executeSQLAppend(engine, blankFrame, sqlName, dTyper, log, sql_schema_history)
     except:
         print('append didnt work')
         raise
@@ -248,30 +257,30 @@ def executeSQL_MERGE(engine, inputFrame, sqlName, dTyper,kLister, aTypes, aNames
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError, pyodbc.Error, pyodbc.ProgrammingError) as er:
         print ("---executing sql command - skipped SQL ERROR ["+str(er.args[0])+"]" )
-        log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
+        log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
         raise
 
     # Deletes Tables from SQL Database if coppied to the history table
     try:
        print("...executing delete command")
-       rtn = engine.execute("DELETE FROM [{0}].[{1}]\n\nCOMMIT".format(export_cfg['sql']['schema'],sqlName))
+       rtn = engine.execute("DELETE FROM [{0}].[{1}]\n\nCOMMIT".format(sql_schema,sqlName))
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError, pyodbc.Error, pyodbc.ProgrammingError) as er:
         print ("---executing DELETE command - skipped SQL ERROR ["+str(er.args[0])+"]" )
-        log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
+        log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
         raise
     print('....wrote to history')
 
 
 # executeSQL_UPDATE() - calls both executeSQL_INSERT and executeSQL_MERGE in attempt to update the SQL Tables 
-def executeSQL_UPDATE(engine, inputFrame, sqlName, dTyper, kLister, aTypes, aNames, typers, log):
+def executeSQL_UPDATE(engine, df, sqlName, dTyper, kLister, aTypes, aNames, typers, log):
     try:
-        executeSQL_INSERT(engine, inputFrame, sqlName, dTyper, log)
+        executeSQL_INSERT(engine, df, sqlName, dTyper, log)
     except:
         print('XXXXXXX failed on executeSQL_INSERT XXXXXXX')
         raise
     try:
-        executeSQL_MERGE(engine, inputFrame, sqlName, dTyper, kLister, aTypes, aNames, typers, log)
+        executeSQL_MERGE(engine, df, sqlName, dTyper, kLister, aTypes, aNames, typers, log)
         pass
     except:
         print('XXXXXXX failed on executeSQL_MERGE XXXXXXX')
@@ -284,27 +293,33 @@ def ig_f(dir, files):
 
 
 # archive() - Archives files after they are processed
-def archive(head, file, exportPath, archivePath):
+def archive(df, subdir, file, exportPath, archivePath, diffs):
     # Create the path in the archive based on the location of the CSV
-    if not os.path.isdir(os.path.join(archivePath, head)):
-        shutil.copytree(os.path.join(exportPath, head),os.path.join(archivePath,head), ignore=ig_f)
+    if not os.path.isdir(os.path.join(archivePath, subdir)):
+        shutil.copytree(os.path.join(exportPath, subdir),os.path.join(archivePath,subdir), ignore=ig_f)
 
-    if not os.path.isfile(os.path.join(archivePath, head, file)):
-        try:
-            # Create a zip'd version of the CSV
-            zFi = zipfile.ZipFile(os.path.join(exportPath,head,(file[:-4]+'.zip')), 'w', zipfile.ZIP_DEFLATED)
-            zFi.write(os.path.join(exportPath, head, file), file)
-            zFi.close()
+    if export_cfg['informer']['archive_type'] == 'zip':
+        if not os.path.isfile(os.path.join(archivePath, subdir, file)):
+            try:
+                # Create a zip'd version of the CSV
+                zFi = zipfile.ZipFile(os.path.join(exportPath,subdir,(file[:-4]+'.zip')), 'w', zipfile.ZIP_DEFLATED)
+                zFi.write(os.path.join(exportPath, subdir, file), file)
+                zFi.close()
 
-            # Move the zip file to the archive location
-            shutil.move(os.path.join(exportPath, head, (file[:-4]+'.zip')), os.path.join(archivePath, head, (file[:-4]+'.zip')))
+                # Move the zip file to the archive location
+                shutil.move(os.path.join(exportPath, subdir, (file[:-4]+'.zip')), os.path.join(archivePath, subdir, (file[:-4]+'.zip')))
 
-            # Remove the CSV file from the export folder
-            os.remove(os.path.join(exportPath, head, file)) # comment this out if you want to keep files
-        except:
-            raise
-        # shutil.move(os.path.join(exportPath, head, file), os.path.join(archivePath, head, file))
-
+                # Remove the CSV file from the export folder
+                os.remove(os.path.join(exportPath, subdir, file)) # comment this out if you want to keep files
+            except:
+                raise
+    else:
+        if diffs:
+            shutil.move(os.path.join(exportPath, subdir, file), os.path.join(archivePath, subdir, file))
+        else:
+            # Move the file to the archive location
+            shutil.move(os.path.join(exportPath, subdir, file), os.path.join(archivePath, subdir, subdir + '.csv'))
+            df.to_csv( os.path.join(archivePath, subdir, file), index = False, date_format="%Y-%m-%dT%H:%M:%SZ" )
 
 
 # engine() - creates an engine to be used to interact with the SQL Server
@@ -354,17 +369,17 @@ def sendEmail(emailFrom, emailTo, emailSubject, file):
 
 
 # executeSQLAppend() - Attempts to execute an Append statement to the SQL Database with new Columns
-def executeSQLAppend(engine, inputFrame, sqlName, dTyper, log, schema):
-    TableColumns= list(inputFrame.columns) 
+def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
+    TableColumns= list(df.columns) 
     newColumnCheck = False
     print('_______________________________________________________________________')
     #create SQL string and read matching Table on the server
-    sqlStrings = "SELECT * FROM {0}.{1}".format(schema,sqlName)
+    sqlStrings = "SELECT * FROM {0}.{1}".format(schema, sqlName)
     sqlRead = pd.read_sql(sqlStrings, engine)
     print('--Diff:')
     #attemp to create a dataframe and string of columns that need to be added to SQL Server
     try:
-        updateList = list(set(list(sqlRead)).symmetric_difference(set(list(inputFrame))))
+        updateList = list(set(list(sqlRead)).symmetric_difference(set(list(df))))
         updateFrame = pd.DataFrame(columns=updateList)
         updateColumns= list(updateFrame.columns)
         updateColumns1 = ',\n\t'.join("[{0}] {1}".format(c,dTyper[c]) for c in reversed(updateColumns))
@@ -378,7 +393,7 @@ def executeSQLAppend(engine, inputFrame, sqlName, dTyper, log, schema):
             'TableColumns'         : ', '.join("[{0}]".format(c) for c in TableColumns),
             'updateColumns'        : updateColumns1,
             'viewName'             : sqlName + '_Current',
-            'viewSchema'           : export_cfg['sql']['schema_history']
+            'viewSchema'           : sql_schema_history
         }
     filein = open(export_cfg['sql']['add_Columns'],"r")
     src = Template( filein.read() )
@@ -393,7 +408,7 @@ def executeSQLAppend(engine, inputFrame, sqlName, dTyper, log, schema):
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
         print ("-Error Updating Columns in SQL Table - ["+str(er.args[0])+"]" )
-        log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
+        log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
         raise
     if (updateColumns):
         filein = open(export_cfg['sql']['create_view'],"r")
@@ -409,7 +424,7 @@ def executeSQLAppend(engine, inputFrame, sqlName, dTyper, log, schema):
 
         except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
             print ("-Error Creating View of SQL Table - ["+str(er.args[0])+"]" )
-            log.write("Error in Table: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
+            log.write("Error in Table: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
             raise
 
 # numericalSort() - Is used to properly sort files based on numbers correctly
@@ -418,3 +433,29 @@ def numericalSort(value):
     parts = numbers.split(value)
     parts[1::2] = map(int, parts[1::2])
     return parts
+
+def createDiff( cf, lf ):
+    if (lf.shape[0] == 0) | (cf.shape[0] == 0):
+        return( cf )
+        
+    # Old version is last one archived
+    lf['version'] = "old"
+
+    # New version is the current one being processed
+    cf['version'] = "new"
+
+    #Join all the data together and ignore indexes so it all gets added
+    full_set = pd.concat([lf, cf],ignore_index=True)
+
+    # Get all column names except 'version' defined above into col_names
+    # col_names = full_set.column.names - 'version'
+    col_names = full_set[full_set.columns.difference(["DataDatetime", "version"])].columns
+
+    # Let's see what changes in the main columns we care about, keep only new records
+    changes = full_set.drop_duplicates(subset=col_names, keep=False)    
+    changes = changes[(changes["version"] == "new")]
+
+    #Drop the temp columns - we don't need them now
+    changes = changes.drop(['version'], axis=1)
+    
+    return( changes )

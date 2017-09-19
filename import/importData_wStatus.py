@@ -1,15 +1,9 @@
-import csv
 import os
-import sys
 import yaml
-import urllib
 import pandas as pd
 import numpy as np
-from os import path
 import regex
 from datetime import date, timedelta
-import sqlalchemy
-from sqlalchemy import exc
 import datetime
 import meta
 import export
@@ -29,11 +23,12 @@ invalid_date = date.today() + timedelta(365)
 
 # All the status fields in association with one another
 status_fields = { 
-        'ACAD_PROGRAMS'     : ['ACPG.STATUS','ACPG.STATUS.DATE'],
-        'APPLICATIONS'      : ['APPL.STATUS','APPL.STATUS.DATE','APPL.STATUS.TIME'],
-        'STUDENT_ACAD_CRED' : ['STC.STATUS', 'STC.STATUS.DATE', 'STC.STATUS.TIME', 'STC.STATUS.REASON'],
-        'STUDENT_PROGRAMS'  : ['STPR.STATUS','STPR.STATUS.DATE','STPR.STATUS.CHGOPR'],
-        'STUDENT_TERMS'     : ['STTR.STATUS','STTR.STATUS.DATE']
+        'ACAD_PROGRAMS'     : ['ACPG.STATUS', 'ACPG.STATUS.DATE'],
+        'APPLICATIONS'      : ['APPL.STATUS', 'APPL.STATUS.DATE', 'APPL.STATUS.TIME'],
+        'COURSES'           : ['CRS.STATUS',  'CRS.STATUS.DATE'],
+        'STUDENT_ACAD_CRED' : ['STC.STATUS',  'STC.STATUS.DATE',  'STC.STATUS.TIME', 'STC.STATUS.REASON'],
+        'STUDENT_PROGRAMS'  : ['STPR.STATUS', 'STPR.STATUS.DATE', 'STPR.STATUS.CHGOPR'],
+        'STUDENT_TERMS'     : ['STTR.STATUS', 'STTR.STATUS.DATE']
     }
 
 # Extract just the date and time fields
@@ -50,19 +45,34 @@ engine = export.engine(cfg['sql']['driver'],
                        cfg['sql']['db'],
                        cfg['sql']['schema'])
 
+kList, dTypes, aTypes, aNames, typers = meta.getDataTypes()
+
 def processfile(df, fn, d):
+    print("Updating fn = "+fn+", d = "+d)
     columnHeaders = list(df.columns.values)
     columnArray = np.asarray(columnHeaders)
-    kList, dTypes = meta.getDataTypes()
+
+    # dTyper is a dictionary of Columns and their types to be passed to executeSQL_UPDATE
     dTyper = {k: dTypes[k] for k in dTypes.keys() & columnArray}
+    # kLister is a dictionary of keys to be passed to executeSQL_UPDATE
     kLister = {k: kList[k] for k in kList.keys() & columnArray}
+    aTypesr = {k: aTypes[k] for k in aTypes.keys() & columnArray}
+    aNamesr = {k: aNames[k] for k in aNames.keys() & columnArray}
+    typersr = {k: typers[k] for k in typers.keys() & columnArray}
+
+    for k, v in list(aNamesr.items()):
+        if v == None:
+            del aNamesr[k]
+            del aTypesr[k]
+            del typersr[k]
+
     for k, v in list(kLister.items()):
         if v != 'K':
             del kLister[k]
 
     try:
-        print("Updating fn = "+fn+", d = "+d)
-        export.executeSQL_UPDATE(engine, df, fn, dTyper, kLister, log)
+        # export.executeSQL_UPDATE(engine, df, fn, dTyper, kLister, log)
+        export.executeSQL_UPDATE(engine, df, fn, dTyper, kLister, aTypesr, aNamesr, typersr, log)
 
         # Define and create the directory for all the output files
         # directory = '{path}/{folder}'.format(path=invalid_path,folder=fn)
@@ -92,7 +102,7 @@ for root, subdirs, files in os.walk(export_path):
 
             print("Processing "+fn+"...")
 
-            df = pd.read_csv(csvinput,dtype='str')
+            df = pd.read_csv(csvinput,encoding='ansi',dtype='str')
             file_keys = meta.getKeyFields(fn.replace('_','.'))
 
             # Fill down the status fields so all status fields have a value            
@@ -137,6 +147,9 @@ for root, subdirs, files in os.walk(export_path):
                 #    processfile(df.loc[df[df_status_datetime[0]] <= d].groupby(file_keys,as_index=False).last(), fn, d)
             except:
                 print('\t ---Error in file: %s' % fn)
+
+        print(".....closing file "+file)
+        csvinput.close()
 
         print(".....archiving file "+file)
         export.archive("",file,export_path,archive_path)

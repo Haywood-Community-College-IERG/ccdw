@@ -25,11 +25,11 @@ def loadLookupList():
         # Read all files in the meta folder
         meta_path = meta_cfg['informer']['export_path_meta']
         all_files = glob.glob(os.path.join(meta_path, "*_CDD*csv"))
-        df_from_each_file = (pd.read_csv(f,encoding = "ISO-8859-1",dtype='str') for f in all_files)
+        df_from_each_file = (pd.read_csv(f,encoding = "ansi", dtype='str') for f in all_files)
         lookuplist = pd.concat(df_from_each_file, ignore_index=True)
         
         meta_custom = meta_cfg['informer']['meta_custom']
-        meta_custom_csv = pd.read_csv(meta_custom,encoding = "ISO-8859-1",dtype='str')
+        meta_custom_csv = pd.read_csv(meta_custom,encoding = "ansi", dtype='str')
 
         metaList = set(meta_custom_csv['ids'].copy())
         lookList = lookuplist['ids'].copy()
@@ -54,12 +54,10 @@ def getKeyFields(file=''):
     else:
         fl = lookuplist[(lookuplist['Source ']==file) & (lookuplist['Database Usage Type ']=='K')]
 
-    return(fl.ids.tolist())
+    return(list(set(fl.ids.tolist())))
 
 def getDataTypes(file=''):
     global lookuplist
-
-    meta_path = meta_cfg['informer']['export_path_meta']
 
     loadLookupList()
 
@@ -82,7 +80,7 @@ def getDataTypes(file=''):
             if types == 'S' or types == '' or types == None:
                 dtypers = 'VARCHAR(%s)' % (dataLength[index])
             elif types == 'U':
-                dtypers = 'VHARCHAR(%s)' % (dataLength[index])
+                dtypers = 'VARCHAR(%s)' % (dataLength[index])
             elif types == 'T':
                 dtypers = 'TIME'
             elif types == 'N':

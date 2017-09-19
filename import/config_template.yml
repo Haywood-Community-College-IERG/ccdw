@@ -43,11 +43,11 @@ informer:
   log_path: ./log/
   meta_custom: ./META__CUSTOM_CDD.csv
 
-
   # Paths for output and archive files
-  archive_path: ../archive/
+  archive_path: ../archive/Source_Data/
   archive_path_wStatus: ../archive/wStatus/
   invalid_path_wStatus: ../archive/wStatus_INVALID/
+  archive_type: move # Can be move or zip
 
   ###
   ### You should not have to change the following items
