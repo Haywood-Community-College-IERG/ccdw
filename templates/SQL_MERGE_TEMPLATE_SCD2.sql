@@ -7,7 +7,7 @@ INSERT INTO ${TableSchema_DEST}.${TableName}
         [CurrentFlag] 
     FROM
     (MERGE INTO ${TableSchema_DEST}.${TableName} DEST
-        USING ${TableSchema_SRC}.${TableName} SRC ON (
+        USING (SELECT DISTINCT * FROM ${TableSchema_SRC}.${TableName}) SRC ON (
              /*DEST.[TableKey] = SRC.[TableKey]*/
             ${TableKeys_CMP}
         )

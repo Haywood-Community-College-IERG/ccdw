@@ -323,7 +323,10 @@ def archive(df, subdir, file, exportPath, archivePath, diffs):
 
 
 # engine() - creates an engine to be used to interact with the SQL Server
-def engine(driver,server,db,schema):
+def engine( driver = export_cfg['sql']['driver'],
+            server = export_cfg['sql']['server'],
+            db = export_cfg['sql']['db'],
+            schema = export_cfg['sql']['schema'] ):
     conn_details =  """
       DRIVER={{{0}}};SERVER={1};DATABASE={2};SCHEMA={3};Trusted_Connection=Yes;
     """.format( driver, 

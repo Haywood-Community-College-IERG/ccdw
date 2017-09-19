@@ -7,13 +7,14 @@ import pandas as pd
 import numpy as np
 from os import path
 import glob
+import export
 import sqlalchemy
 from sqlalchemy import exc
 
 with open("config.yml","r") as ymlfile:
     meta_cfg = yaml.load(ymlfile)
 
-def loadLookupList():
+def loadLookupList(refresh=False):
     global lookuplist 
 
     # If lookuplist exists, move along. Otherwise, create it
@@ -41,7 +42,18 @@ def loadLookupList():
         lookuplist = lookuplist.append(meta_custom_csv, ignore_index=True)
         lookuplist = lookuplist.where(pd.notnull(lookuplist), None)
         lookuplist.set_index('ids')
-loadLookupList()
+
+        if refresh:
+            print( "Update CDD in meta" )
+            cddEngine = export.engine()
+            print( "...delete old data" )
+            cddEngine.execute( 'DELETE FROM meta.CDD' )
+            print( "...push new data" )
+            lookuplist.to_sql( 'CDD', cddEngine, flavor=None, schema='meta', if_exists='append',
+                               index=False, index_label=None, chunksize=None )
+            print( "...Update CDD in meta [DONE]" )
+
+#loadLookupList()
 
 # Return the key(s) for the specified fle
 def getKeyFields(file=''):
