@@ -118,14 +118,17 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
     fileinKeys = open(export_cfg['sql']['create_keys'],"r")
     srcKeys = Template( fileinKeys.read() )
     resultKeys = srcKeys.substitute(flds)
+
     #code for first time creation of history table only
     for num in range(1):
         try:
             blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema_history, if_exists='fail',
                              index=False, index_label=None, chunksize=None, dtype=blankTyper)
+
         except:
             print('--History created skipping key and view creation--')
             break
+
         else:
             #if it is the first time the history table is created then create a view as well
             try:
@@ -138,69 +141,87 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                         data = 'NUMERIC'
                     elif type(dTyper[i]) == sqlalchemy.sql.sqltypes.Date:
                         data = 'DATE'
+
                     notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL'.format(sql_schema_history,sqlName,i,data)
                     engine.execute(notNull)
+
                 notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL'.format(sql_schema_history,sqlName,'EffectiveDatetime','DATETIME')
                 engine.execute(notNull)
                 #create keys for history table
                 engine.execute(resultKeys)
+
             except:
                 print ("-Error Creating History Keys for SQL Table" )
                 print(notNull)
                 print(resultKeys)
                 raise
+
+
             try:
-                dropView = 'DROP VIEW IF EXISTS %s' % (flds['viewName'])
-                print('--Creating History View')
+                dropView = 'DROP VIEW IF EXISTS {0}.{1}'.format(sql_schema_history, flds['viewName'])
+                print('--Creating History View {0}.{1} (dropping if exists)'.format(sql_schema_history, flds['viewName']))
                 #drop sql view if exits
                 engine.execute(dropView)
+
+                print("View {0}.{1}_Current DDL:".format(sql_schema_history, flds['viewName']))
+                print(result)
+
+                log.write("View {0}.{1}_Current DDL:\n".format(sql_schema_history, flds['viewName']))
+                log.write(result + "\n")
+
                 #create new sql view
                 engine.execute(result)
+
             except:
                 print ("-Error Creating View of SQL Table" )
                 print(dropView)
                 print(result)
                 raise
+
+
             try:
                 # !!!!
                 # !!!! This does not work on subsequent tables after a fail
                 # !!!! DMO 2017-08-30 Should be fixed now, was deleting from global value
 
-                print('trying this')
-                print(aNames)
                 s = set( val for dic in [aNames] for val in dic.values())
-                print(s)
                 for x in s: 
+                    print("Processing association {0}".format(x))
+                    associationKey = ''
+                    lastelement = ''
                     str1 = ''
                     str2 = ''
                     str3 = ''
                     counter = 0
-                    print(counter)
                     for i, k in enumerate(list(aNames)):
-                        print(x)
-                        print(aNames[k])
-                        if(aNames[k] == x):
-                            # associationGroup = aNames[]
-                            str1 += '\n, CAST(LTRIM(RTRIM(CA{0}.Item)) AS {1}) AS [{2}]'.format(counter+1,typers[k],k)
-                            print(str1)
-                            str2 += '\n CROSS APPLY dbo.DelimitedSplit8K([{0}],\', \') CA{1}'.format(k,counter+1)
-                            print(str2)
-                            print(counter)
-                            print(aTypes[k])
+                        if (aNames[k] == x):
+                            print("Found element of association: {0}".format(k))
+                            counter += 1
 
-                            if(counter+1 >= 2):
-                                #if(counter+1 > 2):
-                                # Need to move AND to follow
-                                str3 += '\nCA1.ItemNumber=CA{0}.ItemNumber AND'.format(counter+1)
-                                # str3 += '\nAND CA1.ItemNumber=CA{0}.ItemNumber'.format(counter+1)
+                            # associationGroup = aNames[]
+                            str1 += '\n, CAST(LTRIM(RTRIM(CA{0}.Item)) AS {1}) AS [{2}]'.format(counter, typers[k], k)
+                            str2 += '\n CROSS APPLY dbo.DelimitedSplit8K([{0}],\', \') CA{1}'.format(k, counter)
+
+                            if(counter > 1):
+                                print("Counter > 1, adding comparison of 1 and {0}".format(counter))
+                                str3 += 'AND CA1.ItemNumber=CA{0}.ItemNumber\n'.format(counter)
 
                             # If single MV is not a key, need to force it to be one
-                            if(aTypes[k] == 'K'):
+                            lastelement = k
+
+                            if (aTypes[k] == 'K'):
                                 associationKey = k
                                 view_Name = aNames[k]
-                                print(view_Name,k,associationKey)
-                            print("yeah")
-                            counter += 1
+                                print("Add key {0} to association {1}".format(k, view_Name.replace('.', '_')))
+
+                    if (associationKey == ''):
+                        if (lastelement != ''):
+                            associationKey = lastelement
+                            view_Name = aNames[associationKey]
+                            print("Setting associationKey to {0} for association {1}".format(lastelement, view_Name.replace('.', '_')))
+
+                        else:
+                            raise(AssertionError)
 
                     flds2 = {
                             'TableName'            : sqlName,
@@ -212,19 +233,28 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                             'str3'                 : str3,
                             'associationKeys'      : associationKey
                     }
-                    print(flds2)
+
                     filein2 = open(export_cfg['sql']['create_view2'],"r")
                     src2 = Template( filein2.read() )
                     result2 = src2.substitute(flds2)
+
+                    print("View {0} DDL:".format(view_Name.replace('.', '_')))
                     print(result2)
-                    dropView = 'DROP VIEW IF EXISTS %s' % (flds2['viewName2'])
-                    print('--Creating History View2')
+
+                    log.write("View {0} DDL:\n".format(view_Name.replace('.', '_')))
+                    log.write(result2 + "\n")
+
+                    dropView = 'DROP VIEW IF EXISTS {0}.{1}'.format(sql_schema_history, flds2['viewName2'])
+                    print('--Creating History View2 {0}.{1} (dropping if exists)'.format(sql_schema_history, flds2['viewName']))
                     #drop sql view if exits
                     engine.execute(dropView)
                     engine.execute(result2)
+
             except:
-                print('fail')
-                input()
+                print('Creating View2 failed')
+                raise
+                break
+
     try:
         print("..creating History Table")
         blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema_history, if_exists='append',
@@ -243,6 +273,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
     except:
         print('append didnt work')
         raise
+
     #print("PRESS ENTER TO CONTINUE.")
     #wait = input()
 

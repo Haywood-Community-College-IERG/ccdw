@@ -5,6 +5,5 @@ SELECT ${primaryKeys}
      , EffectiveDatetime
   FROM [${viewSchema}].[${TableName}]
   ${str2}
- WHERE 
-   ${str3}
-   COALESCE([${associationKeys}],'') != ''
+ WHERE COALESCE([${associationKeys}],'') != ''
+       ${str3}
