@@ -130,8 +130,10 @@ for root, subdirs, files in os.walk(export_path):
                         print('\t\t\t---Error in file: %s the folder will be skipped' % file)
                         log.write('---Error in file: %s the folder will be skipped\n' % file)
                         break
+                else:
+                    print("\t\t\t{0} SQL_UPDATE: No updated data for {1}".format( timestamp(), file ))
+                    log.write("{0} SQL_UPDATE: No updated data for {1}\n".format( timestamp(), file ))
                 
-                #else:
             #archives the files in another directory if their are no exceptions
             print("\t\t\t{0} Archive: {1}".format( timestamp(), file ))
             log.write("{0} Archive: {1}\n".format( timestamp(), file ))
