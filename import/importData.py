@@ -64,6 +64,7 @@ for root, subdirs, files in os.walk(export_path):
 
     for subdir in subdirs:
         print('\tProcessing folder ' + subdir + '...')
+        log.write('Processing folder ' + subdir + '...\n')
 
         filelist = sorted(glob.iglob(os.path.join(root, subdir, '*.csv')), key=os.path.getmtime)
 
@@ -72,12 +73,14 @@ for root, subdirs, files in os.walk(export_path):
 
             # for file in sorted(files, key=export.numericalSort):
             print("\t\tProcessing file " + file + "...")
+            log.write("Processing file " + file + "...\n")
 
             #reads in csv file then creates an array out of the headers
             try:
                 inputFrame = pd.read_csv(os.path.join(root, subdir, file), encoding='ansi', dtype='str', na_values=None, keep_default_na=False)
                 inputFrame = inputFrame.where(pd.notnull(inputFrame), None)
                 columnArray = np.asarray(list(inputFrame))
+
             except UnicodeDecodeError as er:
                 print ("\t\t\tERROR Reading File - ["+str(er.args[0])+"]" )
                 log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (file,er))
@@ -96,6 +99,7 @@ for root, subdirs, files in os.walk(export_path):
                     del aNamesr[k]
                     del aTypesr[k]
                     del typersr[k]
+
             for k, v in list(kLister.items()):
                 if v != 'K':
                     del kLister[k]
@@ -106,6 +110,7 @@ for root, subdirs, files in os.walk(export_path):
             if (len(archive_filelist) > 0) and not diffs:
                 lastarchive_filename = os.path.basename( archive_filelist[-1] )
                 print("\t\t\t{0} LASTARCHIVE: {1}".format( timestamp(), lastarchive_filename ))
+                log.write("{0} LASTARCHIVE: {1}\n".format( timestamp(), lastarchive_filename ))
                 #log.write("{0} SQL_UPDATE: {1} with {2} rows\n".format( timestamp(), file, df.shape[0] ))
                 archive_file = pd.read_csv( os.path.join(archive_path, subdir, lastarchive_filename), 
                                             encoding='ansi', dtype='str', 
@@ -142,9 +147,12 @@ for root, subdirs, files in os.walk(export_path):
 
             print("\t\t\t{0} Archive: {1} [DONE]\n".format( timestamp(), file ))
             log.write("{0} Archive: {1} [DONE]\n".format( timestamp(), file ))
-            #else:
-            #    print( "\t\t\t...no data to save" )
                 
-            print("\t\t\t...Done")        
+            print("\t\tProcessing file " + file + "...[DONE]")
+            log.write("Processing file " + file + "...[DONE]\n")
+
+        print('\tProcessing folder ' + subdir + '...[DONE]')
+        log.write('Processing folder ' + subdir + '...[DONE]\n')
     
 print("DONE!!!!")
+log.write("DONE.\n")

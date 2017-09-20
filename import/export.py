@@ -163,10 +163,10 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                 #drop sql view if exits
                 engine.execute(dropView)
 
-                print("View {0}.{1}_Current DDL:".format(sql_schema_history, flds['viewName']))
+                print("View {0}.{1} DDL:".format(sql_schema_history, flds['viewName']))
                 print(result)
 
-                log.write("View {0}.{1}_Current DDL:\n".format(sql_schema_history, flds['viewName']))
+                log.write("View {0}.{1} DDL:\n".format(sql_schema_history, flds['viewName']))
                 log.write(result + "\n")
 
                 #create new sql view
@@ -187,12 +187,14 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                 s = set( val for dic in [aNames] for val in dic.values())
                 for x in s: 
                     print("Processing association {0}".format(x))
+                    log.write("Processing association {0}\n".format(x))
                     associationKey = ''
                     lastelement = ''
                     str1 = ''
                     str2 = ''
                     str3 = ''
                     counter = 0
+
                     for i, k in enumerate(list(aNames)):
                         if (aNames[k] == x):
                             print("Found element of association: {0}".format(k))
@@ -219,8 +221,11 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                             associationKey = lastelement
                             view_Name = aNames[associationKey]
                             print("Setting associationKey to {0} for association {1}".format(lastelement, view_Name.replace('.', '_')))
+                            log.write("Setting associationKey to {0} for association {1}\n".format(lastelement, view_Name.replace('.', '_')))
 
                         else:
+                            print("No associationKey to set for association {1}".format(x))
+                            log.write("No associationKey to set for association {1}\n".format(x))
                             raise(AssertionError)
 
                     flds2 = {
