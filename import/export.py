@@ -279,9 +279,6 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
         print('append didnt work')
         raise
 
-    #print("PRESS ENTER TO CONTINUE.")
-    #wait = input()
-
     filein = open(export_cfg['sql']['merge_scd2'],"r")
     src = Template( filein.read() )
     result = src.substitute(flds)
@@ -350,12 +347,13 @@ def archive(df, subdir, file, exportPath, archivePath, diffs):
             except:
                 raise
     else:
-        if diffs:
-            shutil.move(os.path.join(exportPath, subdir, file), os.path.join(archivePath, subdir, file))
-        else:
-            # Move the file to the archive location
-            shutil.move(os.path.join(exportPath, subdir, file), os.path.join(archivePath, subdir, subdir + '.csv'))
-            df.to_csv( os.path.join(archivePath, subdir, file), index = False, date_format="%Y-%m-%dT%H:%M:%SZ" )
+        if export_cfg['informer']['archive_type'] == 'move':
+            if diffs:
+                shutil.move(os.path.join(exportPath, subdir, file), os.path.join(archivePath, subdir, file))
+            else:
+                # Move the file to the archive location
+                shutil.move(os.path.join(exportPath, subdir, file), os.path.join(archivePath, subdir, subdir + '.csv'))
+                df.to_csv( os.path.join(archivePath, subdir, file), index = False, date_format="%Y-%m-%dT%H:%M:%SZ" )
 
 
 # engine() - creates an engine to be used to interact with the SQL Server
