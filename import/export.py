@@ -142,10 +142,10 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                     elif type(dTyper[i]) == sqlalchemy.sql.sqltypes.Date:
                         data = 'DATE'
 
-                    notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL'.format(sql_schema_history,sqlName,i,data)
+                    notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL; COMMIT'.format(sql_schema_history,sqlName,i,data)
                     engine.execute(notNull)
 
-                notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL'.format(sql_schema_history,sqlName,'EffectiveDatetime','DATETIME')
+                notNull = 'ALTER TABLE {0}.{1}\n ALTER COLUMN [{2}] {3} NOT NULL; COMMIT'.format(sql_schema_history,sqlName,'EffectiveDatetime','DATETIME')
                 engine.execute(notNull)
                 #create keys for history table
                 engine.execute(resultKeys)
