@@ -249,8 +249,8 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                     log.write("View {0} DDL:\n".format(view_Name.replace('.', '_')))
                     log.write(result2 + "\n")
 
-                    dropView = 'DROP VIEW IF EXISTS {0}.{1}'.format(sql_schema_history, flds2['viewName2'])
-                    print('--Creating History View2 {0}.{1} (dropping if exists)'.format(sql_schema_history, flds2['viewName']))
+                    dropView = 'DROP VIEW IF EXISTS {0}.{1}'.format(sql_schema_history, view_Name.replace('.', '_'))
+                    print('--Creating History View2 {0}.{1} (dropping if exists)'.format(sql_schema_history, view_Name.replace('.', '_')))
                     #drop sql view if exits
                     engine.execute(dropView)
                     engine.execute(result2)
