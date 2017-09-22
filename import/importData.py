@@ -101,7 +101,6 @@ for root, subdirs, files in os.walk(export_path):
                     del aTypesr[k]
                     del typersr[k]
 
-            print("kLister = {0}".format(kLister))
             for k, v in list(kLister.items()):
                 if v != 'K':
                     #print("Deleting {0} from kLister".format(k))

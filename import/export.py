@@ -359,7 +359,7 @@ def archive(df, subdir, file, exportPath, archivePath, diffs):
                                       key=os.path.getctime)
             if (len(archive_filelist) == 0):
                 print("\t\t\t{0} INITALARCHIVE: Creating...".format( timestamp() ))
-                log.write("{0} INITALARCHIVE: Creating...\n".format( timestamp() ))
+                log.write("INITALARCHIVE: Creating...\n")
                 df.to_csv( os.path.join(archivePath, subdir, subdir + '_Initial.csv'), 
                            index = False, date_format="%Y-%m-%dT%H:%M:%SZ" )
 
