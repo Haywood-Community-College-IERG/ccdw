@@ -96,7 +96,7 @@ for root, subdirs, files in os.walk(export_path):
 
             for k, v in list(aNamesr.items()):
                 if v == None:
-                    print("Deleting {0} from aNamesr, aTypesr, and typersr".format(k))
+                    #print("Deleting {0} from aNamesr, aTypesr, and typersr".format(k))
                     del aNamesr[k]
                     del aTypesr[k]
                     del typersr[k]
@@ -104,7 +104,7 @@ for root, subdirs, files in os.walk(export_path):
             print("kLister = {0}".format(kLister))
             for k, v in list(kLister.items()):
                 if v != 'K':
-                    print("Deleting {0} from kLister".format(k))
+                    #print("Deleting {0} from kLister".format(k))
                     del kLister[k]
 
             sqlName = subdir[:-5]
@@ -122,14 +122,6 @@ for root, subdirs, files in os.walk(export_path):
                 df = export.createDiff( inputFrame, archive_file )
             else:
                 df = inputFrame
-
-            archive_filelist = sorted(glob.iglob(os.path.join(archive_path, subdir, subdir + '_Initial.csv')), 
-                                      key=os.path.getctime)
-            if (len(archive_filelist) == 0):
-                print("\t\t\t{0} INITALARCHIVE: Creating...".format( timestamp() ))
-                log.write("{0} INITALARCHIVE: Creating...\n".format( timestamp() ))
-                df.to_csv( os.path.join(archive_path, subdir, subdir + '_Initial.csv'), 
-                           index = False, date_format="%Y-%m-%dT%H:%M:%SZ" )
 
             if writedb:
                 #attempts to execute code catching any errors that may arrise then breaks out of loop of folder    

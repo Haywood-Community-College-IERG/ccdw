@@ -354,6 +354,14 @@ def archive(df, subdir, file, exportPath, archivePath, diffs):
                 raise
     else:
         if export_cfg['informer']['archive_type'] == 'move':
+            archive_filelist = sorted(glob.iglob(os.path.join(archivePath, subdir, subdir + '_Initial.csv')), 
+                                      key=os.path.getctime)
+            if (len(archive_filelist) == 0):
+                print("\t\t\t{0} INITALARCHIVE: Creating...".format( timestamp() ))
+                log.write("{0} INITALARCHIVE: Creating...\n".format( timestamp() ))
+                df.to_csv( os.path.join(archivePath, subdir, subdir + '_Initial.csv'), 
+                           index = False, date_format="%Y-%m-%dT%H:%M:%SZ" )
+
             if diffs:
                 shutil.move(os.path.join(exportPath, subdir, file), os.path.join(archivePath, subdir, file))
             else:
