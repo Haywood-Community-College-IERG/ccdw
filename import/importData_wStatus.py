@@ -152,5 +152,6 @@ for root, subdirs, files in os.walk(export_path):
         csvinput.close()
 
         print(".....archiving file "+file)
-        export.archive("",file,export_path,archive_path)
+                       #df, subdir, file, exportPath, archivePath, log
+        export.archive("", "", file, export_path, archive_path, log, createInitial = True)
 
