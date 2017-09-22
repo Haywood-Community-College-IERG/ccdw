@@ -48,8 +48,8 @@ prefix = cfg['informer']['prefix']
 
 log = open(os.path.join(log_path,"log_{0}{1}.txt".format( run_datetime, wStatus_suffix )), "w", 1)
 
-print( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}]".format( writedb, diffs, refresh ) )
-log.write( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}]\n".format( writedb, diffs, refresh ) )
+print( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}]".format( writedb, diffs, refresh, wStatus ) )
+log.write( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}]\n".format( writedb, diffs, refresh, wStatus) )
 
 # Import local packages
 import meta
