@@ -333,7 +333,7 @@ def ig_f(dir, files):
 
 
 # archive() - Archives files after they are processed
-def archive(df, subdir, file, exportPath, archivePath, diffs):
+def archive(df, subdir, file, exportPath, archivePath, diffs, log):
     # Create the path in the archive based on the location of the CSV
     if not os.path.isdir(os.path.join(archivePath, subdir)):
         shutil.copytree(os.path.join(exportPath, subdir),os.path.join(archivePath,subdir), ignore=ig_f)

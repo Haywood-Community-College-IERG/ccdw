@@ -145,7 +145,7 @@ for root, subdirs, files in os.walk(export_path):
             print("\t\t\t{0} Archive: {1}".format( timestamp(), file ))
             log.write("{0} Archive: {1}\n".format( timestamp(), file ))
 
-            export.archive(df, subdir, file, export_path, archive_path, diffs)
+            export.archive(df, subdir, file, export_path, archive_path, diffs, log)
 
             print("\t\t\t{0} Archive: {1} [DONE]\n".format( timestamp(), file ))
             log.write("{0} Archive: {1} [DONE]\n".format( timestamp(), file ))
