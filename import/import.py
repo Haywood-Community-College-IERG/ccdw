@@ -38,18 +38,15 @@ diffs = args.diffs
 refresh = args.refresh
 wStatus = args.wStatus
 
-if wStatus:
-    export_path = cfg['informer']['export_path_wStatus']
-    archive_path = cfg['informer']['archive_path_wStatus']
-    log_path = cfg['informer']['log_path_wStatus']
-else:
-    export_path = cfg['informer']['export_path']
-    archive_path = cfg['informer']['archive_path']
-    log_path = cfg['informer']['log_path']
+wStatus_suffix = "_wStatus" if wStatus else ""
+
+export_path = cfg['informer']['export_path' + wStatus_suffix]
+archive_path = cfg['informer']['archive_path' + wStatus_suffix]
+log_path = cfg['informer']['log_path' + wStatus_suffix]
 
 prefix = cfg['informer']['prefix']
 
-log = open(os.path.join(log_path,"log_{0}.txt".format( run_datetime )), "w", 1)
+log = open(os.path.join(log_path,"log_{0}{1}.txt".format( run_datetime, wStatus_suffix )), "w", 1)
 
 print( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}]".format( writedb, diffs, refresh ) )
 log.write( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}]\n".format( writedb, diffs, refresh ) )
