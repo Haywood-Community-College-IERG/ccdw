@@ -123,6 +123,14 @@ for root, subdirs, files in os.walk(export_path):
             else:
                 df = inputFrame
 
+            archive_filelist = sorted(glob.iglob(os.path.join(archive_path, subdir, subdir + '_Initial.csv')), 
+                                      key=os.path.getctime)
+            if (len(archive_filelist) == 0):
+                print("\t\t\t{0} INITALARCHIVE: Creating...".format( timestamp() ))
+                log.write("{0} INITALARCHIVE: Creating...\n".format( timestamp() ))
+                df.to_csv( os.path.join(archive_path, subdir, subdir + '_Initial.csv'), 
+                           index = False, date_format="%Y-%m-%dT%H:%M:%SZ" )
+
             if writedb:
                 #attempts to execute code catching any errors that may arrise then breaks out of loop of folder    
                 if df.shape[0] > 0:
