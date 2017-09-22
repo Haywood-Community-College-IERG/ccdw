@@ -252,3 +252,4 @@ archive/*.csv
 /archive
 /archive_SAV
 /temp
+/data_old
