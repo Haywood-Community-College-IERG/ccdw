@@ -42,7 +42,7 @@ wStatus_suffix = "_wStatus" if wStatus else ""
 
 export_path = cfg['informer']['export_path' + wStatus_suffix]
 archive_path = cfg['informer']['archive_path' + wStatus_suffix]
-log_path = cfg['informer']['log_path' + wStatus_suffix]
+log_path = cfg['informer']['log_path']
 
 prefix = cfg['informer']['prefix']
 
@@ -63,6 +63,8 @@ if refresh:
 kList, dTypes, aTypes, aNames, typers = meta.getDataTypes()
 
 if wStatus:
+    invalid_path = cfg['informer']['invalid_path_wStatus']
+    
     pattern = r'{0}(?P<fnpat>.*)___.*|(?P<fnpat>.*)___.*'.format(prefix)
 
     # Some files have dates that are way out there. Let's mark as invalid those that are more than a year out
