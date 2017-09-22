@@ -96,12 +96,15 @@ for root, subdirs, files in os.walk(export_path):
 
             for k, v in list(aNamesr.items()):
                 if v == None:
+                    print("Deleting {0} from aNamesr, aTypesr, and typersr".format(k))
                     del aNamesr[k]
                     del aTypesr[k]
                     del typersr[k]
 
+            print("kLister = {0}".format(kLister))
             for k, v in list(kLister.items()):
                 if v != 'K':
+                    print("Deleting {0} from kLister".format(k))
                     del kLister[k]
 
             sqlName = subdir[:-5]

@@ -17,6 +17,8 @@ from email.header    import Header
 from email.mime.text import MIMEText
 from getpass         import getpass
 import ssl
+import numpy as np
+
 global newColumnCheck
 
 with open("config.yml","r") as ymlfile:
@@ -26,7 +28,7 @@ sql_schema = export_cfg['sql']['schema']
 sql_schema_history = export_cfg['sql']['schema_history']
 
 # executeSQL_INSERT() - attempts to create SQL code from csv files and push it to the SQL server
-def executeSQL_INSERT(engine, df, sqlName, dTyper, log):
+def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
     
     print( "Create blank dataframe to create SQL table {0}\n".format( sqlName ) )    
 
@@ -41,6 +43,10 @@ def executeSQL_INSERT(engine, df, sqlName, dTyper, log):
         print ("-Error Creating Table ["+str(er.args[0])+"]" )
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
         raise
+
+    print("Fix all non-string columns, replace blanks with NAs which become NULLs in DB")
+    nonstring_columns = [key for key, value in dTyper.items() if type(dTyper[key]) != sqlalchemy.sql.sqltypes.String]
+    df[nonstring_columns] = df[nonstring_columns].replace('',np.nan)
 
     print( "Push {0} data to SQL schema {1}".format( sqlName, sql_schema ) )
 
@@ -308,7 +314,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
 # executeSQL_UPDATE() - calls both executeSQL_INSERT and executeSQL_MERGE in attempt to update the SQL Tables 
 def executeSQL_UPDATE(engine, df, sqlName, dTyper, kLister, aTypes, aNames, typers, log):
     try:
-        executeSQL_INSERT(engine, df, sqlName, dTyper, log)
+        executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log)
     except:
         print('XXXXXXX failed on executeSQL_INSERT XXXXXXX')
         raise
@@ -414,14 +420,24 @@ def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
     sqlStrings = "SELECT * FROM {0}.{1}".format(schema, sqlName)
     sqlRead = pd.read_sql(sqlStrings, engine)
     print('--Diff:')
+    existingColumns = list(sqlRead.columns)
+    newnames = list(df[df.columns.difference(existingColumns)].columns)
+    print("Newnames = {0}".format( newnames ))
+
+    if not newnames:
+        print("No new columns")
+        return()
+
     #attemp to create a dataframe and string of columns that need to be added to SQL Server
     try:
         updateList = list(set(list(sqlRead)).symmetric_difference(set(list(df))))
+        print("new columns: {0}".updateList)
         updateFrame = pd.DataFrame(columns=updateList)
         updateColumns= list(updateFrame.columns)
         updateColumns1 = ',\n\t'.join("[{0}] {1}".format(c,dTyper[c]) for c in reversed(updateColumns))
     except:
         print('ERROR!!!!')
+
     print(updateColumns1)
     
     #create SQL File based on tempalte to ALTER current SQL Table and append new Columns
