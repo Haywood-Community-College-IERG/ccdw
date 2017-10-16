@@ -1,2 +1,2 @@
 clear
-L:\TISS\RIE\Python\Miniconda3\python.exe importData.py --nodb
+L:\IERG\Python\Miniconda3\python.exe import.py --nodb

@@ -1,2 +1,2 @@
 clear
-L:\TISS\RIE\Python\Miniconda3\python.exe import.py --wStatus %*
+L:\IERG\Python\Miniconda3\python.exe import.py --wStatus %*

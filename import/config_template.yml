@@ -7,6 +7,8 @@ school:
   usgov: 00000
   ncccs: 000
   instid: 0000000
+  inststate: ST
+  instcountry: CN
 
 # Define database specific parameters
 sql:
@@ -23,7 +25,11 @@ sql:
   schema: input
   # Schema in above database where loaded data will be moved to history
   schema_history: history
-  # Schema in above database where final data wharehouse data will be uploaded
+  
+  # Schema in above database where local tables, including configuration, will be uploaded
+  schema_local: local
+
+# Schema in above database where final data wharehouse data will be uploaded
   schema_ccdw: ccdw
 
   # Template file names for create, merge, and alter table statements

@@ -31,12 +31,15 @@ parser.add_argument('--refresh', dest='refresh', action='store_true', default=Fa
                     help='Refresh table and view structures (default: don''t refresh)')
 parser.add_argument('--wStatus', dest='wStatus', action='store_true', default=False,
                     help='Refresh table and view structures (default: don''t refresh)')
+parser.add_argument('--updateConfig', dest='updateConfig', action='store_true', default=False,
+                    help='Refresh configuration in database (default: don''t refresh)')
 args = parser.parse_args()
 
 writedb = args.writedb
 diffs = args.diffs
 refresh = args.refresh
 wStatus = args.wStatus
+updateConfig = args.updateConfig
 
 wStatus_suffix = "_wStatus" if wStatus else ""
 
@@ -48,9 +51,9 @@ prefix = cfg['informer']['prefix']
 
 log = open(os.path.join(log_path,"log_{0}{1}.txt".format( run_datetime, wStatus_suffix )), "w", 1)
 
-print( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}]".format( writedb, diffs, refresh, wStatus ) )
-log.write( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}]\n".format( writedb, diffs, refresh, wStatus) )
-
+print( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}], updateConfig=[{4}]".format( writedb, diffs, refresh, wStatus, updateConfig ) )
+log.write( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}], updateConfig=[{4}]\n".format( writedb, diffs, refresh, wStatus, updateConfig ) )
+    
 # Import local packages
 import meta
 import export
@@ -61,6 +64,14 @@ if refresh:
     meta.loadLookupList(refresh)
 
 kList, dTypes, aTypes, aNames, typers = meta.getDataTypes()
+
+if updateConfig:
+    print("Update configuration")
+    log.write("Update configuration")
+    school = cfg['school']
+    schooldf = pd.DataFrame(school, index = ['config'])
+    schooldf.to_sql('config', engine, flavor=None, schema='local', if_exists='replace',
+                 index=False, index_label=None, chunksize=None)
 
 if wStatus:
     invalid_path = cfg['informer']['invalid_path_wStatus']
