@@ -1,0 +1,2407 @@
+"InstID","InstShortName","ADCStuClsVrfdGradeCode","ADCStuClsVrfdGrade","ADCStuClsVrfdGradeScheme","ADCStuClsVrfdGradeLegend"
+816,CentralCarolinaCC,1,A,CU,Excellent
+816,CentralCarolinaCC,10,A,CE,Excellent
+816,CentralCarolinaCC,11,B,CE,Above Average
+816,CentralCarolinaCC,12,C,CE,Average
+816,CentralCarolinaCC,14,F,CE,Failing
+816,CentralCarolinaCC,15,S,CE,Satisfactory
+816,CentralCarolinaCC,16,U,CE,Unsatisfactory
+816,CentralCarolinaCC,17,W,CE,Withdrawn
+816,CentralCarolinaCC,18,AU,CE,Audit
+816,CentralCarolinaCC,2,B,CU,Above Average
+816,CentralCarolinaCC,24,S,BSP,Satisfactory
+816,CentralCarolinaCC,25,U,BSP,Unsatisfactory
+816,CentralCarolinaCC,26,W,BSP,Withdrawn
+816,CentralCarolinaCC,27,TR,CU,Transfer Credit
+816,CentralCarolinaCC,28,CS,CU,Continuing Studies
+816,CentralCarolinaCC,29,P,CU,Pass
+816,CentralCarolinaCC,3,C,CU,Average
+816,CentralCarolinaCC,30,ER,CU,Exempt by Retest
+816,CentralCarolinaCC,31,WF,CU,WF - Withdraw Failing
+816,CentralCarolinaCC,32,CE,CU,Credit by Examination
+816,CentralCarolinaCC,33,EL,CU,Learning by Experience
+816,CentralCarolinaCC,34,W*,CU,W - Withdraw No Repeat
+816,CentralCarolinaCC,35,A*,CU,A - Developmental/Repeat
+816,CentralCarolinaCC,36,B*,CU,B - Developmental/Repeat
+816,CentralCarolinaCC,37,C*,CU,C - Developmental/Repeat
+816,CentralCarolinaCC,38,D*,CU,D - Developmental/Repeat
+816,CentralCarolinaCC,39,F*,CU,F - Developmental/Repeat
+816,CentralCarolinaCC,4,D,CU,Below Average
+816,CentralCarolinaCC,40,I*,CU,I - Developmental
+816,CentralCarolinaCC,41,NA,CE,Never Attended
+816,CentralCarolinaCC,42,NA,CU,Never Attended
+816,CentralCarolinaCC,43,WF*,CU,Wf- Developmental
+816,CentralCarolinaCC,44,NG,CE,NO GRADE/SEMINAR
+816,CentralCarolinaCC,45,NG,CU,No Grade-Course in Progess
+816,CentralCarolinaCC,46,TD,CU,Transfer Developmental
+816,CentralCarolinaCC,47,R,CU,Repeat Necessary
+816,CentralCarolinaCC,5,W,CU,Withdrew
+816,CentralCarolinaCC,57,NA,BSP,Never Attended
+816,CentralCarolinaCC,6,F,CU,Failing
+816,CentralCarolinaCC,7,I,CU,Incomplete
+816,CentralCarolinaCC,8,WP,CU,Withdraw Passing
+816,CentralCarolinaCC,9,AU,CU,Audit
+822,COTAlbermarle,1,A,CU,Excellent
+822,COTAlbermarle,10,A,CE,Excellent
+822,COTAlbermarle,100,43,AHS,43
+822,COTAlbermarle,101,42,AHS,42
+822,COTAlbermarle,102,41,AHS,41
+822,COTAlbermarle,103,40,AHS,40
+822,COTAlbermarle,104,39,AHS,39
+822,COTAlbermarle,105,38,AHS,38
+822,COTAlbermarle,106,37,AHS,37
+822,COTAlbermarle,107,36,AHS,36
+822,COTAlbermarle,108,35,AHS,35
+822,COTAlbermarle,109,34,AHS,34
+822,COTAlbermarle,11,B,CE,Above Average
+822,COTAlbermarle,110,33,AHS,33
+822,COTAlbermarle,111,32,AHS,32
+822,COTAlbermarle,112,31,AHS,31
+822,COTAlbermarle,113,30,AHS,30
+822,COTAlbermarle,114,29,AHS,29
+822,COTAlbermarle,115,28,AHS,28
+822,COTAlbermarle,116,27,AHS,27
+822,COTAlbermarle,117,26,AHS,26
+822,COTAlbermarle,118,25,AHS,25
+822,COTAlbermarle,119,24,AHS,24
+822,COTAlbermarle,12,C,CE,Average
+822,COTAlbermarle,120,23,AHS,23
+822,COTAlbermarle,121,22,AHS,22
+822,COTAlbermarle,122,21,AHS,21
+822,COTAlbermarle,123,20,AHS,20
+822,COTAlbermarle,124,19,AHS,19
+822,COTAlbermarle,125,18,AHS,18
+822,COTAlbermarle,126,17,AHS,17
+822,COTAlbermarle,127,16,AHS,16
+822,COTAlbermarle,128,15,AHS,15
+822,COTAlbermarle,129,14,AHS,14
+822,COTAlbermarle,13,D,CE,Below Average
+822,COTAlbermarle,130,13,AHS,13
+822,COTAlbermarle,131,12,AHS,12
+822,COTAlbermarle,132,11,AHS,11
+822,COTAlbermarle,133,10,AHS,10
+822,COTAlbermarle,134,9,AHS,9
+822,COTAlbermarle,135,8,AHS,8
+822,COTAlbermarle,136,7,AHS,7
+822,COTAlbermarle,137,6,AHS,6
+822,COTAlbermarle,138,5,AHS,5
+822,COTAlbermarle,139,4,AHS,4
+822,COTAlbermarle,14,F,CE,Failing
+822,COTAlbermarle,140,3,AHS,3
+822,COTAlbermarle,141,2,AHS,2
+822,COTAlbermarle,142,1,AHS,1
+822,COTAlbermarle,143,0,AHS,0
+822,COTAlbermarle,144,W,CU,Withdrawal
+822,COTAlbermarle,145,CL,CU,CLEP Test Credit
+822,COTAlbermarle,146,AP,CU,Advanced Placement
+822,COTAlbermarle,147,CE,CU,Credit by Exam
+822,COTAlbermarle,148,PA,CUDE,Passed with Grade of 'A'
+822,COTAlbermarle,149,PB,CUDE,Passed with Grade of 'B'
+822,COTAlbermarle,15,S,CE,Satisfactory
+822,COTAlbermarle,150,PC,CUDE,Passed with Grade of 'C'
+822,COTAlbermarle,151,R,CUDE,Need to Repeat Course
+822,COTAlbermarle,152,I,CUDE,Incomplete
+822,COTAlbermarle,153,K,CUDE,Audit
+822,COTAlbermarle,154,W,CUDE,Withdraw
+822,COTAlbermarle,155,A#,CUCV,A#
+822,COTAlbermarle,156,B#,CUCV,B#
+822,COTAlbermarle,157,C#,CUCV,C#
+822,COTAlbermarle,158,D#,CUCV,D#
+822,COTAlbermarle,159,F#,CUCV,F#
+822,COTAlbermarle,16,U,CE,Unsatisfactory
+822,COTAlbermarle,160,PA,CUCV,PA
+822,COTAlbermarle,161,PB,CUCV,PB
+822,COTAlbermarle,162,PC,CUCV,PC
+822,COTAlbermarle,163,R,CUCV,R
+822,COTAlbermarle,164,TR,CUCV,TR
+822,COTAlbermarle,166,NA,CE,Never Attended
+822,COTAlbermarle,167,NA,BSP,Never Attended
+822,COTAlbermarle,168,P,CUCV,Passed
+822,COTAlbermarle,169,U,CUCV,Unsatisfactory
+822,COTAlbermarle,17,W,CE,Withdrawn
+822,COTAlbermarle,170,S,CUCV,Satisfactory
+822,COTAlbermarle,171,CV,CUCV,Credit by Validation
+822,COTAlbermarle,172,NC,CUCV,No Credit
+822,COTAlbermarle,173,BX,CUCV,BX
+822,COTAlbermarle,174,CX,CUCV,CX
+822,COTAlbermarle,175,DX,CUCV,DX
+822,COTAlbermarle,176,FX,CUCV,FX
+822,COTAlbermarle,177,NG,CUCV,No Grade
+822,COTAlbermarle,178,TR,CU,Transfer
+822,COTAlbermarle,179,NG,CU,Not Graded Yet
+822,COTAlbermarle,18,AU,CE,Audit
+822,COTAlbermarle,180,CE,CUDE,Credit by Examination
+822,COTAlbermarle,181,NG,CUDE,Not Graded Yet
+822,COTAlbermarle,184,CE,CUCV,Credit by Examination
+822,COTAlbermarle,185,AHS,BSPC,Completed AHS
+822,COTAlbermarle,186,CS,BSPC,Continuing Study
+822,COTAlbermarle,187,GED,BSPC,Completed GED
+822,COTAlbermarle,188,DR,BSPC,Dropped
+822,COTAlbermarle,189,CS,CECV,Continuing Study
+822,COTAlbermarle,19,A,BSP,Excellent
+822,COTAlbermarle,190,I,CECV,Incomplete
+822,COTAlbermarle,192,DR,CECV,Dropped
+822,COTAlbermarle,193,AC,CU,Articulated Credit
+822,COTAlbermarle,194,AU,CU,Audit
+822,COTAlbermarle,195,AU,CUDE,Audit
+822,COTAlbermarle,198,CV,CU,Credit by Valuation
+822,COTAlbermarle,199,P,AHS,P
+822,COTAlbermarle,2,B,CU,Above Average
+822,COTAlbermarle,20,B,BSP,Above Average
+822,COTAlbermarle,200,NA,CU,Never Attended
+822,COTAlbermarle,201,NA,CUDE,Never Attended
+822,COTAlbermarle,202,P,CUDV,Pass
+822,COTAlbermarle,203,R,CUDV,Re-Enroll
+822,COTAlbermarle,204,W,CUDV,Withdrawn
+822,COTAlbermarle,205,I,CUDV,Incomplete
+822,COTAlbermarle,206,NA,CUDV,Never Attended
+822,COTAlbermarle,21,C,BSP,Average
+822,COTAlbermarle,22,D,BSP,Below Average
+822,COTAlbermarle,23,F,BSP,Failing
+822,COTAlbermarle,24,S,BSP,Satisfactory
+822,COTAlbermarle,25,U,BSP,Unsatisfactory
+822,COTAlbermarle,26,W,BSP,Withdrawn
+822,COTAlbermarle,27,NG,BSP,No Grade
+822,COTAlbermarle,3,C,CU,Average
+822,COTAlbermarle,33,100,AHS,100
+822,COTAlbermarle,34,99,AHS,99
+822,COTAlbermarle,35,98,AHS,98
+822,COTAlbermarle,36,97,AHS,97
+822,COTAlbermarle,37,96,AHS,96
+822,COTAlbermarle,38,95,AHS,95
+822,COTAlbermarle,39,94,AHS,94
+822,COTAlbermarle,4,D,CU,Below Average
+822,COTAlbermarle,40,93,AHS,93
+822,COTAlbermarle,41,92,AHS,92
+822,COTAlbermarle,42,91,AHS,91
+822,COTAlbermarle,43,90,AHS,90
+822,COTAlbermarle,44,102,AHSH,A Honors
+822,COTAlbermarle,45,93,AHSH,B Honors
+822,COTAlbermarle,46,85,AHSH,C Honors
+822,COTAlbermarle,47,78,AHSH,D Honors
+822,COTAlbermarle,48,A,AHSH,A Honors
+822,COTAlbermarle,49,B,AHSH,B Honors
+822,COTAlbermarle,50,C,AHSH,C Honors
+822,COTAlbermarle,51,D,AHSH,D Honors
+822,COTAlbermarle,53,89,AHS,89
+822,COTAlbermarle,54,88,AHS,88
+822,COTAlbermarle,55,87,AHS,87
+822,COTAlbermarle,56,86,AHS,86
+822,COTAlbermarle,57,85,AHS,85
+822,COTAlbermarle,58,84,AHS,84
+822,COTAlbermarle,59,83,AHS,83
+822,COTAlbermarle,6,F,CU,Failing
+822,COTAlbermarle,60,82,AHS,82
+822,COTAlbermarle,61,81,AHS,81
+822,COTAlbermarle,62,80,AHS,80
+822,COTAlbermarle,63,79,AHS,79
+822,COTAlbermarle,64,78,AHS,78
+822,COTAlbermarle,65,77,AHS,77
+822,COTAlbermarle,66,76,AHS,76
+822,COTAlbermarle,67,75,AHS,75
+822,COTAlbermarle,68,74,AHS,74
+822,COTAlbermarle,7,I,CU,Incomplete
+822,COTAlbermarle,70,73,AHS,73
+822,COTAlbermarle,71,72,AHS,72
+822,COTAlbermarle,72,71,AHS,71
+822,COTAlbermarle,73,70,AHS,70
+822,COTAlbermarle,74,69,AHS,69
+822,COTAlbermarle,75,68,AHS,68
+822,COTAlbermarle,76,67,AHS,67
+822,COTAlbermarle,77,66,AHS,66
+822,COTAlbermarle,78,65,AHS,65
+822,COTAlbermarle,79,64,AHS,64
+822,COTAlbermarle,80,63,AHS,63
+822,COTAlbermarle,81,62,AHS,62
+822,COTAlbermarle,82,61,AHS,61
+822,COTAlbermarle,83,60,AHS,60
+822,COTAlbermarle,84,59,AHS,59
+822,COTAlbermarle,85,58,AHS,58
+822,COTAlbermarle,86,57,AHS,57
+822,COTAlbermarle,87,56,AHS,56
+822,COTAlbermarle,88,55,AHS,55
+822,COTAlbermarle,89,54,AHS,54
+822,COTAlbermarle,9,K,CU,Audit - Prior to 2008SU
+822,COTAlbermarle,90,53,AHS,53
+822,COTAlbermarle,91,52,AHS,52
+822,COTAlbermarle,92,51,AHS,51
+822,COTAlbermarle,93,50,AHS,50
+822,COTAlbermarle,94,49,AHS,49
+822,COTAlbermarle,95,48,AHS,48
+822,COTAlbermarle,96,47,AHS,47
+822,COTAlbermarle,97,46,AHS,46
+822,COTAlbermarle,98,45,AHS,45
+822,COTAlbermarle,99,44,AHS,44
+870,RobersonCC,1,A,CU,Excellent
+870,RobersonCC,2,B,CU,Above Average
+870,RobersonCC,3,C,CU,Average
+870,RobersonCC,4,D,CU,Below Average
+870,RobersonCC,6,F,CU,Failing
+870,RobersonCC,7,I,CU,Incomplete
+870,RobersonCC,9,AU,CU,Audit
+870,RobersonCC,10,A,CE,Excellent
+870,RobersonCC,11,B,CE,Above Average
+870,RobersonCC,12,C,CE,Average
+870,RobersonCC,13,D,CE,Below Average
+870,RobersonCC,14,F,CE,Failing
+870,RobersonCC,15,S,CE,Satisfactory
+870,RobersonCC,16,U,CE,Unsatisfactory
+870,RobersonCC,17,W,CE,Withdrawn
+870,RobersonCC,18,AU,CE,Audit
+870,RobersonCC,24,S,BSP,Satisfactory
+870,RobersonCC,27,BW,BSP,Basic Skills Withdrawn
+870,RobersonCC,30,T,BSP,Transferred
+870,RobersonCC,32,UF,CE,Failed Cert. Test - Met Att
+870,RobersonCC,34,I,CE,Incomplete
+870,RobersonCC,36,WF,CU,Withdrew Failing
+870,RobersonCC,37,W,CU,Withdrew
+870,RobersonCC,39,CP,CU,Credit by Proficiency
+870,RobersonCC,40,NA,CU,Never Attended
+870,RobersonCC,77,A+,AHS,Excellent
+870,RobersonCC,78,A,AHS,Excellent
+870,RobersonCC,79,A-,AHS,Excellent
+870,RobersonCC,80,B+,AHS,Good
+870,RobersonCC,81,B,AHS,Good
+870,RobersonCC,82,B-,AHS,Good
+870,RobersonCC,83,C+,AHS,Average
+870,RobersonCC,84,C,AHS,Average
+870,RobersonCC,85,C-,AHS,Average
+870,RobersonCC,86,D+,AHS,Below Average
+870,RobersonCC,87,D,AHS,Below Average
+870,RobersonCC,88,D-,AHS,Below Average
+870,RobersonCC,89,F,AHS,Failing
+870,RobersonCC,90,S,AHS,Satisfactory
+870,RobersonCC,94,BW,AHS,Basic Skills Withdrawn
+870,RobersonCC,97,I,AHS,Incomplete
+870,RobersonCC,98,A,BSP,Excellent
+870,RobersonCC,99,B,AHS,Above Average
+870,RobersonCC,99,B,BSP,Above Average
+870,RobersonCC,100,C,BSP,Average
+870,RobersonCC,101,D,BSP,Below Average
+870,RobersonCC,103,W,BSP,Withdrawn
+870,RobersonCC,104,I,BSP,Incomplete
+870,RobersonCC,114,NS,CE,No Show
+882,SouthwesternCC,1,A,CU,Excellent
+882,SouthwesternCC,10,I,BSP,Incomplete
+882,SouthwesternCC,11,S,CU,Credit by Exam
+882,SouthwesternCC,12,CS,CU,Continued Study
+882,SouthwesternCC,13,W,CU,Withdraw
+882,SouthwesternCC,14,NA,CU,Never Attended
+882,SouthwesternCC,15,S,CE,Satisfactory
+882,SouthwesternCC,16,U,CE,Unsatisfactory
+882,SouthwesternCC,17,W,CE,Did Not Complete Course Work
+882,SouthwesternCC,18,AU,CE,Audit
+882,SouthwesternCC,19,A,BSP,Excellent
+882,SouthwesternCC,2,B,CU,Above Average
+882,SouthwesternCC,20,B,BSP,Above Average
+882,SouthwesternCC,21,C,BSP,Average
+882,SouthwesternCC,22,D,BSP,Below Average
+882,SouthwesternCC,23,F,BSP,Failing
+882,SouthwesternCC,24,S,BSP,Satisfactory
+882,SouthwesternCC,25,U,BSP,Unsatisfactory
+882,SouthwesternCC,26,W,BSP,Withdrawn
+882,SouthwesternCC,27,AP,CU,Advanced Placement Exam
+882,SouthwesternCC,28,SP,CU,Secondary Placement (VoCATs)
+882,SouthwesternCC,29,P,CU,Passing
+882,SouthwesternCC,3,C,CU,Average
+882,SouthwesternCC,30,TR,CU,Transfer Credit
+882,SouthwesternCC,31,P,CE,Passing
+882,SouthwesternCC,32,NA,CE,Never Attended
+882,SouthwesternCC,33,WP,CE,Withdrawal Passing
+882,SouthwesternCC,34,NA,BSP,NA
+882,SouthwesternCC,36,WP,CUCV,WP
+882,SouthwesternCC,37,WF,CUCV,WF
+882,SouthwesternCC,38,N,CUCV,N
+882,SouthwesternCC,39,R,CUCV,R
+882,SouthwesternCC,4,D,CU,Below Average
+882,SouthwesternCC,40,A*,CUCV,A*
+882,SouthwesternCC,41,B*,CUCV,B*
+882,SouthwesternCC,42,C*,CUCV,C*
+882,SouthwesternCC,43,D*,CUCV,D*
+882,SouthwesternCC,44,F*,CUCV,F*
+882,SouthwesternCC,45,P*,CUCV,P*
+882,SouthwesternCC,46,WR,CUCV,WR
+882,SouthwesternCC,47,R*,CUCV,R*
+882,SouthwesternCC,48,S*,CUCV,S*
+882,SouthwesternCC,49,WF#,CU,WF#
+882,SouthwesternCC,5,I,CE,Incomplete
+882,SouthwesternCC,51,D#,CU,D#
+882,SouthwesternCC,52,F#,CU,F#
+882,SouthwesternCC,53,F*,CU,F*
+882,SouthwesternCC,54,D*,CU,D*
+882,SouthwesternCC,55,D,CE,Drop - Old Legacy Grade
+882,SouthwesternCC,56,SE,CE,Seminar - Old Legacy Grade
+882,SouthwesternCC,57,WW,CE,Ww- Old Legacy Grade
+882,SouthwesternCC,58,TR,CE,Transfer - Old Legacy Grade
+882,SouthwesternCC,59,X,CE,X - Old Legacy Grade
+882,SouthwesternCC,6,F,CU,Failing
+882,SouthwesternCC,60,WP,BSP,WP
+882,SouthwesternCC,61,F,CE,F - Grade From Old Legacy Sys
+882,SouthwesternCC,63,0S,CE,0S Grade From Old Legacy Syst
+882,SouthwesternCC,64,C*,CU,C*
+882,SouthwesternCC,65,A*,CU,A*
+882,SouthwesternCC,66,B*,CU,B*
+882,SouthwesternCC,67,OP,CE,Op - Old Legacy Grade
+882,SouthwesternCC,68,Z,CUCV,Z
+882,SouthwesternCC,69,CP,CU,CLEP exam
+882,SouthwesternCC,7,I,CU,Incomplete
+882,SouthwesternCC,71,WF*,CUCV,WF*
+882,SouthwesternCC,72,W,CUCV,W
+882,SouthwesternCC,73,A,CUCV,A
+882,SouthwesternCC,74,B,CUCV,B
+882,SouthwesternCC,75,C,CUCV,C
+882,SouthwesternCC,76,D,CUCV,D
+882,SouthwesternCC,77,F,CUCV,F
+882,SouthwesternCC,78,R,CU,Repeat Developmental
+882,SouthwesternCC,79,WF,CU,WF
+882,SouthwesternCC,8,P,BSP,Pass
+882,SouthwesternCC,80,CC,SDMA,Course Completion
+882,SouthwesternCC,81,R,SDMA,Repeat
+882,SouthwesternCC,84,P,DRE,P
+882,SouthwesternCC,86,NR,SDMA,Never Reached
+882,SouthwesternCC,9,AU,CU,Audit
+889,VanceGranvilleCC,1,A,CU,Excellent
+889,VanceGranvilleCC,13,Inva,Inva,Invalid Grade Code - Per Inst
+889,VanceGranvilleCC,15,S,CE,Satisfactory
+889,VanceGranvilleCC,16,U,CE,Unsatisfactory
+889,VanceGranvilleCC,17,W,CE,Withdrawn
+889,VanceGranvilleCC,18,AU,CE,Audit
+889,VanceGranvilleCC,19,A,BSP,Excellent
+889,VanceGranvilleCC,2,B,CU,Above Average
+889,VanceGranvilleCC,20,B,BSP,Above Average
+889,VanceGranvilleCC,21,C,BSP,Average
+889,VanceGranvilleCC,22,D,BSP,Below Average
+889,VanceGranvilleCC,26,W,BSP,Withdrawn
+889,VanceGranvilleCC,27,PB,CU,Passing Developmental B
+889,VanceGranvilleCC,28,PC,CU,Passing Developmental C
+889,VanceGranvilleCC,29,WP,CU,Student Initiated Withdrawal
+889,VanceGranvilleCC,3,C,CU,Average
+889,VanceGranvilleCC,30,WF,CU,Faculty Initiated Withdrawal
+889,VanceGranvilleCC,31,RF,CU,Reschedule Developmental
+889,VanceGranvilleCC,32,L,BSP,Literacy
+889,VanceGranvilleCC,33,CP,BSP,Completion
+889,VanceGranvilleCC,35,I,BSP,Incomplete
+889,VanceGranvilleCC,37,CE,CU,Challenge Exam Passed
+889,VanceGranvilleCC,38,NS,CU,No Show - Never Attended
+889,VanceGranvilleCC,39,TR,CU,Transfer Credit
+889,VanceGranvilleCC,4,D,CU,Below Average
+889,VanceGranvilleCC,40,CE,CE,Credit by Exam
+889,VanceGranvilleCC,41,A*,CUCV,A*
+889,VanceGranvilleCC,42,B*,CUCV,B*
+889,VanceGranvilleCC,43,C*,CUCV,C*
+889,VanceGranvilleCC,44,D*,CUCV,D*
+889,VanceGranvilleCC,45,F*,CUCV,F*
+889,VanceGranvilleCC,46,NC,CUCV,NC
+889,VanceGranvilleCC,47,P*,CUCV,P*
+889,VanceGranvilleCC,48,PA*,CUCV,PA*
+889,VanceGranvilleCC,49,PB*,CUCV,PB*
+889,VanceGranvilleCC,5,I,CE,Incomplete
+889,VanceGranvilleCC,50,PC*,CUCV,PC*
+889,VanceGranvilleCC,51,R*,CUCV,R*
+889,VanceGranvilleCC,52,RF*,CUCV,RF*
+889,VanceGranvilleCC,53,RR,CUCV,RR
+889,VanceGranvilleCC,54,RR*,CUCV,RR*
+889,VanceGranvilleCC,55,TR,CUCV,Tr
+889,VanceGranvilleCC,56,T*,CUCV,T*
+889,VanceGranvilleCC,57,TA,CUCV,TA
+889,VanceGranvilleCC,58,TB,CUCV,TB
+889,VanceGranvilleCC,59,TC,CUCV,TC
+889,VanceGranvilleCC,6,F,CU,Failing
+889,VanceGranvilleCC,60,TD,CUCV,TD
+889,VanceGranvilleCC,61,W,CUCV,W
+889,VanceGranvilleCC,62,W*,CUCV,W*
+889,VanceGranvilleCC,63,WA,CUCV,WA
+889,VanceGranvilleCC,64,WA*,CUCV,WA*
+889,VanceGranvilleCC,65,WF*,CUCV,WF*
+889,VanceGranvilleCC,66,WP,CUCV,WP
+889,VanceGranvilleCC,67,X,CUCV,X
+889,VanceGranvilleCC,68,P,CUCV,P
+889,VanceGranvilleCC,69,RF,CUCV,RF
+889,VanceGranvilleCC,7,I,CU,Incomplete
+889,VanceGranvilleCC,70,TFA,BSP,Transfer A
+889,VanceGranvilleCC,71,TFB,BSP,Transfer B
+889,VanceGranvilleCC,72,TFC,BSP,Transfer C
+889,VanceGranvilleCC,73,TFD,BSP,TFD
+889,VanceGranvilleCC,74,S,BSPC,Satisfactory
+889,VanceGranvilleCC,75,U,BSPC,Unsatisfactory
+889,VanceGranvilleCC,76,CE,CUCV,Waiver Exam Passed
+889,VanceGranvilleCC,77,PR,CU,Prerequisite Credit
+889,VanceGranvilleCC,78,R,CUCV,Repeat
+889,VanceGranvilleCC,79,G#,CU,Grade Forgiven
+889,VanceGranvilleCC,8,PA,CU,Passing Developmental A
+889,VanceGranvilleCC,80,F#,CU,Failure Due to Plagiarism
+889,VanceGranvilleCC,83,W,CU,Officially Withdrew
+889,VanceGranvilleCC,9,AU,CU,Audit
+818,CentralPiedmontCC,0,MID,CU,Mid-Term Unsatisfactory
+818,CentralPiedmontCC,1,A,CU,Excellent
+818,CentralPiedmontCC,2,B,CU,Above Average
+818,CentralPiedmontCC,3,C,CU,Average
+818,CentralPiedmontCC,4,D,CU,Below Average
+818,CentralPiedmontCC,5,I/A,CU,A Late Completion
+818,CentralPiedmontCC,6,F,CU,Failing
+818,CentralPiedmontCC,7,I,CU,Incomplete
+818,CentralPiedmontCC,8,I/B,CU,B Late Completion
+818,CentralPiedmontCC,9,AU,CU,Audit
+818,CentralPiedmontCC,15,S,CE,Satisfactory
+818,CentralPiedmontCC,16,U,CE,Unsatisfactory
+818,CentralPiedmontCC,17,W,CE,Withdrawn
+818,CentralPiedmontCC,19,A,BSP,Excellent
+818,CentralPiedmontCC,20,B,BSP,Above Average
+818,CentralPiedmontCC,21,C,BSP,Average
+818,CentralPiedmontCC,22,D,BSP,Below Average
+818,CentralPiedmontCC,23,F,BSP,Failing
+818,CentralPiedmontCC,24,S,BSP,Satisfactory
+818,CentralPiedmontCC,25,U,BSP,Unsatisfactory
+818,CentralPiedmontCC,26,W,BSP,Withdrawn
+818,CentralPiedmontCC,27,I/C,CU,C Late Completion
+818,CentralPiedmontCC,28,I/D,CU,D Late Completion
+818,CentralPiedmontCC,29,I/F,CU,Unresolved Incomplete
+818,CentralPiedmontCC,30,X,CU,Credit by Exam
+818,CentralPiedmontCC,31,W,CU,Withdrawal
+818,CentralPiedmontCC,32,I,BSP,Incomplete
+818,CentralPiedmontCC,39,IR,BSPC,Incomplete Repeat
+818,CentralPiedmontCC,40,AU,BSPC,Audit
+818,CentralPiedmontCC,41,NG,BSPC,No Grade Assigned
+818,CentralPiedmontCC,42,TR,BSPC,Transfer Credit
+818,CentralPiedmontCC,43,P,BSPC,Pass
+818,CentralPiedmontCC,44,IM,BSPC,Incomplete Make Up
+818,CentralPiedmontCC,45,X,BSP,X Credit by Exam
+818,CentralPiedmontCC,46,I/A,BSP,A Late Completion
+818,CentralPiedmontCC,47,I/B,BSP,B Late Completion
+818,CentralPiedmontCC,48,I/C,BSP,C Late Completion
+818,CentralPiedmontCC,49,I/D,BSP,D Late Completion
+818,CentralPiedmontCC,50,I/F,BSP,F Late Completion
+818,CentralPiedmontCC,51,I/A,CECV,A Late Completion
+818,CentralPiedmontCC,52,I/B,CECV,B Late Completion
+818,CentralPiedmontCC,53,I/C,CECV,C Late Completion
+818,CentralPiedmontCC,54,I/D,CECV,D Late Completion
+818,CentralPiedmontCC,55,I/F,CECV,F Late Completion
+818,CentralPiedmontCC,57,I,CECV,Incomplete
+818,CentralPiedmontCC,58,X,CECV,Credit by Exam
+818,CentralPiedmontCC,59,AU,CECV,Audit
+818,CentralPiedmontCC,60,NG,CECV,No Grade Assigned
+818,CentralPiedmontCC,61,TR,CECV,Transfer Credit
+818,CentralPiedmontCC,62,P,CECV,Pass
+818,CentralPiedmontCC,63,IM,CECV,Incomplete Make Up
+818,CentralPiedmontCC,64,S,CUCV,Satisfactory
+818,CentralPiedmontCC,65,P,CUCV,Pass
+818,CentralPiedmontCC,66,U,CUCV,Unsatisfactory
+818,CentralPiedmontCC,67,IR,CUCV,Incomplete Repeat
+818,CentralPiedmontCC,68,NG,CUCV,No Grade Assigned
+818,CentralPiedmontCC,69,TR,CUCV,Transfer Credit
+818,CentralPiedmontCC,70,IM,CUCV,Incomplete Make Up
+818,CentralPiedmontCC,72,IR,CECV,Incomplete Repeat
+818,CentralPiedmontCC,73,WN,CU,Never Attended Withdrawal
+818,CentralPiedmontCC,74,WN,BSP,Never Attended Withdrawal
+818,CentralPiedmontCC,75,WN,CE,Never Attended Withdrawal
+818,CentralPiedmontCC,76,A,CECV,Excellent
+818,CentralPiedmontCC,77,B,CECV,Above Average
+818,CentralPiedmontCC,78,C,CECV,Average
+818,CentralPiedmontCC,79,D,CECV,Below Average
+818,CentralPiedmontCC,80,F,CECV,Failing
+818,CentralPiedmontCC,82,TR,BSP,Transfer
+818,CentralPiedmontCC,84,P,CUDE,Pass
+818,CentralPiedmontCC,85,R,CUDE,Repeat
+818,CentralPiedmontCC,86,AU,CUDE,Audit
+818,CentralPiedmontCC,87,W,CUDE,Withdrawl
+818,CentralPiedmontCC,88,WN,CUDE,Never Attended Withdrawal
+818,CentralPiedmontCC,90,MID,CUDE,Mid-Term Unsatisfactory
+818,CentralPiedmontCC,93,P,CU,Pass
+818,CentralPiedmontCC,94,R,CU,Repeat
+800,SouthPiedmontCC,1,A,CU,
+800,SouthPiedmontCC,10,A,CE,
+800,SouthPiedmontCC,11,B,CE,
+800,SouthPiedmontCC,12,C,CE,
+800,SouthPiedmontCC,13,D,CE,
+800,SouthPiedmontCC,14,F,CE,
+800,SouthPiedmontCC,15,S,CE,
+800,SouthPiedmontCC,16,U,CE,
+800,SouthPiedmontCC,17,W,CE,
+800,SouthPiedmontCC,18,AU,CE,
+800,SouthPiedmontCC,19,A,BSP,
+800,SouthPiedmontCC,2,B,CU,
+800,SouthPiedmontCC,20,B,BSP,
+800,SouthPiedmontCC,21,C,BSP,
+800,SouthPiedmontCC,22,D,BSP,
+800,SouthPiedmontCC,23,F,BSP,
+800,SouthPiedmontCC,24,S,BSP,
+800,SouthPiedmontCC,25,U,BSP,
+800,SouthPiedmontCC,26,W,BSP,
+800,SouthPiedmontCC,27,WF,CU,
+800,SouthPiedmontCC,28,WP,CU,
+800,SouthPiedmontCC,3,C,CU,
+800,SouthPiedmontCC,32,WI,CU,
+800,SouthPiedmontCC,33,NA,CU,
+800,SouthPiedmontCC,34,T,CU,
+800,SouthPiedmontCC,35,NG,BSP,
+800,SouthPiedmontCC,36,P,CE,
+800,SouthPiedmontCC,37,I,CE,
+800,SouthPiedmontCC,38,AA,CUCV,
+800,SouthPiedmontCC,39,BB,CUCV,
+800,SouthPiedmontCC,4,D,CU,
+800,SouthPiedmontCC,40,CC,CUCV,
+800,SouthPiedmontCC,41,DD,CUCV,
+800,SouthPiedmontCC,42,FF,CUCV,
+800,SouthPiedmontCC,43,A*,CUCV,
+800,SouthPiedmontCC,44,B*,CUCV,
+800,SouthPiedmontCC,45,C*,CUCV,
+800,SouthPiedmontCC,46,D*,CUCV,
+800,SouthPiedmontCC,47,F*,CUCV,
+800,SouthPiedmontCC,48,W*,CUCV,
+800,SouthPiedmontCC,49,WF*,CUCV,
+800,SouthPiedmontCC,50,WP*,CUCV,
+800,SouthPiedmontCC,51,P*,CUCV,
+800,SouthPiedmontCC,52,I*,CUCV,
+800,SouthPiedmontCC,53,S*,CUCV,
+800,SouthPiedmontCC,54,X,CUCV,
+800,SouthPiedmontCC,58,P,CUCV,
+800,SouthPiedmontCC,59,TP,CU,
+800,SouthPiedmontCC,6,F,CU,
+800,SouthPiedmontCC,60,NG,CE,
+800,SouthPiedmontCC,61,AP,CU,
+800,SouthPiedmontCC,62,NG,CU,
+800,SouthPiedmontCC,65,NA,CE,
+800,SouthPiedmontCC,69,EX,CU,
+800,SouthPiedmontCC,7,I,CU,
+800,SouthPiedmontCC,71,TR,BSP,
+800,SouthPiedmontCC,72,D*,CU,
+800,SouthPiedmontCC,73,F*,CU,
+800,SouthPiedmontCC,74,WF*,CU,
+800,SouthPiedmontCC,76,P,CU,
+800,SouthPiedmontCC,77,R,CU,
+800,SouthPiedmontCC,78,CC,CU,
+800,SouthPiedmontCC,79,NR,CU,
+800,SouthPiedmontCC,8,W,CU,
+800,SouthPiedmontCC,80,RR,CU,
+800,SouthPiedmontCC,9,AU,CU,
+800,SouthPiedmontCC,NP,CE,CU,
+843,BlueRidgeCC,1,A,CU,Excellent
+843,BlueRidgeCC,10,A,CE,Excellent
+843,BlueRidgeCC,11,B,CE,Above Average
+843,BlueRidgeCC,12,C,CE,Average
+843,BlueRidgeCC,13,D,CE,Below Average
+843,BlueRidgeCC,14,F,CE,Failing
+843,BlueRidgeCC,15,S,CE,Satisfactory
+843,BlueRidgeCC,16,U,CE,Unsatisfactory
+843,BlueRidgeCC,17,W,CE,Withdrawn
+843,BlueRidgeCC,18,AU,CE,Audit
+843,BlueRidgeCC,19,A,BSP,Excellent
+843,BlueRidgeCC,2,B,CU,Above Average
+843,BlueRidgeCC,20,B,BSP,Above Average
+843,BlueRidgeCC,21,C,BSP,Average
+843,BlueRidgeCC,22,D,BSP,Below Average
+843,BlueRidgeCC,23,F,BSP,Failing
+843,BlueRidgeCC,24,S,BSP,Satisfactory
+843,BlueRidgeCC,25,U,BSP,Unsatisfactory
+843,BlueRidgeCC,26,W,BSP,Withdrawn
+843,BlueRidgeCC,27,TR,BSP,Transfer Credit
+843,BlueRidgeCC,28,I,BSP,Incomplete
+843,BlueRidgeCC,29,IA,CU,Excellent/Inc to an A
+843,BlueRidgeCC,3,C,CU,Average
+843,BlueRidgeCC,30,A*,CU,A* Course Repeated
+843,BlueRidgeCC,31,A.,CU,A. Excellent/Not in Program
+843,BlueRidgeCC,32,IB,CU,Above Average/Inc to B
+843,BlueRidgeCC,33,B*,CU,B* Course Repeated
+843,BlueRidgeCC,34,B.,CU,Above Avg/Not in Program
+843,BlueRidgeCC,35,IC,CU,Average/Inc to C
+843,BlueRidgeCC,36,C*,CU,C* Course Repeated
+843,BlueRidgeCC,37,C.,CU,Avg/Not in Program
+843,BlueRidgeCC,38,ID,CU,Below Average/Inc to D
+843,BlueRidgeCC,39,D*,CU,D* Course Repeated
+843,BlueRidgeCC,4,D,CU,Below Average
+843,BlueRidgeCC,40,D.,CU,Below Avg/Not in Program
+843,BlueRidgeCC,41,IF,CU,Failing/Inc to F
+843,BlueRidgeCC,42,W,CU,Withdrawal
+843,BlueRidgeCC,43,WP,CU,Withdraw Passing
+843,BlueRidgeCC,44,WF,CU,Withdraw Failing
+843,BlueRidgeCC,45,AP,CU,Advanced Placement
+843,BlueRidgeCC,46,F*,CU,F* Course Repeated
+843,BlueRidgeCC,47,WP*,CU,WP* Course Repeated
+843,BlueRidgeCC,48,WF*,CU,WF* Course Repeated
+843,BlueRidgeCC,49,IF*,CU,IF* Course Repeated
+843,BlueRidgeCC,50,TR*,CU,TR* Course Repeated
+843,BlueRidgeCC,51,F.,CU,Failing/Not in Program
+843,BlueRidgeCC,52,IF.,CU,Inc to F/Not in Program
+843,BlueRidgeCC,53,IA.,CU,Inc to A/Not in Program
+843,BlueRidgeCC,54,IB.,CU,Inc to B/Not in Program
+843,BlueRidgeCC,55,IC.,CU,Inc to C/Not in Program
+843,BlueRidgeCC,56,ID.,CU,Inc to D/Not in Program
+843,BlueRidgeCC,57,WF.,CU,Withdrawal Failing/Not in Prog
+843,BlueRidgeCC,58,AP.,CU,Adv Placement/Not in Program
+843,BlueRidgeCC,59,CR.,CU,Credit by Exam/Not in Program
+843,BlueRidgeCC,6,F,CU,Failing
+843,BlueRidgeCC,60,TR.,CU,Transfer Credit/Not in Program
+843,BlueRidgeCC,61,Y,CU,Audit
+843,BlueRidgeCC,62,CR,CU,Credit by Exam
+843,BlueRidgeCC,63,TR,CU,Transfer Credit
+843,BlueRidgeCC,64,CLP,CU,CLEP Credit
+843,BlueRidgeCC,65,WP.,CU,Withdraw Passing/Not in Prog
+843,BlueRidgeCC,66,I,CE,Incomplete
+843,BlueRidgeCC,67,IS,CE,Incomplete Satisfactory
+843,BlueRidgeCC,68,NS,CE,No Show
+843,BlueRidgeCC,69,NC,CU,Non-Course
+843,BlueRidgeCC,7,I,CU,Incomplete
+843,BlueRidgeCC,72,IC*,CU,IC* Course Repeated
+843,BlueRidgeCC,73,CR*,CU,Cr* Course Repeated
+843,BlueRidgeCC,74,N,CU,N No Show/Withdrawal
+843,BlueRidgeCC,76,Y.,CU,Y. Audit/Not in Program
+843,BlueRidgeCC,77,ID*,CU,ID* Course Repeated
+843,BlueRidgeCC,79,OW,BSP,Officially Withdrew
+843,BlueRidgeCC,82,NS,CU,Ns No Show
+843,BlueRidgeCC,83,R,CU,Repeat
+843,BlueRidgeCC,84,P,CU,Pass
+843,BlueRidgeCC,85,CC,SDMA,Course Completion
+843,BlueRidgeCC,86,R,SDMA,Repeat
+843,BlueRidgeCC,87,NR,SDMA,Never Reached
+843,BlueRidgeCC,9,AU,CU,Audit
+892,WayneCC,1,A,CU,Excellent
+892,WayneCC,10,A,CE,Excellent
+892,WayneCC,11,B,CE,Above Average
+892,WayneCC,12,C,CE,Average
+892,WayneCC,13,D,CE,Below Average
+892,WayneCC,14,F,CE,Failing
+892,WayneCC,15,S,CE,Satisfactory
+892,WayneCC,16,U,CE,Unsatisfactory
+892,WayneCC,17,W,CE,Withdrawn
+892,WayneCC,18,AU,CE,Audit
+892,WayneCC,19,A,BSP,Excellent
+892,WayneCC,2,B,CU,Above Average
+892,WayneCC,20,B,BSP,Above Average
+892,WayneCC,21,C,BSP,Average
+892,WayneCC,22,D,BSP,Below Average
+892,WayneCC,23,F,BSP,Failing
+892,WayneCC,24,S,BSP,Satisfactory
+892,WayneCC,25,U,BSP,Unsatisfactory
+892,WayneCC,26,W,BSP,Withdrawn
+892,WayneCC,27,T,CU,Transfer
+892,WayneCC,28,AP,CU,Advanced Placement
+892,WayneCC,3,C,CU,Average
+892,WayneCC,30,X,CU,Credit by Exam
+892,WayneCC,31,W,CU,Withdrew
+892,WayneCC,32,M,CU,Midterm
+892,WayneCC,34,I,BSP,Incomplete
+892,WayneCC,38,I,CE,Incomplete
+892,WayneCC,39,NG,CE,No Grade
+892,WayneCC,4,D,CU,Below Average
+892,WayneCC,40,ND,CU,Forgiven Grade D
+892,WayneCC,41,NF,CU,Forgiven Grade F
+892,WayneCC,42,NWF,CU,Forgiven Grade WF
+892,WayneCC,43,P,CU,Passing
+892,WayneCC,44,NG,CU,No Grade
+892,WayneCC,59,S,CUCV,Satisfactory Progress
+892,WayneCC,6,F,CU,Failing
+892,WayneCC,60,S1,CUCV,Satisfactory Progress Level 1
+892,WayneCC,61,S2,CUCV,Satisfactory Progress Level 2
+892,WayneCC,62,S3,CUCV,Satisfactory Progress Level 3
+892,WayneCC,63,U,CUCV,Unsatisfactory
+892,WayneCC,64,PC,CUCV,Previous Credit
+892,WayneCC,7,I,CU,Incomplete
+892,WayneCC,71,WP,CUCV,Withdrew Passing
+892,WayneCC,72,NA,CU,Never Attended
+892,WayneCC,73,NA,CE,Never Attended
+892,WayneCC,75,P,CECV,Pass
+892,WayneCC,76,T,CECV,T
+892,WayneCC,77,NC,CECV,NC
+892,WayneCC,78,NC,BSPC,NC
+892,WayneCC,79,NG,BSPC,No Grade
+892,WayneCC,8,WF,CU,Withdrew
+892,WayneCC,80,T,BSPC,Transfer
+892,WayneCC,81,CE,BSPC,CE
+892,WayneCC,83,OW,CU,Official Withdrawal
+892,WayneCC,84,T,CE,Transfer
+892,WayneCC,85,BH,CU,Above Average - Honors
+892,WayneCC,86,AH,CU,Excellent - Honors
+892,WayneCC,87,P,CE,Passing
+892,WayneCC,88,WP,CU,Withdrew - Passing
+892,WayneCC,89,R,CU,Repeat
+892,WayneCC,9,AU,CU,Audit
+892,WayneCC,90,EP,HSGP,Evaluation Pass
+892,WayneCC,91,EN,HSGP,Evaluation Not Pass
+820,ClevelandCC,1,A,CU,Excellent
+820,ClevelandCC,14,F,CE,Failing
+820,ClevelandCC,15,S,CE,Satisfactory
+820,ClevelandCC,16,U,CE,Unsatisfactory
+820,ClevelandCC,17,W,CE,Withdrawn
+820,ClevelandCC,19,A,BSP,Excellent
+820,ClevelandCC,2,B,CU,Above Average
+820,ClevelandCC,20,B,BSP,Above Average
+820,ClevelandCC,21,C,BSP,Average
+820,ClevelandCC,22,D,BSP,Below Average
+820,ClevelandCC,23,F,BSP,Failing
+820,ClevelandCC,27,MT,CU,Military Credit
+820,ClevelandCC,28,AP,CU,Advanced Placement
+820,ClevelandCC,29,AR,CU,Articulated Credit
+820,ClevelandCC,3,C,CU,Average
+820,ClevelandCC,32,P,CE,Pass
+820,ClevelandCC,34,NS,CE,No Show
+820,ClevelandCC,36,PO,CE,Participation Only
+820,ClevelandCC,4,D,CU,Below Average
+820,ClevelandCC,5,W,CU,Withdrawal
+820,ClevelandCC,51,PO,BSP,Participation Only
+820,ClevelandCC,54,CE,CU,Credit by Exam
+820,ClevelandCC,55,CL,CU,CLEP
+820,ClevelandCC,56,EL,CU,Experiential Learning
+820,ClevelandCC,57,S,CUCV,Satisfactory
+820,ClevelandCC,58,U,CUCV,Unsatisfactory
+820,ClevelandCC,6,F,CU,Failing
+820,ClevelandCC,60,NG,CE,No Grade
+820,ClevelandCC,61,A*,CUCV,A*
+820,ClevelandCC,62,B*,CUCV,B*
+820,ClevelandCC,63,C*,CUCV,C*
+820,ClevelandCC,64,D*,CUCV,D*
+820,ClevelandCC,65,F*,CUCV,F*
+820,ClevelandCC,7,I,CU,Incomplete
+820,ClevelandCC,72,..,BSPC,..
+820,ClevelandCC,73,DP,BSPC,DP
+820,ClevelandCC,74,..,CECV,Participation
+820,ClevelandCC,75,AU,CECV,Audit
+820,ClevelandCC,76,C,CECV,Conflict
+820,ClevelandCC,77,D,CECV,Drop
+820,ClevelandCC,78,DP,CECV,Dropped
+820,ClevelandCC,8,TR,CU,Transfer Credit
+820,ClevelandCC,80,S,CECV,Satisfactory
+820,ClevelandCC,83,IP,BSP,In Progress
+820,ClevelandCC,84,AF,CU,A - Forgiven
+820,ClevelandCC,85,BF,CU,B - Forgiven
+820,ClevelandCC,86,CF,CU,C - Forgiven
+820,ClevelandCC,87,DF,CU,D - Forgiven
+820,ClevelandCC,88,FF,CU,F - Forgiven
+820,ClevelandCC,89,AF,CUCV,A-Forgiven
+820,ClevelandCC,9,AU,CU,Audit
+820,ClevelandCC,90,BF,CUCV,B - Forgiven
+820,ClevelandCC,91,CF,CUCV,C - Forgiven
+820,ClevelandCC,92,DF,CUCV,D - Forgiven
+820,ClevelandCC,93,FF,CUCV,F - Forgiven
+820,ClevelandCC,94,P,CU,Pass
+820,ClevelandCC,95,R,CU,Re-Enroll
+820,ClevelandCC,96,X,CU,Instructor Did Not Report
+820,ClevelandCC,97,CC,CU,Credit by Credential
+824,CravenCC,1,A,CU,Excellent
+824,CravenCC,10,A,CE,Excellent
+824,CravenCC,101,CC,SDMA,Course Completion
+824,CravenCC,102,NR,SDMA,Never Reached
+824,CravenCC,103,R,SDMA,Repeat
+824,CravenCC,104,S,CU,Satisfactory
+824,CravenCC,11,B,CE,Above Average
+824,CravenCC,12,C,CE,Average
+824,CravenCC,13,D,CE,Below Average
+824,CravenCC,14,F,CE,Failing
+824,CravenCC,15,S,CE,Satisfactory
+824,CravenCC,16,U,CE,Unsatisfactory
+824,CravenCC,17,W,CE,Withdrawn
+824,CravenCC,19,A,BSP,Excellent
+824,CravenCC,2,B,CU,Above Average
+824,CravenCC,20,B,BSP,Above Average
+824,CravenCC,21,C,BSP,Average
+824,CravenCC,22,D,BSP,Below Average
+824,CravenCC,23,F,BSP,Failing
+824,CravenCC,24,S,BSP,Satisfactory
+824,CravenCC,25,U,BSP,Unsatisfactory
+824,CravenCC,26,W,BSP,Withdrawn
+824,CravenCC,27,AU,CU,Audit
+824,CravenCC,28,AW,CU,Automatic Withdrawal
+824,CravenCC,29,CE,CU,Credit by Examination
+824,CravenCC,3,C,CU,Average
+824,CravenCC,30,NA,CU,Never Attended
+824,CravenCC,31,NG,CU,No Grade
+824,CravenCC,32,SA,CU,Satisfactory - Excellent
+824,CravenCC,33,SB,CU,Satisfactory - Above Average
+824,CravenCC,34,SP,CU,Satisfactory Progress
+824,CravenCC,35,P,CE,Passing
+824,CravenCC,36,I,CE,Incomplete
+824,CravenCC,37,P,BSP,Passing
+824,CravenCC,38,I,BSP,Incomplete
+824,CravenCC,39,FG,CU,Forgiveness Grade
+824,CravenCC,4,D,CU,Below Average
+824,CravenCC,40,*,CUCV,*
+824,CravenCC,41,*F,CUCV,*F
+824,CravenCC,42,*U,CUCV,*U
+824,CravenCC,43,@W,CUCV,@W
+824,CravenCC,44,A.,CUCV,A.
+824,CravenCC,45,AU.,CUCV,AU.
+824,CravenCC,46,B.,CUCV,B.
+824,CravenCC,47,CE.,CUCV,CE.
+824,CravenCC,48,F*,CUCV,F*
+824,CravenCC,49,F.,CUCV,F.
+824,CravenCC,5,U,CU,Unsatisfactory
+824,CravenCC,50,I.,CUCV,I.
+824,CravenCC,51,N,CUCV,N
+824,CravenCC,52,NC,CUCV,NC
+824,CravenCC,53,NG.,CUCV,NG.
+824,CravenCC,54,P,CUCV,P
+824,CravenCC,55,S,CUCV,S
+824,CravenCC,56,S.,CUCV,S.
+824,CravenCC,57,U.,CUCV,U.
+824,CravenCC,58,W.,CUCV,W.
+824,CravenCC,59,W@,CUCV,W@
+824,CravenCC,6,F,CU,Failing
+824,CravenCC,61,AU,CE,AU - Record Purposes Only
+824,CravenCC,62,P,CU,P
+824,CravenCC,63,SA,DE,Satisfactory With an a
+824,CravenCC,64,SB,DE,Satisfactory With a B
+824,CravenCC,65,SP,DE,Satisfactory Progress
+824,CravenCC,66,U,DE,Unsatisfactory
+824,CravenCC,67,W,DE,Withdrawal
+824,CravenCC,7,I,CU,Incomplete Grade
+824,CravenCC,70,CE.,CU,Credit by Examination
+824,CravenCC,72,@W,CU,Automatic Withdrawal
+824,CravenCC,73,A,CUI,Excellent
+824,CravenCC,75,B,CUI,Above Average
+824,CravenCC,76,C,CUI,Average
+824,CravenCC,77,D,CUI,Below Average
+824,CravenCC,79,F,CUI,Failing
+824,CravenCC,8,W,CU,Withdrawal
+824,CravenCC,80,I,CUI,Incomplete Grade
+824,CravenCC,81,P,CUI,Pass
+824,CravenCC,82,W,CUI,Withdrawal
+824,CravenCC,83,AU,CUI,AU
+824,CravenCC,85,AW,CUI,Automatic Withdrawal
+824,CravenCC,86,CE,CUI,Credit by Examination
+824,CravenCC,87,CE.,CUI,Credit by Examination
+824,CravenCC,88,FG,CUI,Forgiveness Grade
+824,CravenCC,89,NA,CUI,Never Attended
+824,CravenCC,90,NG,CUI,No Grade
+824,CravenCC,91,SA,CUI,Satisfactory With an a
+824,CravenCC,92,SB,CUI,Satisfactory With a B
+824,CravenCC,93,SP,CUI,Satisfactory Progress
+824,CravenCC,94,@W,CUI,Automatic Withdrawal
+824,CravenCC,95,U,CUI,Unsatisfactory
+824,CravenCC,96,AU.,CU,Audit
+824,CravenCC,97,W,CUCV,W
+824,CravenCC,98,NA,CE,Never Attended
+883,Stanly CC,33,UN,CU,Unsatisfactory
+883,Stanly CC,55,B*,CU,B*
+883,Stanly CC,7,I,CU,Incomplete
+883,Stanly CC,44,NG,CE,No Grade Awarded
+883,Stanly CC,66,D,CE,D
+883,Stanly CC,88,P,CUDE,Pass
+883,Stanly CC,8,NG,BSP,No Grade Awarded
+883,Stanly CC,34,NA,CU,Never Attended
+883,Stanly CC,45,U,CU,U
+883,Stanly CC,89,R,CUDE,Retake
+883,Stanly CC,46,S,CU,S
+883,Stanly CC,57,C*,CU,C*
+883,Stanly CC,9,AU,CU,Audit
+883,Stanly CC,35,AP,CU,Advanced Placement Credit
+883,Stanly CC,79,D,BSP,D
+883,Stanly CC,90,W,CUDE,Withdrawal
+883,Stanly CC,36,EX,CU,Excempt From Course
+883,Stanly CC,80,A**,CU,A**
+883,Stanly CC,47,WP,CU,WP
+883,Stanly CC,58,S*,CU,S*
+883,Stanly CC,48,D*,CU,D*
+883,Stanly CC,81,B**,CU,B**
+883,Stanly CC,15,S,CE,Satisfactory 80+% Attendance
+883,Stanly CC,59,U*,CU,U*
+883,Stanly CC,37,TC,CU,Transfer Credit
+883,Stanly CC,92,I,CUDE,Incomplete
+883,Stanly CC,38,PE,CU,Proficiency Exam
+883,Stanly CC,1,A,CU,Excellent
+883,Stanly CC,60,P*,CU,P*
+883,Stanly CC,16,U,CE,Unsatisfactory <80% Attendance
+883,Stanly CC,49,F*,CU,F*
+883,Stanly CC,27,P,BSP,Pass
+883,Stanly CC,93,CC,SDMA,Course Completion
+883,Stanly CC,82,C**,CU,C**
+883,Stanly CC,50,WF,CU,WF
+883,Stanly CC,61,*,CU,*
+883,Stanly CC,2,B,CU,Above Average
+883,Stanly CC,39,SA,CU,Satisfactory
+883,Stanly CC,17,W,CE,Withdrawn
+883,Stanly CC,83,D**,CU,D**
+883,Stanly CC,94,R,SDMA,Repeat
+883,Stanly CC,101,EP,HSGP,Evaluation Pass
+883,Stanly CC,51,Y,CU,Y
+883,Stanly CC,29,I,CE,Incomplete
+883,Stanly CC,3,C,CU,Average
+883,Stanly CC,62,I*,CU,I*
+883,Stanly CC,40,TP,CU,Tech Prep Credit
+883,Stanly CC,84,CE,CU,Credit by Exam
+883,Stanly CC,95,NR,SDMA,Never Reached
+883,Stanly CC,102,EN,HSGP,Evaluation Not Pass
+883,Stanly CC,74,IN,BSP,Incomplete
+883,Stanly CC,41,NA,BSP,Never Attended
+883,Stanly CC,19,A,BSP,Excellent
+883,Stanly CC,4,D,CU,Below Average
+883,Stanly CC,30,P,CE,Pass
+883,Stanly CC,52,CS,CU,CS
+883,Stanly CC,85,UN*,CU,UN*
+883,Stanly CC,20,B,BSP,Above Average
+883,Stanly CC,75,S,BSP,Satisfactory
+883,Stanly CC,53,P,CU,P
+883,Stanly CC,64,IR,CU,IR
+883,Stanly CC,31,NA,CE,Never Attended
+883,Stanly CC,32,W,CU,Withdrawal
+883,Stanly CC,54,A*,CU,A*
+883,Stanly CC,76,U,BSP,Unsatisfactory
+883,Stanly CC,6,F,CU,Failing
+883,Stanly CC,87,C,BSP,C
+890,Wake TCC,1,A,CU,Excellent
+890,Wake TCC,2,B,CU,Above Average
+890,Wake TCC,3,C,CU,Average
+890,Wake TCC,4,D,CU,Below Average
+890,Wake TCC,6,F,CU,Failing
+890,Wake TCC,7,I,CU,Incomplete
+890,Wake TCC,8,NG,BSP,No Grade
+890,Wake TCC,9,AU,CU,Audit
+890,Wake TCC,10,NG,CE,No Grade
+890,Wake TCC,11,W,CU,Withdrew
+890,Wake TCC,12,WF,CU,Withdrew Failing
+890,Wake TCC,13,WP,CU,Withdrew Passing
+890,Wake TCC,14,NA,CU,Never Attended
+890,Wake TCC,15,S,CE,Satisfactory
+890,Wake TCC,16,U,CE,Unsatisfactory
+890,Wake TCC,17,W,CE,Withdrawn
+890,Wake TCC,18,X,CU,Credit by Examination
+890,Wake TCC,19,A,BSP,Excellent
+890,Wake TCC,20,B,BSP,Above Average
+890,Wake TCC,21,C,BSP,Average
+890,Wake TCC,22,D,BSP,Below Average
+890,Wake TCC,23,F,BSP,Failing
+890,Wake TCC,24,S,BSP,Satisfactory
+890,Wake TCC,25,U,BSP,Unsatisfactory
+890,Wake TCC,26,W,BSP,Withdrawn
+890,Wake TCC,28,P,CU,Pass
+890,Wake TCC,29,IP,CU,In Progress
+890,Wake TCC,30,S,CUCV,S
+890,Wake TCC,31,T,CUCV,T
+890,Wake TCC,32,A*,CUCV,A*
+890,Wake TCC,33,B*,CUCV,B*
+890,Wake TCC,34,C*,CUCV,C*
+890,Wake TCC,35,D*,CUCV,D*
+890,Wake TCC,36,F*,CUCV,F*
+890,Wake TCC,37,W*,CUCV,W*
+890,Wake TCC,38,T*,CUCV,T*
+890,Wake TCC,39,WF*,CUCV,WF*
+890,Wake TCC,40,WP*,CUCV,WP*
+890,Wake TCC,41,X*,CUCV,X*
+890,Wake TCC,42,P*,CUCV,P*
+890,Wake TCC,43,S*,CUCV,S*
+890,Wake TCC,44,U*,CUCV,U*
+890,Wake TCC,45,FG,CU,Forgiven
+890,Wake TCC,46,*,CUCV,*
+890,Wake TCC,47,*,CUCV,*
+890,Wake TCC,49,A,CECV,A
+890,Wake TCC,50,B,CECV,B
+890,Wake TCC,51,C,CECV,C
+890,Wake TCC,52,D,CECV,D
+890,Wake TCC,53,T,CU,Pre-Colleague Transfer
+890,Wake TCC,54,A,CUD,Excellent
+890,Wake TCC,55,B,CUD,Above Average
+890,Wake TCC,56,C,CUD,Average
+890,Wake TCC,57,F,CUD,Failing
+890,Wake TCC,58,W,CUD,Withdrew
+890,Wake TCC,59,WF,CUD,Withdrew Failing
+890,Wake TCC,60,NA,CUD,Never Attended
+890,Wake TCC,61,I,CUD,Incomplete
+890,Wake TCC,62,WP,CUD,Withdrew Passing
+890,Wake TCC,63,AU,CUD,Audit
+890,Wake TCC,64,D,CUD,Below Average
+890,Wake TCC,65,TA,TRAN,TA
+890,Wake TCC,66,TB,TRAN,TB
+890,Wake TCC,67,TC,TRAN,TC
+890,Wake TCC,68,TA,CU,TA
+890,Wake TCC,69,TB,CU,TB
+890,Wake TCC,70,TC,CU,TC
+890,Wake TCC,71,P,CUD,Excellent
+890,Wake TCC,72,R,CUD,Failing
+890,Wake TCC,73,TP,CU,TP
+890,Wake TCC,74,CC,SDMA,Course Completion
+890,Wake TCC,75,R,SDMA,Repeat
+890,Wake TCC,76,NR,SDMA,Never Reached
+890,Wake TCC,79,NS,CE,No Show
+838,Guilford TCC,1,A,CU,Excellent
+838,Guilford TCC,10,A,CE,Excellent
+838,Guilford TCC,11,B,CE,Above Average
+838,Guilford TCC,12,C,CE,Average
+838,Guilford TCC,13,D,CE,Below Average
+838,Guilford TCC,14,F,CE,Failing
+838,Guilford TCC,15,S,CE,Satisfactory
+838,Guilford TCC,16,U,CE,Unsatisfactory
+838,Guilford TCC,17,W,CE,Withdrawn
+838,Guilford TCC,18,AU,CE,Audit
+838,Guilford TCC,19,A,BSP,Excellent
+838,Guilford TCC,2,B,CU,Above Average
+838,Guilford TCC,20,B,BSP,Above Average
+838,Guilford TCC,21,C,BSP,Average
+838,Guilford TCC,22,D,BSP,Below Average
+838,Guilford TCC,23,F,BSP,Failing
+838,Guilford TCC,24,S,BSP,Satisfactory
+838,Guilford TCC,25,U,BSP,Unsatisfactory
+838,Guilford TCC,26,W,BSP,Withdrawn
+838,Guilford TCC,27,PC,CU,Proficiency C
+838,Guilford TCC,28,PD,CU,Proficiency D
+838,Guilford TCC,29,S,CU,Satisfactory
+838,Guilford TCC,3,C,CU,Average
+838,Guilford TCC,30,U,CU,Unsatisfactory
+838,Guilford TCC,31,W,CU,Withdrawn
+838,Guilford TCC,32,X,CU,X
+838,Guilford TCC,33,TA,CU,Transfer A
+838,Guilford TCC,34,TB,CU,Transfer B
+838,Guilford TCC,35,TC,CU,Transfer C
+838,Guilford TCC,36,RA,CU,Repeat A
+838,Guilford TCC,37,RB,CU,Repeat B
+838,Guilford TCC,38,RC,CU,Repeat C
+838,Guilford TCC,39,RD,CU,Repeat D
+838,Guilford TCC,4,D,CU,Below Average
+838,Guilford TCC,40,RF,CU,Repeat F
+838,Guilford TCC,41,TS,CU,Transfer Satisfactory
+838,Guilford TCC,42,NA,CU,Forgiveness A
+838,Guilford TCC,43,NB,CU,Forgiveness B
+838,Guilford TCC,44,NC,CU,Forgiveness C
+838,Guilford TCC,45,ND,CU,Forgiveness D
+838,Guilford TCC,46,NF,CU,Forgiveness F
+838,Guilford TCC,47,N,CU,N
+838,Guilford TCC,48,TD,CU,Transfer D
+838,Guilford TCC,49,PS,CU,Proficiency Satisfactory
+838,Guilford TCC,5,PA,CU,Proficiency a
+838,Guilford TCC,50,TH,CU,Transfer Honors
+838,Guilford TCC,51,RS,CU,Repeat Satisfactory
+838,Guilford TCC,52,P,CU,Proficiency
+838,Guilford TCC,53,DP,CU,Dropped
+838,Guilford TCC,54,NW,CU,Forgiven Withdrawal
+838,Guilford TCC,55,O,CE,Other
+838,Guilford TCC,56,Inva,Inva,Invalid Grade Code - Per Inst
+838,Guilford TCC,57,Inva,Inva,Invalid Grade Code - Per Inst
+838,Guilford TCC,58,H,BSP,H
+838,Guilford TCC,59,XA,CU,XA
+838,Guilford TCC,6,F,CU,Failing
+838,Guilford TCC,60,XB,CU,XB
+838,Guilford TCC,61,XC,CU,XC
+838,Guilford TCC,62,XS,CU,XS
+838,Guilford TCC,63,Inva,Inva,Invalid Grade Code - Per Inst
+838,Guilford TCC,64,NS,CU,No Show
+838,Guilford TCC,65,NS,CE,No Show
+838,Guilford TCC,66,NS,BSP,No Show
+838,Guilford TCC,67,Inva,Inva,Invalid Grade Code - Per Inst
+838,Guilford TCC,68,Inva,Inva,Invalid Grade Code - Per Inst
+838,Guilford TCC,69,XD,CU,XD
+838,Guilford TCC,7,I,CU,Incomplete
+838,Guilford TCC,70,I,BSP,Incomplete
+838,Guilford TCC,71,RU,CU,Repeat Unsatisfactory
+838,Guilford TCC,72,RX,CU,Repeat X
+838,Guilford TCC,73,Inva,Inva,Invalid Grade Code - Per Inst
+838,Guilford TCC,74,I,CE,Incomplete
+838,Guilford TCC,75,Inva,Inva,Invalid Grade Code - Per Inst
+838,Guilford TCC,76,R,CU,Repeat
+838,Guilford TCC,77,CC,SDMA,Course Completion
+838,Guilford TCC,78,R,SDMA,Repeat
+838,Guilford TCC,79,NR,SDMA,Never Entered
+838,Guilford TCC,8,PB,CU,Proficiency B
+838,Guilford TCC,80,EP,HSGP,Evaluation Pass
+838,Guilford TCC,81,EN,HSGP,Evaluation Not Pass
+838,Guilford TCC,9,AU,CU,Audit
+884,Surry CC,1,A,CU,Excellent
+884,Surry CC,10,A,CE,Excellent
+884,Surry CC,11,B,CE,Above Average
+884,Surry CC,12,C,CE,Average
+884,Surry CC,13,D,CE,Below Average
+884,Surry CC,14,F,CE,Failing
+884,Surry CC,15,S,CE,Satisfactory
+884,Surry CC,16,U,CE,Unsatisfactory
+884,Surry CC,17,W,CE,Withdrawn
+884,Surry CC,18,AU,CE,Audit
+884,Surry CC,19,A,BSP,Excellent
+884,Surry CC,2,B,CU,Above Average
+884,Surry CC,20,B,BSP,Above Average
+884,Surry CC,21,C,BSP,Average
+884,Surry CC,22,D,BSP,Below Average
+884,Surry CC,23,F,BSP,Failing
+884,Surry CC,24,S,BSP,Satisfactory
+884,Surry CC,25,U,BSP,Unsatisfactory
+884,Surry CC,26,W,BSP,Withdrawn
+884,Surry CC,27,NC,CU,No Credit
+884,Surry CC,28,TR,CU,Transfer Credit
+884,Surry CC,29,CR,CU,Credit by Proficiency
+884,Surry CC,3,C,CU,Average
+884,Surry CC,30,A.,CU,A.
+884,Surry CC,31,B.,CU,B.
+884,Surry CC,32,C.,CU,C.
+884,Surry CC,33,D.,CU,D.
+884,Surry CC,34,F.,CU,F.
+884,Surry CC,36,I,CE,Incomplete
+884,Surry CC,37,TP,CU,Tech Prep
+884,Surry CC,38,A*,CUCV,A*
+884,Surry CC,39,B*,CUCV,B*
+884,Surry CC,4,D,CU,Below Average
+884,Surry CC,40,C*,CUCV,C*
+884,Surry CC,41,D*,CUCV,D*
+884,Surry CC,42,F*,CUCV,F*
+884,Surry CC,43,I*,CUCV,I*
+884,Surry CC,44,WP,CUCV,WP
+884,Surry CC,45,WF,CUCV,WF
+884,Surry CC,46,P,CUCV,Passing
+884,Surry CC,5,NS,CU,No Show
+884,Surry CC,51,NS,CE,No Show
+884,Surry CC,52,S,CU,S
+884,Surry CC,53,U,CU,U
+884,Surry CC,55,P,CU,P
+884,Surry CC,56,R,CU,R
+884,Surry CC,59,WF,CU,WF
+884,Surry CC,6,F,CU,Failing
+884,Surry CC,7,I,CU,Incomplete
+884,Surry CC,8,W,CU,Withdrawal
+884,Surry CC,9,AU,CU,Audit
+850,Martin CC,1,A,CU,Excellent
+850,Martin CC,10,A,CE,Excellent
+850,Martin CC,100,NA,CU,Never Attended
+850,Martin CC,102,NA,DEV,Never Attended
+850,Martin CC,104,P,DEV,Passed
+850,Martin CC,106,R,DEV,Re-Enroll
+850,Martin CC,107,P,CU,Passed
+850,Martin CC,108,R,CU,Re-Enroll
+850,Martin CC,109,EP,HSGP,Evaluation Pass
+850,Martin CC,11,B,CE,Above Average
+850,Martin CC,110,EN,HSGP,Evaluation Not Pass
+850,Martin CC,12,C,CE,Average
+850,Martin CC,13,D,CE,Below Average
+850,Martin CC,14,F,CE,Failing
+850,Martin CC,15,S,CE,Satisfactory
+850,Martin CC,16,U,CE,Unsatisfactory
+850,Martin CC,17,W,CE,Withdrawn
+850,Martin CC,18,AU,CE,Audit
+850,Martin CC,19,A,BSP,Excellent
+850,Martin CC,2,B,CU,Above Average
+850,Martin CC,20,B,BSP,Above Average
+850,Martin CC,21,C,BSP,Average
+850,Martin CC,22,D,BSP,Below Average
+850,Martin CC,23,F,BSP,Failing
+850,Martin CC,24,S,BSP,Satisfactory
+850,Martin CC,25,U,BSP,Unsatisfactory
+850,Martin CC,26,W,BSP,Withdrawn
+850,Martin CC,27,W,CU,Withdawal
+850,Martin CC,3,C,CU,Average
+850,Martin CC,30,XA,CU,XA
+850,Martin CC,31,IA,CU,IA
+850,Martin CC,32,XB,CU,Above Average
+850,Martin CC,33,IB,CU,Very Good
+850,Martin CC,34,XC,CU,Average
+850,Martin CC,35,IC,CU,Average
+850,Martin CC,36,ID,CU,Below Average
+850,Martin CC,37,IF,CU,Incomplete Failing
+850,Martin CC,4,D,CU,Below Average
+850,Martin CC,40,WF,CU,Administrative Withdrawal
+850,Martin CC,41,W,ACA8,Withdrawal
+850,Martin CC,42,AU,ACA8,Audit
+850,Martin CC,43,B,ACA8,Above Average
+850,Martin CC,44,C,ACA8,Average
+850,Martin CC,45,WF,ACA8,Withdrawal Failing
+850,Martin CC,46,NA,ACA8,Never Attended
+850,Martin CC,47,W,DEV,Withdrawal
+850,Martin CC,48,AU,DEV,Audit
+850,Martin CC,5,I,CE,Incomplete
+850,Martin CC,51,F,DEV,Failing
+850,Martin CC,52,WF,DEV,Administrative Withdrawal
+850,Martin CC,53,A,DEV,Excellent
+850,Martin CC,54,B,DEV,Above Average
+850,Martin CC,55,C,DEV,Average
+850,Martin CC,56,T,CU,Transfer Credit
+850,Martin CC,57,AP,CU,Advanced Placement
+850,Martin CC,58,AR,CU,Articulation Agreement
+850,Martin CC,59,I,DEV,Incomplete
+850,Martin CC,6,F,CU,Failing
+850,Martin CC,60,IF,DEV,Incomplete Failing
+850,Martin CC,62,CT,CUCV,Credential Transfer
+850,Martin CC,63,AP,CUCV,Advance Placement
+850,Martin CC,65,U,CUCV,Unsatisfactory
+850,Martin CC,66,-,CUCV,-
+850,Martin CC,67,NC,CUCV,No Credit
+850,Martin CC,68,G,CUCV,Good
+850,Martin CC,69,S,CUCV,Satisfactory
+850,Martin CC,7,I,CU,Incomplete
+850,Martin CC,70,CS,CUCV,Continued Study
+850,Martin CC,71,AR,CUCV,Aticulation Agreement
+850,Martin CC,72,P,CUCV,Pass
+850,Martin CC,73,WE,CUCV,Withdrew Early
+850,Martin CC,74,E,CUCV,Excellent
+850,Martin CC,76,IP,CUCV,In Progress
+850,Martin CC,77,NA,CUCV,Never Attended
+850,Martin CC,79,A*,CUCV,Excellent
+850,Martin CC,8,A,ACA8,Excellent
+850,Martin CC,80,B*,CUCV,Above Average
+850,Martin CC,81,C*,CUCV,Average
+850,Martin CC,82,D*,CUCV,Below Average
+850,Martin CC,83,F*,CUCV,Failing
+850,Martin CC,84,I*,CUCV,Incomplete
+850,Martin CC,85,T*,CUCV,Transfer
+850,Martin CC,86,S*,CUCV,Satisfactory
+850,Martin CC,87,W*,CUCV,Withdrawal
+850,Martin CC,88,G*,CUCV,Good
+850,Martin CC,89,E*,CUCV,Excellent
+850,Martin CC,9,AU,CU,Audit
+850,Martin CC,90,P*,CUCV,Pass
+850,Martin CC,91,-*,CUCV,-*
+850,Martin CC,92,IA*,CUCV,IA*
+850,Martin CC,94,XB*,CUCV,XB*
+850,Martin CC,95,XA*,CUCV,XA*
+850,Martin CC,96,XD,CUCV,XD
+850,Martin CC,97,CIP,CUCV,CIP
+850,Martin CC,98,IB*,CUCV,IB*
+898,WilsonCC,1,A,CU,Excellent
+898,WilsonCC,100,FR,CUCV,FR
+898,WilsonCC,101,A*,CUCV,A*
+898,WilsonCC,102,B*,CUCV,B*
+898,WilsonCC,103,C*,CUCV,C*
+898,WilsonCC,104,D*,CUCV,D*
+898,WilsonCC,105,F*,CUCV,F*
+898,WilsonCC,106,W,CUCV,Withdrawal
+898,WilsonCC,107,WF,CUCV,Withdrawal After Drop Period
+898,WilsonCC,108,WF*,CUCV,WF*
+898,WilsonCC,109,AU,CUCV,Audit
+898,WilsonCC,110,EX,CUCV,Exempt
+898,WilsonCC,111,NA,CUCV,Never Attended
+898,WilsonCC,112,TC,CUCV,Transfer Credit
+898,WilsonCC,113,T*,CUCV,T*
+898,WilsonCC,114,T,CUCV,T
+898,WilsonCC,115,WR,CUCV,WR
+898,WilsonCC,116,CT,CUCV,Continuation
+898,WilsonCC,117,IP,CUCV,In Progress
+898,WilsonCC,118,X,CUCV,Exempt
+898,WilsonCC,119,X*,CUCV,X*
+898,WilsonCC,120,P,CUCV,Pass
+898,WilsonCC,121,P*,CUCV,P*
+898,WilsonCC,122,W*,CUCV,W*
+898,WilsonCC,123,WD,CUCV,Withdrawal
+898,WilsonCC,124,NG,CUCV,No Grade
+898,WilsonCC,125,WFR,CUCV,WFR
+898,WilsonCC,126,S,CUCV,Satisfactory
+898,WilsonCC,127,U,CUCV,Unsatisfactory
+898,WilsonCC,128,I,CUCV,Incomplete
+898,WilsonCC,130,A,CECV,Excellent
+898,WilsonCC,131,B,CECV,Above Average
+898,WilsonCC,132,C,CECV,Average
+898,WilsonCC,133,D,CECV,Below Average
+898,WilsonCC,134,F,CECV,Failing
+898,WilsonCC,135,I,CECV,Incomplete
+898,WilsonCC,136,S,CECV,Satisfactory
+898,WilsonCC,137,U,CECV,Unsatisfactory
+898,WilsonCC,138,W,CECV,Withdrawn
+898,WilsonCC,139,NA,CECV,Never Attended
+898,WilsonCC,140,A,BSCV,Excellent
+898,WilsonCC,141,B,BSCV,Above Average
+898,WilsonCC,142,C,BSCV,Average
+898,WilsonCC,144,D,BSCV,Below Average
+898,WilsonCC,145,F,BSCV,Failing
+898,WilsonCC,146,NA,BSCV,Never Attended
+898,WilsonCC,147,NG,BSCV,No Grade
+898,WilsonCC,148,S,BSCV,Satisfactory
+898,WilsonCC,149,U,BSCV,Unsatisfactory
+898,WilsonCC,15,S,CE,Satisfactory
+898,WilsonCC,150,W,BSCV,Withdrawn
+898,WilsonCC,151,S,BSPC,Satisfactory
+898,WilsonCC,153,OW,AHS,Officially Withdrawn
+898,WilsonCC,155,NA,AHS,Never Attended
+898,WilsonCC,156,LR,CE,Late Registration
+898,WilsonCC,158,WAU,CU,Withdrawal From Audit
+898,WilsonCC,159,TC,TR,Transfer Credit
+898,WilsonCC,16,U,CE,Unsatisfactory
+898,WilsonCC,160,TC,CU,Transfer Credit
+898,WilsonCC,17,W,CE,Withdrawn
+898,WilsonCC,18,AU,CE,Audit
+898,WilsonCC,19,A,BSP,Excellent
+898,WilsonCC,2,B,CU,Above Average
+898,WilsonCC,20,B,BSP,Above Average
+898,WilsonCC,21,C,BSP,Average
+898,WilsonCC,22,D,BSP,Below Average
+898,WilsonCC,23,F,BSP,Failing
+898,WilsonCC,24,S,BSP,Satisfactory
+898,WilsonCC,25,U,BSP,Unsatisfactory
+898,WilsonCC,26,W,BSP,Withdrawn
+898,WilsonCC,27,W,CU,Withdrawal
+898,WilsonCC,28,WF,CU,WF
+898,WilsonCC,29,S,CU,Satisfactory
+898,WilsonCC,3,C,CU,Average
+898,WilsonCC,30,U,CU,Unsatisfactory
+898,WilsonCC,31,EX,CU,Exempt
+898,WilsonCC,32,NA,CU,Never Attended
+898,WilsonCC,34,NG,CU,No Grade
+898,WilsonCC,35,NG,BSP,No Grade
+898,WilsonCC,36,NG,CE,No Grade
+898,WilsonCC,4,D,CU,Below Average
+898,WilsonCC,47,A,AHS,94-100
+898,WilsonCC,49,B,AHS,86-93
+898,WilsonCC,50,C,AHS,78-85
+898,WilsonCC,51,D,AHS,70-77
+898,WilsonCC,52,F,AHS,Below 70
+898,WilsonCC,53,W,AHS,Withdrawn
+898,WilsonCC,54,NA,BSP,NA
+898,WilsonCC,55,NA,CE,Never Attended
+898,WilsonCC,56,A*,CU,A*
+898,WilsonCC,57,B*,CU,B*
+898,WilsonCC,58,C*,CU,C*
+898,WilsonCC,59,D*,CU,D*
+898,WilsonCC,6,F,CU,Failing
+898,WilsonCC,60,F*,CU,F*
+898,WilsonCC,61,WF*,CU,WF*
+898,WilsonCC,62,AR,CU,AR
+898,WilsonCC,63,BR,CU,BR
+898,WilsonCC,64,CR,CU,CR
+898,WilsonCC,65,DR,CU,DR
+898,WilsonCC,66,FR,CU,FR
+898,WilsonCC,67,WFR,CU,WFR
+898,WilsonCC,68,WR,CU,WR
+898,WilsonCC,7,I,CU,Incomplete
+898,WilsonCC,70,NG,AHS,No Grade
+898,WilsonCC,71,CT,CU,Continuation
+898,WilsonCC,72,T,CU,Transfer Credit
+898,WilsonCC,73,IP,CU,In Progress
+898,WilsonCC,74,X,CU,Credit by Exam
+898,WilsonCC,75,P,CU,Pass
+898,WilsonCC,76,X*,CU,X*
+898,WilsonCC,77,W*,CU,W*
+898,WilsonCC,78,T*,CU,T*
+898,WilsonCC,79,WD,CU,Withdrawn
+898,WilsonCC,80,P*,CU,P*
+898,WilsonCC,9,AU,CU,Audit
+898,WilsonCC,91,A,CUCV,Excellent
+898,WilsonCC,92,B,CUCV,Above Average
+898,WilsonCC,93,C,CUCV,Average
+898,WilsonCC,94,D,CUCV,Below Average
+898,WilsonCC,95,F,CUCV,Failure
+898,WilsonCC,96,AR,CUCV,AR
+898,WilsonCC,97,BR,CUCV,BR
+898,WilsonCC,98,CR,CUCV,CR
+898,WilsonCC,99,DR,CUCV,DR
+861,PiedmontCC,1,A,CU,
+861,PiedmontCC,100,NC,BSP,
+861,PiedmontCC,101,INC,BSP,
+861,PiedmontCC,102,I,BSP,
+861,PiedmontCC,103,S,BSP,
+861,PiedmontCC,104,W,BSP,
+861,PiedmontCC,105,INC,BSPC,
+861,PiedmontCC,106,I,BSPC,
+861,PiedmontCC,107,NC,BSPC,
+861,PiedmontCC,108,NS,CU,
+861,PiedmontCC,109,WF*,CU,
+861,PiedmontCC,110,CC,SDMA,
+861,PiedmontCC,111,R,SDMA,
+861,PiedmontCC,112,NR,SDMA,
+861,PiedmontCC,114,NS,SDMA,
+861,PiedmontCC,115,W,SDMA,
+861,PiedmontCC,15,S,CE,
+861,PiedmontCC,16,U,CE,
+861,PiedmontCC,17,W,CE,
+861,PiedmontCC,18,AU,CE,
+861,PiedmontCC,2,B,CU,
+861,PiedmontCC,22,D,BSP,
+861,PiedmontCC,27,W,CU,
+861,PiedmontCC,28,WP,CU,
+861,PiedmontCC,29,P,CE,
+861,PiedmontCC,3,C,CU,
+861,PiedmontCC,30,NC,CE,
+861,PiedmontCC,31,H,CE,
+861,PiedmontCC,32,I,CE,
+861,PiedmontCC,34,AP,CU,
+861,PiedmontCC,35,CE,CU,
+861,PiedmontCC,36,TP,CU,
+861,PiedmontCC,37,NC,CU,
+861,PiedmontCC,38,TC,CU,
+861,PiedmontCC,39,WF,CU,
+861,PiedmontCC,4,D,CU,
+861,PiedmontCC,40,C*,CV,
+861,PiedmontCC,41,P,CV,
+861,PiedmontCC,42,F*,CV,
+861,PiedmontCC,43,WE,CV,
+861,PiedmontCC,44,IA,CV,
+861,PiedmontCC,45,B+,CV,
+861,PiedmontCC,46,I*,CV,
+861,PiedmontCC,47,C+,CV,
+861,PiedmontCC,48,H,CV,
+861,PiedmontCC,49,R,CV,
+861,PiedmontCC,50,IF,CV,
+861,PiedmontCC,51,B*,CV,
+861,PiedmontCC,52,ID,CV,
+861,PiedmontCC,53,FI,CV,
+861,PiedmontCC,54,A*,CV,
+861,PiedmontCC,55,A+,CV,
+861,PiedmontCC,56,D*,CV,
+861,PiedmontCC,57,AS,CV,
+861,PiedmontCC,58,IC,CV,
+861,PiedmontCC,59,IB,CV,
+861,PiedmontCC,6,F,CU,
+861,PiedmontCC,60,H,BSP,
+861,PiedmontCC,61,P,BSP,
+861,PiedmontCC,62,NS,CE,
+861,PiedmontCC,63,D,CE,
+861,PiedmontCC,64,H,H,
+861,PiedmontCC,65,A+,CUCV,
+861,PiedmontCC,66,B+,CUCV,
+861,PiedmontCC,67,C+,CUCV,
+861,PiedmontCC,68,A*,CUCV,
+861,PiedmontCC,69,B*,CUCV,
+861,PiedmontCC,7,I,CU,
+861,PiedmontCC,70,C*,CUCV,
+861,PiedmontCC,71,D*,CUCV,
+861,PiedmontCC,72,F*,CUCV,
+861,PiedmontCC,73,I*,CUCV,
+861,PiedmontCC,74,H,CUCV,
+861,PiedmontCC,76,P,CUCV,
+861,PiedmontCC,77,R,CUCV,
+861,PiedmontCC,78,IA,CUCV,
+861,PiedmontCC,79,IB,CUCV,
+861,PiedmontCC,80,IC,CUCV,
+861,PiedmontCC,81,ID,CUCV,
+861,PiedmontCC,82,IF,CUCV,
+861,PiedmontCC,83,WE,CUCV,
+861,PiedmontCC,84,FI,CUCV,
+861,PiedmontCC,85,AS,CUCV,
+861,PiedmontCC,86,S,CUCV,
+861,PiedmontCC,87,U,CUCV,
+861,PiedmontCC,88,N,CUCV,
+861,PiedmontCC,89,:,BSPC,
+861,PiedmontCC,9,AU,CU,
+861,PiedmontCC,90,INC,CECV,
+861,PiedmontCC,91,:,CECV,
+861,PiedmontCC,92,F*,CU,
+861,PiedmontCC,93,D*,CU,
+861,PiedmontCC,95,R,CU,
+861,PiedmontCC,96,P,CU,
+861,PiedmontCC,98,H,CU,
+861,PiedmontCC,99,TR,CU,
+861,PiedmontCC,TR,,CV,
+844,IsothermalCC,1,A,CU,Excellent
+844,IsothermalCC,10,,,
+844,IsothermalCC,100,,,
+844,IsothermalCC,101,,,
+844,IsothermalCC,102,,,
+844,IsothermalCC,103,,,
+844,IsothermalCC,104,,,
+844,IsothermalCC,105,,,
+844,IsothermalCC,106,,,
+844,IsothermalCC,107,,,
+844,IsothermalCC,108,,,
+844,IsothermalCC,109,,,
+844,IsothermalCC,11,,,
+844,IsothermalCC,110,,,
+844,IsothermalCC,111,,,
+844,IsothermalCC,112,,,
+844,IsothermalCC,113,,,
+844,IsothermalCC,114,,,
+844,IsothermalCC,115,,,
+844,IsothermalCC,116,,,
+844,IsothermalCC,117,,,
+844,IsothermalCC,118,,,
+844,IsothermalCC,119,,,
+844,IsothermalCC,12,,,
+844,IsothermalCC,120,,,
+844,IsothermalCC,121,,,
+844,IsothermalCC,122,,,
+844,IsothermalCC,123,,,
+844,IsothermalCC,124,,,
+844,IsothermalCC,125,,,
+844,IsothermalCC,126,,,
+844,IsothermalCC,127,,,
+844,IsothermalCC,128,,,
+844,IsothermalCC,129,,,
+844,IsothermalCC,13,,,
+844,IsothermalCC,130,,,
+844,IsothermalCC,131,,,
+844,IsothermalCC,132,,,
+844,IsothermalCC,133,,,
+844,IsothermalCC,134,,,
+844,IsothermalCC,135,,,
+844,IsothermalCC,136,,,
+844,IsothermalCC,137,,,
+844,IsothermalCC,138,,,
+844,IsothermalCC,139,,,
+844,IsothermalCC,14,,,
+844,IsothermalCC,15,S,CE,Satisfactory
+844,IsothermalCC,16,U,CE,Unsatisfactory
+844,IsothermalCC,17,W,CE,Withdrawn
+844,IsothermalCC,18,AU,CE,Audit
+844,IsothermalCC,19,A,BSP,Excellent
+844,IsothermalCC,2,B,CU,Above Average
+844,IsothermalCC,20,B,BSP,Above Average
+844,IsothermalCC,21,C,BSP,Average
+844,IsothermalCC,22,D,BSP,Below Average
+844,IsothermalCC,23,F,BSP,Failing
+844,IsothermalCC,24,S,BSP,Satisfactory
+844,IsothermalCC,25,U,BSP,Unsatisfactory
+844,IsothermalCC,26,W,BSP,Withdrawn
+844,IsothermalCC,27,S,CU,Satisfactory
+844,IsothermalCC,28,U,CU,Unsatisfactory
+844,IsothermalCC,29,W,CU,Withdrew
+844,IsothermalCC,3,C,CU,Average
+844,IsothermalCC,30,CE,CU,Credit by Exam
+844,IsothermalCC,31,DE,CU,Credit by Diagnostic
+844,IsothermalCC,32,CR,CU,Transfer Credit
+844,IsothermalCC,33,NS,CU,No Show
+844,IsothermalCC,34,WP,CU,Withdrew Passing
+844,IsothermalCC,35,WF,CU,Withdrew Failing
+844,IsothermalCC,36,A*,CU,Excellence - Developmental
+844,IsothermalCC,37,B*,CU,Above Average - Developmental
+844,IsothermalCC,38,C*,CU,Average - Developmental
+844,IsothermalCC,39,D*,CU,Below Average - Developmental
+844,IsothermalCC,4,D,CU,Below Average
+844,IsothermalCC,40,F*,CU,Failed - Developmental
+844,IsothermalCC,41,I*,CU,Incomplete - Developmental
+844,IsothermalCC,42,P*,CU,Progressing - Developmental
+844,IsothermalCC,43,D%,CU,Below Average - Fresh Start
+844,IsothermalCC,44,F%,CU,Failed - Fresh Start
+844,IsothermalCC,45,W#,CU,Withdrew-Administrative
+844,IsothermalCC,46,W*,CU,Withdrew-Developmental
+844,IsothermalCC,47,WF%,CU,Withdrew Failing - Freshstart
+844,IsothermalCC,48,W.,CU,Withdrew Before Census
+844,IsothermalCC,49,A.,CU,Excellent
+844,IsothermalCC,5,Y,CU,Audit
+844,IsothermalCC,50,B.,CU,Above Average
+844,IsothermalCC,51,C.,CU,Average
+844,IsothermalCC,52,D.,CU,Below Average
+844,IsothermalCC,53,F.,CU,Failing
+844,IsothermalCC,54,I.,CU,Incomplete
+844,IsothermalCC,55,P.,CU,Progressing
+844,IsothermalCC,56,R.,CU,Repeat
+844,IsothermalCC,57,Y.,CU,Audit
+844,IsothermalCC,58,A.*,CU,Excellence-Developmental
+844,IsothermalCC,59,B.*,CU,Above Average-Developmental
+844,IsothermalCC,6,F,CU,Failing
+844,IsothermalCC,60,C.*,CU,Average-Developmental
+844,IsothermalCC,61,D.*,CU,Below Average-Developmental
+844,IsothermalCC,62,F.*,CU,Failing-Developmental
+844,IsothermalCC,63,I.*,CU,Incomplete-Developmental
+844,IsothermalCC,64,P.*,CU,Progressing-Developmental
+844,IsothermalCC,65,W.#,CU,Withdrew-Administrative
+844,IsothermalCC,66,WD,CU,WD
+844,IsothermalCC,67,..,CU,No FTE
+844,IsothermalCC,68,.,CU,No FTE
+844,IsothermalCC,69,,,
+844,IsothermalCC,7,I,CU,Incomplete
+844,IsothermalCC,70,NS,CE,No Show
+844,IsothermalCC,71,WP*,CU,Withdrew Passing-Developmental
+844,IsothermalCC,72,F.%,CU,Failed - Fresh Start
+844,IsothermalCC,73,,,
+844,IsothermalCC,74,,,
+844,IsothermalCC,75,PC,BSP,Previous Credit
+844,IsothermalCC,76,R*,CU,Failed-Developmental
+844,IsothermalCC,77,,,
+844,IsothermalCC,78,W#*,CU,Withdrawal-Adm Dev Ed
+844,IsothermalCC,79,W.*,CU,Withdraw Before Census-Dev Ed
+844,IsothermalCC,8,P,CU,Progressing
+844,IsothermalCC,80,,,
+844,IsothermalCC,81,,,
+844,IsothermalCC,82,DE*,CU,Diganotic Exam-Dev Ed
+844,IsothermalCC,83,,,
+844,IsothermalCC,84,EP,HSGP,Evaluation Pass
+844,IsothermalCC,85,EN,HSGP,Evaluation Not Pass
+844,IsothermalCC,86,,,
+844,IsothermalCC,87,,,
+844,IsothermalCC,88,,,
+844,IsothermalCC,89,,,
+844,IsothermalCC,9,R,CU,Repeat
+844,IsothermalCC,90,,,
+844,IsothermalCC,91,,,
+844,IsothermalCC,92,,,
+844,IsothermalCC,93,,,
+844,IsothermalCC,94,,,
+844,IsothermalCC,95,,,
+844,IsothermalCC,96,,,
+844,IsothermalCC,97,,,
+844,IsothermalCC,98,,,
+844,IsothermalCC,99,,,
+844,IsothermalCC,NC,R.*,CU,Failed - Developmental
+898,WilsonCC,1,A,CU,Excellent
+898,WilsonCC,100,FR,CUCV,FR
+898,WilsonCC,101,A*,CUCV,A*
+898,WilsonCC,102,B*,CUCV,B*
+898,WilsonCC,103,C*,CUCV,C*
+898,WilsonCC,104,D*,CUCV,D*
+898,WilsonCC,105,F*,CUCV,F*
+898,WilsonCC,106,W,CUCV,Withdrawal
+898,WilsonCC,107,WF,CUCV,Withdrawal After Drop Period
+898,WilsonCC,108,WF*,CUCV,WF*
+898,WilsonCC,109,AU,CUCV,Audit
+898,WilsonCC,110,EX,CUCV,Exempt
+898,WilsonCC,111,NA,CUCV,Never Attended
+898,WilsonCC,112,TC,CUCV,Transfer Credit
+898,WilsonCC,113,T*,CUCV,T*
+898,WilsonCC,114,T,CUCV,T
+898,WilsonCC,115,WR,CUCV,WR
+898,WilsonCC,116,CT,CUCV,Continuation
+898,WilsonCC,117,IP,CUCV,In Progress
+898,WilsonCC,118,X,CUCV,Exempt
+898,WilsonCC,119,X*,CUCV,X*
+898,WilsonCC,120,P,CUCV,Pass
+898,WilsonCC,121,P*,CUCV,P*
+898,WilsonCC,122,W*,CUCV,W*
+898,WilsonCC,123,WD,CUCV,Withdrawal
+898,WilsonCC,124,NG,CUCV,No Grade
+898,WilsonCC,125,WFR,CUCV,WFR
+898,WilsonCC,126,S,CUCV,Satisfactory
+898,WilsonCC,127,U,CUCV,Unsatisfactory
+898,WilsonCC,128,I,CUCV,Incomplete
+898,WilsonCC,130,A,CECV,Excellent
+898,WilsonCC,131,B,CECV,Above Average
+898,WilsonCC,132,C,CECV,Average
+898,WilsonCC,133,D,CECV,Below Average
+898,WilsonCC,134,F,CECV,Failing
+898,WilsonCC,135,I,CECV,Incomplete
+898,WilsonCC,136,S,CECV,Satisfactory
+898,WilsonCC,137,U,CECV,Unsatisfactory
+898,WilsonCC,138,W,CECV,Withdrawn
+898,WilsonCC,139,NA,CECV,Never Attended
+898,WilsonCC,140,A,BSCV,Excellent
+898,WilsonCC,141,B,BSCV,Above Average
+898,WilsonCC,142,C,BSCV,Average
+898,WilsonCC,144,D,BSCV,Below Average
+898,WilsonCC,145,F,BSCV,Failing
+898,WilsonCC,146,NA,BSCV,Never Attended
+898,WilsonCC,147,NG,BSCV,No Grade
+898,WilsonCC,148,S,BSCV,Satisfactory
+898,WilsonCC,149,U,BSCV,Unsatisfactory
+898,WilsonCC,15,S,CE,Satisfactory
+898,WilsonCC,150,W,BSCV,Withdrawn
+898,WilsonCC,151,S,BSPC,Satisfactory
+898,WilsonCC,153,OW,AHS,Officially Withdrawn
+898,WilsonCC,155,NA,AHS,Never Attended
+898,WilsonCC,156,LR,CE,Late Registration
+898,WilsonCC,158,WAU,CU,Withdrawal From Audit
+898,WilsonCC,159,TC,TR,Transfer Credit
+898,WilsonCC,16,U,CE,Unsatisfactory
+898,WilsonCC,160,TC,CU,Transfer Credit
+898,WilsonCC,17,W,CE,Withdrawn
+898,WilsonCC,18,AU,CE,Audit
+898,WilsonCC,19,A,BSP,Excellent
+898,WilsonCC,2,B,CU,Above Average
+898,WilsonCC,20,B,BSP,Above Average
+898,WilsonCC,21,C,BSP,Average
+898,WilsonCC,22,D,BSP,Below Average
+898,WilsonCC,23,F,BSP,Failing
+898,WilsonCC,24,S,BSP,Satisfactory
+898,WilsonCC,25,U,BSP,Unsatisfactory
+898,WilsonCC,26,W,BSP,Withdrawn
+898,WilsonCC,27,W,CU,Withdrawal
+898,WilsonCC,28,WF,CU,WF
+898,WilsonCC,29,S,CU,Satisfactory
+898,WilsonCC,3,C,CU,Average
+898,WilsonCC,30,U,CU,Unsatisfactory
+898,WilsonCC,31,EX,CU,Exempt
+898,WilsonCC,32,NA,CU,Never Attended
+898,WilsonCC,34,NG,CU,No Grade
+898,WilsonCC,35,NG,BSP,No Grade
+898,WilsonCC,36,NG,CE,No Grade
+898,WilsonCC,4,D,CU,Below Average
+898,WilsonCC,47,A,AHS,94-100
+898,WilsonCC,49,B,AHS,86-93
+898,WilsonCC,50,C,AHS,78-85
+898,WilsonCC,51,D,AHS,70-77
+898,WilsonCC,52,F,AHS,Below 70
+898,WilsonCC,53,W,AHS,Withdrawn
+898,WilsonCC,54,NA,BSP,NA
+898,WilsonCC,55,NA,CE,Never Attended
+898,WilsonCC,56,A*,CU,A*
+898,WilsonCC,57,B*,CU,B*
+898,WilsonCC,58,C*,CU,C*
+898,WilsonCC,59,D*,CU,D*
+898,WilsonCC,6,F,CU,Failing
+898,WilsonCC,60,F*,CU,F*
+898,WilsonCC,61,WF*,CU,WF*
+898,WilsonCC,62,AR,CU,AR
+898,WilsonCC,63,BR,CU,BR
+898,WilsonCC,64,CR,CU,CR
+898,WilsonCC,65,DR,CU,DR
+898,WilsonCC,66,FR,CU,FR
+898,WilsonCC,67,WFR,CU,WFR
+898,WilsonCC,68,WR,CU,WR
+898,WilsonCC,7,I,CU,Incomplete
+898,WilsonCC,70,NG,AHS,No Grade
+898,WilsonCC,71,CT,CU,Continuation
+898,WilsonCC,72,T,CU,Transfer Credit
+898,WilsonCC,73,IP,CU,In Progress
+898,WilsonCC,74,X,CU,Credit by Exam
+898,WilsonCC,75,P,CU,Pass
+898,WilsonCC,76,X*,CU,X*
+898,WilsonCC,77,W*,CU,W*
+898,WilsonCC,78,T*,CU,T*
+898,WilsonCC,79,WD,CU,Withdrawn
+898,WilsonCC,80,P*,CU,P*
+898,WilsonCC,9,AU,CU,Audit
+898,WilsonCC,91,A,CUCV,Excellent
+898,WilsonCC,92,B,CUCV,Above Average
+898,WilsonCC,93,C,CUCV,Average
+898,WilsonCC,94,D,CUCV,Below Average
+898,WilsonCC,95,F,CUCV,Failure
+898,WilsonCC,96,AR,CUCV,AR
+898,WilsonCC,97,BR,CUCV,BR
+898,WilsonCC,98,CR,CUCV,CR
+898,WilsonCC,99,DR,CUCV,DR
+810,CapeFearCC,1,A,CU,Excellent
+810,CapeFearCC,2,B,CU,Above Average
+810,CapeFearCC,3,C,CU,Average
+810,CapeFearCC,4,D,CU,Below Average
+810,CapeFearCC,5,,,
+810,CapeFearCC,6,F,CU,Failing
+810,CapeFearCC,7,I,CU,Incomplete
+810,CapeFearCC,8,,,
+810,CapeFearCC,9,AU,CU,Audit
+810,CapeFearCC,10,A,CE,Excellent
+810,CapeFearCC,11,B,CE,Above Average
+810,CapeFearCC,12,C,CE,Average
+810,CapeFearCC,13,D,CE,Below Average
+810,CapeFearCC,14,F,CE,Failing
+810,CapeFearCC,15,S,CE,Satisfactory
+810,CapeFearCC,16,U,CE,Unsatisfactory
+810,CapeFearCC,17,W,CE,Withdrawn
+810,CapeFearCC,18,AU,CE,Audit
+810,CapeFearCC,19,A,BSP,Excellent
+810,CapeFearCC,20,B,BSP,Above Average
+810,CapeFearCC,21,C,BSP,Average
+810,CapeFearCC,22,D,BSP,Below Average
+810,CapeFearCC,23,F,BSP,Failing
+810,CapeFearCC,24,S,BSP,Satisfactory
+810,CapeFearCC,25,U,BSP,Unsatisfactory
+810,CapeFearCC,26,W,BSP,Withdrawn
+810,CapeFearCC,27,NC,CUCV,No Credit
+810,CapeFearCC,28,A*,CUCV,A*
+810,CapeFearCC,29,B*,CUCV,B*
+810,CapeFearCC,30,C*,CUCV,C*
+810,CapeFearCC,31,D*,CUCV,D*
+810,CapeFearCC,32,NC*,CUCV,NC*
+810,CapeFearCC,33,F*,CUCV,F*
+810,CapeFearCC,34,WF*,CUCV,WF*
+810,CapeFearCC,35,CT*,CUCV,CT*
+810,CapeFearCC,36,CT,CUCV,CT
+810,CapeFearCC,37,R,CUCV,R
+810,CapeFearCC,38,S,CUCV,Satisfactory
+810,CapeFearCC,39,W*,CUCV,W*
+810,CapeFearCC,40,WP*,CUCV,WP*
+810,CapeFearCC,41,N*,CUCV,N*
+810,CapeFearCC,42,U,CUCV,U
+810,CapeFearCC,43,P,CE,Pass
+810,CapeFearCC,44,NS,CE,No Show
+810,CapeFearCC,45,I,CE,Incomplete
+810,CapeFearCC,46,,,
+810,CapeFearCC,47,,,
+810,CapeFearCC,48,,,
+810,CapeFearCC,49,,,
+810,CapeFearCC,50,,,
+810,CapeFearCC,51,WF,CU,WF
+810,CapeFearCC,52,CR,CU,Credit by Proficiency
+810,CapeFearCC,53,W,CU,Withdraw
+810,CapeFearCC,54,WP,CU,Withdraw Passing
+810,CapeFearCC,55,NS,CU,No Show
+810,CapeFearCC,56,I*,CUCV,I*
+810,CapeFearCC,57,,,
+810,CapeFearCC,58,,,
+810,CapeFearCC,59,,,
+810,CapeFearCC,60,,,
+810,CapeFearCC,61,E,BSPC,E
+810,CapeFearCC,62,,,
+810,CapeFearCC,63,R,CU,Retake
+810,CapeFearCC,64,PA,CU,Developmental Grade of A
+810,CapeFearCC,65,PB,CU,Development Grade of B
+810,CapeFearCC,66,PC,CU,Development Grade of C
+810,CapeFearCC,67,CC,CU,CC
+810,CapeFearCC,68,,,
+810,CapeFearCC,69,NR,CU,Not Reached
+810,CapeFearCC,70,RR,CU,DMA Repeat (not transcripted)
+810,CapeFearCC,71,EP,HSGP,EP
+810,CapeFearCC,72,EN,HSGP,Evaluation Not Pass
+834,ForsythTechCC,1,A,CU,Excellent
+834,ForsythTechCC,10,A,CE,Excellent
+834,ForsythTechCC,102,**,CUCV,**
+834,ForsythTechCC,103,A*,CUCV,A*
+834,ForsythTechCC,104,B*,CUCV,B*
+834,ForsythTechCC,105,C*,CUCV,C*
+834,ForsythTechCC,106,CR*,CUCV,CR*
+834,ForsythTechCC,107,D*,CUCV,D*
+834,ForsythTechCC,108,F*,CUCV,F*
+834,ForsythTechCC,109,P*,CUCV,P*
+834,ForsythTechCC,11,B,CE,Above Average
+834,ForsythTechCC,110,TR*,CUCV,TR*
+834,ForsythTechCC,111,W*,CUCV,W*
+834,ForsythTechCC,112,WF*,CUCV,WF*
+834,ForsythTechCC,113,Y*,CUCV,Y*
+834,ForsythTechCC,114,101,CE,101
+834,ForsythTechCC,115,102,CE,102
+834,ForsythTechCC,116,103,CE,103
+834,ForsythTechCC,117,104,CE,104
+834,ForsythTechCC,118,105,CE,105
+834,ForsythTechCC,119,106,CE,106
+834,ForsythTechCC,12,C,CE,Average
+834,ForsythTechCC,120,108,CE,108
+834,ForsythTechCC,121,F-,CE,Failed/Absent Second Pt
+834,ForsythTechCC,122,FF,CE,Failed Both Pts
+834,ForsythTechCC,123,-F,CE,Absent First Pt/Failed Sec Pt
+834,ForsythTechCC,125,03,CECV,03
+834,ForsythTechCC,126,10,CECV,10
+834,ForsythTechCC,127,16,CECV,16
+834,ForsythTechCC,128,18,CECV,18
+834,ForsythTechCC,129,19,CECV,19
+834,ForsythTechCC,13,D,CE,Below Average
+834,ForsythTechCC,130,22,CECV,22
+834,ForsythTechCC,131,24,CECV,24
+834,ForsythTechCC,132,25,CECV,25
+834,ForsythTechCC,133,27,CECV,27
+834,ForsythTechCC,134,28,CECV,28
+834,ForsythTechCC,135,29,CECV,29
+834,ForsythTechCC,136,30,CECV,30
+834,ForsythTechCC,137,31,CECV,31
+834,ForsythTechCC,138,32,CECV,32
+834,ForsythTechCC,139,33,CECV,33
+834,ForsythTechCC,14,F,CE,Failing
+834,ForsythTechCC,140,36,CECV,36
+834,ForsythTechCC,141,38,CECV,38
+834,ForsythTechCC,142,4,CECV,4
+834,ForsythTechCC,143,40,CECV,40
+834,ForsythTechCC,144,42,CECV,42
+834,ForsythTechCC,145,43,CECV,43
+834,ForsythTechCC,146,44,CECV,44
+834,ForsythTechCC,147,45,CECV,45
+834,ForsythTechCC,148,46,CECV,46
+834,ForsythTechCC,149,48,CECV,48
+834,ForsythTechCC,15,S,CE,Satisfactory
+834,ForsythTechCC,150,49,CECV,49
+834,ForsythTechCC,151,7.1,CECV,7.1
+834,ForsythTechCC,152,7,CECV,7
+834,ForsythTechCC,153,7.9,CECV,7.9
+834,ForsythTechCC,154,B/D,CECV,B/D
+834,ForsythTechCC,155,C/D,CECV,C/D
+834,ForsythTechCC,156,CR,CECV,CR
+834,ForsythTechCC,157,EX,CECV,EX
+834,ForsythTechCC,158,TR,CECV,TR
+834,ForsythTechCC,159,VG,CECV,VG
+834,ForsythTechCC,16,U,CE,Unsatisfactory
+834,ForsythTechCC,160,X,CECV,X
+834,ForsythTechCC,161,US,CE,US
+834,ForsythTechCC,162,PF,CE,Pass/Fail
+834,ForsythTechCC,163,R,CECV,R
+834,ForsythTechCC,165,A,BSPC,Excellent
+834,ForsythTechCC,166,B,BSPC,Above Average
+834,ForsythTechCC,167,C,BSPC,Average
+834,ForsythTechCC,168,D,BSPC,Below Average
+834,ForsythTechCC,169,F,BSPC,Failing
+834,ForsythTechCC,17,W,CE,Withdrawn
+834,ForsythTechCC,170,S,BSPC,S
+834,ForsythTechCC,171,U,BSPC,U
+834,ForsythTechCC,172,W,BSPC,W
+834,ForsythTechCC,173,NA,BSPC,NA
+834,ForsythTechCC,174,P,BSPC,P
+834,ForsythTechCC,175,100,BSPC,100
+834,ForsythTechCC,176,101,BSPC,101
+834,ForsythTechCC,177,102,BSPC,102
+834,ForsythTechCC,178,103,BSPC,103
+834,ForsythTechCC,18,AU,CE,Audit
+834,ForsythTechCC,180,104,BSPC,104
+834,ForsythTechCC,181,105,BSPC,105
+834,ForsythTechCC,182,106,BSPC,106
+834,ForsythTechCC,183,108,BSPC,108
+834,ForsythTechCC,184,50,BSPC,50
+834,ForsythTechCC,185,51,BSPC,51
+834,ForsythTechCC,186,53,BSPC,53
+834,ForsythTechCC,187,52,BSPC,52
+834,ForsythTechCC,188,54,BSPC,54
+834,ForsythTechCC,189,55,BSPC,55
+834,ForsythTechCC,19,A,BSP,Excellent
+834,ForsythTechCC,190,56,BSPC,56
+834,ForsythTechCC,191,57,BSPC,57
+834,ForsythTechCC,192,58,BSPC,58
+834,ForsythTechCC,193,59,BSPC,59
+834,ForsythTechCC,194,60,BSPC,60
+834,ForsythTechCC,195,61,BSPC,61
+834,ForsythTechCC,196,62,BSPC,62
+834,ForsythTechCC,197,63,BSPC,63
+834,ForsythTechCC,198,64,BSPC,64
+834,ForsythTechCC,199,65,BSPC,65
+834,ForsythTechCC,2,B,CU,Above Average
+834,ForsythTechCC,20,B,BSP,Above Average
+834,ForsythTechCC,200,66,BSPC,66
+834,ForsythTechCC,201,67,BSPC,67
+834,ForsythTechCC,202,68,BSPC,68
+834,ForsythTechCC,203,69,BSPC,69
+834,ForsythTechCC,204,70,BSPC,70
+834,ForsythTechCC,205,71,BSPC,71
+834,ForsythTechCC,206,72,BSPC,72
+834,ForsythTechCC,207,73,BSPC,73
+834,ForsythTechCC,208,74,BSPC,74
+834,ForsythTechCC,209,75,BSPC,75
+834,ForsythTechCC,21,C,BSP,Average
+834,ForsythTechCC,210,76,BSPC,76
+834,ForsythTechCC,211,EX,BSPC,EX
+834,ForsythTechCC,212,G,BSPC,G
+834,ForsythTechCC,213,TR,BSPC,TR
+834,ForsythTechCC,214,VG,BSPC,VG
+834,ForsythTechCC,215,X,BSPC,X
+834,ForsythTechCC,216,7.1,BSPC,7.1
+834,ForsythTechCC,217,7,BSPC,7
+834,ForsythTechCC,218,7.9,BSPC,7.9
+834,ForsythTechCC,219,**,BSPC,**
+834,ForsythTechCC,22,D,BSP,Below Average
+834,ForsythTechCC,220,C/D,BSPC,C/D
+834,ForsythTechCC,221,B/D,BSPC,B/D
+834,ForsythTechCC,222,77,BSPC,77
+834,ForsythTechCC,223,78,BSPC,78
+834,ForsythTechCC,224,79,BSPC,79
+834,ForsythTechCC,225,80,BSPC,80
+834,ForsythTechCC,226,81,BSPC,81
+834,ForsythTechCC,227,82,BSPC,82
+834,ForsythTechCC,228,83,BSPC,83
+834,ForsythTechCC,229,84,BSPC,84
+834,ForsythTechCC,23,F,BSP,Failing
+834,ForsythTechCC,230,85,BSPC,85
+834,ForsythTechCC,231,86,BSPC,86
+834,ForsythTechCC,232,87,BSPC,87
+834,ForsythTechCC,233,88,BSPC,88
+834,ForsythTechCC,234,89,BSPC,89
+834,ForsythTechCC,235,90,BSPC,90
+834,ForsythTechCC,236,91,BSPC,91
+834,ForsythTechCC,237,92,BSPC,92
+834,ForsythTechCC,238,93,BSPC,93
+834,ForsythTechCC,239,94,BSPC,94
+834,ForsythTechCC,24,S,BSP,Satisfactory
+834,ForsythTechCC,240,95,BSPC,95
+834,ForsythTechCC,241,96,BSPC,96
+834,ForsythTechCC,242,97,BSPC,97
+834,ForsythTechCC,243,98,BSPC,98
+834,ForsythTechCC,244,99,BSPC,99
+834,ForsythTechCC,245,US,BSPC,US
+834,ForsythTechCC,246,30,BSPC,30
+834,ForsythTechCC,247,I,BSPC,I
+834,ForsythTechCC,248,RC,BSPC,RC
+834,ForsythTechCC,249,0,BSPC,0
+834,ForsythTechCC,25,U,BSP,Unsatisfactory
+834,ForsythTechCC,250,WP,CECV,WP
+834,ForsythTechCC,252,NC,CECV,NC
+834,ForsythTechCC,253,WD,CECV,WD
+834,ForsythTechCC,254,FP,CECV,FP
+834,ForsythTechCC,255,N,CECV,N
+834,ForsythTechCC,258,CR,BSPC,CR
+834,ForsythTechCC,259,0,CECV,0
+834,ForsythTechCC,26,W,BSP,Withdrawn
+834,ForsythTechCC,260,Z,CECV,Z
+834,ForsythTechCC,261,Z,BSPC,Z
+834,ForsythTechCC,262,WP*,CUCV,WP*
+834,ForsythTechCC,263,Y,CUCV,Y
+834,ForsythTechCC,264,U,CU,U
+834,ForsythTechCC,266,NG,CE,No Grade
+834,ForsythTechCC,271,R,CU,Repeat
+834,ForsythTechCC,278,EP,HSGP,Evaluation Pass
+834,ForsythTechCC,279,EN,HSGP,Evaluation Not Pass
+834,ForsythTechCC,280,38,CE,38
+834,ForsythTechCC,29,WP,CU,WP
+834,ForsythTechCC,3,C,CU,Average
+834,ForsythTechCC,30,W,CU,W
+834,ForsythTechCC,31,WF,CU,WF
+834,ForsythTechCC,33,TR,CU,TR
+834,ForsythTechCC,34,CR,CU,CR
+834,ForsythTechCC,35,P,CU,Pass
+834,ForsythTechCC,37,I,CE,Incomplete
+834,ForsythTechCC,38,P-,CE,Pass First Prt/Absent Sec
+834,ForsythTechCC,39,-P,CE,Absent/Pass Second Prt
+834,ForsythTechCC,4,D,CU,Below Average
+834,ForsythTechCC,40,P,CE,Pass (for Fire Students)
+834,ForsythTechCC,41,PP,CE,Pass/Pass - Passes Both Parts
+834,ForsythTechCC,42,NA,CE,NA
+834,ForsythTechCC,43,100,CE,100
+834,ForsythTechCC,44,99,CE,99
+834,ForsythTechCC,45,98,CE,98
+834,ForsythTechCC,46,97,CE,97
+834,ForsythTechCC,47,96,CE,96
+834,ForsythTechCC,48,95,CE,95
+834,ForsythTechCC,49,50,CE,50
+834,ForsythTechCC,50,51,CE,51
+834,ForsythTechCC,51,52,CE,52
+834,ForsythTechCC,52,53,CE,53
+834,ForsythTechCC,53,54,CE,54
+834,ForsythTechCC,54,55,CE,55
+834,ForsythTechCC,55,56,CE,56
+834,ForsythTechCC,56,57,CE,57
+834,ForsythTechCC,57,58,CE,58
+834,ForsythTechCC,58,59,CE,59
+834,ForsythTechCC,59,60,CE,60
+834,ForsythTechCC,6,F,CU,Failing
+834,ForsythTechCC,60,61,CE,61
+834,ForsythTechCC,61,62,CE,62
+834,ForsythTechCC,62,63,CE,63
+834,ForsythTechCC,63,64,CE,64
+834,ForsythTechCC,64,65,CE,65
+834,ForsythTechCC,65,66,CE,66
+834,ForsythTechCC,66,67,CE,67
+834,ForsythTechCC,67,68,CE,68
+834,ForsythTechCC,68,69,CE,69
+834,ForsythTechCC,69,70,CE,70
+834,ForsythTechCC,7,I,CU,Incomplete
+834,ForsythTechCC,70,71,CE,71
+834,ForsythTechCC,71,72,CE,72
+834,ForsythTechCC,72,73,CE,73
+834,ForsythTechCC,73,74,CE,74
+834,ForsythTechCC,74,75,CE,75
+834,ForsythTechCC,75,76,CE,76
+834,ForsythTechCC,76,77,CE,77
+834,ForsythTechCC,77,78,CE,78
+834,ForsythTechCC,78,79,CE,79
+834,ForsythTechCC,79,80,CE,80
+834,ForsythTechCC,80,81,CE,81
+834,ForsythTechCC,81,82,CE,82
+834,ForsythTechCC,82,83,CE,83
+834,ForsythTechCC,83,84,CE,84
+834,ForsythTechCC,84,85,CE,85
+834,ForsythTechCC,85,86,CE,86
+834,ForsythTechCC,86,87,CE,87
+834,ForsythTechCC,87,88,CE,88
+834,ForsythTechCC,88,89,CE,89
+834,ForsythTechCC,89,90,CE,90
+834,ForsythTechCC,9,AU,CU,Audit
+834,ForsythTechCC,90,91,CE,91
+834,ForsythTechCC,91,92,CE,92
+834,ForsythTechCC,92,93,CE,93
+834,ForsythTechCC,93,94,CE,94
+834,ForsythTechCC,94,NA,BSP,NA
+834,ForsythTechCC,95,P,BSP,P
+834,ForsythTechCC,96,S,CU,S
+834,ForsythTechCC,98,NS,CU,NS
+834,ForsythTechCC,99,NS,CE,No Show
+826,DavidsonCountyCC,1,A,CU,Excellent
+826,DavidsonCountyCC,10,,,
+826,DavidsonCountyCC,11,,,
+826,DavidsonCountyCC,12,,,
+826,DavidsonCountyCC,13,D,CE,Dropped
+826,DavidsonCountyCC,14,F,CE,Failing
+826,DavidsonCountyCC,15,S,CE,Satisfactory
+826,DavidsonCountyCC,16,U,CE,Unsatisfactory
+826,DavidsonCountyCC,17,W,CE,Withdrawn
+826,DavidsonCountyCC,18,AU,CE,Audit
+826,DavidsonCountyCC,19,A,BSP,Excellent
+826,DavidsonCountyCC,2,B,CU,Above Average
+826,DavidsonCountyCC,20,B,BSP,Above Average
+826,DavidsonCountyCC,21,C,BSP,Average
+826,DavidsonCountyCC,22,D,BSP,Below Average
+826,DavidsonCountyCC,23,F,BSP,Failing
+826,DavidsonCountyCC,24,S,BSP,Satisfactory
+826,DavidsonCountyCC,25,U,BSP,Unsatisfactory
+826,DavidsonCountyCC,26,W,BSP,Withdrawn
+826,DavidsonCountyCC,27,SA,CU,SA
+826,DavidsonCountyCC,28,SB,CU,SB
+826,DavidsonCountyCC,29,SC,CU,SC
+826,DavidsonCountyCC,3,C,CU,Average
+826,DavidsonCountyCC,30,U,CU,Unsatisfactory
+826,DavidsonCountyCC,31,W,CU,Withdrawal
+826,DavidsonCountyCC,32,CE,CU,CE
+826,DavidsonCountyCC,33,T,CU,Transfer
+826,DavidsonCountyCC,34,T*,CU,T*
+826,DavidsonCountyCC,35,P,CU,Passed
+826,DavidsonCountyCC,36,SC,CE,Sc Successful Completion
+826,DavidsonCountyCC,37,NC,CE,Nc Non-Completion
+826,DavidsonCountyCC,38,N,CE,N Never Attended
+826,DavidsonCountyCC,39,CH,CE,Ch Contact Hours
+826,DavidsonCountyCC,4,D,CU,Below Average
+826,DavidsonCountyCC,40,HS,CE,Hs Ahs Graduate
+826,DavidsonCountyCC,41,CH,BSP,Contact Hours
+826,DavidsonCountyCC,42,SC,BSP,Successful Completion
+826,DavidsonCountyCC,43,HS,BSP,High School
+826,DavidsonCountyCC,44,NC,BSP,Did Not Complete
+826,DavidsonCountyCC,45,A*,CU,A*
+826,DavidsonCountyCC,46,B*,CU,B*
+826,DavidsonCountyCC,47,C*,CU,C*
+826,DavidsonCountyCC,48,D*,CU,D*
+826,DavidsonCountyCC,49,F*,CU,F*
+826,DavidsonCountyCC,5,,,
+826,DavidsonCountyCC,50,WP,CU,Withdrawal Passing
+826,DavidsonCountyCC,51,IP,CU,Incomplete Passing
+826,DavidsonCountyCC,52,S,CU,Satisfactory
+826,DavidsonCountyCC,53,WF,CU,Withdrawal Failing
+826,DavidsonCountyCC,54,,,
+826,DavidsonCountyCC,55,W*,CU,W*
+826,DavidsonCountyCC,56,P*,CU,P*
+826,DavidsonCountyCC,57,P,CE,Passing
+826,DavidsonCountyCC,58,IC,CE,Ic Incomplete
+826,DavidsonCountyCC,59,CC,BSP,Continuing Course
+826,DavidsonCountyCC,6,F,CU,Failed
+826,DavidsonCountyCC,60,CC,CE,Continuing Course
+826,DavidsonCountyCC,61,PC,CE,Passing Continuing
+826,DavidsonCountyCC,62,PC,BSP,Passing Continuing
+826,DavidsonCountyCC,63,,,
+826,DavidsonCountyCC,64,,,
+826,DavidsonCountyCC,65,WF*,CU,WF*
+826,DavidsonCountyCC,66,NS,CU,Never Attended
+826,DavidsonCountyCC,67,M,CU,Marginal
+826,DavidsonCountyCC,68,R,CU,Repeat Required
+826,DavidsonCountyCC,69,WU,CU,Withdrawal Unsatisfactory
+826,DavidsonCountyCC,7,I,CU,Incomplete
+826,DavidsonCountyCC,70,WR,CU,Withdrawal Repeat
+826,DavidsonCountyCC,71,P,BSP,Pass
+826,DavidsonCountyCC,72,R,BSP,Repeat
+826,DavidsonCountyCC,73,,,
+826,DavidsonCountyCC,74,CC,SDMA,Course Completion
+826,DavidsonCountyCC,75,R,SDMA,Repeat
+826,DavidsonCountyCC,76,NR,SDMA,Never Reached
+826,DavidsonCountyCC,77,,,
+826,DavidsonCountyCC,78,,,
+826,DavidsonCountyCC,79,CR,CU,Credit
+826,DavidsonCountyCC,8,,,
+826,DavidsonCountyCC,80,EP,HSGP,Evaluation Pass
+826,DavidsonCountyCC,81,EN,HSGP,Evaluation Not Pass
+826,DavidsonCountyCC,9,AU,CU,Audit
+836,Gaston,44,RD,CU,RD
+836,Gaston,11,B,CE,Above Average
+836,Gaston,66,TD,CU,Transfer D
+836,Gaston,7,I,CU,Incomplete
+836,Gaston,22,D,BSP,Below Average
+836,Gaston,55,WI,CU,Withdrawn by Instructor
+836,Gaston,8,NS,CU,No Show
+836,Gaston,56,TA,CU,Transfer A
+836,Gaston,45,RF,CU,RF
+836,Gaston,12,C,CE,Average
+836,Gaston,23,F,BSP,Failing
+836,Gaston,67,EP,HSGP,EP
+836,Gaston,24,S,BSP,Satisfactory
+836,Gaston,13,D,CE,Below Average
+836,Gaston,35,DR,CE,Drop
+836,Gaston,9,AU,CU,Audit
+836,Gaston,57,TB,CU,Transfer B
+836,Gaston,46,TP,CU,Transfer Pass
+836,Gaston,68,EN,HSGP,Evaluation Not Pass
+836,Gaston,58,TC,CU,Transfer C
+836,Gaston,14,F,CE,Failing
+836,Gaston,25,U,BSP,Unsatisfactory
+836,Gaston,36,P,CE,Satisfactory Completion
+836,Gaston,47,U,CU,U
+836,Gaston,15,S,CE,Satisfactory
+836,Gaston,37,N,CE,Non-Completion
+836,Gaston,48,P,BSP,Satisfactory Completion
+836,Gaston,26,W,BSP,Withdrawn
+836,Gaston,38,CS,CE,Continued Study
+836,Gaston,16,U,CE,Unsatisfactory
+836,Gaston,49,CS,BSP,Continued Study
+836,Gaston,27,IP,CU,In-Progress
+836,Gaston,60,NS,BSP,No Show
+836,Gaston,1,A,CU,Excellent
+836,Gaston,50,N,BSP,Non_completion
+836,Gaston,28,X,CU,No Grade Assigned
+836,Gaston,17,W,CE,Withdrawn
+836,Gaston,2,B,CU,Above Average
+836,Gaston,62,P,CU,Pass
+836,Gaston,40,I,BSP,Incomplete
+836,Gaston,18,AU,CE,Audit
+836,Gaston,29,CE,CU,Credit by Examination
+836,Gaston,3,C,CU,Average
+836,Gaston,51,AU,BSP,Audit
+836,Gaston,4,D,CU,Below Average
+836,Gaston,19,A,BSP,Excellent
+836,Gaston,30,S,CU,Satisfactory
+836,Gaston,52,RI,CU,RI
+836,Gaston,63,N,CU,No Pass
+836,Gaston,42,ED,CU,ED
+836,Gaston,20,B,BSP,Above Average
+836,Gaston,31,TR,CU,Transfer
+836,Gaston,64,R,CU,Repeat
+836,Gaston,5,WA,CU,Withdrawn
+836,Gaston,10,A,CE,Excellent
+836,Gaston,32,NC,CU,Noncourse
+836,Gaston,21,C,BSP,Average
+836,Gaston,65,W,CU,W
+836,Gaston,43,EF,CU,EF
+836,Gaston,6,F,CU,Failing
+807,BrunswickCC,1,A,CU,Excellent
+807,BrunswickCC,10,A,CE,Excellent
+807,BrunswickCC,11,B,CE,Above Average
+807,BrunswickCC,12,C,CE,Average
+807,BrunswickCC,13,,,
+807,BrunswickCC,14,F,CE,Failing
+807,BrunswickCC,15,S,CE,Satisfactory
+807,BrunswickCC,16,U,CE,Unsatisfactory
+807,BrunswickCC,17,W,CE,Withdrawn
+807,BrunswickCC,18,AU,CE,Audit
+807,BrunswickCC,19,A,BSP,Excellent
+807,BrunswickCC,2,B,CU,Above Average
+807,BrunswickCC,20,B,BSP,Above Average
+807,BrunswickCC,21,C,BSP,Average
+807,BrunswickCC,22,D,BSP,Below Average
+807,BrunswickCC,23,F,BSP,Failing
+807,BrunswickCC,24,S,BSP,Satisfactory
+807,BrunswickCC,25,U,BSP,Unsatisfactory
+807,BrunswickCC,26,W,BSP,Withdrawn
+807,BrunswickCC,27,WF,CU,Withdrawal Failing
+807,BrunswickCC,28,T,CU,Transfer Credit
+807,BrunswickCC,29,,,
+807,BrunswickCC,3,C,CU,Average
+807,BrunswickCC,30,,,
+807,BrunswickCC,31,,,
+807,BrunswickCC,32,DR,CU,Re-Enroll/Dev Course
+807,BrunswickCC,33,,,
+807,BrunswickCC,34,NS,CU,No Show
+807,BrunswickCC,35,,,
+807,BrunswickCC,36,,,
+807,BrunswickCC,37,,,
+807,BrunswickCC,38,A,AHS,Excellent
+807,BrunswickCC,39,B,AHS,Above Average
+807,BrunswickCC,4,D,CU,Below Average
+807,BrunswickCC,40,C,AHS,Average
+807,BrunswickCC,41,I,CE,Incomplete
+807,BrunswickCC,42,,,
+807,BrunswickCC,43,,,
+807,BrunswickCC,44,,,
+807,BrunswickCC,45,,,
+807,BrunswickCC,46,,,
+807,BrunswickCC,47,,,
+807,BrunswickCC,48,,,
+807,BrunswickCC,49,,,
+807,BrunswickCC,5,W,CU,Withdrew
+807,BrunswickCC,50,,,
+807,BrunswickCC,51,,,
+807,BrunswickCC,52,,,
+807,BrunswickCC,53,,,
+807,BrunswickCC,54,A#,CUCV,A#
+807,BrunswickCC,55,B#,CUCV,B#
+807,BrunswickCC,56,C#,CUCV,C#
+807,BrunswickCC,57,CR#,CUCV,CR#
+807,BrunswickCC,58,T#,CUCV,T#
+807,BrunswickCC,59,WF#,CUCV,WF#
+807,BrunswickCC,6,F,CU,Failing
+807,BrunswickCC,60,U,CUCV,U
+807,BrunswickCC,61,WI,CUCV,WI
+807,BrunswickCC,62,NG,CUCV,NG
+807,BrunswickCC,63,P,CUCV,P
+807,BrunswickCC,64,DS,CUCV,DS
+807,BrunswickCC,65,DU,CUCV,DU
+807,BrunswickCC,66,A*,CUCV,A*
+807,BrunswickCC,67,B*,CUCV,B*
+807,BrunswickCC,68,C*,CUCV,C*
+807,BrunswickCC,69,D*,CUCV,D*
+807,BrunswickCC,7,I,CU,Incomplete
+807,BrunswickCC,70,F*,CUCV,F*
+807,BrunswickCC,71,U*,CUCV,U*
+807,BrunswickCC,72,TR,CUCV,TR
+807,BrunswickCC,73,IT,CUCV,IT
+807,BrunswickCC,74,*T,CUCV,*T
+807,BrunswickCC,75,,,
+807,BrunswickCC,76,D,CE,Dropped
+807,BrunswickCC,77,IP,CU,In Progress
+807,BrunswickCC,78,,,
+807,BrunswickCC,79,,,
+807,BrunswickCC,8,CR,CU,Credit by Proficiency Exam
+807,BrunswickCC,80,NS,CE,No Show
+807,BrunswickCC,81,,,
+807,BrunswickCC,82,EA,CU,Excessive Absenteeism
+807,BrunswickCC,83,P,CU,Pass - Developmental
+807,BrunswickCC,84,R,CU,Repeat - Developmental
+807,BrunswickCC,85,F*,CU,Forgiveness - Not Calc'd
+807,BrunswickCC,86,WF*,CU,Wf* Not Calc'd
+807,BrunswickCC,87,EP,HSGP,Evaluation Pass
+807,BrunswickCC,88,EN,HSGP,Evaluation Not Pass
+807,BrunswickCC,9,AU,CU,Audit
+874,RowanCabarrusCC,1,A,,Excellent
+874,RowanCabarrusCC,2,B,,Above Average
+874,RowanCabarrusCC,3,C,,Average
+874,RowanCabarrusCC,4,D,,Below Average
+874,RowanCabarrusCC,6,F,,Failing
+874,RowanCabarrusCC,7,I,,Incomplete
+874,RowanCabarrusCC,9,AU,,Audit
+874,RowanCabarrusCC,10,A,,Excellent
+874,RowanCabarrusCC,11,B,,Above Average
+874,RowanCabarrusCC,12,C,,Average
+874,RowanCabarrusCC,13,D,,Below Average
+874,RowanCabarrusCC,14,F,,Failing
+874,RowanCabarrusCC,15,S,,Satisfactory
+874,RowanCabarrusCC,16,U,,Unsatisfactory
+874,RowanCabarrusCC,17,W,,Withdrawn
+874,RowanCabarrusCC,18,AU,,Audit
+874,RowanCabarrusCC,19,A,,Excellent
+874,RowanCabarrusCC,20,B,,Above Average
+874,RowanCabarrusCC,21,C,,Average
+874,RowanCabarrusCC,22,D,,Below Average
+874,RowanCabarrusCC,23,F,,Failing
+874,RowanCabarrusCC,24,S,,Satisfactory
+874,RowanCabarrusCC,25,U,,Unsatisfactory
+874,RowanCabarrusCC,26,W,,Withdrawn
+874,RowanCabarrusCC,28,I*,,Incomplete-Failing-Repeat
+874,RowanCabarrusCC,29,A*,,Developmental-Passing
+874,RowanCabarrusCC,30,B*,,Developmental-Passing
+874,RowanCabarrusCC,31,C*,,Developmental-Passing
+874,RowanCabarrusCC,32,W,,Withdrawal-Repeat
+874,RowanCabarrusCC,33,TR,,Transfer Credit
+874,RowanCabarrusCC,34,CE,,Credit by Examination
+874,RowanCabarrusCC,35,NG,,Never Entered by 10%
+874,RowanCabarrusCC,37,NG,,Never Attended
+874,RowanCabarrusCC,38,NG,,Never Attended
+874,RowanCabarrusCC,39,IR,,IR
+874,RowanCabarrusCC,40,DR,,DR
+874,RowanCabarrusCC,41,F*,,F*
+874,RowanCabarrusCC,42,FR,,FR
+874,RowanCabarrusCC,43,P,,P
+874,RowanCabarrusCC,44,PC,,PC
+874,RowanCabarrusCC,45,S,,S
+874,RowanCabarrusCC,46,U,,U
+874,RowanCabarrusCC,47,WP,,Withdrawal-Passing-Repeat
+874,RowanCabarrusCC,48,WF,,Withdrawal-Failing-Repeat
+874,RowanCabarrusCC,49,37,,37
+874,RowanCabarrusCC,50,38,,38
+874,RowanCabarrusCC,51,40,,40
+874,RowanCabarrusCC,52,41,,41
+874,RowanCabarrusCC,53,42,,42
+874,RowanCabarrusCC,54,43,,43
+874,RowanCabarrusCC,55,44,,44
+874,RowanCabarrusCC,56,45,,45
+874,RowanCabarrusCC,57,46,,46
+874,RowanCabarrusCC,58,47,,47
+874,RowanCabarrusCC,59,48,,48
+874,RowanCabarrusCC,60,49,,49
+874,RowanCabarrusCC,61,50,,50
+874,RowanCabarrusCC,62,51,,51
+874,RowanCabarrusCC,63,52,,52
+874,RowanCabarrusCC,64,53,,53
+874,RowanCabarrusCC,65,54,,54
+874,RowanCabarrusCC,66,55,,55
+874,RowanCabarrusCC,67,56,,56
+874,RowanCabarrusCC,68,57,,57
+874,RowanCabarrusCC,69,58,,58
+874,RowanCabarrusCC,70,59,,59
+874,RowanCabarrusCC,71,60,,60
+874,RowanCabarrusCC,72,61,,61
+874,RowanCabarrusCC,73,62,,62
+874,RowanCabarrusCC,74,63,,63
+874,RowanCabarrusCC,75,64,,64
+874,RowanCabarrusCC,76,65,,65
+874,RowanCabarrusCC,77,66,,66
+874,RowanCabarrusCC,78,67,,67
+874,RowanCabarrusCC,79,68,,68
+874,RowanCabarrusCC,80,69,,69
+874,RowanCabarrusCC,81,70,,70
+874,RowanCabarrusCC,82,71,,71
+874,RowanCabarrusCC,83,72,,72
+874,RowanCabarrusCC,84,73,,73
+874,RowanCabarrusCC,85,74,,74
+874,RowanCabarrusCC,86,75,,75
+874,RowanCabarrusCC,87,76,,76
+874,RowanCabarrusCC,88,77,,77
+874,RowanCabarrusCC,89,78,,78
+874,RowanCabarrusCC,90,79,,79
+874,RowanCabarrusCC,91,80,,80
+874,RowanCabarrusCC,92,81,,81
+874,RowanCabarrusCC,93,82,,82
+874,RowanCabarrusCC,94,83,,83
+874,RowanCabarrusCC,95,84,,84
+874,RowanCabarrusCC,96,85,,85
+874,RowanCabarrusCC,97,86,,86
+874,RowanCabarrusCC,98,87,,87
+874,RowanCabarrusCC,99,88,,88
+874,RowanCabarrusCC,100,89,,89
+874,RowanCabarrusCC,101,90,,90
+874,RowanCabarrusCC,102,91,,91
+874,RowanCabarrusCC,103,92,,92
+874,RowanCabarrusCC,104,93,,93
+874,RowanCabarrusCC,105,94,,94
+874,RowanCabarrusCC,106,95,,95
+874,RowanCabarrusCC,107,96,,96
+874,RowanCabarrusCC,108,97,,97
+874,RowanCabarrusCC,109,98,,98
+874,RowanCabarrusCC,110,99,,99
+874,RowanCabarrusCC,111,100,,100
+874,RowanCabarrusCC,112,101,,101
+874,RowanCabarrusCC,113,102,,102
+874,RowanCabarrusCC,114,103,,103
+874,RowanCabarrusCC,115,104,,104
+874,RowanCabarrusCC,116,105,,105
+874,RowanCabarrusCC,117,B+,,B+
+874,RowanCabarrusCC,118,C+,,C+
+874,RowanCabarrusCC,119,C-,,C-
+874,RowanCabarrusCC,120,D+,,D+
+874,RowanCabarrusCC,121,D-,,D-
+874,RowanCabarrusCC,122,I,,I
+874,RowanCabarrusCC,123,I,,I
+874,RowanCabarrusCC,124,CT,,Professional Certification
+874,RowanCabarrusCC,125,P,,Developmental - Passing
+874,RowanCabarrusCC,126,CC,,Course Completed
+874,RowanCabarrusCC,127,CC,,Developmental Course Completed
+874,RowanCabarrusCC,128,R,,Developmental Repeat
+874,RowanCabarrusCC,129,NR,,Developmental Not Reached
+874,RowanCabarrusCC,S,R,,Developmental-Repeat/Re-Enroll

@@ -1,0 +1,20 @@
+SAS File,Datatel Table,Datatel Field,Download Field Name,Field Type,Field Start Position,Field End Position,Length,SAS Format,Multi-Value,SAS Variable Name
+Student14,STUDENT.PROGRAMS,STPR.STUDENT,STPR.STUDENT,Character,1,12,12,$10.,No,ADCPersonID
+Student14,STUDENT.PROGRAMS,STPR.ACAD.LEVEL,Acad Level,Character,13,37,25,$4.,No,ADCStuProgAcadLevel
+Student14,STUDENT.PROGRAMS,STPR.ACAD.PROGRAM,Acad Program,Character,38,57,20,$12.,No/Yes,ADCStuAcadPrograms
+Student14,STUDENT.PROGRAMS,STPR.USER1,STPR.USER1,Character,58,67,10,$4.,No,ADCStuPrimaryProgramFlag
+Student14,STUDENT.PROGRAMS,STPR.ACTUAL.TITLE,Actual Title,Character,68,107,40,$39.,No,ADCStuAcadProgramTitle
+Student14,STUDENT.PROGRAMS,STPR.ADMIT.STATUS,Admit Status,Character,108,142,35,$3.,No,ADCStuProgAdmitStatus
+Student14,STUDENT.PROGRAMS,STPR.ALLOW.GRADUATION.FLAG,Grad Allowed,Character,143,154,12,$3.,No,ADCStuGradAllowed
+Student14,STUDENT.PROGRAMS,STPR.CATALOG,Catalog,Character,155,189,35,$6.,No,ADCStuProgCatalogYear
+Student14,STUDENT.PROGRAMS,STPR.CURRENT.END.DATE,Current End Date,Character,190,205,16,$10.,No,ADCStuProgCurrentEndDate
+Student14,STUDENT.PROGRAMS,STPR.CURRENT.STATUS,Current Status,Character,206,219,14,$3.,No,ADCStuProgCurrentStatus
+Student14,STUDENT.PROGRAMS,STPR.CURRENT.STATUS.DATE,Status Date,Character,220,230,11,$10.,No,ADCStuProgCurrentStatusDate
+Student14,STUDENT.PROGRAMS,STPR.END.DATE,End Date,Character,231,238,8,$8.,No,ADCStuProgEndDate
+Student14,STUDENT.PROGRAMS,STPR.START.DATE,Start Date,Character,239,248,10,$10.,No,ADCStuProgStartDate
+Student14,STUDENT.PROGRAMS,STPR.STATUS,Status,Character,249,278,30,$3.,Yes,ADCStuProgStatus
+Student14,STUDENT.PROGRAMS,STPR.STATUS.CHGOPR,Status Changed By,Character,279,295,17,$10.,Yes,ADCStuProgStatusChgOpr
+Student14,STUDENT.PROGRAMS,STPR.STATUS.DATE,Status Date,Character,296,306,11,$10.,Yes,ADCStuProgStatusChgDate
+Student14,STUDENT.PROGRAMS,STPR.STUDENT.ED.PLAN,Ed Plan,Character,307,316,10,$6.,No,ADCStuEdPlan
+Student14,STUDENT.PROGRAMS,STPR.DEPT,Dept,Character,317,341,25,$6.,No,ADCStuProgDept
+Student14,STUDENT.PROGRAMS,STPR.STUDENT,STPR.STUDENT,Character,342,351,10,$10.,No,ADCPersonID

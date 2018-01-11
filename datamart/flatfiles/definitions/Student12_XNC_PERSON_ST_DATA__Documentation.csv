@@ -1,0 +1,5 @@
+SAS File,Datatel Table,Datatel Field,Download Field Name,Field Type,Field Start Position,Field End Position,Length,SAS Format,Multi-Value,SAS Variable Name
+Student12,PERSON.ST,@ID,PERSON.ST,Character,1,10,10,$10.,No,ADCPersonID
+Student12,PERSON.ST,PST.CAMPUS.ORGS.MEMBER,Campus Organization,Character,11,30,20,$10.,Yes,ADCStuCampusOrgs
+Student12,PERSON.ST,PST.REGISTERED,Reg?,Character,31,34,4,$4.,No,ADCStuRegistered
+Student12,PERSON.ST,@ID,PERSON.ST,Character,35,44,10,$10.,No,ADCPersonID

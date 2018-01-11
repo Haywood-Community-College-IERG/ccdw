@@ -1,0 +1,59 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `LIST`
+   Else DialogBox Select Query,Verb,`LIST`
+Else Query.Verb=`LIST`
+Query.File=`ISIR.FAFSA`
+Query.Items = `WITH (IFAF.IMPORT.YEAR EQ '<<Enter Four Digit Year:>>')`
+Query.Sort = ``
+Temp = `IFAF.S.NO.COLL IFAF.S.NO.EXEMPT IFAF.S.NO.FAMILY IFAF.S.OTHER.NON.REP.MONEY IFAF.S.OTHER.UNTAXED.INC IFAF.S.PENSION.PAYMTS IFAF.S.SSI.BEN IFAF.S.STUDENT.INC IFAF.S.TANF IFAF.S.TAX.FORM.SIGNED IFAF.S.T`
+Temp := `AX.FORM.TYPE IFAF.S.TAX.RETURN.FILED IFAF.S.TOTAL.WKSHTA IFAF.S.TOTAL.WKSHTB IFAF.S.TOTAL.WKSHTC IFAF.S.TUIT.PD.AMT IFAF.S.TUIT.PD.NBR IFAF.S.UNTAXED.PENSIONS IFAF.S.US.TAX.PD IFAF.S.VET.AMT IFAF.S.VE`
+Temp := `T.MO IFAF.S.VET.NON.ED.BEN IFAF.S.WIC IFAF.SEC.EFC IFAF.SEL.SVC.REG IFAF.SEND.DEMO.CHANGES IFAF.SIGN.FLAG IFAF.SNT IFAF.SPOUSE.DOB IFAF.SPOUSE.FIRST IFAF.SPOUSE.INC IFAF.SPOUSE.LAST IFAF.SPOUSE.SSN IF`
+Temp := `AF.STUDENT.ID IFAF.SUPP.AZE IFAF.SUPP.DEPENDENCY IFAF.SUPP.ID IFAF.SUPP.PRI.EFC IFAF.SUPP.SEC.EFC IFAF.SUPP.SNT IFAF.TEACH.ELIG ISIR.FAFSA.ID.RPT`
+Query.Output = Temp
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=0
+Query.OutputTo=`PC`
+Query.Before=``
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\ISIR_DATA_05.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=10
+PCAdvanced.Retries=3
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

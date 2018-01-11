@@ -1,0 +1,57 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `SORT`
+   Else DialogBox Select Query,Verb,`SORT`
+Else Query.Verb=`SORT`
+Query.File=`STUDENT.PROGRAMS`
+Query.Items = ``
+Query.Sort = `BY STPR.STUDENT`
+Temp = `STPR.STUDENT STPR.ACAD.LEVEL STPR.ACAD.PROGRAM STPR.USER1 STPR.ACTUAL.TITLE STPR.ADMIT.STATUS STPR.ALLOW.GRADUATION.FLAG STPR.CATALOG STPR.CURRENT.END.DATE STPR.CURRENT.STATUS STPR.CURRENT.STATUS.DATE`
+Temp := ` STPR.END.DATE STPR.START.DATE STPR.STATUS STPR.STATUS.CHGOPR STPR.STATUS.DATE STPR.STUDENT.ED.PLAN STPR.DEPT STPR.STUDENT`
+Query.Output = Temp
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=1
+Query.OutputTo=`PC`
+Query.Before=`GET.LIST X818_ST_SAS_STUDENT_PROGRAMS_LIST`
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\ST_14_XNC_ST_SAS_STUDENT_PROGRAMS_DATA.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=20
+PCAdvanced.Retries=6
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

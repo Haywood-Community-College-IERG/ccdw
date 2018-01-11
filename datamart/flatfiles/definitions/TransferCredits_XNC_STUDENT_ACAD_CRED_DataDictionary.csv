@@ -1,0 +1,256 @@
+@ID,D,0,,STUDENT.ACAD.CRED,5L,S
+CRS.NO,I Generated Reference Pointer,"TRANS(COURSES,STC.COURSE,'CRS.NO','X')",,Course No,7L,S
+DFLT.DA.SORT.STRING,I Gets the Datatel-supplied default DA sort string,"SUBR(""CC.GET.DFLT.DA.SORT.STRING"",@ID)",,,20L,S
+PST.STUDENT.NON.COURSES,I Generated Reference Pointer,"TRANS(PERSON.ST,STC.PERSON.ID,'PST.STUDENT.NON.COURSES','X')",,Non-Courses,10L,M
+QBSEC,I,"SUBR(""QBSEC"",""STUDENT.ACAD.CRED"",@ID,@RECORD)",,,1R,S
+SCS.ABSENT.DATES,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.ABSENT.DATES','X')",D2/MDY,Absent Dates,8R,M
+SCS.ABSENT.NOTICE.DATE,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.ABSENT.NOTICE.DATE','X')",D2/MDY,Absence Notice Date,8R,S
+SCS.ADDNL.AMTS,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.ADDNL.AMTS','X')",,Addnl Amts,5L,M
+SCS.AR.POSTED.FLAG,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.AR.POSTED.FLAG','X')",,AR Posted,3L,S
+SCS.ATTENDANCE.REASON,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.ATTENDANCE.REASON','X')",,Attendance Reason,50L,M
+SCS.ATTENDANCE.TYPES,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.ATTENDANCE.TYPES','X')",,Attendance Type,5L,M
+SCS.COMMENTS,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.COMMENTS','X')",,Comments,65L,M
+SCS.COURSE.SECTION,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.COURSE.SECTION','X')",,Course Section,21L,S
+SCS.FINAL.NOTES,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.FINAL.NOTES','X')",,Final Notes,35L,M
+SCS.FINAL.NOTES.ADDDATE,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.FINAL.NOTES.ADDDATE','X')",D2/MDY,Final Notes Add Date,8R,M
+SCS.FINAL.NOTES.ADDOPR,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.FINAL.NOTES.ADDOPR','X')",,Final Notes Added By,8L,M
+SCS.LAST.ATTEND.DATE,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.LAST.ATTEND.DATE','X')",D2/MDY,Last Attend Date,8R,S
+SCS.LOCATION,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.LOCATION','X')",,Location,35L,S
+SCS.MID.GRADE.DATE1,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.DATE1','X')",D2/MDY,Midterm Grade1 Date,8R,S
+SCS.MID.GRADE.DATE2,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.DATE2','X')",D2/MDY,Midterm Grade2 Date,8R,S
+SCS.MID.GRADE.DATE3,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.DATE3','X')",D2/MDY,Midterm Grade3 Date,8R,S
+SCS.MID.GRADE.DATE4,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.DATE4','X')",D2/MDY,Midterm Grade4 Date,8R,S
+SCS.MID.GRADE.DATE5,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.DATE5','X')",D2/MDY,Midterm Grade5 Date,8R,S
+SCS.MID.GRADE.DATE6,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.DATE6','X')",D2/MDY,Midterm Grade6 Date,8R,S
+SCS.MID.GRADE.REPORT.FLAG1,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.REPORT.FLAG1','X')",,Midterm Grade1 Rpt,3L,S
+SCS.MID.GRADE.REPORT.FLAG2,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.REPORT.FLAG2','X')",,Midterm Grade2 Rpt,3L,S
+SCS.MID.GRADE.REPORT.FLAG3,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.REPORT.FLAG3','X')",,Midterm Grade3 Rpt,3L,S
+SCS.MID.GRADE.REPORT.FLAG4,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.REPORT.FLAG4','X')",,Midterm Grade4 Rpt,3L,S
+SCS.MID.GRADE.REPORT.FLAG5,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.REPORT.FLAG5','X')",,Midterm Grade5 Rpt,3L,S
+SCS.MID.GRADE.REPORT.FLAG6,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.GRADE.REPORT.FLAG6','X')",,Midterm Grade6 Rpt,3L,S
+SCS.MID.NOTES,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.NOTES','X')",,Midterm Notes,35L,M
+SCS.MID.NOTES.ADDDATE,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.NOTES.ADDDATE','X')",D2/MDY,Midterm Notes Add Date,8R,M
+SCS.MID.NOTES.ADDOPR,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.NOTES.ADDOPR','X')",,Midterm Notes Added By,8L,M
+SCS.MID.TERM.GRADE1,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.TERM.GRADE1','X')",,Midterm Grade 1,3L,S
+SCS.MID.TERM.GRADE2,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.TERM.GRADE2','X')",,Midterm Grade 2,3L,S
+SCS.MID.TERM.GRADE3,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.TERM.GRADE3','X')",,Midterm Grade 3,3L,S
+SCS.MID.TERM.GRADE4,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.TERM.GRADE4','X')",,Midterm Grade 4,3L,S
+SCS.MID.TERM.GRADE5,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.TERM.GRADE5','X')",,Midterm Grade 5,3L,S
+SCS.MID.TERM.GRADE6,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.MID.TERM.GRADE6','X')",,Midterm Grade 6,3L,S
+SCS.OVERRIDE.BILLING.CRED,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.OVERRIDE.BILLING.CRED','X')","MD25,",Billing Cred,8R,S
+SCS.OVERRIDE.DISCOUNT.AMTS,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.OVERRIDE.DISCOUNT.AMTS','X')","MD2,",Override Discount Amts,10R,M
+SCS.OVERRIDE.DISCOUNT.PCTS,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.OVERRIDE.DISCOUNT.PCTS','X')",MD2,Override Discount Pct,6R,M
+SCS.OVERRIDE.DISCOUNTS,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.OVERRIDE.DISCOUNTS','X')",,Override Discounts,35L,M
+SCS.PASS.AUDIT,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.PASS.AUDIT','X')",,Pass/Audit,15L,S
+SCS.PRINTED.COMMENTS,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.PRINTED.COMMENTS','X')",,Printed Comments,65L,M
+SCS.RANDOM.ID,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.RANDOM.ID','X')",MD0,Random ID,10R,S
+SCS.REG.AR.POSTING.ITEMS,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.REG.AR.POSTING.ITEMS','X')",,AR Posting Items,1L,M
+SCS.REG.METHOD,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.REG.METHOD','X')",,Reg Method,30L,S
+SCS.REG.TIME.PERIOD,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.REG.TIME.PERIOD','X')",,Reg Time Period,30L,S
+SCS.STUDENT,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.STUDENT','X')",,Student,10L,S
+SCS.STUDENT.ACAD.CRED,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'SCS.STUDENT.ACAD.CRED','X')",,Student Acad Cred,10L,S
+SEC.LOCATION,I Generated Reference Pointer,"TRANS(COURSE.SECTIONS,STC.COURSE.SECTION,'SEC.LOCATION','X')",,Location,35L,S
+STC.ACAD.LEVEL,D The academic level to which this credit applies.,3,,Acad Level,35L,S
+STC.ACTIVE.PROGRAMS,I Return Active programs for STUDENT.ACAD.CRED,"SUBR(""CC.GET.ACTIVE.PROGRAMS"",STC.PERSON.ID,TRANS(""STUDENTS"",STC.PERSON.ID,""STU.ACAD.PROGRAMS"",""X""),""PROGRAMS"",STC.START.DATE);@1",,Active Programs,20L,M
+STC.ALL.REPL.FLAG,"I Returns a flag of ""Y"" if the student acad cred record has a","TRANS(""STUDENT.ACAD.CRED"",STC.REPEATED.ACAD.CRED,""STC.REPL.CODE"",""X""); IF LEN(@1) NE ((((2) * (COUNT(@1,@VM)))) + (1)) THEN (""N"") ELSE (""Y"")",,All Repl Flag,1L,S
+STC.ALLOW.REPL.FLAG,D Yes/no flag specifying if this record is never to be,56,,Allow Repl,3L,S
+STC.ALTCUM.CONTRIB.ATT.CRED,D The number of credits attempted that will be counted,44,"MD25,",Alt CumýAtt Cred,8R,S
+STC.ALTCUM.CONTRIB.CMPL.CRED,D The number of credits completed that will be counted,45,"MD25,",Alt CumýCmpl Cred,8R,S
+STC.ALTCUM.CONTRIB.GPA.CRED,D The number of GPA credits that will be counted,46,"MD25,",Alt CumýGPA Cred,8R,S
+STC.ALTCUM.CONTRIB.GRADE.PTS,D This is the number of grade points that this entry,49,MD5,Alt Cum ContribýGrade Points,9R,S
+STC.ATT.CEUS,D This is the number of continuing education units that,37,MD2,CEUs Att,6R,S
+STC.ATT.CRED,D This is the number of credits that will be counted,39,"MD25,",Att Cred,8R,S
+STC.CEUS,D The number of continuing education units (CEUs) a,23,MD2,CEUs,6R,S
+STC.CMPL.CEUS,D This is the number of continuing ed units completed.,38,MD2,Cmpl CEUs,6R,S
+STC.CMPL.CRED,D The number of credits attempted that were actually,13,"MD25,",Cmpl Cred,8R,S
+STC.COMMENTS,D Free form text about the academic credit.  Displayed,32,,Comments,65L,M
+STC.COUNT.RETAKE.CRED.FLAG,I This is the count retake cred flag on the course.,"TRANS(""COURSES"",STC.COURSE,""CRS.COUNT.RETAKE.CRED.FLAG"",""X"")",,CountýRetakeýCredýFlag,1L,S
+STC.COURSE,D ID of the course associated with this academic credit.,7,,Course,15L,S
+STC.COURSE.LEVEL,D Course level for which credit is valid.  Defaults from,4,,Course Level,30L,S
+STC.COURSE.NAME,D Name of the course when the student took it.,24,,Course Name,15L,S
+STC.COURSE.SECTION,I Created to allow selection of STUDENT.ACAD.CRED by,"TRANS(""STUDENT.COURSE.SEC"",STC.STUDENT.COURSE.SEC,""SCS.COURSE.SECTION"",""X"")",,Section,19L,S
+STC.COURSE.TYPES,I Defines the course types (if item is a course or a,"IF STC.STUDENT.COURSE.SEC = '' THEN (IF STC.COURSE = '' THEN ("""") ELSE (STC.CRS.COURSE.TYPES)) ELSE (STC.CS.SSCS)",,Course Types,20L,M
+STC.CRED,D The number of credits or clock hours for which,12,"MD25,",Reg Cred,8R,S
+STC.CRED.CONVERSION,D This is the conversion factor that will be used to,40,MD5,Cred Conversion,9R,S
+STC.CRED.TYPE,D Shows the credit type associated with this entry for,15,,Cred Type,35L,S
+STC.CRS.COURSE.TYPES,I 1998 July 9  09:13pm  Ms. Gini Anne,"TRANS(""COURSES"",STC.COURSE,""CRS.COURSE.TYPES"",""X"")",,CrseýTypes,5L,M
+STC.CRS.NAME,I To display the current real course name,"TRANS(""COURSES"",STC.COURSE,""CRS.NAME"",""X"")",,,20L,S
+STC.CRS.NUMBER,I Retrieves the course's CRS.NO,"TRANS(""COURSES"",STC.COURSE,""CRS.NO"",""X"")",,,7L,S
+STC.CS.SSCS,I 1998 July 9  09:10pm  Ms. Gini Anne,"TRANS(""COURSE.SECTIONS"",STC.SCS.COURSE.SECTION,""SEC.COURSE.TYPES"",""X"")",,CrsýTypes,5L,M
+STC.CSM.START,I Virtual field for sorting STC records by the,"TRANS(""COURSE.SEC.MEETING"",STC.MEETING.SEC,""CSM.START.DATE"",""X"")",D2/,CSM Start Date,8R,M
+STC.CSM.START.DATE,I Virtual field for sorting STC records by the,"EXTRACT(STC.START.DATE.CSM,1,1,0)",D2/,CSM Start Date,8R,S
+STC.CUM.CONTRIB.ATT.CRED,D The number of credits attempted that will be counted,41,"MD25,",Cum AttýCred,8R,S
+STC.CUM.CONTRIB.CMPL.CRED,D The number of credits completed that will be counted,42,"MD25,",Cum CmpltýCred,8R,S
+STC.CUM.CONTRIB.GPA.CRED,D The number of credits completed that will be counted,43,"MD25,",Cum GPAýCred,8R,S
+STC.CUM.CONTRIB.GRADE.PTS,D This is the number of grade points that this entry,48,MD5,Cum ContribýGrade Points,9R,S
+STC.CURRENT.NOTE,I This is the most current (first) note stored,"EXTRACT(STC.NOTES,1,1,0)",,CurrentýNote,5L,S
+STC.CURRENT.RESIDENCY.STATUS,I This gets the residency status for the student based,"FIELD(SUBR(""CC.GET.DATE.SUBSET"",TRANS(""STUDENTS"",STC.PERSON.ID,""STU.RESIDENCY.STATUS"",""X""),TRANS(""STUDENTS"",STC.PERSON.ID,""STU.RESIDENCY.STATUS.DATE"",""X""),SUBR(""S.UDT.TRANS"",""STUDENTS"",STC.PERSON.ID,""STU.RESIDENCY.END.DATES""),DATE()),@VM,1)",,CurrentýResidencyýStatus,5L,S
+STC.CURRENT.STATUS,I This is the most current (first) student academic,"EXTRACT(STC.STATUS,1,1,0)",,CurrentýStatus,2L,S
+STC.CURRENT.STATUS.DATE,I Extract the most recent (first) status date.,"EXTRACT(STC.STATUS.DATE,1,1,0)",D2/,CurrentýStatus Date,8R,S
+STC.DATE,I 1998 July 9  09:00pm  Ms. Gini Anne,DATE(),D2/,CurrentýDate,8R,S
+STC.DATE.STATUS,I This is the status as of a certain date.  It can be,"SUBR(""CC.GET.DATE.STC.STATUS"",""5/22/96"",@ID)",,St,2L,S
+STC.DEPTS,D List of departments to which this academic credit,5,,Depts,40L,M
+STC.DIVISIONS,D List of divisions to which the departments of this,21,,Divisions,35L,M
+STC.END.DATE,D The date this academic credit has finished or is,30,D2/MDY,End Date,8R,S
+STC.FACULTY,I To get the list of faculty for this stc record,"TRANS(""COURSE.SEC.FACULTY"",STC.SEC.FACULTY,""CSF.FACULTY"",""X"")",,,10L,M
+STC.FACULTY.LOAD,I To get the faculty workload for this STC record,"TRANS(""COURSE.SEC.FACULTY"",STC.SEC.FACULTY,""CSF.FACULTY.LOAD"",""X"")",MD2,Fac Load,6R,M
+STC.FINAL.GRADE,D This is the unverified (unoffical) grade of the,17,,Final Grade,3L,S
+STC.FINAL.GRADE.LOCK.DATE,D,79,D2/MDY,,8R,S
+STC.FINAL.GRADE.LOCK.OPR,D,80,,,8L,S
+STC.FINAL.GRADE.LOCK.STATUS,D Indicates that the final grade of the STUDENT.ACAD.CRED record is,78,,Locked In for Batch Verification,2L,S
+STC.GPA.CRED,D The credits actually used for calculation of GPA.,14,"MD25,",GPA Cred,8R,S
+STC.GPA1.ACAD.PROGRAMS,D This field designates in which academic programs this,58,,GPA1 Acad Programs,20L,M
+STC.GPA1.MAJORS,D These are the majors associated with the academic,59,,GPA1 Majors,35L,M
+STC.GPA2.ACAD.PROGRAMS,D This field designates in which academic programs this,60,,GPA2 Acad Programs,20L,M
+STC.GPA2.MINORS,D These are the minors associated with the academic,61,,GPA2 Minors,35L,M
+STC.GRADE,I The actual grade,"TRANS(""GRADES"",STC.VERIFIED.GRADE,""GRD.GRADE"",""X"")",,GRD,3L,S
+STC.GRADE.EXPIRE.DATE,D This is the date by which the verified grade will need,28,D2/MDY,Grade Expire Date,8R,S
+STC.GRADE.IMPORT.MSGS,D Contains messages generated during grade validation on import of grades through ,81,,,78L,M
+STC.GRADE.PTS,D These are the grade points of the academic credit,47,MD5,Grade Points,9R,S
+STC.GRADE.REPORT.DATES,D The dates a grade report was produced for this,33,D2/MDY,Grade Report Dates,8R,M
+STC.GRADE.REPORT.FLAG,D Says whether or not a grade has appeared,34,,Grade Rpt,3L,S
+STC.GRADE.SCHEME,D The grade scheme defaults from the section but can,16,,Grade Scheme,35L,S
+STC.IF.SC.EQ.NULL,I 1998 July 9  09:07pm  Ms. Gini Anne,"IF NOT(STC.COURSE) THEN ("""") ELSE (STC.CRS.COURSE.TYPES);@1",,Course Types,,S
+STC.INSTITUTIONS.ATTEND.KEY,I Get the Institution attended key from the PERSON file. Created by D.Mincey 10/18/2006,"TRANS(""PERSON"",@ID,""PERSON.INSTITUTIONS.ATTEND"",""X"")",,INST KEY,7L,M
+STC.LEN.1,I 1998 July 28  12:41pm  SAQ,LEN(STC.TERMS.SRT),,,2R,S
+STC.MANUAL.CRED.INDIC,D This indicator contains a Y if the credits or CEUs have,75,,ManýCred,3L,S
+STC.MARK,D This is the mark put on the student's academic,62,,Mark,13L,S
+STC.MARK.ACAD.CREDENTIALS,D These are the IDs of the academic credentials for,64,,Acad Credentials ID,20L,M
+STC.MARK.DATE,D This is the date the academic credit mark was put on,63,D2/MDY,Mark Date,8R,S
+STC.MEETING.SEC,I 1998 July 9  09:25pm  Ms. Gini Anne,"TRANS(""COURSE.SECTIONS"",STC.SCS.COURSE.SECTION,""SEC.MEETING"",""X"")",,Sec Meeting,10L,M
+STC.MINUS.3.STC.LEN.1,I 1998 July 9  09:56pm  Ms. Gini Anne,((3) - (STC.LEN.1)),,,2R,S
+STC.NOTE.DATE,D The date of the associated note.  Displayed but not,36,D2/MDY,Note Date,8R,M
+STC.NOTES,D List of coded comments associated with this academic,35,,Notes,35L,M
+STC.PERSON.ID,D The ID of the person whose academic activity this is.,1,,Person ID,10L,S
+STC.PRINTED.COMMENTS,D Comments that would be printed on the grade report,31,,Print Comments,30L,M
+STC.PST.LINK.FLAG,I This I-Desc was created for selection purposes.  It,"SUBR(""CC.CHECK.STC.PST.LINK"",@ID)",,Student Acad Cred to Person ST return link,3L,S
+STC.REPEATED.ACAD.CRED,D This is the list of academic credit IDs,55,,Repeat Courses,10L,M
+STC.REPL.CODE,"D If this field is not null, it means this academic",50,,Replaced Code,30L,S
+STC.REPORTING.TERM,D This is the term to which this student academic credit,76,,Rpt Term,35L,S
+STC.SCHOOLS,D List of schools associated with the divisions or,22,,Schools,35L,M
+STC.SCS.COURSE.SECTION,I 1998 July 9  09:15pm  Ms. Gini Anne,"TRANS(""STUDENT.COURSE.SEC"",STC.STUDENT.COURSE.SEC,""SCS.COURSE.SECTION"",""X"")",,CrseýCourse Section,19L,S
+STC.SCS.STUDENT,I To translate the SCS.STUDENT from student.course.sec,"TRANS(""STUDENT.COURSE.SEC"",STC.STUDENT.COURSE.SEC,""SCS.STUDENT"",""X"")",,Student Name,10L,S
+STC.SEC.END.DATE,I To select by section end date for reports,"TRANS(""COURSE.SECTIONS"",STC.SCS.COURSE.SECTION,""SEC.END.DATE"",""X"")",D2/,End Date,8R,S
+STC.SEC.FACULTY,I 1998 July 9  09:28pm  Ms. Gini Anne,"TRANS(""COURSE.SECTIONS"",STC.COURSE.SECTION,""SEC.FACULTY"",""X"")",,Sec Faculty,10L,M
+STC.SEC.MEETING,I Virtual field for sorting STC records by the,"TRANS(""COURSE.SECTIONS"",STC.COURSE.SECTION,""SEC.MEETING"",""X"")",D2/,CSM Start Date,8R,M
+STC.SEC.NAME,I Get the section name to use to sort student acad cred,"TRANS(""COURSE.SECTIONS"",STC.COURSE.SECTION,""SEC.NAME"",""X"")",,Section Name,21L,S
+STC.SEC.SORT.NAME,I Get the name of the course section for sorting,"TRANS(""COURSE.SECTIONS"",TRANS(""STUDENT.COURSE.SEC"",STC.STUDENT.COURSE.SEC,""SCS.COURSE.SECTION"",""X""),""SEC.NAME"",""X"")",,Section Name,21L,S
+STC.SEC.START.DATE,I To select of section start date for reports,"TRANS(""COURSE.SECTIONS"",STC.SCS.COURSE.SECTION,""SEC.START.DATE"",""X"")",D2/,Start Date,8R,S
+STC.SECTION.NO,D This is the number of the course section if this,57,,Section,5L,S
+STC.SELECT.END.DATE,"I Using the parameter CD.SECTION.LOOKUP.NO.DAYS and the terms field, determine maximum end date for select.","SUBR(""S.STC.END.INDEX"",@RECORD,@ID)",D4/MDY,Select,10R,M
+STC.SELECT.START.DATE,I Using the parameter CD.SECTION.LOOKUP.NO.DAYS and the term field.  determine the min start date for select,"SUBR(""S.STC.START.INDEX"",@RECORD,@ID)",D4/MDY,Select,10R,M
+STC.SESSION.CYCLE,I Gets the session cycle form the course file,"TRANS(""COURSES"",STC.COURSE,""CRS.SESSION.CYCLE"",""X"")",,Session Cycle,1L,S
+STC.SORT.FAC.FIRST.NAME,I 1998 July 9  09:40pm  Ms. Gini Anne,"TRANS(""PERSON"",STC.FACULTY,""FIRST.NAME"",""X"")",,Faculty First Name,25L,M
+STC.SORT.FAC.LAST.NAME,I 1998 July 9  09:41pm  Ms. Gini Anne,"TRANS(""PERSON"",STC.FACULTY,""LAST.NAME"",""X"")",,Faculty Last Name,25L,M
+STC.SORT.FAC.MID.NAME,I 1998 July 9  09:42pm  Ms. Gini Anne,"TRANS(""PERSON"",STC.FACULTY,""MIDDLE.NAME"",""X"")",,Faculty Middle Name,25L,M
+STC.SORT.FAC.NAME,I Sort course section faculty by name,"UPCASE(((EXTRACT(STC.SORT.FAC.LAST.NAME,1,1,0):EXTRACT(STC.SORT.FAC.FIRST.NAME,1,1,0)):EXTRACT(STC.SORT.FAC.MID.NAME,1,1,0)))",,Faculty Name,50L,S
+STC.SORT.FIRST.NAME,I 1998 July 9  09:45pm  Ms. Gini Anne,"TRANS(""PERSON"",STC.PERSON.ID,""FIRST.NAME"",""X"")",,First Name,25L,S
+STC.SORT.LAST.NAME,I 1998 July 9  09:45pm  Ms. Gini Anne,"TRANS(""PERSON"",STC.PERSON.ID,""LAST.NAME"",""X"")",,Last Name,25L,S
+STC.SORT.MID.NAME,I 1998 July 9  09:46pm  Ms. Gini Anne,"TRANS(""PERSON"",STC.PERSON.ID,""MIDDLE.NAME"",""X"")",,Middle Name,25L,S
+STC.SORT.NAME,I To get the last:first:middle format of the name from,UPCASE(((STC.SORT.LAST.NAME:STC.SORT.FIRST.NAME):STC.SORT.MID.NAME)),,Sort Name,50L,S
+STC.SORT.REPORTING.TERM,I Get a sorting term from the term year and sequence.,(STC.TERMS.SRT.TRY:STC.STR.0.SM3SL1),,Sort Reporting Term,11R,S
+STC.SORT.TERM,I Get a sorting term from the term year and sequence.,(STC.TERMS.STC.TERM.TRY:STC.TERMS.ST.PADDED),,Sort Term,7R,S
+STC.SOURCE.DATA,"I For use in getting titles and other data, especially","STC.STUDENT.EQUIV.EVAL; IF @1 = '' THEN ("""") ELSE (FIELD(TRANS(""STUDENT.EQUIV.EVALS"",@1,""STE.EXTERNAL.TRANSCRIPTS"",""X""),@VM,1)); IF @2 = '' THEN ("""") ELSE (TRANS(""EXTERNAL.TRANSCRIPTS"",@2,""EXTL.INSTITUTION"",""X"")); IF @3 = '' THEN ("""") ELSE (TRANS(""PERSON"",@3,""LAST.NAME"",""X"")); STC.STUDENT.COURSE.SEC; IF @1 = '' THEN ("""") ELSE (TRANS(""STUDENT.EQUIV.EVALS"",@1,""STE.STUDENT.NON.COURSE"",""X"")); IF @6 = '' THEN ("""") ELSE (TRANS(""STUDENT.NON.COURSES"",@6,""STNC.NON.COURSE"",""X"")); IF @7 = '' THEN ("""") ELSE (TRANS(""NON.COURSES"",@7,""NCRS.SHORT.TITLE"",""X"")); IF NOT(@5 = '') THEN (((""NRC"":@VM):""NORMAL REGISTERED COURSE"")) ELSE (IF NOT(@6 = '') THEN (((((((((""NCE"":@VM):""NON-COURSE EQUIVALENCY""):@VM):@8):@VM):@6):@VM):@7)) ELSE (((((((((""TCE"":@VM):""TRANSFER COURSE EQUIVALENCY""):@VM):@4):@VM):@2):@VM):@3)));@9",,,30L,M
+STC.ST.LEFTOVER,I 1998 July 28  01:04pm  SAQ,((3) - (STC.ST.LEN)),MD0,,2R,S
+STC.ST.LEN,I 1998 July 28  01:06pm  SAQ,LEN(STC.TERMS.STC.TERM),MD0,,2R,S
+STC.START.DATE,D The date this academic credit was started.  Used to,29,D2/MDY,Start Date,8R,S
+STC.START.DATE.CSM,I 1998 July 9  09:23pm  Ms. Gini Anne,"TRANS(""COURSE.SEC.MEETING"",STC.MEETING.SEC,""CSM.START.DATE"",""X"")",D2/,StartýDate,8R,M
+STC.STATUS,D Status of the academic credit entry. Used to control whether or not,9,,Status,15L,M
+STC.STATUS.ACTION1,I Retrieve STC.STATUS action1 from validation table,"SUBR(""CC.GET.STC.STATUS.CODE1"",STC.CURRENT.STATUS)",,StatusýAction1,1L,S
+STC.STATUS.DATE,D The date the associated status was added.  This date,10,D2/MDY,Status Date,8R,M
+STC.STATUS.REASON,D The reason the status changed.  Displayed but not,11,,Reason,25L,M
+STC.STATUS.TIME,D Time the associated status was added to the record.,8,MTH,Status Time,8R,M
+STC.STR.0.SM3SL1,I 1998 July 9  09:55pm  Ms. Gini Anne,"(STR(""0"",STC.MINUS.3.STC.LEN.1):STC.TERMS.SRT)",,,3R,S
+STC.STUDENT.COURSE.IDX,D Envision-maintained field to keep the index value for,77,,,21L,S
+STC.STUDENT.COURSE.SEC,D This is the ID of the student course section with,26,,Student Course Sec,10L,S
+STC.STUDENT.EQUIV.EVAL,D This is the ID of the equivalency evaluation with,27,,Student Equiv Eval,10L,S
+STC.SUBJECT,D Subject to which this academic credit applies.,6,,Subject,40L,S
+STC.TERM,D The term to which this academic credit applies.  Used,25,,Term,35L,S
+STC.TERM.START.DATE,I Mar 14 2000  02:50pm  Pam Nowak,"TRANS(""TERMS"",STC.TERM,""TERM.START.DATE"",""X"")",D2/,TermýStartýDate,8R,S
+STC.TERMS.SRT,I 1998 July 9  09:50pm  Ms. Gini Anne,"TRANS(""TERMS"",STC.REPORTING.TERM,""TERM.SEQUENCE.NO"",""X"")",MD0,TrmýSeqýNo,3R,S
+STC.TERMS.SRT.TRY,I 1998 July 9  09:47pm  Ms. Gini Anne,"TRANS(""TERMS"",STC.REPORTING.TERM,""TERM.REPORTING.YEAR"",""X"")",MD0,TermýRptýYear,4R,S
+STC.TERMS.ST.PADDED,I 1998 July 28  01:00pm  SAQ,"LEN(STC.TERMS.STC.TERM); ((3) - (@1)); (STR(""0"",@2):STC.TERMS.STC.TERM)",,,3R,S
+STC.TERMS.STC.TERM,I 1998 July 9  09:57pm  Ms. Gini Anne,"TRANS(""TERMS"",STC.TERM,""TERM.SEQUENCE.NO"",""X"")",MD0,TrmýSeqýNo,3R,S
+STC.TERMS.STC.TERM.TRY,I 1998 July 9  10:01pm  Ms. Gini Anne,"TRANS(""TERMS"",STC.TERM,""TERM.REPORTING.YEAR"",""X"")",MD0,TermýReptýYear,4R,S
+STC.TITLE,D Description of this academic credit record.  Used as,2,,Title,30L,S
+STC.USER1,D,65,,,10L,S
+STC.USER10,D,74,,,10L,S
+STC.USER2,D,66,,,10L,S
+STC.USER3,D,67,,,10L,S
+STC.USER4,D,68,,,10L,S
+STC.USER5,D,69,,,10L,S
+STC.USER6,D,70,,,10L,S
+STC.USER7,D,71,,,10L,S
+STC.USER8,D,72,,,10L,S
+STC.USER9,D,73,,,10L,S
+STC.VERIFIED.GRADE,D This is the verified final grade of the student's,18,,VrfdýGrade,3L,S
+STC.VERIFIED.GRADE.CHGOPR,D This is the login of the person who last updated the,20,,Verified Grade Changed By,8L,S
+STC.VERIFIED.GRADE.DATE,D The date the verified grade was added or changed.,19,D2/MDY,Verified Grade Date,8R,S
+STC.WI.EQUIV.EVAL.DATE,I Mar 14 2000  02:56pm  Pam Nowak,IF STC.TERM.START.DATE THEN (STC.TERM.START.DATE) ELSE (STC.CURRENT.STATUS.DATE),D2/,EquivýEvalýDate,8R,S
+STE.SESSION.CYCLE,I Gets the session cycle form the course file,"TRANS(""COURSES"",STC.COURSE,""CRS.SESSION.CYCLE"",""X"")",,Session Cycle,1L,S
+STU.ACAD.PROGRAMS,I Generated Reference Pointer,"TRANS(STUDENTS,STC.PERSON.ID,'STU.ACAD.PROGRAMS','X')",,StudentýPrograms,20L,M
+STUDENT.ACAD.CRED.ADDDATE,D Envision-maintained date this record was added to file.,52,D2/MDY,Added On,8R,S
+STUDENT.ACAD.CRED.ADDOPR,D Envision-maintained login of who added this record.,51,,Added By,8L,S
+STUDENT.ACAD.CRED.CHGDATE,D Envision-maintained date this record was last updated.,54,D2/MDY,Changed On,8R,S
+STUDENT.ACAD.CRED.CHGOPR,D Envision-maintained login of who last updated this rec.,53,,Changed By,8L,S
+STUDENT.ACAD.CRED.ID,I System-generated key to STUDENT.ACAD.CRED file,"FIELD(@ID,""*"",1)",,Acad Cred,10L,S
+STUDENT.COURSE.SEC.CHGDATE,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'STUDENT.COURSE.SEC.CHGDATE','X')",D2/MDY,Changed On,8R,S
+STUDENT.COURSE.SEC.CHGOPR,I Generated Reference Pointer,"TRANS(STUDENT.COURSE.SEC,STC.STUDENT.COURSE.SEC,'STUDENT.COURSE.SEC.CHGOPR','X')",,Changed By,8L,S
+TERM.REPORTING.YEAR,I Generated Reference Pointer,"TRANS(TERMS,STC.TERM,'TERM.REPORTING.YEAR','X')",MD0,Reporting Year,4R,S
+TERM.SEQUENCE.NO,I Generated Reference Pointer,"TRANS(TERMS,STC.TERM,'TERM.SEQUENCE.NO','X')",MD0,Seq No,3R,S
+X.STC.ACTIVE.ADVISORS,I Get ID(s) of student's active advisor(s),"SUBR(""CC.GET.ACTIVE.ADVISORS"",STC.PERSON.ID)",,Advisor(s) ID,7L,M
+X.STC.ADVISORS.FIRST,I Get first name(s) of student's active advisor(s),"TRANS(""PERSON"",X.STC.ACTIVE.ADVISORS,""FIRST.NAME"",""X"")",,First Name}of Advisor,10L,M
+X.STC.ADVISORS.FULL,"I Concatenate full name (last, first) of advisor(s) & ID","SUBR('-SPLICE',X.STC.ADVISORS.LAST,"" "",X.STC.ADVISORS.FIRST)",,Active Advisor(s),25L,M
+X.STC.ADVISORS.FULL.ID,I Advisors names and IDs,"SUBR('-SPLICE',X.STC.ADVISORS.FULL,"" ID: "",X.STC.ACTIVE.ADVISORS)",,Advisor Name and ID,40L,M
+X.STC.ADVISORS.LAST,I Get advisor(s) last name(s),"TRANS(""PERSON"",X.STC.ACTIVE.ADVISORS,""LAST.NAME"",""X"")",,Last Name}of Advisor(s),15L,M
+X.STC.FA.AMOUNT,I Amount awarded to student in current FA year,"TRANS(X.STC.FA.SA.FILE,STC.PERSON.ID,""SA.AWARDED"",'X')",,Awarded,8R,S
+X.STC.FA.FLAG,"I Flag with a ""Y"" if person has value for X.STC.FA.AMOUNT","IF X.STC.FA.AMOUNT THEN (""Y"") ELSE ("""")",,FA,2L,S
+X.STC.FA.SA.FILE,I Returns the name of the SA.ACYR file,"(""SA."":TRANS(""TERMS"",STC.TERM,""TERM.REPORTING.YEAR"",""X""))",,,7L,S
+X.STC.FAC.FULL,"I Faculty name Last, First","SUBR('-SPLICE',X.STC.FAC.NAMES.LAST,"", "",X.STC.FAC.NAMES.FIRST)",,Instructor(s),25L,M
+X.STC.FAC.FULL.ID,I Returns faculty name and ID,"SUBR('-SPLICE',X.STC.FAC.FULL,"" ID: "",X.STC.FAC.IDS)",,Faculty Name and ID,40L,M
+X.STC.FAC.IDS,I Get IDs of instructors of this section,"TRANS(""COURSE.SEC.FACULTY"",STC.SEC.FACULTY,""CSF.FACULTY"",""X"")",,Instr}ID,7L,M
+X.STC.FAC.NAMES.FIRST,I Returns first names of faculty,"TRANS(""PERSON"",X.STC.FAC.IDS,""FIRST.NAME"",""X"")",,Instr}First,10L,M
+X.STC.FAC.NAMES.LAST,I Returns last names of instructors,"TRANS(""PERSON"",X.STC.FAC.IDS,""LAST.NAME"",""X"")",,Last Name}of Instructor(s),15L,M
+X.STC.VETERAN.FLAG,I Set flag if student has a veteran status,"IF X.STC.VETERAN.STAT THEN (""Y"") ELSE ("""")",,Vet,3L,S
+X.STC.VETERAN.STAT,I Veteran status of student,"TRANS(""PERSON"",STC.PERSON.ID,""VETERAN.TYPE"",""X"")",,Vet}Status,6L,M
+X818.STC.ALL.CMPL.CRED,I Returns the sum of the completed credits this student has taken.,"SUM(TRANS(""STUDENT.ACAD.CRED"",TRANS(""PERSON.ST"",STC.PERSON.ID,""PST.STUDENT.ACAD.CRED"",""X""),""STC.CUM.CONTRIB.CMPL.CRED"",""X""))","MD25,",All Completed Credits,6L,S
+X818.STC.PER.1ST.HOME.PHONE,"I  Extract only the first phone number, if it is c","IF FIELD(X818.STC.PER.PHONE.TYPE,@VM,1) EQ ""H"" THEN (FIELD(X818.STC.PER.PHONE.NUMBER,@VM,1)) ELSE ("""");@1",,Home Phone,12L,S
+X818.STC.PER.ADDRESS.LINES,I Retrieve ADDRESS.LINES from ADDRESS file,"TRANS(""ADDRESS"",X818.STC.PER.PREFERRED.ADDRESS,""ADDRESS.LINES"",""X"")",,Address Lines,30L,M
+X818.STC.PER.CITY,I Retrieve CITY from ADDRESS file. Created by,"TRANS(""ADDRESS"",X818.STC.PER.PREFERRED.ADDRESS,""CITY"",""X"")",,City,25L,S
+X818.STC.PER.EMAIL.ADDR,I Get the email Addresses from the PERSON,"TRANS(""PERSON"",STC.PERSON.ID,""PERSON.EMAIL.ADDRESSES"",""X"")",,EMAIL ADDRESS,50L,M
+X818.STC.PER.EMAIL.TYPES,I Used to retrieve the primary email Address from,"TRANS(""PERSON"",STC.PERSON.ID,""PERSON.EMAIL.TYPES"",""X"")",,EMAIL Type,3L,M
+X818.STC.PER.PHONE.NUMBER,I Get the PERSONAL.HOME.PHONE from,"TRANS(""PERSON"",STC.PERSON.ID,""PERSONAL.PHONE.NUMBER"",""X"")",,Phone Numbers,20L,M
+X818.STC.PER.PHONE.TYPE,I Get the Phone type from PERSON in order to,"TRANS(""PERSON"",STC.PERSON.ID,""PERSONAL.PHONE.TYPE"",""X"")",,,5R,M
+X818.STC.PER.PREFERRED.ADDRESS,I Retrieve The PREFFERED ADDRESS from the,"TRANS(""PERSON"",STC.PERSON.ID,""PREFERRED.ADDRESS"",""X"")",,PREFERRED ADDRESS Keys,10L,S
+X818.STC.PER.PRI.EMAIL,I Get the primary email address from the ,"SUBR('-EQS',TRANS(""PERSON"",STC.PERSON.ID,""PERSON.EMAIL.TYPES"",""X""),REUSE(""P"")); CONVERT(@VM,"""",@1); INDEX(@2,""1"",1); IF @3 GT 0 THEN (EXTRACT(TRANS(""PERSON"",STC.PERSON.ID,""PERSON.EMAIL.ADDRESSES"",""X""),1,@3,0)) ELSE """"",,Primary Email,50L,S
+X818.STC.PER.STATE,I Retrieve extract the State from the ADDRESS file,"TRANS(""ADDRESS"",X818.STC.PER.PREFERRED.ADDRESS,""STATE"",""X"")",,State,2L,S
+X818.STC.PER.ZIP,I Retrieve the ZIP from the ADDRESS file,"TRANS(""ADDRESS"",X818.STC.PER.PREFERRED.ADDRESS,""ZIP"",""X"")",,Zip,10L,S
+X818.STC.PERSON.SSN,I May 10 2005  01:52pm  Charles Cox,"TRANS(""PERSON"",STC.PERSON.ID,""SSN"",""X"")",,SSN,11L,S
+X818.STC.PERSON.SSN.NO.DASH,I Virtual Field of SSN without Dashes,"((SUBSTR(X818.STC.PERSON.SSN,1,3):SUBSTR(X818.STC.PERSON.SSN,5,2)):SUBSTR(X818.STC.PERSON.SSN,8,4))",,SSN,9L,S
+X818.STC.ROF.DETER.DATE,I Pull Withdrawl Date for ROF,"TRANS(""ROF."":""2007"",((STC.PERSON.ID:""*""):STC.TERM),""ROF.WITH.DETER.DATE"",""X"")",D2/,ROF with Det Date,8R,S
+X818.STC.SEC.DRP.GR.REQD.DATE,I Drop date required date from the course.sections,"TRANS(""COURSE.SECTIONS"",STC.COURSE.SECTION,""SEC.OVR.DROP.GR.REQD.DATE"",""X"")",D2/,Drop Gr Reqd Date,8L,S
+X818.STC.SEC.DRP.GR.REQDATE,I Drop date required date from the course.sections,"TRANS(""COURSE.SECTIONS"",STC.COURSE.SECTION,""SEC.OVR.DROP.GR.REQD.DATE"",""X"")",,Drop Gr Reqd Date,8L,S
+X818.STC.SEC.USER1,I GET the delivery method field (SEC.USER1) from,"TRANS(""COURSE.SECTIONS"",STC.SCS.COURSE.SECTION,""SEC.USER1"",""X"")",,Delivery Meth,5L,S
+X818.STC.STA.KEY,I Combine the following two fields to create the ,"((STC.PERSON.ID:""*""):STC.ACAD.LEVEL)",,STA File Key,10L,S
+X818.STC.STTR.TERM.ID,I create the key for the STUDENTS.TERM file,"((((STC.PERSON.ID:""*""):STC.TERM):""*""):STC.ACAD.LEVEL)",,Student Term Key,30L,S
+X818.STC.STU.CURRENT.TYPE,I Get the current student type from the X818.STC.STU.TYPES field in,"SUBR(""S.UDT.TRANS"",""STUDENTS"",STC.SCS.STUDENT,""STU.SGDS.ST.DATE""); FIELD(@1,@VM,1)",,Stu Cur Type,5L,S
+X818.STC.STU.TYPE.DATES,I Get the dates of the associated Student Types,"TRANS(""STUDENTS"",STC.SCS.STUDENT,""STU.TYPE.DATES"",""X"")",D2/,Stu Type Dates,8R,M
+X818.STC.STU.TYPES,I Get a the Student type from the STU.TYPES field in STUDENTS,"TRANS(""STUDENTS"",STC.SCS.STUDENT,""STU.TYPES"",""X"")",,Stu Type,5L,M
+X818.STC.TODAY,I Return current date for use in queries,DATE(),D4/,Current Date,10L,S
+X818.STC.XNC.HIGH.SCH.TRACK,I Pull High school track from XNC.PERSON file,"TRANS(""XNC.PERSON"",STC.PERSON.ID,""XNC.HIGH.SCHOOL.TRACK"",""X"")",,HS Track,3L,M
+XC1.NO,I Generated Reference Pointer,"TRANS(XCC1.COURSES,STC.COURSE,'XC1.NO','X')",,Course No,7L,S
+XSTC.COUNT.FOR.FTE,"I ""Flag indicating whether course counts toward FTE""","SUBR(""CC.XS.VAL.ENR.FOR.FTE"",@ID)",,FTE,3R,S
+XSTC.COUNT.FOR.FTE.V2,"I ""Flag indicating whether course counts toward FTE""","; SUBR(""CC.XS.VAL.ENR.FOR.FTE.V2"",@1,@ID)",,FTE,3R,S
+XSTC.CRS.STAT,I This CC will be used in coreq 'or' rules.,"((STC.COURSE.NAME:""*""):STC.CURRENT.STATUS)",,Crs Status,15L,S
+XSTC.ON.FIN.AID,"I XXIII:MLC 7/20/07 Returns ""Y"" if there is a FIN.AID record.  Used for SAP calculation.","TRANS(""FIN.AID"",STC.PERSON.ID,""@ID"",""X""); IF @1 NE '' THEN 'Y' ELSE 'N'",,ONýFIN.AID,5L,S
+XSTC.PRI.ACAD.PROGRAM,I Returns the ACS Primary acad Program,"SUBR(""CC.XS.GET.PRI.ACAD.PROGRAM"",STC.PERSON.ID,STC.ACAD.LEVEL,"""")",,Primary Acad Program,20L,M
+XSTC.PRI.CU.PROGRAM,I Returns the ACS Primary academic program.,"SUBR(""CC.XS.GET.PRI.ACAD.PROGRAM"",STC.PERSON.ID,""CU"","""")",,Primary Acad Program,20L,S
+XSTC.SEC.CENSUS.DATE,"I ""Gets the census date for the associated section""","SUBR(""CC.XS.GET.STC.CENSUS.DATE"",@ID)",D2/MDY,Census Date,8R,S
+XSTC.SEC.SUBJECT,I To return the subject in students,"TRANS(""STUDENT.COURSE.SEC"",STC.STUDENT.COURSE.SEC,""SCS.COURSE.SECTION"",""X""); TRANS(""COURSE.SECTIONS"",@1,""SEC.SUBJECT"",""X"")",,,10L,S
+XSTC.STU.LEVEL.MAJ.ID.DESC,"I ""Student level major ID and description for breaks""","((FMT(XSTC.STU.LEVEL.MAJOR,""L#5""):"" ""):XSTC.STU.LEVEL.MAJOR.DESC)",,Major Description,36L,S
+XSTC.STU.LEVEL.MAJOR,"I ""First major of first acad program for student at aclv""","TRANS(""ACAD.PROGRAMS"",XSTC.STU.LEVEL.PGM,""ACPG.MAJORS"",""X""); FIELD(@1,@VM,1)",,Major,5L,S
+XSTC.STU.LEVEL.MAJOR.DESC,"I ""Get description of 1st student level program major""","TRANS(""MAJORS"",XSTC.STU.LEVEL.MAJOR,""MAJ.DESC"",""X"")",,Major Description,30L,S
+XSTC.STU.LEVEL.PGM,"I ""First academic program of student at this acad level""","TRANS(""STUDENT.ACAD.LEVELS"",((STC.PERSON.ID:""*""):STC.ACAD.LEVEL),""STA.ACAD.PROGRAMS"",""X""); SUBR(""CC.GET.ACTIVE.PROGRAMS"",STC.PERSON.ID,@1,""PROGRAMS"",STC.START.DATE); FIELD(@2,@VM,1)",,Student Program,15L,S
+XSTC.STU.LEVEL.PGM.DESC,"I ""Get description of 1st student level program""","TRANS(""ACAD.PROGRAMS"",XSTC.STU.LEVEL.PGM,""ACPG.TITLE"",""X"")",,Description,30L,S
+XSTC.STU.LEVEL.PGM.ID.DESC,"I ""Student level program ID and description for breaks""","((FMT(XSTC.STU.LEVEL.PGM,""L#15""):"" ""):XSTC.STU.LEVEL.PGM.DESC)",,Student Program Description,46L,S
+XSTC.VERIFIED.GRADE.LETTER,I Translate Grade to Letter Grade,"TRANS(""GRADES"",STC.VERIFIED.GRADE,""GRD.GRADE"",""X"")",,Verified Grade,5L,S

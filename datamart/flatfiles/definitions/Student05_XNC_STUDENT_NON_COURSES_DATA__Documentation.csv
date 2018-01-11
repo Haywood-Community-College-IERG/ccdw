@@ -1,0 +1,14 @@
+SAS File,Datatel Table,Datatel Field,Download Field Name,Field Type,Field Start Position,Field End Position,Length,SAS Format,Multi-Value,SAS Variable Name
+Student05,STUDENT.NON.COURSES,STNC.PERSON.ID,Person ID,Character,1,10,10,$10.,No,ADCPersonID
+Student05,STUDENT.NON.COURSES,STNC.NCRS.TYPE,STNC.NCRS.TYPE,Character,11,40,30,$6.,No,ADCStuNonCourseType
+Student05,STUDENT.NON.COURSES,STNC.SOURCE,Source,Character,41,70,30,$4.,No,ADCStuNonCourseSource
+Student05,STUDENT.NON.COURSES,STNC.CATEGORY,Category,Character,71,95,25,$3.,No,ADCStuNonCourseCategory
+Student05,STUDENT.NON.COURSES,STNC.CATEGORY.TRANSLATION,Category Translation,Character,96,120,25,$15.,No,ADCStuNonCourseCatTrans
+Student05,STUDENT.NON.COURSES,STNC.START.DATE,Start Date,Character,121,130,10,$10.,No,ADCStuNonCourseStartDate
+Student05,STUDENT.NON.COURSES,STNC.END.DATE,End Date,Character,131,138,8,$8.,No,ADCStuNonCourseEndDate
+Student05,STUDENT.NON.COURSES,STNC.STATUS,Status,Character,139,168,30,$6.,No,ADCStuNonCourseStatus
+Student05,STUDENT.NON.COURSES,STNC.STATUS.DATE,Status Date,Character,169,179,11,$10.,No,ADCStuNonCourseStatusDate
+Student05,STUDENT.NON.COURSES,STNC.NON.COURSE,Noncourse,Character,180,189,10,$10.,No,ADCStuNonCourseCode
+Student05,STUDENT.NON.COURSES,STNC.TITLE,Title,Character,190,219,30,$30.,No,ADCStuNonCourseTitle
+Student05,STUDENT.NON.COURSES,STNC.SCORE,Score,Numeric,220,224,5,5.,No,ADCStuNonCourseScore
+Student05,STUDENT.NON.COURSES,STNC.PERSON.ID,Person ID,Character,225,234,10,$10.,No,ADCPersonID

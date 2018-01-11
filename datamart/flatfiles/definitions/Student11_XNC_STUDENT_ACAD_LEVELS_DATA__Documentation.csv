@@ -1,0 +1,12 @@
+SAS File,Datatel Table,Datatel Field,Download Field Name,Field Type,Field Start Position,Field End Position,Length,SAS Format,Multi-Value,SAS Variable Name,
+Student11,STUDENT.ACAD.LEVELS,STA.STUDENT,Student ID,Character,1,10,10,$10.,No,ADCPersonID,
+Student11,STUDENT.ACAD.LEVELS,STA.ACAD.LEVEL,Acad Level,Character,11,45,35,$6.,No,ADCStuAcadLevel,
+Student11,STUDENT.ACAD.LEVELS,STA.ADMIT.STATUS,Admit Status,Character,46,80,35,$3.,No,ADCStuAdmitStatus11,BAD-NOT USED
+Student11,STUDENT.ACAD.LEVELS,STA.FED.COHORT.GROUP,Fed Cohort Group,Character,81,110,30,$8.,No,ADCStuFedCohortGroup,
+Student11,STUDENT.ACAD.LEVELS,STA.START.TERM,Start Term,Character,111,145,35,$8.,No,ADCStuStartTerm,
+Student11,STUDENT.ACAD.LEVELS,STA.TERMS,Terms,Character,146,152,7,$7.,Yes,ADCStuTerms,
+Student11,STUDENT.ACAD.LEVELS,STA.ATTEMPT.CREDS,Credits Attempted,Numeric,153,169,17,8.,No,ADCStuCreditAttempted,
+Student11,STUDENT.ACAD.LEVELS,STA.CMPL.CRED,Completed,Numeric,170,178,9,8.,No,ADCStuCreditCompleted,
+Student11,STUDENT.ACAD.LEVELS,STA.CUM.GPA,Cum GPA,Numeric,179,185,7,7.,No,ADCStuCummulativeGPA,
+Student11,STUDENT.ACAD.LEVELS,X.STA.PROGRAM.GPA,Program GPA,Numeric,186,196,11,8.,No,ADCStuProgramGPA,
+Student11,STUDENT.ACAD.LEVELS,STA.STUDENT,Student ID,Character,197,206,10,$10.,No,ADCPersonID,

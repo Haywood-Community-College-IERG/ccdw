@@ -1,0 +1,33 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `SELECT`
+   Else DialogBox Select Query,Verb,`SELECT`
+Else Query.Verb=`SELECT`
+Query.File=`STUDENT.TERMS`
+Query.Items = `WITH STTR.TERM = "<< Enter Curriculum Term >>" "<< Enter Extension Term >>"`
+Query.Sort = ``
+Query.Output = `SAVING UNIQUE STTR.STUDENT`
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=0
+Query.OutputTo=`Screen`
+Query.Before=``
+Query.After=`SAVE.LIST X818_ST_SAS_PERSON_LIST`
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

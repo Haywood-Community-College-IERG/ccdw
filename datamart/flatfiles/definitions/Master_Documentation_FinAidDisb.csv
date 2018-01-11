@@ -1,0 +1,12 @@
+SAS File,Datatel Table,Datatel Field,Download Field Name,Field Type,Field Start Position,Field End Position,Length,SAS Format,Multi-Value,SAS Variable Name
+ISIRDisb,TA.2008,@ID,TA.ACYR,Character,1,24,24,$21.,No,ADCDisbKey
+ISIRDisb,TA.2008,TA.STUDENT.ID,TA.STUDENT.ID,Character,25,37,13,$9.,No,ADCPersonID
+ISIRDisb,TA.2008,TA.LAST,LAST,Character,38,53,16,$16.,No,ADCDisbLastName
+ISIRDisb,TA.2008,TA.FIRST,FIRST,Character,54,69,16,$16.,No,ADCDisbFirstName
+ISIRDisb,TA.2008,TA.TERM,TA.TERM,Character,70,76,7,$7.,No,ADCDisbTerm
+ISIRDisb,TA.2008,TA.AW.ID,TA.AW.ID,Character,77,84,8,$6.,No,ADCDisbAwardID
+ISIRDisb,TA.2008,TA.TERM.AMOUNT,Term Amount,Dollar,85,95,11,8.,No,ADCDisbTermAmount
+ISIRDisb,TA.2008,TA.TERM.XMIT.AMT,Xmit Amt,Dollar,96,103,8,8.,No,ADCDisbTermXmitAmt
+ISIRDisb,TA.2008,TA.TERM.UNXMIT.AMT,Unxmit Amt,Dollar,104,113,10,8.,No,ADCDisbTermUnXmitAmt
+ISIRDisb,TA.2008,TA.TERM.XMIT.DT,Transmit Date,Character,114,126,13,$11.,No,ADCDisbTermXmitDate
+ISIRDisb,TA.2008,TA.FC,Family Contr,Character,127,138,12,8.,No,ADCDisbEFC

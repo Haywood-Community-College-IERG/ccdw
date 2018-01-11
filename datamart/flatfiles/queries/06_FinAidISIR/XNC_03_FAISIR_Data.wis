@@ -1,0 +1,60 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `LIST`
+   Else DialogBox Select Query,Verb,`LIST`
+Else Query.Verb=`LIST`
+Query.File=`ISIR.FAFSA`
+Query.Items = `WITH (IFAF.IMPORT.YEAR EQ '<<Enter Four Digit Year:>>')`
+Query.Sort = ``
+Temp = `IFAF.P.E.FA.INC IFAF.P.E.MO.INC IFAF.P.E.NTX.INC IFAF.P.E.TAX.INC IFAF.P.E.TAX.PD IFAF.P.EDU.CREDIT IFAF.P.ELIGIBLE.1040A IFAF.P.FATHER.INC IFAF.P.FOOD.STAMPS IFAF.P.GRANT.SCHOL.AID IFAF.P.HOME.ADJ IF`
+Temp := `AF.P.HOME.D IFAF.P.HOME.V IFAF.P.INCOME.ADJ IFAF.P.INTEREST.INCOME IFAF.P.INV.NET.WORTH IFAF.P.IRA.DISTRIB IFAF.P.IRA.PAYMTS IFAF.P.LEGAL.RES IFAF.P.LEGAL.RES.B4 IFAF.P.LEGAL.RES.MO IFAF.P.LEGAL.RES.Y`
+Temp := `R IFAF.P.LUNCH.BEN IFAF.P.MARITAL.MO IFAF.P.MARITAL.ST IFAF.P.MARITAL.YR IFAF.P.MED.DEN IFAF.P.MILITARY.CLERGY.ALLOW IFAF.P.MOTHER.INC IFAF.P.NBR.FAMILY IFAF.P.NEED.BASED.EMP IFAF.P.NO.COLL IFAF.P.NO.`
+Temp := `EXEMPT IFAF.P.OTHER.UNTAXED.INC IFAF.P.PENSION.PAYMTS IFAF.P.SSI.BEN IFAF.P.TANF IFAF.P.TAX.FORM.SIGNED IFAF.P.TAX.FORM.TYPE IFAF.P.TAX.RETURN.FILED IFAF.P.TOTAL.WKSHTA IFAF.P.TOTAL.WKSHTB IFAF.P.TOTA`
+Temp := `L.WKSHTC IFAF.P.TUIT.PD.AMT IFAF.P.TUIT.PD.NBR IFAF.P.UNTAXED.PENSIONS IFAF.P.US.TAX.PD IFAF.P.VET.NON.ED.BEN IFAF.P.WIC ISIR.FAFSA.ID.RPT`
+Query.Output = Temp
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=0
+Query.OutputTo=`PC`
+Query.Before=``
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\ISIR_DATA_03.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=10
+PCAdvanced.Retries=3
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

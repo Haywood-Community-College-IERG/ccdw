@@ -1,0 +1,400 @@
+"ADCSTuCurPriProgCode","Title","PreviousCipCode","CurrentCipCode","Coordinator"
+A10100,Associate in Arts,24.0101,24.0101,Jennifer Frazelle
+A1010A,Associate in Arts/Art Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010B,Associate in Arts/Business Administration  Accounting  Economics Finance  and Marketing (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010C,Associate in Arts/Business Education and Marketing Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010D,Associate in Arts/Criminal Justice (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010E,Associate in Arts/English (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010F,Associate in Arts/English Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010G,Associate in Arts/Health Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010H,Associate in Arts/History (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010I,Associate in Arts/Nursing (Archived),24.0101,51.1105,Jennifer Frazelle
+A1010J,Associate in Arts/Physical Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010K,Associate in Arts/Political Science (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010L,Associate in Arts/Psychology (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010M,Associate in Arts/Social Science Secondary Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010N,Associate in Arts/Sociology (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010O,Associate in Arts/Communication (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010P,Associate in Arts/Elementary Education  Middle Grades Education and Special Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010Q,Associate in Arts/Social Work (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010R,Associate in Arts/Elementary Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010S,Associate in Arts/Middle Grades Education and Special Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010T,Associate in Arts/Computer Science (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010U,Associate in Arts/Liberal Studies (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010V,Associate in Arts/Information Systems (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010W,Associate in Arts/Mass Communication/Journalism (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010X,Associate in Arts/Anthropology (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010Y,Associate in Arts/Geography (Archived),24.0101,24.0101,Jennifer Frazelle
+A1010Z,Associate in Arts/Special Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1011A,Associate in Arts/Middle Grades Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A10200,Associate in Fine Arts,24.0101,24.0101,Jennifer Frazelle
+A1020A,Associate in Fine Arts/Art,24.0101,24.0101,Jennifer Frazelle
+A1020C,Associate in Fine Arts/Drama,24.0101,24.0101,Jennifer Frazelle
+A1020D,Associate in Fine Arts/Music and Music Education,24.0101,24.0101,Jennifer Frazelle
+A10300,Associate in General Education,24.0199,24.0199,Jennifer Frazelle
+A10400,Associate in Science,24.0101,24.0101,Jennifer Frazelle
+A1040A,Associate in Science/Biology and Biology Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1040B,Associate in Science/Chemistry and Chemistry Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A1040D,Associate in Science/Engineering (Archived),24.0101,14.0102,Jennifer Frazelle
+A1040E,Associate in Science/Mathematics (Archived),24.0101,24.0101,Jennifer Frazelle
+A1040F,Associate in Science/Mathematics Education (Archived),24.0101,24.0101,Jennifer Frazelle
+A15100,Agribusiness Technology+,01.0102,01.0102,Jennifer Frazelle
+A15120,Aquaculture Technology+,01.0303,01.0303,Jennifer Frazelle
+A15130,Poultry Management Technology+,,01.0907,Jennifer Frazelle
+A15140,Equine Technology (Archived 08/16/12) Split into Equine Business Technology A15170 and Equine Training Technology A15190,01.0507,01.0507,Jennifer Frazelle
+A15150,Swine Management Technology+,,01.0906,Jennifer Frazelle
+A15160,Fish and Wildlife Management Technology+,03.0601,03.0601,Jennifer Frazelle
+A15170,Equine Business Technology+,,01.0307,Jennifer Frazelle
+A15180,Floriculture Technology (Archived),08.0503,01.0608,Jennifer Frazelle
+A15190,Equine Training Technology+,,01.0507,Jennifer Frazelle
+A15200,Forest Management Technology+,03.0511,03.0511,Jennifer Frazelle
+A15230,Golf Course Management Technology+,,31.0302,Jennifer Frazelle
+A15240,Horticulture Technology+,01.0601,01.0601,Jennifer Frazelle
+A1524A,Horticulture Technology/Management (Archived 08/16/12),01.0601,01.0601,Jennifer Frazelle
+A15250,Brewing  Distillation  and Fermentation,,01.0401,Jennifer Frazelle
+A15260,Landscape Gardening+,01.0605,01.0605,Jennifer Frazelle
+A15280,Applied Animal Science Technology+,01.0302,01.0302,Jennifer Frazelle
+A1528A,Applied Animal Science Technology/Poultry Management (Archived),01.0302,01.0302,Jennifer Frazelle
+A1528B,Applied Animal Science Technology/Swine Management (Archived  08/16/12 - Converted to A15150),01.0302,01.0302,Jennifer Frazelle
+A15310,Marine Science+,26.1302,26.1302,Jennifer Frazelle
+A15320,Marine Technology+,40.0607,03.0301,Jennifer Frazelle
+A15360,Parks and Natural Resource Management (Archived 08/16/12),31.0301,31.0301,Jennifer Frazelle
+A15410,Sustainable Agriculture+,01.0101,01.0308,Jennifer Frazelle
+A15420,Turfgrass Management Technology+,01.0607,01.0607,Jennifer Frazelle
+A1542A,Turfgrass Management Technology/Golf Course Management (Archived 08/16/12 - Converted to Golf Course Management Technology A15230),31.0301,31.0302,Jennifer Frazelle
+A15430,Viticulture and Enology Technology+,01.9999,01.0309,Jennifer Frazelle
+A15440,Wood Products Technology (Archived),03.0509,03.0509,Jennifer Frazelle
+A20100,Biotechnology+,41.0101,26.1201,Renee Batts
+A20110,Agricultural Biotechnology+,26.1201,26.0308,Renee Batts
+A20120,Chemical Technology,41.0301,41.0301,Renee Batts
+A20130,Alternative Energy Technology: Biofuels,47.0614,47.0614,Renee Batts
+A20140,Environmental Science Technology+,03.0104,03.0103,Renee Batts
+A2014A,Environmental Science Technology/Water Resources Management (Archived 08/16/12 - Converted to Environmental Management Technology A20230),15.0506,15.0506,Renee Batts
+A2014B,Environmental Science Technology/Environmental Management (Archived 08/16/12 - Converted to Envirnomental Management  ),15.0507,15.0507,Renee Batts
+A2014C,Environmental Science Technology/Invasive Species Management (Archived 08/16/12- Converted to Invasive Species Management ),03.0104,03.0104,Renee Batts
+A20150,Environmental Biotechnology+,,40.0509,Renee Batts
+A20160,Laboratory Technology+,15.0612,41.0101,Renee Batts
+A20170,Marine Biotechnology+,,26.1304,Renee Batts
+A20180,Biopharmaceutical Technology,15.0612,15.0612,Renee Batts
+A20190,Nanotechnology,26.0203,15.1601,Renee Batts
+A20200,Water and Waste Treatment Technology (Archived),15.0506,15.0506,Renee Batts
+A20220,Zoo and Aquarium Science Technology (Archived 08/16/12 -Split into Zoological Science Technology A20250 and Aquarium Science Technology A20260,51.0808,51.0808,Renee Batts
+A20230,Environmental Management Technology+,,03.0101,Renee Batts
+A20240,Invasive Species Management Technology+,,03.0204,Renee Batts
+A20250,Zoological Science Technology+,,26.0709,Renee Batts
+A20260,Aquarium Science Technology+,,26.0799,Renee Batts
+A25100,Accounting,52.0301,52.0301,Hilmi Lahoud
+A25110,Hospitality Management,52.0904,52.0909,Lisa Eads
+A25120,Business Administration,52.0201,52.0201,Hilmi Lahoud
+A2512A,Business Administration/Banking and Finance (Archived-subject area incorporated into  Bus Admin A25120),52.0803,52.0803,Hilmi Lahoud
+A2512B,Business Administration/Customer Service (Archived-subject area incorporated into Bus.Admin A25120),52.0411,52.0411,Hilmi Lahoud
+A2512C,Business Administration/Human Resources Management (Archived-subject area incorporated into Bus.Admin A25120),52.1001,52.1001,Hilmi Lahoud
+A2512D,Business Administration/International Business (Archived-subject area incorporated into Bus.Admin A25120),52.1101,52.1101,Hilmi Lahoud
+A2512E,Business Administration/ Logistics Management (Archived-converted to Global Logistics and Distribution Management Tech. A25610),52.0203,52.0203,Hilmi Lahoud
+A2512F,Business Administration/Marketing and Retailing (Archived-subject area incorporated into Bus.Admin A25120),52.1401,52.1401,Hilmi Lahoud
+A2512G,Business Administration/Operations Management (Archived-subject area incorporated into Bus.Admin A25120),52.0205,52.0205,Hilmi Lahoud
+A2512H,Business Administration/Public Administration (Archived subject area incorporated,44.0401,44.0401,Hilmi Lahoud
+A2512I,Business Administration/Electronic Commerce (Archived-subject area incorporated into Bus.Admin A25120),52.0208,52.0208,Hilmi Lahoud
+A2512J,Business Administration/Shooting and Hunting Sports Management (Archived-Converted to Hunting and Shooting Sports Management A25600),52.0201,52.0201,Hilmi Lahoud
+A2512K,Business Administration/Import Export Compliance (Archived-subject area incorporated into Bus.Admin A25120),,52.1403,Hilmi Lahoud
+A25130,Computer Programming,11.0201,11.0201,Hilmi Lahoud
+A25140,Court Reporting and Captioning,22.0303,22.0303,Hilmi Lahoud
+A25150,Database Management,11.0802,11.0802,Hilmi Lahoud
+A25170,Global Logistics Technology (Archived)Converted to Global Logistics and Distribution Management Technology A25610),52.0203,52.0203,Hilmi Lahoud
+A25190,Entertainment Technologies,10.0203,10.0203,Hilmi Lahoud
+A25200,Healthcare Management Technology,51.0705,51.0705,Hilmi Lahoud
+A25210,Digital Media Technology,11.0899,11.0899,Hilmi Lahoud
+A25230,High Performance Computing,11.0199,11.0199,Hilmi Lahoud
+A25250,Gaming Management,52.0999,52.0999,Hilmi Lahoud
+A25260,Computer Information Technology,11.0103,11.0103,Hilmi Lahoud
+A2526B,Information Systems/Helpdesk and Support (Archived),11.9999,11.9999,Hilmi Lahoud
+A2526D,Information Systems/Programming (Archived) – Revised into Computer Programming (A25130),11.1002,11.1002,Hilmi Lahoud
+A2526E,Information Systems/Programming (Archived),52.1202,52.1202,Hilmi Lahoud
+A25270,Information Systems Security,11.1003,11.1003,Hilmi Lahoud
+A2527A,Information Systems Security/Operating Systems (Archived),11.1003,11.1003,Hilmi Lahoud
+A2527B,Information Systems Security/Security Hardware,11.1003,11.1003,Hilmi Lahoud
+A25290,Web Technologies,11.0401,11.0401,Hilmi Lahoud
+A25300,Media Integration Technology (Archived),11.0899,11.0899,Hilmi Lahoud
+A25310,Medical Office Administration,51.0705,51.0705,Hilmi Lahoud
+A25330,Financial Services,52.0803,52.0803,Hilmi Lahoud
+A25340,Networking Technology,11.0901,11.0901,Hilmi Lahoud
+A25350,Business Analytics,,52.1301,Hilmi Lahoud
+A2536B,Office Systems Technology/Medical (Archived),52.0404,52.0404,Hilmi Lahoud
+A25370,Office Administration,52.0204,52.0204,Hilmi Lahoud
+A2537A,Office Administration Legal,22.0301,22.0301,Hilmi Lahoud
+A2537B,Office Administration/Virtual Office Assistance,52.0204,52.0204,Hilmi Lahoud
+A25380,Paralegal Technology,22.0302,22.0302,Hilmi Lahoud
+A25390,Project Management Technology,52.0201,52.0201,Hilmi Lahoud
+A25400,Real Estate,52.1501,52.1501,Hilmi Lahoud
+A25410,Nonprofit Leadership and Management,,52.0206,Hilmi Lahoud
+A25420,Real Estate Appraisal May 20  2005: SBCC revised code from C25420 to A25420.,52.1501,52.1501,Hilmi Lahoud
+A25430,Support Technologies (Archived),52.1201,52.1201,Hilmi Lahoud
+A25440,Travel and Tourism Technology,52.1905,52.1905,Hilmi Lahoud
+A25450,Simulation and Game Development,10.0304,50.0411,Hilmi Lahoud
+A25460,Voice Writing Realtime Reporting,22.0303,22.0303,Hilmi Lahoud
+A25490,Entrepreneurship,52.0799,52.0701,Hilmi Lahoud
+A25500,Computer Technology Integration,,11.0103,Hilmi Lahoud
+A25510,Healthcare Business Informatics,,51.0709,Hilmi Lahoud
+A25600,Hunting and Shooting Sports Management,,52.0201,Hilmi Lahoud
+A25610,Global Logistics and Distribution Management Technology,,52.0203,Hilmi Lahoud
+A30100,Advertising and Graphic Design,50.0402,50.0402,Jennifer Frazelle
+A30120,Broadcasting and Production Technology,10.0202,10.0202,Jennifer Frazelle
+A30130,Digital Effects and Animation Technology,10.0304,10.0304,Jennifer Frazelle
+A30140,Film and Video Production Technology,50.0602,50.0602,Jennifer Frazelle
+A30150,Community Journalism (Archived),09.0401,09.0401,Jennifer Frazelle
+A30160,Fine and Creative Woodworking,48.0701,48.0701,Jennifer Frazelle
+A30180,Graphic Arts and Imaging Technology,50.0409,50.0409,Jennifer Frazelle
+A3018A,Graphic Arts and Imaging Technology/Flexography,10.0301,10.0301,Jennifer Frazelle
+A30200,Gunsmithing,47.0402,47.0402,Jennifer Frazelle
+A30220,Interior Design,50.0408,50.0408,Jennifer Frazelle
+A30260,Photofinishing Technology (Archived),10.0201,10.0201,Jennifer Frazelle
+A30280,Photographic Technology,10.0201,10.0201,Jennifer Frazelle
+A3028A,Photographic Technology/Biocommunications Photography,10.0201,10.0201,Jennifer Frazelle
+A3028B,Photographic Technology/Commercial Photography,50.0406,50.0406,Jennifer Frazelle
+A3028C,Photographic Technology/Photojournalism,09.0404,09.0404,Jennifer Frazelle
+A3028D,Photographic Technology/Portrait Studio Management,10.0201,10.0201,Jennifer Frazelle
+A30290,Professional Arts and Crafts: Sculpture,50.0709,50.0709,Jennifer Frazelle
+A30300,Professional Crafts: Clay,50.0201,50.0201,Jennifer Frazelle
+A30320,Professional Crafts: Fiber,50.0712,50.0712,Jennifer Frazelle
+A30340,Professional Crafts: Jewelry,50.0713,50.0713,Jennifer Frazelle
+A30360,Professional Crafts: Wood,50.0201,50.0201,Jennifer Frazelle
+A35100,Air Conditioning  Heating and Refrigeration Technology+,47.0201,47.0201,Frank Scuiletti
+A35110,Historic Preservation Technology+,30.1201,30.1201,Frank Scuiletti
+A3511A,Historic Preservation Tech/Archaeological Technician (Archived),30.1201,30.1201,Frank Scuiletti
+A35130,Electrical Systems Technology+,,46.0302,Frank Scuiletti
+A35140,Building Construction Technology+,46.0499,46.0499,Frank Scuiletti
+A35190,Construction Management Technology+,46.0401,46.0401,Frank Scuiletti
+A35200,Commercial Refrigeration Technology,47.0201,47.0201,Frank Scuiletti
+A35220,Electrical/Electronics Technology (Archived 8/16/12) Converted to Electrical Systems Technology (A35130),46.0302,46.0302,Frank Scuiletti
+A35230,Electrical/Electronics Technology (Archived 8/16/12) Converted to Electrical Systems Technology (A35130),46.0303,46.0303,Frank Scuiletti
+A35260,Industrial Construction Technology (Archived),46.9999,46.9999,Frank Scuiletti
+A3526A,Industrial Construction Technology/Electrical (Archived),46.9999,46.9999,Frank Scuiletti
+A3526B,Industrial Construction Technology/Mechanical (Archived),46.9999,46.9999,Frank Scuiletti
+A40100,Architectural Technology+,15.0101,15.0101,Frank Scuiletti
+A40110,Geospatial Mapping Technology+,,45.0702,Frank Scuiletti
+A40120,Automation Engineering Technology,15.0405,15.0406,Frank Scuiletti
+A40130,Applied Engineering Technology+,15.0000,15.0000,Frank Scuiletti
+A40140,Civil Engineering Technology+,15.0201,15.0201,Frank Scuiletti
+A40150,Environmental Engineering Technology+,,15.0507,Frank Scuiletti
+A40160,Computer Engineering Technology+,15.1201,15.1201,Frank Scuiletti
+A40180,Electrical Engineering Technology+,15.0303,15.0399,Frank Scuiletti
+A40200,Electronics Engineering Technology+,15.0303,15.0303,Frank Scuiletti
+A4020A,Electronics Engineering Technology/Instrumentation (Archived),15.0404,15.0404,Frank Scuiletti
+A4020B,Electronics Engineering Technology/Microelectronics (Archived),15.0303,15.0303,Frank Scuiletti
+A4020C,Electronics Engineering Technology/Telecommunications,15.0303,15.0303,Frank Scuiletti
+A40220,Geospatial Technology+,11.0301,45.0702,Frank Scuiletti
+A40240,Industrial Engineering Technology+,47.0105,15.0612,Frank Scuiletti
+A40260,Landscape Architecture Technology+,04.0601,04.0601,Frank Scuiletti
+A40280,Laser and Photonics Technology+,15.0304,15.0304,Frank Scuiletti
+A40290,Low Impact Development+,15.0599,15.0599,Frank Scuiletti
+A40300,Manufacturing Engineering Technology (Archived),15.0613,15.0613,Frank Scuiletti
+A40320,Mechanical Engineering Technology+,15.0805,15.0805,Frank Scuiletti
+A4032A,Mechanical Engineering Tech/Drafting and Design (Archived),15.0805,15.0805,Frank Scuiletti
+A4032B,Mechanical Engineering Tech/Fire Sprinkler Design (Archived),15.0805,15.0805,Frank Scuiletti
+A40340,Materials Science Technology (Archived),15.0611,15.0611,Frank Scuiletti
+A40350,Mechatronics Engineering Technology+,,15.0403,Frank Scuiletti
+A40360,Scientific Graphics Technology (Archived),11.0803,11.0803,Frank Scuiletti
+A40370,Sustainability Technologies+,15.0503,15.0503,Frank Scuiletti
+A40380,Surveying Technology,15.1102,15.1102,Frank Scuiletti
+A40400,Telecommunications and Network Engineering Technology+,15.0305,15.0305,Frank Scuiletti
+A40420,Geomatics Technology,,15.1102,Frank Scuiletti
+A45100,Associate Degree Nursing (Integrated)(Archived),51.1601,51.3801,Renee Batts
+A45110,Associate Degree Nursing,51.1601,51.3801,Renee Batts
+A45120,Associate Degree Nursing (Non-Integrated)(Archived),51.1601,51.3801,Renee Batts
+A45130,Cancer Information Management,51.0706,51.0706,Renee Batts
+A45150,Recreation Therapy Assistant,51.2309,51.2309,Renee Batts
+A45160,Cardiovascular Sonography,51.0999,51.0999,Renee Batts
+A45170,Cardiovascular Technology (Invasive & Non-Invasive),51.0901,51.0901,Renee Batts
+A45190,Clinical Trials Research Associate,51.0999,51.0719,Renee Batts
+A45260,Dental Hygiene,51.0602,51.0602,Renee Batts
+A45280,Dental Laboratory Technology,51.0603,51.0603,Renee Batts
+A45310,Dietetic Technician,51.3104,51.3104,Renee Batts
+A45320,Electroneurodiagnostic Technology,51.0999,51.0903,Renee Batts
+A45340,Emergency Medical Science,51.0904,51.0904,Renee Batts
+A45360,Health Information Technology,51.0707,51.0707,Renee Batts
+A45370,Histotechnology,51.0000,51.1007,Renee Batts
+A45380,Human Services Technology,51.9999,51.1599,Renee Batts
+A4538A,Human Services Technology/Developmental Disabilities,51.9999,51.1599,Renee Batts
+A4538B,Human Services Technology/Gerontology,19.0702,19.0702,Renee Batts
+A4538C,Human Services Technology/Mental Health,51.1599,51.1599,Renee Batts
+A4538D,Human Services Technology/Social Services,51.1503,51.1599,Renee Batts
+A4538E,Human Services Technology/Substance Abuse,51.1501,51.1501,Renee Batts
+A4538F,Human Services Technology/Animal Assisted Interactions,,51.2313,Renee Batts
+A45400,Medical Assisting,51.0801,51.0801,Renee Batts
+A45410,Interventional Cardiac and Vascular Technology,51.0901,51.0901,Renee Batts
+A45420,Medical Laboratory Technology,51.1004,51.1004,Renee Batts
+A45430,Healthcare Interpreting,,16.0103,Renee Batts
+A45440,Medical Sonography,51.0910,51.0910,Renee Batts
+A45460,Nuclear Medicine Technology,51.0905,51.0905,Renee Batts
+A45500,Occupational Therapy Assistant,51.0803,51.0803,Renee Batts
+A45560,Opticianry,51.1801,51.1801,Renee Batts
+A45580,Pharmacy Technology SBCC revised code from D45580 to A45580 (07/18/08),51.0805,51.0805,Renee Batts
+A45620,Physical Therapist Assistant (2-year program),51.0806,51.0806,Renee Batts
+A45630,Health and Fitness Science,31.0599,31.0599,Renee Batts
+A45640,Physical Therapist Assistant (1+1),51.0806,51.0806,Renee Batts
+A45670,Polysomnography,51.0000,51.0917,Renee Batts
+A45680,Radiation Therapy Technology,51.0907,51.0907,Renee Batts
+A45700,Radiography,51.0911,51.0911,Renee Batts
+A45720,Respiratory Therapy,51.0908,51.0908,Renee Batts
+A45730,Speech-Language Pathology Assistant,51.0203,51.0816,Renee Batts
+A45740,Surgical Technology,51.0909,51.0909,Renee Batts
+A45750,Therapeutic Massage,51.3501,51.3501,Renee Batts
+A45780,Veterinary Medical Technology,51.0808,51.0808,Renee Batts
+A45800,Magnetic Resonance Imaging,51.0999,51.0920,Renee Batts
+A45810,Medical Product Safety and Pharmacovigilance,,51.2099,Renee Batts
+A50100,Biomedical Equipment Technology+,15.0401,15.0401,Frank Scuiletti
+A50110,Chemical Process Technology (Archived),41.0301,41.0301,Frank Scuiletti
+A50120,Electronic Service Technology,47.0199,47.0199,Frank Scuiletti
+A50130,Electrical Power Production Technology,46.0301,46.0301,Frank Scuiletti
+A50140,Electronics Technology,15.0303,15.0303,Frank Scuiletti
+A50150,Computer-Aided Drafting Technology+,15.1302,15.1302,Frank Scuiletti
+A50160,Environment  Health  & Safety Technology,15.0701,15.0701,Frank Scuiletti
+A50180,Furniture Production Technology,48.0702,48.0702,Frank Scuiletti
+A5018A,Furniture Production Technology/Design and Product Development,48.0199,48.0199,Frank Scuiletti
+A50190,Facility Maintenance Technology,46.0401,46.0401,Frank Scuiletti
+A50210,Computer-Integrated Machining,48.0503,48.0503,Frank Scuiletti
+A50240,Industrial Systems Technology+,15.0499,15.0499,Frank Scuiletti
+A50260,Industrial Management Technology+,52.0205,52.0205,Frank Scuiletti
+A50280,Industrial Specialty Technology (Archived),15.0699,15.0699,Frank Scuiletti
+A5030A,Machining Technology/Tool  Die  and Mold Making (Archived),48.0507,48.0507,Frank Scuiletti
+A50320,Manufacturing Technology+,15.0699,15.0699,Frank Scuiletti
+A5032A,Manufacturing Technology/Plastics (Archived 08/16/12),15.0607,15.0607,Frank Scuiletti
+A5032B,Manufacturing Technology/Quality Assurance (Archived),15.0702,15.0702,Frank Scuiletti
+A5032C,Manufacturing Technology/Integrated Operation,15.0699,15.0699,Frank Scuiletti
+A5032D,Manufacturing Technology/Composites (Archived 08/16/12),15.0699,15.0699,Frank Scuiletti
+A50340,Mechanical Drafting Technology+,15.1306,15.1306,Frank Scuiletti
+A5034A,Mechanical Drafting Technology/CAD Systems Mgt (Archived),15.1399,15.1399,Frank Scuiletti
+A50350,Nondestructive Examination Technology+,41.0204,41.0204,Frank Scuiletti
+A50370,Poultry Processing Machine Technology (Archived),02.0209,02.0209,Frank Scuiletti
+A50420,Welding Technology+,48.0508,48.0508,Frank Scuiletti
+A5042A,Welding Technology/Underwater (Archived),48.0599,48.0599,Frank Scuiletti
+A50430,Pulp and Paper Production Technology,03.0509,03.0509,Frank Scuiletti
+A50440,Bioprocess Technology,15.0613,15.0613,Frank Scuiletti
+A50450,Aerostructure Manufacturing and Repair,,15.0801,Frank Scuiletti
+A50460,Nuclear Technology,41.0205,41.0205,Frank Scuiletti
+A50510,Electric Utility Substation and Relay Technology,,46.0301,Frank Scuiletti
+A50550,Quality Assurance and Continuous Improvement+,,15.0702,Frank Scuiletti
+A55100,Animal Care and Management Technology+,51.0808,01.0599,Lisa Eads
+A55110,Barbering,12.0402,12.0402,Lisa Eads
+A55130,Baking and Pastry Arts,12.0501,12.0501,Lisa Eads
+A55140,Cosmetology,12.0401,12.0401,Lisa Eads
+A55150,Culinary Arts,12.0503,12.0503,Lisa Eads
+A55180,Criminal Justice Technology,43.0104,43.0104,Frank Scuiletti
+A5518A,Criminal Justice Technology/Latent Evidence,43.0106,43.0106,Frank Scuiletti
+A5518B,Criminal Justice Technology/Financial Crime/Computer Fraud,43.0199,43.0199,Frank Scuiletti
+A55200,Culinary Technology,12.0503,12.0503,Jennifer Frazelle
+A55210,Cyber Crime Technology,43.0199,43.0116,Hilmi Lahoud
+A55220,Early Childhood Education,13.1210,13.1210,Lisa Eads
+A5522A,Early Childhood Education/Special Education (Archived),13.1001,13.1015,Lisa Eads
+A5522B,Early Childhood Education/Teacher Associate (Archived),13.1202,13.1501,Lisa Eads
+A55240,Fire Protection Technology,43.0201,43.0201,Frank Scuiletti
+A55260,Funeral Service Education,12.0301,12.0301,Lisa Eads
+A55280,General Occupational Technology,24.0102,24.0102,Lisa Eads
+A55300,Interpreter Education,16.1603,16.1603,Lisa Eads
+A55310,Library and Information Technology,25.0301,25.0301,Lisa Eads
+A55320,Occupational Education Associate,13.9999,13.1320,Lisa Eads
+A55330,Outdoor Leadership+,31.0101,31.0601,Lisa Eads
+A55340,Postal Service Technology (Archived),52.0299,52.0299,Lisa Eads
+A55360,Recreation and Leisure Studies,31.0101,31.0101,Lisa Eads
+A55370,Community Spanish Interpreter,16.0103,16.0103,Lisa Eads
+A55390,Spanish Interpreter (Archived),16.0103,16.0103,Lisa Eads
+A55410,Resort and Spa Management,52.0906,52.0906,Lisa Eads
+A55440,School-Age Education,13.1202,13.1202,Lisa Eads
+A55460,Emergency Management,43.0299,43.0302,Renee Batts
+A60130,Collision Repair and Refinishing Technology+,47.0603,47.0603,Frank Scuiletti
+A60150,Aviation Electronics (Avionics) Technology,,47.0609,Frank Scuiletti
+A60160,Automotive Systems Technology+,47.0604,47.0604,Frank Scuiletti
+A6016A,Automotive Systems Technology/Race Car Performance (Archived),47.0604,47.0604,Frank Scuiletti
+A60180,Aviation Management & Career Pilot Technology,49.0102,49.0102,Frank Scuiletti
+A60190,Automotive Customizing Technology+,47.0603,47.0603,Frank Scuiletti
+A60200,Aviation Systems Technology,47.0607,47.0607,Frank Scuiletti
+A60240,Heavy Equipment and Transport Technology (Archived 08/16/12 -Converted to Diesel and Heavy Equipment Technology A60460),47.0605,47.0605,Frank Scuiletti
+A6024A,Heavy Equipment and Transport Technology/Agriculture,47.0605,47.0605,Frank Scuiletti
+A6024B,Heavy Equipment and Transport Technology/Construction Equipment Systems (Archived 08/16/12 - Converted to Construction Equipment Systems Technology A6,47.0605,47.0605,Frank Scuiletti
+A6024C,Heavy Equipment and Transport Technology/Marine Systems (Archived - Converted to Diesel and Heavy Equipment Technology A60460),47.0605,47.0605,Frank Scuiletti
+A60260,Motorcycle Mechanics+,47.0611,47.0611,Frank Scuiletti
+A60270,Motorsports Management Technology,52.0299,52.0299,Frank Scuiletti
+A60320,Automotive Management,47.0603,47.0603,Frank Scuiletti
+A60400,Race Car Technology,47.0604,47.0604,Frank Scuiletti
+A60410,Agricultural Systems Technology+,,01.0205,Frank Scuiletti
+A60450,Construction Equipment Systems Technology+,,47.0302,Frank Scuiletti
+A60460,Diesel and Heavy Equipment Technology+,,47.0613,Frank Scuiletti
+C15220,Greenhouse and Grounds Maintenance (Certificate),01.0604,01.0604,Jennifer Frazelle
+C15340,Meat Processing (Certificate) (Archived),01.0301,01.0301,Jennifer Frazelle
+C15380,Saw Filer (Certificate) (Archived),48.0503,48.0503,Jennifer Frazelle
+C25160,Data Entry (Certificate) (Archived),11.0601,11.0601,Hilmi Lahoud
+C25220,Health Unit Coordinator (Certificate),51.0703,51.0703,Hilmi Lahoud
+C25280,Insurance (Certificate),52.1701,52.1701,Hilmi Lahoud
+C25480,Real Estate Licensing (Certificate),52.1501,52.1501,Hilmi Lahoud
+C45180,Central Sterile Processing (Certificate),51.0999,51.1012,Renee Batts
+C45220,Cytotechnology (Certificate),51.1002,51.1002,Renee Batts
+C45350,Health Care Technology (Certificate),51.0707,51.9999,Renee Batts
+C45390,Licensed Practical Nurse Refresher (Certificate),51.1613,51.3901,Renee Batts
+C45520,Optical Apprentice (Certificate),51.1802,51.1802,Renee Batts
+C45540,Optical Laboratory Mechanics (Certificate),51.1006,51.1006,Renee Batts
+C45600,Phlebotomy (Certificate),51.1009,51.1009,Renee Batts
+C45650,Polysomnography (Certificate),51.0000,51.0917,Renee Batts
+C45830,Mammography (Certificate),,51.0919,Renee Batts
+C45840,Nurse Aide (Certificate),51.1614,51.3902,Renee Batts
+C45850,Musculoskeletal Sonography,51.0910,51.0910,Renee Batts
+C50200,Furniture Production Worker (Certificate)(Prison Only),48.0702,48.0702,Frank Scuiletti
+C50400,Upholstery Production,48.0303,48.0303,Frank Scuiletti
+C50410,Upholstery Production Certificate,48.0303,48.0303,Frank Scuiletti
+C55120,Basic Law Enforcement Training (Certificate),43.0107,43.0107,Tracy McPherson
+C55160,Cosmetology Instructor (Certificate),12.0413,12.0413,Lisa Eads
+C55230,Esthetics Technology (Certificate),12.0409,12.0409,Lisa Eads
+C55270,Esthetics Instructor (Certificate),12.0413,12.0413,Lisa Eads
+C55290,Infant/Toddler Care (Certificate),19.0706,19.0706,Lisa Eads
+C55380,Manicuring Instructor (Certificate),12.0413,12.0413,Lisa Eads
+C55400,Manicuring/Nail Technology (Certificate),12.0410,12.0410,Lisa Eads
+C55430,Lateral Entry (Certificate),13.0101,13.0101,Lisa Eads
+C55450,School-Age Care (Certificate),,13.1202,Lisa Eads
+C60300,Truck Driver Training (Certificate),49.0205,49.0205,Frank Scuiletti
+D15210,Golf Equipment Technician (Diploma)(Archived),47.0499,47.0499,Jennifer Frazelle
+D15300,Lumber Specialist (Diploma)(Archived),03.0511,03.0511,Jennifer Frazelle
+D15400,Sawyer (Diploma) (Archived),03.0599,03.0599,Jennifer Frazelle
+D25180,Desktop Publishing (Diploma) (Archived),10.0303,10.0303,Hilmi Lahoud
+D25320,Medical Transcription (Diploma),51.0708,51.0708,Hilmi Lahoud
+D30210,Gunsmithing (Diploma),47.0402,47.0402,Jennifer Frazelle
+D30240,Metal Engraving (Diploma),50.0713,50.0713,Jennifer Frazelle
+D30380,Taxidermy (Diploma),01.0508,01.0508,Jennifer Frazelle
+D35120,Boat Building+,46.0201,46.0201,Frank Scuiletti
+D35160,Cabinetmaking (Diploma),48.0703,48.0703,Frank Scuiletti
+D35180,Carpentry+,46.0201,46.0201,Frank Scuiletti
+D35240,Heavy Equipment Operator (Diploma),49.0202,49.0202,Frank Scuiletti
+D35280,Masonry +,46.0101,46.0101,Frank Scuiletti
+D35300,Plumbing +,46.0503,46.0503,Frank Scuiletti
+D45140,Cardiovascular/Vascular Interventional Technology (Diploma),51.0901,51.0901,Renee Batts
+D45180,Central Sterile Processing (Diploma) (Archived),51.0999,51.1012,Renee Batts
+D45200,Computed Tomography & Magnetic Resonance Imaging Technology (Diploma),51.0999,51.0999,Renee Batts
+D45240,Dental Assisting (Diploma),51.0601,51.0601,Renee Batts
+D45300,Dialysis Technology (Diploma),51.1011,51.1011,Renee Batts
+D45450,Medical Dosimetry (Diploma),51.0907,51.0907,Renee Batts
+D45510,Ophthalmic Medical Assistant (Diploma),51.1803,51.1803,Renee Batts
+D45660,Practical Nursing (Diploma),51.1613,51.3901,Renee Batts
+D45710,Rehabilitation Assistant (Diploma)(Archived),51.2399,51.2399,Renee Batts
+D45820,Positron Emission Tomography (Diploma),51.0911,51.0999,Renee Batts
+D45910,Emergency Medical Science (Diploma)**,,51.0904,Renee Batts
+D45920,Medical Assisting (Diploma) **,,51.0801,Renee Batts
+D45940,Pharmacy Technology (Diploma) **,,51.0805,Renee Batts
+D45950,Phlebotomy (Diploma) **,,51.1009,Renee Batts
+D45960,Therapeutic Massage (Diploma) **,,51.3501,Renee Batts
+D45970,Nurse Aide (Diploma)**,,51.3902,Renee Batts
+D50170,Facility Maintenance Worker (Diploma),46.0401,46.0401,Frank Scuiletti
+D50220,Furniture Upholstery (Diploma),48.0303,48.0303,Frank Scuiletti
+D50360,Packaging Machinery Servicing (Diploma) (Archived),47.0303,47.0303,Frank Scuiletti
+D50380,Telecommunications Installation and Maintenance (Diploma),47.0199,47.0199,Frank Scuiletti
+D55250,Foodservice Technology (Diploma),19.0505,12.0508,Lisa Eads
+D60100,Autobody Repair (Diploma),47.0603,47.0603,Frank Scuiletti
+D60120,Automotive Parts Sales Representative (Diploma)(Archived),08.1203,08.1203,Frank Scuiletti
+D60140,Automotive Restoration Technology+,47.0603,47.0603,Frank Scuiletti
+D60220,Marine Propulsion Systems (Diploma),47.0605,47.0605,Frank Scuiletti
+D60280,Small Engine and Equipment Repair (Diploma),47.0606,47.0606,Frank Scuiletti
+D60310,Recreational Vehicle Maintenance and Repair Technology+,47.0699,47.0618,Frank Scuiletti
+D60330,Boat Manufacture and Service (Diploma),47.0616,47.0616,Frank Scuiletti
+D60420,Alternative Transportation Technology+,,47.0614,Frank Scuiletti
+D60430,Automotive Light-Duty Diesel Technology+,,47.0605,Frank Scuiletti
+A25590,Information Technology,,11.0103,Hilmi Lahoud
+A10500,Associate in Engineering,,14.0102,Jennifer Frazelle
+C45480,Nursing Assistant (Certificate),,51.3902,Renee Batts
+C45840,Nurse Aide (Certificate),,51.3902,Renee Batts

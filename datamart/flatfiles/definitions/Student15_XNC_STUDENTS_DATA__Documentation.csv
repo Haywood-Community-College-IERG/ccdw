@@ -1,0 +1,17 @@
+SAS File,Datatel Table,Datatel Field,Download Field Name,Field Type,Field Start Position,Field End Position,Length,SAS Format,Multi-Value,SAS Variable Name,
+Student15,STUDENTS,@ID,STUDENTS,Character,1,10,10,$10.,No,ADCPersonID,
+Student15,STUDENTS,STU.TYPES,Student Type,Character,11,45,35,$6.,Yes,ADCStuTypes,NOT USED
+Student15,STUDENTS,STU.STS.TYPE,STU.STS.TYPE,Character,46,57,12,$6.,Yes,ADCStuSTSType,NOT USED
+Student15,STUDENTS,STU.MOST.RECENT.TERM,CurTerm,Character,58,64,7,$7.,No,ADCStuMostRecentTerm,DUP-NOT USED
+Student15,STUDENTS,STU.ACTIVE.PROGRAMS,Active Programs,Character,65,84,20,$12.,Yes,ADCStuActivePrograms,
+Student15,STUDENTS,STU.ACAD.LEVELS,Acad Levels,Character,85,119,35,$5.,Yes,ADCStuProgAcadLevel,NOT USED
+Student15,STUDENTS,STU.START.TERM,Start T,Character,120,126,7,$7.,No,ADCStuProgAcadLevelStartTerm,BAD-NOT USED
+Student15,STUDENTS,STU.TERMS,Terms,Character,127,161,35,$7.,Yes,ADCStuAllTerms,
+Student15,STUDENTS,STU.CURRENT.TYPE,Current,Character,162,168,7,$6.,No,ADCStuCurrentType,
+Student15,STUDENTS,STU.DEFAULT.PLANNING.PROGRAM,STU.DEFAULT.PLANNING.PROGRAM,Character,169,196,28,$28.,No,ADCStuProgDefaultPlan,BAD-NOT USED
+Student15,STUDENTS,X.STU.CU.PROGRAM,First CU Program,Character,197,216,20,$12.,No,ADCStuFirstCUProgram,
+Student15,STUDENTS,PST.EDUC.GOALS,Educ Goals,Character,217,246,30,$3.,Yes,ADCStuEdGoals,
+Student15,STUDENTS,STU.TYPES,Student Type,Character,247,281,35,$6.,Yes,ADCStuTypes,NOT USED
+Student15,STUDENTS,STU.TYPE.END.DATE,Student Type,Character,282,293,12,$10.,Yes,ADCStuTypesEndDate,NOT USED
+Student15,STUDENTS,STU.CURRENT.TYPE,Current,Character,294,300,7,$6.,No,ADCStuCurrentType,DUPLICATE-NOT USED
+Student15,STUDENTS,@ID,STUDENTS,Character,301,310,10,$10.,No,ADCPersonID,

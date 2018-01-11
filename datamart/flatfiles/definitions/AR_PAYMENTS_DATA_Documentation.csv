@@ -1,0 +1,27 @@
+SAS File,Datatel Table,Datatel Field,Download Field Name,Field Type,Field Start Position,Field End Position,Length,SAS Format,Multi-Value,SAS Variable Name,Comments,SAS CODE,,,
+FinAidSpons,AR.PAYMENTS,ARP.PERSON.ID,ID,Character,1,10,10,$10.,No,ADCPersonID,,@,1,ADCPersonID,$10.
+FinAidSpons,AR.PAYMENTS,AR.PAYMENTS.ID,AR Payments,Character,11,21,11,$11.,No,ADCARPPaymentsID,,@,11,ADCARPPaymentsID,$11.
+FinAidSpons,AR.PAYMENTS,ARP.AMT,Amount,Numeric,22,33,12,COMMA8.2,No,ADCARPAmount,,@,22,ADCARPAmount,COMMA8.2
+FinAidSpons,AR.PAYMENTS,ARP.AR.ACCTS.ID,ARP.AR.ACCTS.ID,Character,34,48,15,$15.,No,ADCARPAcctsID,,@,34,ADCARPAcctsID,$15.
+FinAidSpons,AR.PAYMENTS,ARP.AR.POSTED.FLAG,AR Posted,Character,49,57,9,$2.,No,ADCARPPostedFlag,,@,49,ADCARPPostedFlag,$2.
+FinAidSpons,AR.PAYMENTS,ARP.AR.TYPE,AR Type,Character,58,92,35,$4.,No,ADCARPType,,@,58,ADCARPTransferInvoice,$4.
+FinAidSpons,AR.PAYMENTS,ARP.DATE,Date,Character,93,100,8,$8.,No,ADCARPDate,,@,93,ADCARPDate,$8.
+FinAidSpons,AR.PAYMENTS,ARP.FIRST.NAME,ARP.FIRST.NAME,Character,101,130,30,$30.,No,ADCARPStuFirstName,,@,101,ADCARPStuFirstName,$30.
+FinAidSpons,AR.PAYMENTS,ARP.LAST.NAME,Last Name,Character,131,187,57,$30.,No,ADCARPStuLastName,,@,131,ADCARPStuLastName,$30.
+FinAidSpons,AR.PAYMENTS,ARP.MIDDLE.NAME,ARP.MIDDLE.NAME,Character,188,203,16,$16.,No,ADCARPStuMiddleName,,@,188,ADCARPStuMiddleName,$16.
+FinAidSpons,AR.PAYMENTS,ARP.ON.AR.ACCTS,ARP.ON.AR.ACCTS,Character,204,218,15,$3.,No,ADCARPOnArAccts,,@,204,ADCARPOnArAccts,$3.
+FinAidSpons,AR.PAYMENTS,ARP.PAYMENT.ITEMS,Payment Items,Character,219,231,13,$10.,Yes,ADCARPPaymentItems,,@,219,ADCARPPaymentItems,$10.
+FinAidSpons,AR.PAYMENTS,ARP.PER.TYPE.TERM.IDX,ARP.PER.TYPE.TERM.IDX,Character,232,254,23,$20.,No,ADCARPStuTypeTerm,,@,232,ADCARPStuTypeTerm,$20.
+FinAidSpons,AR.PAYMENTS,ARP.REPORTING.TERM,Reporting Term,Character,255,268,14,$10.,No,ADCARPReportingTerm,,@,255,ADCARPReportingTerm,$10.
+FinAidSpons,AR.PAYMENTS,ARP.REVERSAL.AMT,Reversed Amt,Numeric,269,280,12,COMMA8.2,No,ADCARPReversedAmt,,@,269,ADCARPReversedAmt,COMMA8.2
+FinAidSpons,AR.PAYMENTS,ARP.SPON.PER.IDX,ARP.SPON.PER.IDX,Character,281,300,20,$20.,No,ADCARPSponPersonIndex,,@,281,ADCARPSponPersonIndex,$20.
+FinAidSpons,AR.PAYMENTS,ARP.SPONSOR.INVOICE,Sponsor Invoice,Character,301,315,15,$10.,No,ADCARPSponsorInvoice,,@,301,ADCARPSponsorInvoice,$10.
+FinAidSpons,AR.PAYMENTS,ARP.SPONSORED.PERSON,Sponsored Person,Character,316,331,16,$10.,No,ADCARPSponsoredPerson,,@,316,ADCARPSponsoredPerson,$10.
+FinAidSpons,AR.PAYMENTS,ARP.SPONSORSHIP.IDX,ARP.SPONSORSHIP.IDX,Character,332,350,19,$12.,No,ADCARPSponsorshipIndex,,@,332,ADCARPSponsorshipIndex,$12.
+FinAidSpons,AR.PAYMENTS,ARP.TERM,Term,Character,351,385,35,$10.,No,ADCARPTerm,,@,351,ADCARPTerm,$10.
+FinAidSpons,AR.PAYMENTS,ARP.TERM.TRANSFER.FLAG,Term,Character,386,389,4,$3.,No,ADCARPTermXferFlag,,@,386,ADCARPTermXferFlag,$3.
+FinAidSpons,AR.PAYMENTS,QBSEC,QBSEC,Character,390,394,5,$3.,No,ADCARPQBSEC,,@,390,ADCARPQBSEC,$3.
+FinAidSpons,AR.PAYMENTS,XARP.ITEM.COUNT,COUNT,Numeric,395,402,8,8.,No,ADCARPCount,,@,395,ADCARPCount,8.
+FinAidSpons,AR.PAYMENTS,XARP.NET.AMT,NET AMT,Numeric,403,414,12,COMMA8.2,No,ADCARPNetAmt,,@,403,ADCARPNetAmt,COMMA8.2
+FinAidSpons,AR.PAYMENTS,XARP.SOURCE,SOURCE,Character,415,420,6,$6.,No,ADCARPSource,,@,415,ADCARPSource,$6.
+FinAidSpons,AR.PAYMENTS,ARP.PERSON.ID,ID,Character,421,430,10,$10.,No,ADCPersonID,DUPLICATE,,,,

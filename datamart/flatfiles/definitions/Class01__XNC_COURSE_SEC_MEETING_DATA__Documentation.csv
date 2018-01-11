@@ -1,0 +1,21 @@
+SAS File,Datatel Table,Datatel Field,Download Field Name,Field Type,Field Start Position,Field End Position,Length,SAS Format,Multi-Value,SAS Variable Name,Old SAS Variable Name,,,
+Class01,COURSE.SEC.MEETING,SEC.TERM,Term,Character,1,35,35,$7.,No,ADCClsTerm,ADCTerm,,,[SEC.TERM] AS ADCClsTerm
+Class01,COURSE.SEC.MEETING,SEC.SUBJECT,Subject,Character,36,75,40,$4.,No,ADCClsPrefix,,,,", [SEC.SUBJECT] AS ADCClsPrefix"
+Class01,COURSE.SEC.MEETING,SEC.COURSE.NO,Course Number,Character,76,88,13,$6.,No,ADCClsNumber,,,,", [SEC.COURSE.NO] AS ADCClsNumber"
+Class01,COURSE.SEC.MEETING,SEC.NO,Section,Character,89,95,7,$6.,No,ADCClsSection,,,,", [SEC.NO] AS ADCClsSection"
+Class01,COURSE.SEC.MEETING,COURSE.SEC.MEETING.ADDDATE,Added On,Character,96,103,8,$8.,No,ADCClsSecMeetAddOn,,,,", [COURSE.SEC.MEETING.ADDDATE] AS ADCClsSecMeetAddOn"
+Class01,COURSE.SEC.MEETING,COURSE.SEC.MEETING.ADDOPR,Added By,Character,104,111,8,$8.,No,ADCClsSecMeetAddBy,,,,", [COURSE.SEC.MEETING.ADDOPR] AS ADCClsSecMeetAddBy"
+Class01,COURSE.SEC.MEETING,COURSE.SEC.MEETING.CHGDATE,Changed On,Character,112,121,10,$8.,No,ADCClsSecMeetChgOn,,,,", [COURSE.SEC.MEETING.CHGDATE] AS ADCClsSecMeetChgOn"
+Class01,COURSE.SEC.MEETING,COURSE.SEC.MEETING.CHGOPR,Changed by,Character,122,131,10,$8.,No,ADCClsSecMeetChgBy,,,,", [COURSE.SEC.MEETING.CHGOPR] AS ADCClsSecMeetChgBy"
+Class01,COURSE.SEC.MEETING,CSM.START.DATE,Start Date,Character,132,141,10,$8.,No,ADCClsStartDate,,,,", [CSM.START.DATE] AS ADCClsStartDate"
+Class01,COURSE.SEC.MEETING,CSM.END.DATE,End Date,Character,142,149,8,$8.,No,ADCClsEndDate,,,,", [CSM.END.DATE] AS ADCClsEndDate"
+Class01,COURSE.SEC.MEETING,CSM.DAYS,Days,Character,150,164,15,$8.,Yes,ADCClsMeetDays,,,,", [CSM.DAYS] AS ADCClsMeetDays"
+Class01,COURSE.SEC.MEETING,CSM.START.TIME,Start Time,Character,165,174,10,$8.,No,ADCClsStartTime,,,,", [CSM.START.TIME] AS ADCClsStartTime"
+Class01,COURSE.SEC.MEETING,CSM.END.TIME,End Time,Character,175,182,8,$8.,No,ADCClsEndTime,,,,", [CSM.END.TIME] AS ADCClsEndTime"
+Class01,COURSE.SEC.MEETING,SEC.LOCATION,Location,Character,183,217,35,$8.,No,ADCClsCampus,,,,", [SEC.LOCATION] AS ADCClsCampus"
+Class01,COURSE.SEC.MEETING,CSM.BLDG,Bldg,Character,218,252,35,$8.,No,ADCClsBldg,,,,", [CSM.BLDG] AS ADCClsBldg"
+Class01,COURSE.SEC.MEETING,CSM.ROOM,Room,Character,253,287,35,$8.,No,ADCClsRoom,,,,", [CSM.ROOM] AS ADCClsRoom"
+Class01,COURSE.SEC.MEETING,CSM.INSTR.METHOD,Instr Method,Character,288,322,35,$8.,No,ADCClsIType,,,,", [CSM.INSTR.METHOD] AS ADCClsIType"
+Class01,COURSE.SEC.MEETING,SEC.TERM,Term,Character,323,357,35,$8.,No,ADCClsTerm,DUPLICATE NOT USED,,,
+Class01,COURSE.SEC.MEETING,CREATED,Created,Character,,,11,$15.,,Class,,,,
+Class01,COURSE.SEC.MEETING,CREATED,Created,Character,,,8,$8.,,Course,,,,

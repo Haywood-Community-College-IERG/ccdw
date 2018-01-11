@@ -1,0 +1,60 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `SELECT`
+   Else DialogBox Select Query,Verb,`SELECT`
+Else Query.Verb=`SELECT`
+Query.File=`XLE.STUDENTS`
+Query.Items = `WITH XLE.INITIAL.PLACE.DATE >= "<< Enter Beginning Date ( MM/DD/YY ) >>" AND WITH XLE.INITIAL.PLACE.DATE <= "<< Enter Ending Date ( MM/DD/YY ) >>"`
+Query.Sort = `BY XLE.STUDENTS.ID`
+Temp = `XLE.AHS.COMPLETE XLE.AHS.NEEDED XLE.AHS.TRANS.DATE XLE.AHS.TRANS.IN XLE.COMPONENT.CODE XLE.COMPUTER.ASSISTANCE XLE.CURRENT.PLACE.DATE XLE.CURRENT.PLACE.RANK XLE.CURRENT.PLACEMENT XLE.DT.GOAL.ACHIEVED `
+Temp := `XLE.DT.GOAL.RECORDED XLE.ECO.ACH.DATE XLE.ECO.ACHIEVEMENTS XLE.EDU.ACH.DATE XLE.EDU.ACHIEVEMENTS XLE.FORM.LEVEL XLE.GRADE.LEVEL XLE.INITIAL.PLACE.DATE XLE.INITIAL.PLACE.RANK XLE.INITIAL.PLACEMENT XLE.`
+Temp := `OTHER.REFERRAL XLE.OTHER.SEPARATIONS XLE.OTHER.STU.DATA XLE.OTHER.STUDENT.GOALS XLE.OTHER.TEST.COMP XLE.OTHER.TEST.DATE XLE.OTHER.TEST.DESC XLE.OTHER.TEST.SCORE XLE.PGM.AGENCIES.REF.TO XLE.PLACEMENT.C`
+Temp := `ODE XLE.PLACEMENT.DATE XLE.PLACEMENT.RANK XLE.REFERRED.BY XLE.RETURN.DATE XLE.RETURN.REASON XLE.SDA.FLAG XLE.SEPARATION.DATE XLE.SEPARATIONS XLE.SERVICES.NEEDED XLE.SERVICES.PROVIDED XLE.SOC.ACH.DATE `
+Temp := `XLE.SOCIETAL.ACHIEVEMENTS XLE.STU.COMMENTS XLE.STU.COMMENTS.DATE XLE.STUDENT.DATA XLE.STUDENT.GOAL XLE.STUDENT.GOAL.TYPE XLE.TEST.CODE XLE.TEST.COMP.COMBINE XLE.TEST.DATE XLE.TEST.SCORE XLE.STUDENTS.I`
+Query.Output = Temp
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=0
+Query.OutputTo=`PC`
+Query.Before=``
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\XLE_STUDENT_LEIS_Data.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=20
+PCAdvanced.Retries=6
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

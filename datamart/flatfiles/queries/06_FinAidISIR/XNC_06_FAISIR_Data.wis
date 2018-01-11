@@ -1,0 +1,57 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `LIST`
+   Else DialogBox Select Query,Verb,`LIST`
+Else Query.Verb=`LIST`
+Query.File=`ISIR.FAFSA`
+Query.Items = `WITH (IFAF.IMPORT.YEAR EQ '<<Enter Four Digit Year:>>')`
+Query.Sort = ``
+Temp = `IFAF.TITLEIV.1 IFAF.TITLEIV.2 IFAF.TITLEIV.3 IFAF.TITLEIV.4 IFAF.TITLEIV.5 IFAF.TITLEIV.6 IFAF.TITLEIV.7 IFAF.TITLEIV.8 IFAF.TITLEIV.9 IFAF.TITLEIV.10 IFAF.TRANS.NBR IFAF.TRANS.PROC.DATE IFAF.TRANS.RE`
+Temp := `CEIPT.DT IFAF.VET.BEN.TYPE IFAF.VETERAN IFAF.YEAR IFAF.YR.IN.COLL ISIR.FAFSA.ADDDATE ISIR.FAFSA.ADDOPR ISIR.FAFSA.CHGDATE ISIR.FAFSA.CHGOPR ISIR.FAFSA.ID ISIR.FAFSA.ID.RPT`
+Query.Output = Temp
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=0
+Query.OutputTo=`PC`
+Query.Before=``
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\ISIR_DATA_06.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=10
+PCAdvanced.Retries=3
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

@@ -1,0 +1,40 @@
+Grades Id,Grade,Grade Scheme,Legend
+1,A,CU,Excellent
+2,B,CU,Above Average
+3,C,CU,Average
+4,D,CU,Below Average
+6,F,CU,Failing
+7,I,CU,Incomplete
+8,P,CU,Pass
+9,AU,CU,Audit
+14,F,CE,Failing
+15,S,CE,Satisfactory
+16,U,CE,Unsatisfactory
+17,W,CE,Withdrawn
+18,AU,CE,Audit
+19,A,BSP,Excellent
+20,B,BSP,Above Average
+21,C,BSP,Average
+22,D,BSP,Below Average
+23,F,BSP,Failing
+24,S,BSP,Satisfactory
+25,U,BSP,Unsatisfactory
+26,W,BSP,Withdrawn
+27,W,CU,Withdrawal
+28,CT,CU,Continue
+29,TR,CU,Transfer Credit
+30,TP,CU,Tech Prep Credit
+31,AP,CU,Advanced Placement Credit
+32,CE,CU,Credit by Exam
+33,P,CE,Pass
+35,P,BSP,Pass
+36,NS,CU,No Show
+37,WF,CU,Withdrawal Failing
+38,NG,CU,Not Graded
+39,NS,CE,No Show
+40,D,CE,Drop
+41,CT,BSP,Continuation
+43,DP,CU,Developmental Pass
+44,EP,HSGPA,Evaluation Pass
+45,EN,HSGPA,Evaluation Not Pass
+NC,DR,CU,Developmental Repeat

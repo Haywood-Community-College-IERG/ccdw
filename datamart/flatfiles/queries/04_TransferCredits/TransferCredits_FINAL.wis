@@ -1,0 +1,57 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `LIST`
+   Else DialogBox Select Query,Verb,`LIST`
+Else Query.Verb=`LIST`
+Query.File=`STUDENT.ACAD.CRED`
+Query.Items = `WITH STC.STATUS.DATE > "<< Enter Beginning Date (Ex: 01/01/10) >>" AND WITH STC.STATUS.DATE < "<< Enter Ending Date (Ex: 12/31/10) >>" AND WITH STC.CRED.TYPE = "TR"`
+Query.Sort = ``
+Temp = `STC.PERSON.ID CRS.NO STC.ACAD.LEVEL STC.CMPL.CEUS STC.CMPL.CRED STC.COMMENTS STC.COURSE STC.COURSE.LEVEL STC.COURSE.NAME STC.CRED.TYPE STC.CRS.NUMBER STC.CURRENT.RESIDENCY.STATUS STC.DEPTS STC.END.DAT`
+Temp := `E STC.SORT.FIRST.NAME STC.SORT.LAST.NAME STC.SORT.MID.NAME STC.START.DATE STC.STATUS STC.STATUS.DATE STC.STUDENT.EQUIV.EVAL STC.SUBJECT STC.TITLE STC.PERSON.ID`
+Query.Output = Temp
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=0
+Query.OutputTo=`PC`
+Query.Before=``
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\TRCredits.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=10
+PCAdvanced.Retries=3
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

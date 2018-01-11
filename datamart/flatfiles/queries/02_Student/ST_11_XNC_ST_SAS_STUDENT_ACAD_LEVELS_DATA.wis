@@ -1,0 +1,55 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `SORT`
+   Else DialogBox Select Query,Verb,`SORT`
+Else Query.Verb=`SORT`
+Query.File=`STUDENT.ACAD.LEVELS`
+Query.Items = ``
+Query.Sort = `BY STA.STUDENT`
+Query.Output = `STA.STUDENT STA.ACAD.LEVEL STA.ADMIT.STATUS STA.FED.COHORT.GROUP STA.START.TERM STA.TERMS STA.ATTEMPT.CREDS STA.CMPL.CRED STA.CUM.GPA X.STA.PROGRAM.GPA STA.STUDENT`
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=1
+Query.OutputTo=`PC`
+Query.Before=`GET.LIST X818_ST_SAS_STUDENT_ACAD_LEVELS_LIST`
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\ST_11_XNC_ST_SAS_STUDENT_ACAD_LEVELS_DATA.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=20
+PCAdvanced.Retries=6
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

@@ -1,0 +1,55 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `SELECT`
+   Else DialogBox Select Query,Verb,`SELECT`
+Else Query.Verb=`SELECT`
+Query.File=`STUDENT.NON.COURSES`
+Query.Items = ``
+Query.Sort = `BY STNC.PERSON.ID`
+Query.Output = `STNC.PERSON.ID STNC.NCRS.TYPE STNC.SOURCE STNC.CATEGORY STNC.CATEGORY.TRANSLATION STNC.START.DATE STNC.END.DATE STNC.STATUS STNC.STATUS.DATE STNC.NON.COURSE STNC.TITLE STNC.SCORE STNC.PERSON.ID`
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=1
+Query.OutputTo=`PC`
+Query.Before=`GET.LIST X818_ST_SAS_NON_COURSE_LIST`
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\ST_05_XNC_ST_SAS_NON_COURSE_DATA.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=10
+PCAdvanced.Retries=3
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

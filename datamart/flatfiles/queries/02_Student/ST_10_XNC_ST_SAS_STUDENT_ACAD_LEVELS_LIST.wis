@@ -1,0 +1,32 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `SELECT`
+   Else DialogBox Select Query,Verb,`SELECT`
+Else Query.Verb=`SELECT`
+Query.File=`STUDENTS`
+Query.Items = ``
+Query.Sort = ``
+Query.Output = `SAVING UNIQUE STU.ACAD.LEVELS.ID`
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=0
+Query.OutputTo=`Screen`
+Query.Before=`GET.LIST X818_ST_SAS_PERSON_LIST`
+Query.After=`SAVE.LIST X818_ST_SAS_STUDENT_ACAD_LEVELS_LIST`
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1

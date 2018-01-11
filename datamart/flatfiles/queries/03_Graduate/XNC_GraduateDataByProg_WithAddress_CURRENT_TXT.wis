@@ -1,0 +1,59 @@
+* Statement Builder save script
+
+If Not(IsDialog(Query)) Then
+   Script 'query\querydlg.wis'
+   If Not(IsDialog(Query)) Then
+      MessageBox 'Unable to load Query builder','Query', MB_ICONHAND|MB_OK
+      EndScript
+   EndIf
+EndIf
+Query_SavedVersion=`6.1.0`
+If IsShown(Query) Then
+   If Version >= "4.1.1" Then
+      Query.Verb.Text = `LIST`
+   Else DialogBox Select Query,Verb,`LIST`
+Else Query.Verb=`LIST`
+Query.File=`ACAD.CREDENTIALS`
+Temp = `WITH (ACAD.ACAD.PROGRAM LIKE 'A...' 'D...' 'C...' 'G...' 'H...')  AND WITH ACAD.INSTITUTIONS.ID = "<< Enter Institution ID (Ex: 0019768) >>" AND WITH (ACAD.TERM = "<< Enter Curriculum Term (Ex: 2009FA`
+Temp := `) >>" OR ACAD.TERM = "<< Enter Extension Term (Ex: 2009CE3) >>")  AND WITH (ACAD.ACAD.LEVEL = "CU" OR ACAD.ACAD.LEVEL = "BSP")`
+Query.Items = Temp
+Query.Sort = `BY LAST.NAME`
+Temp = `ACAD.PERSON.ID LAST.NAME FIRST.NAME MIDDLE.NAME ACAD.TERM ACAD.ACAD.PROGRAM ACAD.ACPG.CIP ACAD.TRANSCRIPT.ADDRESS ACAD.TRANSCRIPT.CITY ACAD.TRANSCRIPT.STATE ACAD.TRANSCRIPT.ZIP ACAD.TRANSCRIPT.COUNTRY`
+Temp := ` ACAD.PERSON.ID`
+Query.Output = Temp
+Query.Heading=``
+Query.Footing=``
+Query.GrandTotal=``
+Query.HdrSup=0
+Query.DetSup=0
+Query.ColSup=0
+Query.IdSup=1
+Query.OutputTo=`PC`
+Query.Before=``
+Query.After=``
+If Not(IsDialog(PCInfo)) Then Script 'query\pcinfo',1
+PCInfo.PCFile=`C:\A_XNC_Datatel\Downloads\GradListByProg.txt`
+PCInfo_App=`None`
+PCInfo_As=`Fixed Length`
+PCInfo_Extra=``
+PCAdvanced.Timeout=10
+PCAdvanced.Retries=3
+PCAdvanced.Mode=`Reformat`
+PCAdvanced.Append=0
+PCAdvanced.NumberConversion=0
+PCAdvanced.ExplodeValues=1
+PCAdvanced.RepeatValues=0
+PCAdvanced.UseFormattingInformation=0
+PCAdvanced.LeftJustifiedIsText=0
+PCAdvanced.RightJustifiedIsNumeric=0
+If Version >= '4.2.0' Then
+PCInfo.FileUse=`CreateOnly`
+EndIf
+If Version >= '6.0.1' Then
+PCAdvanced.Translate=0
+PCAdvanced.Translation = `\255,\r\n\f\r\n,\254,\r\n`
+EndIf
+If IsShown(Query) Then
+   Library `query\query`
+   EnableOutputOptions
+Else Script `query\query`,1
