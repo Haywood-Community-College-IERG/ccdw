@@ -1,0 +1,35 @@
+USE [IERG]
+GO
+/****** Object:  Table [history].[COURSE_SEC_MEETING]    Script Date: 1/11/2018 10:12:43 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [history].[COURSE_SEC_MEETING](
+	[COURSE.SEC.MEETING.ID] [varchar](10) NOT NULL,
+	[CSM.SEC.TERM] [varchar](7) NULL,
+	[CSM.BLDG] [varchar](35) NULL,
+	[CSM.COURSE.SECTION] [varchar](21) NULL,
+	[CSM.INSTR.METHOD] [varchar](35) NULL,
+	[CSM.ROOM] [varchar](35) NULL,
+	[CSM.ROOM.TYPE] [varchar](20) NULL,
+	[CSM.DAYS] [varchar](8000) NULL,
+	[CSM.FREQUENCY] [varchar](20) NULL,
+	[CSM.START.DATE] [date] NULL,
+	[CSM.START.TIME] [time](7) NULL,
+	[CSM.END.DATE] [date] NULL,
+	[CSM.END.TIME] [time](7) NULL,
+	[COURSE.SEC.MEETING.ADDDATE] [date] NULL,
+	[COURSE.SEC.MEETING.ADDOPR] [varchar](8) NULL,
+	[COURSE.SEC.MEETING.CHGDATE] [date] NULL,
+	[COURSE.SEC.MEETING.CHGOPR] [varchar](8) NULL,
+	[EffectiveDatetime] [datetime] NOT NULL,
+	[ExpirationDatetime] [datetime] NULL,
+	[CurrentFlag] [varchar](1) NULL,
+ CONSTRAINT [pk_COURSE_SEC_MEETING] PRIMARY KEY CLUSTERED 
+(
+	[COURSE.SEC.MEETING.ID] ASC,
+	[EffectiveDatetime] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO

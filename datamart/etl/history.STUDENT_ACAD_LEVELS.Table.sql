@@ -1,0 +1,30 @@
+USE [IERG]
+GO
+/****** Object:  Table [history].[STUDENT_ACAD_LEVELS]    Script Date: 1/11/2018 10:12:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [history].[STUDENT_ACAD_LEVELS](
+	[STA.STUDENT] [varchar](10) NOT NULL,
+	[STA.ACAD.LEVEL] [varchar](100) NOT NULL,
+	[STA.TERMS] [varchar](8000) NULL,
+	[STA.ADMIT.STATUS] [varchar](35) NULL,
+	[STA.FED.COHORT.GROUP] [varchar](100) NULL,
+	[STA.START.TERM] [varchar](100) NULL,
+	[STA.CLASS] [varchar](35) NULL,
+	[STA.STUDENT.STANDINGS.SAL] [varchar](8000) NULL,
+	[STA.CURRENT.STANDING] [varchar](5) NULL,
+	[STA.START.DATE] [date] NULL,
+	[STA.END.DATE] [date] NULL,
+	[EffectiveDatetime] [datetime] NOT NULL,
+	[ExpirationDatetime] [datetime] NULL,
+	[CurrentFlag] [varchar](1) NULL,
+ CONSTRAINT [pk_STUDENT_ACAD_LEVELS] PRIMARY KEY CLUSTERED 
+(
+	[STA.ACAD.LEVEL] ASC,
+	[STA.STUDENT] ASC,
+	[EffectiveDatetime] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO

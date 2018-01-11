@@ -1,0 +1,22 @@
+USE [IERG]
+GO
+/****** Object:  View [history].[STUDENT_PROGRAMS__STPR_DATES]    Script Date: 1/11/2018 10:12:43 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [history].[STUDENT_PROGRAMS__STPR_DATES] AS
+SELECT [STPR.ACAD.PROGRAM], [STPR.STUDENT]
+       
+, CAST(LTRIM(RTRIM(CA1.Item)) AS DATE) AS [STPR.END.DATE]
+, CAST(LTRIM(RTRIM(CA2.Item)) AS DATE) AS [STPR.START.DATE]
+     , CA1.ItemNumber AS ItemNumber
+     , EffectiveDatetime
+  FROM [history].[STUDENT_PROGRAMS]
+  
+ CROSS APPLY dbo.DelimitedSplit8K([STPR.END.DATE],', ') CA1
+ CROSS APPLY dbo.DelimitedSplit8K([STPR.START.DATE],', ') CA2
+ WHERE COALESCE([STPR.START.DATE],'') != ''
+       AND CA1.ItemNumber=CA2.ItemNumber
+
+GO

@@ -1,0 +1,22 @@
+USE [IERG]
+GO
+/****** Object:  View [history].[PERSON__PEOPLE_EMAIL]    Script Date: 1/11/2018 10:12:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [history].[PERSON__PEOPLE_EMAIL] AS
+SELECT [ID]
+       
+, CAST(LTRIM(RTRIM(CA1.Item)) AS VARCHAR(50)) AS [PERSON.EMAIL.ADDRESSES]
+, CAST(LTRIM(RTRIM(CA2.Item)) AS VARCHAR(3)) AS [PERSON.EMAIL.TYPES]
+     , CA1.ItemNumber AS ItemNumber
+     , EffectiveDatetime
+  FROM [history].[PERSON]
+  
+ CROSS APPLY dbo.DelimitedSplit8K([PERSON.EMAIL.ADDRESSES],', ') CA1
+ CROSS APPLY dbo.DelimitedSplit8K([PERSON.EMAIL.TYPES],', ') CA2
+ WHERE COALESCE([PERSON.EMAIL.TYPES],'') != ''
+       AND CA1.ItemNumber=CA2.ItemNumber
+
+GO

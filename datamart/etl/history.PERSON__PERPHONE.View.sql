@@ -1,0 +1,22 @@
+USE [IERG]
+GO
+/****** Object:  View [history].[PERSON__PERPHONE]    Script Date: 1/11/2018 10:12:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [history].[PERSON__PERPHONE] AS
+SELECT [ID]
+       
+, CAST(LTRIM(RTRIM(CA1.Item)) AS VARCHAR(12)) AS [PERSONAL.PHONE.NUMBER]
+, CAST(LTRIM(RTRIM(CA2.Item)) AS VARCHAR(12)) AS [PERSONAL.PHONE.TYPE]
+     , CA1.ItemNumber AS ItemNumber
+     , EffectiveDatetime
+  FROM [history].[PERSON]
+  
+ CROSS APPLY dbo.DelimitedSplit8K([PERSONAL.PHONE.NUMBER],', ') CA1
+ CROSS APPLY dbo.DelimitedSplit8K([PERSONAL.PHONE.TYPE],', ') CA2
+ WHERE COALESCE([PERSONAL.PHONE.NUMBER],'') != ''
+       AND CA1.ItemNumber=CA2.ItemNumber
+
+GO
