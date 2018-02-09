@@ -1,0 +1,51 @@
+CREATE VIEW datamart.GRADUATION AS 
+SELECT [ACAD.PERSON.ID]
+      ,[LAST.NAME]
+      ,[FIRST.NAME]
+      ,[MIDDLE.NAME]
+      ,[ACAD.TRANSCRIPT.ADDRESS]
+      ,[ACAD.TRANSCRIPT.CITY]
+      ,[ACAD.TRANSCRIPT.STATE]
+      ,[ACAD.TRANSCRIPT.ZIP]
+      ,[ACAD.TRANSCRIPT.COUNTRY]
+      ,[ACAD.TERM]
+      ,[ACPG.CIP]
+      ,[ACAD.ACAD.PROGRAM]
+FROM [IERG].[history].[ACAD_CREDENTIALS]
+    ,[IERG].[history].[Person]
+    ,[IERG].[history].[ACAD_PROGRAMS]
+WHERE [ACAD.Person.ID] = [ID]
+and [ACAD.PROGRAMS.ID] = [ACAD.ACAD.PROGRAM]
+and [ACAD.TERM] = '2017FA'
+and [ACAD_CREDENTIALS].[EffectiveDatetime] <= '01/31/2018'
+and ([ACAD_CREDENTIALS].[ExpirationDatetime] is null
+or [ACAD_CREDENTIALS].[ExpirationDatetime] > '01/31/2018')
+and [Person].[EffectiveDatetime] <= '01/31/2018'
+and ([Person].[ExpirationDatetime] is null
+or [Person].[ExpirationDatetime] > '01/31/2018')
+and [ACAD_PROGRAMS].[EffectiveDatetime] <= '01/31/2018'
+and ([ACAD_PROGRAMS].[ExpirationDatetime] is null
+or [ACAD_PROGRAMS].[ExpirationDatetime] > '01/31/2018')
+and [ACAD.INSTITUTIONS.ID] = 0019844
+ORDER BY [ACAD.PERSON.ID]
+
+-------------------------------
+
+CREATE VIEW datamart.XNC_PERSON AS
+SELECT [XNC.PERSON.ID]
+	   ,[XNC.INMATE.FLAG]
+	   ,[XNC.ECON.DISADVANTAGED.FLAG]
+	   ,[XNC.SINGLE.PARENT.FLAG]
+	   ,[XNC.HEAD.HOUSEHOLD.FLAG]
+	   ,[XNC.LIMITED.ENGLISH.FLAG]
+	   ,[XNC.HIGH.SCHOOL.TRACK]
+	   ,[XNC.EDU.ENTRY.LEVEL]
+	   ,[XNC.FATHER.DEGREE.FLAG]
+	   ,[XNC.MOTHER.DEGREE.FLAG]
+	   ,[XNC_PERSON].[EffectiveDatetime]
+	   ,[XNC_PERSON].[ExpirationDatetime]
+FROM [history].[XNC_PERSON]
+WHERE [XNC_PERSON].[EffectiveDatetime] <= '01/31/2018'
+and ([XNC_PERSON].[ExpirationDatetime] is null
+or [XNC_PERSON].[ExpirationDatetime] > '01/31/2018')
+order by [XNC.PERSON.ID]
