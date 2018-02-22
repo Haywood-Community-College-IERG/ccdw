@@ -46,7 +46,8 @@ SELECT [ID]
       ,[ExpirationDatetime]
       ,[CurrentFlag]
   FROM [IERG].[history].[PERSON]
-  WHERE [PERSON].[EffectiveDatetime] <= '01/31/2018'
+  WHERE COALESCE ([FIRST.NAME], '') <> ''
+and [PERSON].[EffectiveDatetime] <= '01/31/2018'
 and ([PERSON].[ExpirationDatetime] is null
 or [PERSON].[ExpirationDatetime] > '01/31/2018')
 ORDER BY [ID]
