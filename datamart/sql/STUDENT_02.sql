@@ -128,8 +128,23 @@ WITH per_addr AS (
       ,[ExpirationDatetime]
       ,[CurrentFlag]
 	FROM   [history].[PERSON] per
+	LEFT JOIN per_name
+		 ON (per_name.[ID] = per.[ID]
+			 and per_name.EffectiveDatetime = per.EffectiveDatetime)
     LEFT JOIN per_addr 
          ON (per_addr.[ID] = per.[ID]
+             AND per_addr.EffectiveDatetime = per.EffectiveDatetime)
+	LEFT JOIN per_email
+         ON (per_email.[ID] = per.[ID]
+             AND per_email.EffectiveDatetime = per.EffectiveDatetime)
+	LEFT JOIN per_ematye
+         ON (per_ematye.[PERSON.EMAIL.ADDRESSES] = per.[PERSON.EMAIL.ADDRESSES]
+             AND per_ematye.EffectiveDatetime = per.EffectiveDatetime)
+	LEFT JOIN per_phone
+         ON (per_phone.[ID] = per.[ID]
+             AND per_phone.EffectiveDatetime = per.EffectiveDatetime)
+    LEFT JOIN per_photye 
+         ON (per_photye.[PERSONAL.PHONE.NUMBER] = per.[PERSONAL.PHONE.NUMBER]
              AND per_addr.EffectiveDatetime = per.EffectiveDatetime)
 	WHERE  per.[EffectiveDatetime] <= @report_date
 	AND   (per.[ExpirationDatetime] is null
@@ -193,7 +208,7 @@ FROM per
 	INNER JOIN trm ON (trm.[STTR.STUDENT] = per.[ID])
 ;
 /*
-EXEC datamart.getSTUDENT_03 '2018', '01', '02/23/2018'
+EXEC datamart.getSTUDENT_02 '2018', '01', '02/23/2018'
 
 --, '2018SP'
 */
