@@ -1,8 +1,9 @@
+
 IF OBJECT_ID('datamart.getSTUDENT_02', 'P') IS NOT NULL
 	DROP PROCEDURE datamart.getSTUDENT_02
 GO
 
-CREATE PROCEDURE datamart.getSTUDENT_03
+CREATE PROCEDURE datamart.getSTUDENT_02
 	@data_year varchar(4),
 	@data_term varchar(2),
 	@report_date date
@@ -39,48 +40,8 @@ WITH per_addr AS (
       FROM [history].[PERSON]
      CROSS APPLY dbo.DelimitedSplit8K([ADDR.TYPE], ', ') CA1 
      WHERE COALESCE([ADDR.TYPE], '') != '' 
-), per_name AS (
-	    SELECT [ID]
-         , CAST(LTRIM(RTRIM(CA2.Item)) AS VARCHAR(12)) AS [NAME.HISTORY.LAST.NAME]
-         , CA2.ItemNumber AS ItemNumber
-         , EffectiveDatetime
-      FROM [history].[PERSON]
-     CROSS APPLY dbo.DelimitedSplit8K([NAME.HISTORY.LAST.NAME], ', ') CA2 
-     WHERE COALESCE([NAME.HISTORY.LAST.NAME], '') != '' 
-), per_email AS (
-	    SELECT [ID]
-         , CAST(LTRIM(RTRIM(CA3.Item)) AS VARCHAR(12)) AS [PERSON.EMAIL.ADDRESSES]
-         , CA3.ItemNumber AS ItemNumber
-         , EffectiveDatetime
-      FROM [history].[PERSON]
-     CROSS APPLY dbo.DelimitedSplit8K([PERSON.EMAIL.ADDRESSES], ', ') CA3 
-     WHERE COALESCE([PERSON.EMAIL.ADDRESSES], '') != '' 
-), per_ematye AS (
-	    SELECT [PERSON.EMAIL.ADDRESSES]
-         , CAST(LTRIM(RTRIM(CA4.Item)) AS VARCHAR(12)) AS [PERSON.EMAIL.TYPES]
-         , CA4.ItemNumber AS ItemNumber
-         , EffectiveDatetime
-      FROM [history].[PERSON]
-     CROSS APPLY dbo.DelimitedSplit8K([PERSON.EMAIL.TYPES], ', ') CA4 
-     WHERE COALESCE([PERSON.EMAIL.TYPES], '') != '' 
-), per_phone AS (
-	    SELECT [ID]
-         , CAST(LTRIM(RTRIM(CA5.Item)) AS VARCHAR(12)) AS [PERSONAL.PHONE.NUMBER]
-         , CA5.ItemNumber AS ItemNumber
-         , EffectiveDatetime
-      FROM [history].[PERSON]
-     CROSS APPLY dbo.DelimitedSplit8K([PERSONAL.PHONE.NUMBER], ', ') CA5 
-     WHERE COALESCE([PERSONAL.PHONE.NUMBER], '') != '' 
-), per_photye AS (
-	    SELECT [PERSONAL.PHONE.NUMBER]
-         , CAST(LTRIM(RTRIM(CA6.Item)) AS VARCHAR(12)) AS [PERSONAL.PHONE.TYPE]
-         , CA6.ItemNumber AS ItemNumber
-         , EffectiveDatetime
-      FROM [history].[PERSON]
-     CROSS APPLY dbo.DelimitedSplit8K([PERSONAL.PHONE.TYPE], ', ') CA6 
-     WHERE COALESCE([PERSONAL.PHONE.TYPE], '') != '' 
 ), per AS (
-	SELECT [ID]
+	SELECT per.[ID]
 	  ,[CITIZENSHIP]
 	  ,[PERSON.ALT.IDS]
       ,[FIRST.NAME]
@@ -106,7 +67,6 @@ WITH per_addr AS (
       ,[RESIDENCE.COUNTRY]
 	  --,[DRIVER.LICENSE.STATE]
 	  --,[DRIVER.LICENSE.NO]
-	  ,[MARITAL.STATUS]
       ,[EMER.CONTACT.PHONE]
       ,[PERSON.OVRL.EMP.STAT]
       ,[VETERAN.TYPE]
@@ -115,37 +75,31 @@ WITH per_addr AS (
       ,[PRIVACY.FLAG]
       ,[DIRECTORY.FLAG]
       ,per_email.[PERSON.EMAIL.ADDRESSES]
-      ,per_ematye.[PERSON.EMAIL.TYPES]
+      ,per_email.[PERSON.EMAIL.TYPES]
       ,per_phone.[PERSONAL.PHONE.NUMBER]
-      ,per_photye.[PERSONAL.PHONE.TYPE]
+      ,per_phone.[PERSONAL.PHONE.TYPE]
       ,[PERSON.ADD.DATE]
       ,[PERSON.ADD.OPERATOR]
       ,[PERSON.CHANGE.DATE]
       ,[PERSON.CHANGE.OPERATOR]
 	  --,[PER.PRI.ETHNIC]
 	  --,[PER.PRI.RACE]
-      ,[EffectiveDatetime]
+      ,per.[EffectiveDatetime]
       ,[ExpirationDatetime]
       ,[CurrentFlag]
 	FROM   [history].[PERSON] per
-	LEFT JOIN per_name
+	LEFT JOIN history.PERSON__NAMEHIST per_name
 		 ON (per_name.[ID] = per.[ID]
 			 and per_name.EffectiveDatetime = per.EffectiveDatetime)
     LEFT JOIN per_addr 
          ON (per_addr.[ID] = per.[ID]
              AND per_addr.EffectiveDatetime = per.EffectiveDatetime)
-	LEFT JOIN per_email
+	LEFT JOIN history.PERSON__PEOPLE_EMAIL per_email
          ON (per_email.[ID] = per.[ID]
              AND per_email.EffectiveDatetime = per.EffectiveDatetime)
-	LEFT JOIN per_ematye
-         ON (per_ematye.[PERSON.EMAIL.ADDRESSES] = per.[PERSON.EMAIL.ADDRESSES]
-             AND per_ematye.EffectiveDatetime = per.EffectiveDatetime)
-	LEFT JOIN per_phone
+	LEFT JOIN history.PERSON__PERPHONE per_phone
          ON (per_phone.[ID] = per.[ID]
              AND per_phone.EffectiveDatetime = per.EffectiveDatetime)
-    LEFT JOIN per_photye 
-         ON (per_photye.[PERSONAL.PHONE.NUMBER] = per.[PERSONAL.PHONE.NUMBER]
-             AND per_addr.EffectiveDatetime = per.EffectiveDatetime)
 	WHERE  per.[EffectiveDatetime] <= @report_date
 	AND   (per.[ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
