@@ -19,10 +19,6 @@ BEGIN
 		@report_date date,
 		@term_id_ce varchar(20),
 		@term_id_cu varchar(20)
-AS
-	SELECT @STTRSTUDENT,
-		   @STTRTERM
-	FROM [history].[STUDENT_TERMS]
 
 	IF @data_term = '01'
 		BEGIN
@@ -40,16 +36,16 @@ AS
 				SET @term_id_ce = @data_year + 'CE3'
 				SET @term_id_cu = @data_year + 'FA'
 			END
-	END;
 
 	PRINT @term_id_ce;
 	PRINT @term_id_cu;
 
-SELECT  DISTINCT
-            [STTR.TERM]
-		   ,[STTR.STUDENT]
-	FROM	[history].[STUDENT_TERMS]
-    WHERE [STTR.TERM] IN (@term_id_ce, @term_id_cu)
+AS SELECT @STTRSTUDENT,
+		   @STTRTERM
+	FROM [history].[STUDENT_TERMS]
+	WHERE [STTR.TERM] IN (@term_id_ce, @term_id_cu)
     AND    [EffectiveDatetime] <= @report_date
 	AND   ([ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
+)
+END;
