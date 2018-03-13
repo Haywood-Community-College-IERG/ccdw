@@ -1,14 +1,28 @@
 IF OBJECT_ID('datamart.getSTUDENT_01', 'P') IS NOT NULL
-	DROP PROCEDURE datamart.getSTUDENT_01
+	DROP FUNCTION datamart.getSTUDENT_01
 GO
 
-CREATE PROCEDURE datamart.getSTUDENT_01
-	@data_year varchar(4),
-	@data_term varchar(2),
-	@report_date date
+CREATE FUNCTION datamart.getSTUDENT_01(@StudentID int)
+RETURNS @STUDENT_TERMS TABLE
+(	
+	[STTR.STUDENT] varchar(10) PRIMARY KEY NOT NULL,
+	[STTR.TERM] varchar(7) NOT NULL
+)
 AS
-	DECLARE @term_id_ce varchar(20)
-	DECLARE @term_id_cu varchar(20)
+
+BEGIN
+	DECLARE
+		@STTRTERM varchar(7),
+		@STTRSTUDENT varchar(10),
+		@data_year varchar(4),
+		@data_term varchar(2),
+		@report_date date,
+		@term_id_ce varchar(20),
+		@term_id_cu varchar(20)
+AS
+	SELECT @STTRSTUDENT,
+		   @STTRTERM
+	FROM [history].[STUDENT_TERMS]
 
 	IF @data_term = '01'
 		BEGIN
@@ -39,9 +53,3 @@ SELECT  DISTINCT
     AND    [EffectiveDatetime] <= @report_date
 	AND   ([ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
-
-/*
-EXEC datamart.getSTUDENT_01 '2018', '01', '02/23/2018'
-
---, '2018SP'
-*/
