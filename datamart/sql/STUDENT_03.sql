@@ -1,5 +1,5 @@
-IF OBJECT_ID('datamart.getSTUDENT_03', 'P') IS NOT NULL
-	DROP PROCEDURE datamart.getSTUDENT_03
+IF OBJECT_ID('datamart.getSTUDENT_02', 'P') IS NOT NULL
+	DROP PROCEDURE datamart.getSTUDENT_02
 GO
 
 CREATE PROCEDURE datamart.getSTUDENT_03
@@ -31,33 +31,122 @@ AS
 	PRINT @term_id_ce;
 	PRINT @term_id_cu;
 
-WITH xnc_hs AS (
-    SELECT [XNC.PERSON.ID]
-         , CAST(LTRIM(RTRIM(CA1.Item)) AS VARCHAR(12)) AS [XNC.HIGH.SCHOOL.TRACK]
+WITH per_addr AS (
+    SELECT [ID]
+         , CAST(LTRIM(RTRIM(CA1.Item)) AS VARCHAR(12)) AS [ADDR.TYPE]
          , CA1.ItemNumber AS ItemNumber
          , EffectiveDatetime
-      FROM [history].[XNC_PERSON]
-     CROSS APPLY dbo.DelimitedSplit8K([XNC.HIGH.SCHOOL.TRACK], ', ') CA1 
-     WHERE COALESCE([XNC.HIGH.SCHOOL.TRACK], '') != '' 
-), xnc AS (
-	SELECT xnc.[XNC.PERSON.ID]
-		  ,xnc.[XNC.INMATE.FLAG]
-		  ,xnc.[XNC.ECON.DISADVANTAGED.FLAG]
-	      ,xnc.[XNC.SINGLE.PARENT.FLAG]
-	      ,xnc.[XNC.HEAD.HOUSEHOLD.FLAG]
-	      ,xnc.[XNC.LIMITED.ENGLISH.FLAG]
-	      ,xnc_hs.[XNC.HIGH.SCHOOL.TRACK]
-	      ,xnc.[XNC.EDU.ENTRY.LEVEL]
-	      ,xnc.[XNC.FATHER.DEGREE.FLAG]
-	      ,xnc.[XNC.MOTHER.DEGREE.FLAG]
-	      ,xnc.[EffectiveDatetime]
-	      ,xnc.[ExpirationDatetime]
-	FROM   [history].[XNC_PERSON] xnc
-    LEFT JOIN xnc_hs 
-         ON (xnc_hs.[XNC.PERSON.ID] = xnc.[XNC.PERSON.ID]
-             AND xnc_hs.EffectiveDatetime = xnc.EffectiveDatetime)
-	WHERE  xnc.[EffectiveDatetime] <= @report_date
-	AND   (xnc.[ExpirationDatetime] is null
+      FROM [history].[PERSON]
+     CROSS APPLY dbo.DelimitedSplit8K([ADDR.TYPE], ', ') CA1 
+     WHERE COALESCE([ADDR.TYPE], '') != '' 
+), per_name AS (
+	    SELECT [ID]
+         , CAST(LTRIM(RTRIM(CA2.Item)) AS VARCHAR(12)) AS [NAME.HISTORY.LAST.NAME]
+         , CA2.ItemNumber AS ItemNumber
+         , EffectiveDatetime
+      FROM [history].[PERSON]
+     CROSS APPLY dbo.DelimitedSplit8K([NAME.HISTORY.LAST.NAME], ', ') CA2 
+     WHERE COALESCE([NAME.HISTORY.LAST.NAME], '') != '' 
+), per_email AS (
+	    SELECT [ID]
+         , CAST(LTRIM(RTRIM(CA3.Item)) AS VARCHAR(12)) AS [PERSON.EMAIL.ADDRESSES]
+         , CA3.ItemNumber AS ItemNumber
+         , EffectiveDatetime
+      FROM [history].[PERSON]
+     CROSS APPLY dbo.DelimitedSplit8K([PERSON.EMAIL.ADDRESSES], ', ') CA3 
+     WHERE COALESCE([PERSON.EMAIL.ADDRESSES], '') != '' 
+), per_ematye AS (
+	    SELECT [PERSON.EMAIL.ADDRESSES]
+         , CAST(LTRIM(RTRIM(CA4.Item)) AS VARCHAR(12)) AS [PERSON.EMAIL.TYPES]
+         , CA4.ItemNumber AS ItemNumber
+         , EffectiveDatetime
+      FROM [history].[PERSON]
+     CROSS APPLY dbo.DelimitedSplit8K([PERSON.EMAIL.TYPES], ', ') CA4 
+     WHERE COALESCE([PERSON.EMAIL.TYPES], '') != '' 
+), per_phone AS (
+	    SELECT [ID]
+         , CAST(LTRIM(RTRIM(CA5.Item)) AS VARCHAR(12)) AS [PERSONAL.PHONE.NUMBER]
+         , CA5.ItemNumber AS ItemNumber
+         , EffectiveDatetime
+      FROM [history].[PERSON]
+     CROSS APPLY dbo.DelimitedSplit8K([PERSONAL.PHONE.NUMBER], ', ') CA5 
+     WHERE COALESCE([PERSONAL.PHONE.NUMBER], '') != '' 
+), per_photye AS (
+	    SELECT [PERSONAL.PHONE.NUMBER]
+         , CAST(LTRIM(RTRIM(CA6.Item)) AS VARCHAR(12)) AS [PERSONAL.PHONE.TYPE]
+         , CA6.ItemNumber AS ItemNumber
+         , EffectiveDatetime
+      FROM [history].[PERSON]
+     CROSS APPLY dbo.DelimitedSplit8K([PERSONAL.PHONE.TYPE], ', ') CA6 
+     WHERE COALESCE([PERSONAL.PHONE.TYPE], '') != '' 
+), per AS (
+	SELECT per.[ID]
+	  ,per.[CITIZENSHIP]
+	  ,per.[PERSON.ALT.IDS]
+      ,per.[FIRST.NAME]
+      ,per.[MIDDLE.NAME]
+      ,per.[LAST.NAME]
+      ,per.[SUFFIX]
+      ,per_name.[NAME.HISTORY.LAST.NAME]
+      ,per.[ADDRESS.LINES]
+      ,per.[CITY]
+      ,per.[STATE]
+      ,per.[ZIP]
+      ,per_addr.[ADDR.TYPE]
+      ,per.[GENDER]
+      ,per.[BIRTH.DATE]
+      ,per.[DECEASED.DATE]
+      ,per.[MARITAL.STATUS]
+      ,per.[ETHNIC]
+      ,per.[PER.ETHNICS]
+      ,per.[PER.RACES]
+	  --,per.[COUNTRY]
+      ,per.[RESIDENCE.COUNTY]
+      ,per.[RESIDENCE.STATE]
+      ,per.[RESIDENCE.COUNTRY]
+	  --,per.[DRIVER.LICENSE.STATE]
+	  --,per.[DRIVER.LICENSE.NO]
+      ,per.[EMER.CONTACT.PHONE]
+      ,per.[PERSON.OVRL.EMP.STAT]
+      ,per.[VETERAN.TYPE]
+      ,per.[VETERAN.TYPE2.DESCRIPTION]
+      ,per.[VISA.TYPE]
+      ,per.[PRIVACY.FLAG]
+      ,per.[DIRECTORY.FLAG]
+      ,per_email.[PERSON.EMAIL.ADDRESSES]
+      ,per_ematye.[PERSON.EMAIL.TYPES]
+      ,per_phone.[PERSONAL.PHONE.NUMBER]
+      ,per_photye.[PERSONAL.PHONE.TYPE]
+      ,per.[PERSON.ADD.DATE]
+      ,per.[PERSON.ADD.OPERATOR]
+      ,per.[PERSON.CHANGE.DATE]
+      ,per.[PERSON.CHANGE.OPERATOR]
+	  --,per.[PER.PRI.ETHNIC]
+	  --,per.[PER.PRI.RACE]
+      ,per.[EffectiveDatetime]
+      ,per.[ExpirationDatetime]
+      ,per.[CurrentFlag]
+	FROM   [history].[PERSON] per
+	LEFT JOIN per_name
+		 ON (per_name.[ID] = per.[ID]
+			 and per_name.EffectiveDatetime = per.EffectiveDatetime)
+    LEFT JOIN per_addr 
+         ON (per_addr.[ID] = per.[ID]
+             AND per_addr.EffectiveDatetime = per.EffectiveDatetime)
+	LEFT JOIN per_email
+         ON (per_email.[ID] = per.[ID]
+             AND per_email.EffectiveDatetime = per.EffectiveDatetime)
+	LEFT JOIN per_ematye
+         ON (per_ematye.[PERSON.EMAIL.ADDRESSES] = per.[PERSON.EMAIL.ADDRESSES]
+             AND per_ematye.EffectiveDatetime = per.EffectiveDatetime)
+	LEFT JOIN per_phone
+         ON (per_phone.[ID] = per.[ID]
+             AND per_phone.EffectiveDatetime = per.EffectiveDatetime)
+    LEFT JOIN per_photye 
+         ON (per_photye.[PERSONAL.PHONE.NUMBER] = per.[PERSONAL.PHONE.NUMBER]
+             AND per_addr.EffectiveDatetime = per.EffectiveDatetime)
+	WHERE  per.[EffectiveDatetime] <= @report_date
+	AND   (per.[ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
 
 ), trm AS (
@@ -70,22 +159,55 @@ WITH xnc_hs AS (
 	--AND   ([ExpirationDatetime] is null
 	--OR	   [ExpirationDatetime] > @report_date)
 )
-SELECT	xnc.[XNC.PERSON.ID]
-		,xnc.[XNC.INMATE.FLAG]
-		,xnc.[XNC.ECON.DISADVANTAGED.FLAG]
-	    ,xnc.[XNC.SINGLE.PARENT.FLAG]
-	    ,xnc.[XNC.HEAD.HOUSEHOLD.FLAG]
-	    ,xnc.[XNC.LIMITED.ENGLISH.FLAG]
-	    ,xnc.[XNC.HIGH.SCHOOL.TRACK]
-	    ,xnc.[XNC.EDU.ENTRY.LEVEL]
-        --,xnc.[XNC.EDUCATIONAL.LEVEL]
-	    ,xnc.[XNC.FATHER.DEGREE.FLAG]
-	    ,xnc.[XNC.MOTHER.DEGREE.FLAG]
-FROM xnc 
-	INNER JOIN trm ON (trm.[STTR.STUDENT] = xnc.[XNC.PERSON.ID])
+SELECT	per.[ID]
+	  ,per.[CITIZENSHIP]
+	  ,per.[PERSON.ALT.IDS]
+      ,per.[FIRST.NAME]
+      ,per.[MIDDLE.NAME]
+      ,per.[LAST.NAME]
+      ,per.[SUFFIX]
+      ,per.[NAME.HISTORY.LAST.NAME]
+      ,per.[ADDRESS.LINES]
+      ,per.[CITY]
+      ,per.[STATE]
+      ,per.[ZIP]
+      ,per.[ADDR.TYPE]
+      ,per.[GENDER]
+      ,per.[BIRTH.DATE]
+      ,per.[DECEASED.DATE]
+      ,per.[MARITAL.STATUS]
+      ,per.[ETHNIC]
+      ,per.[PER.ETHNICS]
+      ,per.[PER.RACES]
+	  --,per.[COUNTRY]
+      ,per.[RESIDENCE.COUNTY]
+      ,per.[RESIDENCE.STATE]
+      ,per.[RESIDENCE.COUNTRY]
+	  --,per.[DRIVER.LICENSE.STATE]
+	  --,per.[DRIVER.LICENSE.NO]
+	  ,per.[MARITAL.STATUS]
+      ,per.[EMER.CONTACT.PHONE]
+      ,per.[PERSON.OVRL.EMP.STAT]
+      ,per.[VETERAN.TYPE]
+      ,per.[VETERAN.TYPE2.DESCRIPTION]
+      ,per.[VISA.TYPE]
+      ,per.[PRIVACY.FLAG]
+      ,per.[DIRECTORY.FLAG]
+      ,per.[PERSON.EMAIL.ADDRESSES]
+      ,per.[PERSON.EMAIL.TYPES]
+      ,per.[PERSONAL.PHONE.NUMBER]
+      ,per.[PERSONAL.PHONE.TYPE]
+      ,per.[PERSON.ADD.DATE]
+      ,per.[PERSON.ADD.OPERATOR]
+      ,per.[PERSON.CHANGE.DATE]
+      ,per.[PERSON.CHANGE.OPERATOR]
+	  --,per.[PER.PRI.ETHNIC]
+	  --,per.[PER.PRI.RACE]
+FROM per 
+	INNER JOIN trm ON (trm.[STTR.STUDENT] = per.[ID])
 ;
 /*
-EXEC datamart.getSTUDENT_03 '2018', '01', '02/23/2018'
+EXEC datamart.getSTUDENT_02 '2018', '01', '02/23/2018'
 
 --, '2018SP'
 */
