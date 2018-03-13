@@ -39,3 +39,9 @@ SELECT  DISTINCT
     AND    [EffectiveDatetime] <= @report_date
 	AND   ([ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
+
+/*
+EXEC datamart.getSTUDENT_01 '2018', '01', '02/23/2018'
+
+--, '2018SP'
+*/
