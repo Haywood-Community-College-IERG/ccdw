@@ -52,3 +52,8 @@ END;
 RETURN;
 END;
 GO
+
+/*
+EXEC datamart.getSTUDENT_01 '2018', '01', '02/23/2018'
+
+--, '2018SP'
