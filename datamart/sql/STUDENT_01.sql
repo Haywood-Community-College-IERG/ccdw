@@ -22,9 +22,9 @@ AS
                             WHEN @data_term = '03' THEN 'FA'
                             ELSE 'XX' END
         )
-    --AND    [EffectiveDatetime] <= @report_date
-	--AND   ([ExpirationDatetime] is null
-	--OR	   [ExpirationDatetime] > @report_date)
+    AND    [EffectiveDatetime] <= @report_date
+	AND   ([ExpirationDatetime] is null
+	       OR [ExpirationDatetime] > @report_date)
 GO
 
 /*
