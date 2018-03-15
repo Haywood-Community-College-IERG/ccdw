@@ -88,6 +88,8 @@ WITH per_addr AS (
       ,[ExpirationDatetime]
       ,[CurrentFlag]
 	FROM   [history].[PERSON] per
+   INNER JOIN datamart.getSTUDENT_01(@data_year, @data_term, @report_date) ids
+         ON (ids.[STTR.STUDENT] = per.ID)
 	LEFT JOIN history.PERSON__NAMEHIST per_name
 		 ON (per_name.[ID] = per.[ID]
 			 and per_name.EffectiveDatetime = per.EffectiveDatetime)
@@ -104,15 +106,6 @@ WITH per_addr AS (
 	AND   (per.[ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
 
-), trm AS (
-	SELECT  DISTINCT
-            [STTR.TERM]
-		   ,[STTR.STUDENT]
-	FROM	[history].[STUDENT_TERMS]
-    WHERE [STTR.TERM] IN (@term_id_ce, @term_id_cu)
-    --AND    [EffectiveDatetime] <= @report_date
-	--AND   ([ExpirationDatetime] is null
-	--OR	   [ExpirationDatetime] > @report_date)
 )
 SELECT	per.[ID]
 	  ,per.[CITIZENSHIP]
@@ -159,7 +152,6 @@ SELECT	per.[ID]
 	  --,per.[PER.PRI.ETHNIC]
 	  --,per.[PER.PRI.RACE]
 FROM per 
-	INNER JOIN trm ON (trm.[STTR.STUDENT] = per.[ID])
 ;
 /*
 EXEC datamart.getSTUDENT_02 '2018', '01', '02/23/2018'
