@@ -24,28 +24,31 @@ BEGIN
 		BEGIN
 			SET @term_id_ce = @data_year + 'CE1'
 			SET @term_id_cu = @data_year + 'SP'
-		END
+		END;
 	ELSE BEGIN
 		IF @data_term = '02'
 			BEGIN
 				SET @term_id_ce = @data_year + 'CE2'
 				SET @term_id_cu = @data_year + 'SU'
-			END
+			END;
 		ELSE
 			BEGIN
 				SET @term_id_ce = @data_year + 'CE3'
 				SET @term_id_cu = @data_year + 'FA'
-			END
+			END;
 
 	PRINT @term_id_ce;
 	PRINT @term_id_cu;
 
-AS SELECT @STTRSTUDENT,
-		   @STTRTERM
+ SELECT @STTRSTUDENT = [history].[STUDENT_TERMS].[STTR.STUDENT],
+		  @STTRTERM = [history].[STUDENT_TERMS].[STTR.STUDENT]
 	FROM [history].[STUDENT_TERMS]
 	WHERE [STTR.TERM] IN (@term_id_ce, @term_id_cu)
     AND    [EffectiveDatetime] <= @report_date
 	AND   ([ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
-)
+
 END;
+RETURN;
+END;
+GO
