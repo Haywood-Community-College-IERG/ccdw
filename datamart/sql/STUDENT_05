@@ -34,7 +34,7 @@ AS
 WITH nctype AS (
 	SELECT [NCRS.TYPE]
 		  ,[NON.COURSES.ID]
-		  ,nctype.[EffectiveDatetime]
+		  ,[EffectiveDatetime]
 	FROM   [history].[NON_COURSES]
 	
 ), stnc AS (
@@ -53,7 +53,7 @@ WITH nctype AS (
 	      ,[STNC.SCORE]
 		  ,stnc.[EffectiveDatetime]
 		  ,[ExpirationDatetime]
-	FROM [history].[STUDENT_NON_COURSES]
+	FROM [history].[STUDENT_NON_COURSES] stnc
 		LEFT JOIN nctype
 			ON ([NON.COURSES.ID] = [STUDENT.NON.COURSES.ID]
 				AND nctype.[EffectiveDateTime] = stnc.[EffectiveDatetime])
@@ -61,7 +61,17 @@ WITH nctype AS (
 	AND   (stnc.[ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
 
+), trm AS (
+	SELECT  DISTINCT
+            [STTR.TERM]
+		   ,[STTR.STUDENT]
+	FROM	[history].[STUDENT_TERMS]
+    WHERE [STTR.TERM] IN (@term_id_ce, @term_id_cu)
+    --AND    [EffectiveDatetime] <= @report_date
+	--AND   ([ExpirationDatetime] is null
+	--OR	   [ExpirationDatetime] > @report_date)
 )
+
 SELECT stnc.[STUDENT.NON.COURSES.ID]
 	  ,stnc.[STNC.PERSON.ID]
 	  ,stnc.[STNC.SOURCE]
@@ -76,3 +86,10 @@ SELECT stnc.[STUDENT.NON.COURSES.ID]
 	  ,stnc.[STNC.SCORE]
 	  ,nctype.[NCRS.TYPE]
 FROM  nctype, stnc
+	INNER JOIN trm ON (trm.[STTR.STUDENT] = stnc.[STNC.PERSON.ID])
+
+/*
+EXEC datamart.getSTUDENT_03 '2018', '01', '02/23/2018'
+
+--, '2018SP'
+*/
