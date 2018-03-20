@@ -31,7 +31,16 @@ AS
 	PRINT @term_id_ce;
 	PRINT @term_id_cu;
 
-WITH nctype AS (
+WITH stu04 AS (
+	 SELECT * FROM datamart.getSTUDENT_01(@data_year, @data_term, @report_date)
+	 WHERE [STTR.STUDENT] = (
+		SELECT DISTINCT [history].[STUDENT_NON_COURSES].[STNC.PERSON.ID]
+		FROM [history].[STUDENT_NON_COURSES]
+		WHERE [EffectiveDatetime] <= @report_date
+			AND   ([ExpirationDatetime] is null
+				OR [ExpirationDatetime] > @report_date))
+
+), nctype AS (
 	SELECT [NCRS.TYPE]
 		  ,[NON.COURSES.ID]
 		  ,[EffectiveDatetime]
@@ -87,6 +96,7 @@ SELECT stnc.[STUDENT.NON.COURSES.ID]
 	  ,nctype.[NCRS.TYPE]
 FROM  nctype, stnc
 	INNER JOIN trm ON (trm.[STTR.STUDENT] = stnc.[STNC.PERSON.ID])
+	LEFT JOIN stu04 ON (stu04.[STTR.STUDENT] = stnc.[STNC.PERSON.ID])
 
 /*
 EXEC datamart.getSTUDENT_03 '2018', '01', '02/23/2018'
