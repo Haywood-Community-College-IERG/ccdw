@@ -10,14 +10,10 @@ CREATE FUNCTION datamart.getSTUDENT_04(
 RETURNS TABLE
 AS
  RETURN
- SELECT * FROM datamart.getSTUDENT_01(@data_year, @data_term, @report_date)
- WHERE [STTR.STUDENT] = (
-	SELECT DISTINCT [history].[PERSON_ST].[PERSON.ST.ID]
-		FROM [history].[PERSON_ST]
-		WHERE [EffectiveDatetime] <= @report_date
-			AND   ([ExpirationDatetime] is null
-				OR [ExpirationDatetime] > @report_date)
- )
+	SELECT [PERSON.ST.ID]
+	FROM [history].[PERSON_ST]
+	INNER JOIN datamart.getSTUDENT_01(@data_year, @data_term, @report_date)
+		ON (getSTUDENT_01.[STTR.STUDENT] = [PERSON.ST.ID])
 GO
 
 /*
