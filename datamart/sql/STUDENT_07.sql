@@ -31,69 +31,32 @@ AS
 	PRINT @term_id_ce;
 	PRINT @term_id_cu;
 
-WITH adate AS (
-	SELECT [INSTA.PERSON.ID]
-		  ,CAST(LTRIM(RTRIM(CA1.Item)) AS DATE) AS [INSTA.START.DATES]
-          ,CA1.ItemNumber AS ItemNumber
-		  ,CAST(LTRIM(RTRIM(CA2.Item)) AS DATE) AS [INSTA.END.DATES]
-		  ,CA2.ItemNumber AS ItemNumber2
-          ,EffectiveDatetime
-      FROM [history].[INSTITUTIONS_ATTEND]
-     CROSS APPLY dbo.DelimitedSplit8K([INSTA.START.DATES], ', ') CA1
-	 CROSS APPLY dbo.DelimitedSplit8K([INSTA.END.DATES], ', ') CA2
-     WHERE COALESCE([INSTA.START.DATES], '') != '' 
-	 AND   COALESCE([INSTA.END.DATES], '') != ''
-
-), tdate AS (
-	SELECT [INSTA.PERSON.ID]
-		  ,CAST(LTRIM(RTRIM(CA1.Item)) AS VARCHAR(20)) AS [INSTA.TRANSCRIPT.TYPE]
-          ,CA1.ItemNumber AS ItemNumber
-		  ,CAST(LTRIM(RTRIM(CA2.Item)) AS DATE) AS [INSTA.TRANSCRIPT.DATE]
-		  ,CA2.ItemNumber AS ItemNumber2
-		  ,CAST(LTRIM(RTRIM(CA2.Item)) as VARCHAR(28)) AS [INSTA.TRANSCRIPT.STATUS]
-		  ,CA3.ItemNumber as ItemNumber3
-          ,EffectiveDatetime
-      FROM [history].[INSTITUTIONS_ATTEND]
-     CROSS APPLY dbo.DelimitedSplit8K([INSTA.TRANSCRIPT.TYPE], ', ') CA1
-	 CROSS APPLY dbo.DelimitedSplit8K([INSTA.TRANSCRIPT.DATE], ', ') CA2
-	 CROSS APPLY dbo.DelimitedSplit8K([INSTA.TRANSCRIPT.STATUS], ', ') CA3
-     WHERE COALESCE([INSTA.TRANSCRIPT.TYPE], '') != '' 
-	 AND   COALESCE([INSTA.TRANSCRIPT.DATE], '') != ''
-	 AND   COALESCE([INSTA.TRANSCRIPT.STATUS], '') != ''
-
-), insta AS (
+WITH insta AS (
 	SELECT insta.[INSTA.PERSON.ID]
 		  ,insta.[INSTA.INSTITUTIONS.ID]
 		  ,insta.[X.INSTA.INSTITUTION]
-		  ,insta.[INSTA.START.DATES]
-		  ,insta.[INSTA.END.DATES]
+		  ,adate.[INSTA.START.DATES]
+		  ,adate.[INSTA.END.DATES]
 		  ,insta.[INSTA.GRAD.TYPE]
-		  ,insta.[INSTA.TRANSCRIPT.TYPE]
-		  ,insta.[INSTA.TRANSCRIPT.DATE]
-		  ,insta.[INSTA.TRANSCRIPT.STATUS]
+		  ,tdate.[INSTA.TRANSCRIPT.TYPE]
+		  ,tdate.[INSTA.TRANSCRIPT.DATE]
+		  ,tdate.[INSTA.TRANSCRIPT.STATUS]
 		  ,insta.[INSTA.INST.TYPE]
 		  --,.insta.[INSTA.PE]
 		  ,insta.[EffectiveDatetime]
 		  ,[ExpirationDateTime]
 	FROM [history].[INSTITUTIONS_ATTEND] insta
-		LEFT JOIN adate
-			ON (adate.[INSTA.PERSON.ID] = insta.[INSTA.PERSON.ID]
+		LEFT JOIN history.INSTITUTIONS_ATTEND__DATES_ATTENDED adate
+			ON (adate.[INSTA.INSTITUTIONS.ID] = insta.[INSTA.INSTITUTIONS.ID]
+                AND adate.[INSTA.PERSON.ID] = insta.[INSTA.PERSON.ID]
 				AND adate.[EffectiveDatetime] = insta.[EffectiveDatetime])
-		LEFT JOIN tdate
-			ON (tdate.[INSTA.PERSON.ID] = insta.[INSTA.PERSON.ID]
-				AND adate.[EffectiveDatetime] = insta.[EffectiveDatetime])
+		LEFT JOIN history.INSTITUTIONS_ATTEND__TRANSCRIPT tdate
+			ON (tdate.[INSTA.INSTITUTIONS.ID] = insta.[INSTA.INSTITUTIONS.ID]
+                AND tdate.[INSTA.PERSON.ID] = insta.[INSTA.PERSON.ID]
+				AND tdate.[EffectiveDatetime] = insta.[EffectiveDatetime])
 	WHERE  insta.[EffectiveDatetime] <= @report_date
 	AND   (insta.[ExpirationDatetime] is null
 	OR	   [ExpirationDatetime] > @report_date)
-), trm AS (
-	SELECT  DISTINCT
-            [STTR.TERM]
-		   ,[STTR.STUDENT]
-	FROM	[history].[STUDENT_TERMS]
-    WHERE [STTR.TERM] IN (@term_id_ce, @term_id_cu)
-    --AND    [EffectiveDatetime] <= @report_date
-	--AND   ([ExpirationDatetime] is null
-	--OR	   [ExpirationDatetime] > @report_date)
 )
 	SELECT insta.[INSTA.PERSON.ID]
 		  ,insta.[INSTA.INSTITUTIONS.ID]
@@ -107,7 +70,10 @@ WITH adate AS (
 		  ,insta.[INSTA.INST.TYPE]
 		  --,insta.[INSTA.PE]
 	FROM insta
-		INNER JOIN trm ON (trm.[STTR.STUDENT] = insta.[INSTA.PERSON.ID]);
+   INNER JOIN datamart.getSTUDENT_06(@data_year, @data_term, @report_date) s06 
+         ON (s06.[INSTA.INSTITUTIONS.ID] = insta.[INSTA.INSTITUTIONS.ID]
+             AND s06.[INSTA.PERSON.ID] = insta.[INSTA.PERSON.ID])
+;
 
 /*
 EXEC datamart.getSTUDENT_07 '2018', '01', '02/23/2018'
