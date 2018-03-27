@@ -1,8 +1,8 @@
-IF OBJECT_ID('datamart.getSTUDENT_07', 'P') IS NOT NULL
-	DROP PROCEDURE datamart.getSTUDENT_07
+IF OBJECT_ID('datamart.getSTUDENT_09', 'P') IS NOT NULL
+	DROP PROCEDURE datamart.getSTUDENT_09
 GO
 
-CREATE PROCEDURE datamart.getSTUDENT_07
+CREATE PROCEDURE datamart.getSTUDENT_09
 	@data_year varchar(4),
 	@data_term varchar(2),
 	@report_date date
@@ -54,4 +54,4 @@ WITH stc AS (
 		 , stc.[SCS.REG.METHOD]
 		 --, stc.[X.SCS.SEC.COURSE.NO]
 	FROM [history].[STUDENT_COURSE_SEC] stc
-), 
+)
