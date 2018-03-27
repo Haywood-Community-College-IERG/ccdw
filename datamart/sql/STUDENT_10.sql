@@ -1,8 +1,8 @@
-IF OBJECT_ID('datamart.getSTUDENT_08', 'IF') IS NOT NULL
-	DROP FUNCTION datamart.getSTUDENT_08
+IF OBJECT_ID('datamart.getSTUDENT_10', 'IF') IS NOT NULL
+	DROP FUNCTION datamart.getSTUDENT_10
 GO
 
-CREATE FUNCTION datamart.getSTUDENT_08(
+CREATE FUNCTION datamart.getSTUDENT_10(
     @data_year varchar(4),
 	@data_term varchar(2),
 	@report_date date
