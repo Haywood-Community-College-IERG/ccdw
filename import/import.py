@@ -275,6 +275,11 @@ else: # NOT wStatus
                 else:
                     df = inputFrame
 
+                if 'DataDatetime' in df.columns:
+                    pass
+                else:
+                    df['DataDatetime'] = datetime.datetime.now()
+
                 if writedb:
                     #attempts to execute code catching any errors that may arrise then breaks out of loop of folder    
                     if df.shape[0] > 0:

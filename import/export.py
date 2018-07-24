@@ -45,9 +45,9 @@ def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
         raise
 
-    print("Fix all non-string columns, replace blanks with NAs which become NULLs in DB")
+    print("Fix all non-string columns, replace blanks with NAs which become NULLs in DB, and remove commas")
     nonstring_columns = [key for key, value in dTyper.items() if type(dTyper[key]) != sqlalchemy.sql.sqltypes.String]
-    df[nonstring_columns] = df[nonstring_columns].replace('',np.nan)
+    df[nonstring_columns] = df[nonstring_columns].replace({'':np.nan, ',':''}, regex=True) # 2018-06-18 C DMO
 
     print( "Push {0} data to SQL schema {1}".format( sqlName, sql_schema ) )
 
@@ -59,13 +59,16 @@ def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
                  index=False, index_label=None, chunksize=None, dtype=dTyper)
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
-        print (".creating SQL from df - skippeSd SQL Alchemy ERROR ["+str(er.args[0])+"]" )
+        print (".creating SQL from df - skipped SQL Alchemy ERROR ["+str(er.args[0])+"]" )
         # log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
         sys.stdout.flush()
         log.write("Error in File: \t %s \n\n Error: %s \n DataTypes: %s \n\n\n" % (sqlName,er, dTyper))
         sys.stdout.flush()
         raise
-    
+    except:
+        print("Unknown error in executeSQL_INSERT: ",sys.exc_info()[0])
+        log.write("Unknown error in executeSQL_INSERT: ",sys.exc_info()[0])
+        raise    
 
 # executeSQL_MERGE() - Creates SQL Code based on current Table/Dataframe by using a Template then pushes to History
 def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers, log):
@@ -298,6 +301,9 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError, pyodbc.Error, pyodbc.ProgrammingError) as er:
         print ("---executing sql command - skipped SQL ERROR ["+str(er.args[0])+"]" )
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
+        ef = open('MergeError_%s.sql' % (sqlName), 'w')
+        ef.write(result)
+        ef.close()
         raise
 
     # Deletes Tables from SQL Database if coppied to the history table

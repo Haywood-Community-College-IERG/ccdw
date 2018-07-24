@@ -88,7 +88,7 @@ def getDataTypes(file=''):
     dataDecimalLength = dtLookuplist['Dt2 '].replace('', '0', regex=True).copy()
 
     for index, types in enumerate(dataType):
-        if usageType[index] == 'A':
+        if usageType[index] == 'A' or usageType[index] == 'Q':
             if types == 'S' or types == '' or types == None:
                 dtypers = 'VARCHAR(%s)' % (dataLength[index])
             elif types == 'U':

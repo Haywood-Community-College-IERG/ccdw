@@ -1,5 +1,11 @@
 /* TYPE 2 MERGES */
 INSERT INTO ${TableSchema_DEST}.${TableName}
+    (
+        ${TableColumns},
+        [EffectiveDatetime],
+        [ExpirationDatetime],
+        [CurrentFlag]
+    )
     SELECT 
         ${TableColumns},
         [EffectiveDatetime],
