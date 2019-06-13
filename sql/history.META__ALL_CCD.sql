@@ -1,0 +1,29 @@
+IF OBJECT_ID('history.[META__ALL_CDD]', 'V') IS NOT NULL
+    DROP VIEW history.[META__ALL_CDD]
+GO
+
+CREATE VIEW history.[META__ALL_CDD] AS
+SELECT 'CF' AS CDDFILE,
+       *       
+  FROM history.[META__CF_CDD]
+UNION
+SELECT 'CORE' AS CDDFILE,
+       *
+  FROM history.[META__CORE_CDD]
+UNION
+SELECT 'HR' AS CDDFILE,
+       *
+  FROM history.[META__HR_CDD]
+UNION
+SELECT 'ST' AS CDDFILE,
+       *
+  FROM history.[META__ST_CDD]
+UNION
+SELECT 'TOOL' AS CDDFILE,
+       *
+  FROM history.[META__TOOL_CDD]
+UNION
+SELECT 'UT' AS CDDFILE,
+       *
+  FROM history.[META__UT_CDD]
+

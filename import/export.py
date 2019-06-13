@@ -20,13 +20,20 @@ from getpass         import getpass
 import ssl
 import numpy as np
 
+import functools
+print = functools.partial(print, flush=True)
+
 global newColumnCheck
+global cfg
 
-with open("config.yml","r") as ymlfile:
-    export_cfg = yaml.load(ymlfile)
+import config
+cfg = config.cfg 
 
-sql_schema = export_cfg['sql']['schema']
-sql_schema_history = export_cfg['sql']['schema_history']
+#with open("config.yml","r") as ymlfile:
+#    cfg = yaml.load(ymlfile)
+
+sql_schema = cfg['sql']['schema']
+sql_schema_history = cfg['sql']['schema_history']
 
 # executeSQL_INSERT() - attempts to create SQL code from csv files and push it to the SQL server
 def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
@@ -39,9 +46,12 @@ def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
         blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema, if_exists='fail',
                  index=False, index_label=None, chunksize=None, dtype=dTyper)
     except ValueError as er:
+        # Add code to check for any errors other than the table exists and raise those.
+        print("ValueError: Either the table {0}.{1} already exists or another error occured [{2}]".format(sql_schema,sqlName,er))
+        log.write("ValueError: Either the table {0}.{1} already exists or another error occured [{2}]\n".format(sql_schema,sqlName,er))
         pass
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
-        print ("-Error Creating Table ["+str(er.args[0])+"]" )
+        print("-Error Creating Table ["+str(er.args[0])+"]" )
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
         raise
 
@@ -49,10 +59,20 @@ def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
     nonstring_columns = [key for key, value in dTyper.items() if type(dTyper[key]) != sqlalchemy.sql.sqltypes.String]
     df[nonstring_columns] = df[nonstring_columns].replace({'':np.nan, ',':''}, regex=True) # 2018-06-18 C DMO
 
-    print( "Push {0} data to SQL schema {1}".format( sqlName, sql_schema ) )
-
     #Attempt to push the new data to the existing SQL Table.
-    executeSQLAppend(engine, blankFrame, sqlName, dTyper, log, sql_schema)
+    try:
+        print( "Push {0} data to SQL schema {1}".format( sqlName, sql_schema ) )
+
+        executeSQLAppend(engine, blankFrame, sqlName, dTyper, log, sql_schema)
+    except:
+        print("Unknown error in executeSQLAppend: ",sys.exc_info()[0])
+        log.write("Unknown error in executeSQLAppend: ",sys.exc_info()[0])
+        ef = open('MergeError_%s.sql' % (sqlName), 'w')
+        ef.write(result)
+        ef.close()
+        raise
+#        pass
+
     try:
         print(".creating SQL from df")
         df.to_sql(sqlName, engine, flavor=None, schema=sql_schema, if_exists='append',
@@ -122,10 +142,10 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
             'viewColumns'          : ', '.join("[{0}]".format(c) for c in viewColumns)
     }
     
-    filein = open(export_cfg['sql']['create_view'],"r")
+    filein = open(cfg['sql']['create_view'],"r")
     src = Template( filein.read() )
     result = src.substitute(flds)
-    fileinKeys = open(export_cfg['sql']['create_keys'],"r")
+    fileinKeys = open(cfg['sql']['create_keys'],"r")
     srcKeys = Template( fileinKeys.read() )
     resultKeys = srcKeys.substitute(flds)
 
@@ -249,7 +269,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                             'associationKeys'      : associationKey
                     }
 
-                    filein2 = open(export_cfg['sql']['create_view2'],"r")
+                    filein2 = open(cfg['sql']['create_view2'],"r")
                     src2 = Template( filein2.read() )
                     result2 = src2.substitute(flds2)
 
@@ -289,7 +309,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
         print('append didnt work')
         raise
 
-    filein = open(export_cfg['sql']['merge_scd2'],"r")
+    filein = open(cfg['sql']['merge_scd2'],"r")
     src = Template( filein.read() )
     result = src.substitute(flds)
 
@@ -344,7 +364,7 @@ def archive(df, subdir, file, exportPath, archivePath, log, diffs = True, create
     if not os.path.isdir(os.path.join(archivePath, subdir)):
         shutil.copytree(os.path.join(exportPath, subdir),os.path.join(archivePath,subdir), ignore=ig_f)
 
-    if export_cfg['informer']['archive_type'] == 'zip':
+    if cfg['ccdw']['archive_type'] == 'zip':
         if not os.path.isfile(os.path.join(archivePath, subdir, file)):
             try:
                 # Create a zip'd version of the CSV
@@ -360,7 +380,7 @@ def archive(df, subdir, file, exportPath, archivePath, log, diffs = True, create
             except:
                 raise
     else:
-        if export_cfg['informer']['archive_type'] == 'move':
+        if cfg['ccdw']['archive_type'] == 'move':
             archive_filelist = sorted(glob.iglob(os.path.join(archivePath, subdir, subdir + '_Initial.csv')), 
                                       key=os.path.getctime)
             if (len(archive_filelist) == 0):
@@ -378,10 +398,10 @@ def archive(df, subdir, file, exportPath, archivePath, log, diffs = True, create
 
 
 # engine() - creates an engine to be used to interact with the SQL Server
-def engine( driver = export_cfg['sql']['driver'],
-            server = export_cfg['sql']['server'],
-            db = export_cfg['sql']['db'],
-            schema = export_cfg['sql']['schema'] ):
+def engine( driver = cfg['sql']['driver'],
+            server = cfg['sql']['server'],
+            db = cfg['sql']['db'],
+            schema = cfg['sql']['schema'] ):
     conn_details =  """
       DRIVER={{{0}}};SERVER={1};DATABASE={2};SCHEMA={3};Trusted_Connection=Yes;
     """.format( driver, 
@@ -463,7 +483,7 @@ def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
             'viewName'             : sqlName + '_Current',
             'viewSchema'           : sql_schema_history
         }
-    filein = open(export_cfg['sql']['add_Columns'],"r")
+    filein = open(cfg['sql']['add_Columns'],"r")
     src = Template( filein.read() )
     result = src.substitute(flds)
     print('_______________________________________________________________________')
@@ -479,7 +499,7 @@ def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
         raise
     if (updateColumns):
-        filein = open(export_cfg['sql']['create_view'],"r")
+        filein = open(cfg['sql']['create_view'],"r")
         src = Template( filein.read() )
         result = src.substitute(flds)
         dropView = 'DROP VIEW IF EXISTS %s' % (flds['viewName'])

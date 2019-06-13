@@ -10,17 +10,25 @@ import argparse
 import regex
 from datetime import date, timedelta
 
+import functools
+print = functools.partial(print, flush=True)
+
 global writedb
 global diffs
 global refresh
 global log
+global cfg
 
 run_datetime = datetime.datetime.now().strftime("%Y-%m-%d_%H%M%S%f")
 def timestamp():
     return( datetime.datetime.now().isoformat() )
 
-with open("config.yml","r") as ymlfile:
-    cfg = yaml.load(ymlfile)
+import config
+config.load_cfg()
+cfg = config.cfg 
+
+#with open("//helix/divisions/IERG/Data/config.yml","r") as ymlfile:
+#    cfg = yaml.load(ymlfile)
 
 parser = argparse.ArgumentParser(description='Import CCDW data')
 parser.add_argument('--nodb', dest='writedb', action='store_false', default=True,
@@ -44,8 +52,8 @@ updateConfig = args.updateConfig
 wStatus_suffix = "_wStatus" if wStatus else ""
 
 export_path = cfg['informer']['export_path' + wStatus_suffix]
-archive_path = cfg['informer']['archive_path' + wStatus_suffix]
-log_path = cfg['informer']['log_path']
+archive_path = cfg['ccdw']['archive_path' + wStatus_suffix]
+log_path = cfg['ccdw']['log_path']
 
 prefix = cfg['informer']['prefix']
 
@@ -74,7 +82,7 @@ if updateConfig:
                  index=False, index_label=None, chunksize=None)
 
 if wStatus:
-    invalid_path = cfg['informer']['invalid_path_wStatus']
+    invalid_path = cfg['ccdw']['invalid_path_wStatus']
     
     pattern = r'{0}(?P<fnpat>.*)___.*|(?P<fnpat>.*)___.*'.format(prefix)
 
@@ -153,7 +161,7 @@ if wStatus:
 
                 print("Processing "+fn+"...")
 
-                df = pd.read_csv(csvinput,encoding='ansi',dtype='str')
+                df = pd.read_csv(csvinput,encoding='ansi',dtype='str',engine='python')
                 file_keys = meta.getKeyFields(fn.replace('_','.'))
 
                 # Fill down the status fields so all status fields have a value            
@@ -230,7 +238,7 @@ else: # NOT wStatus
 
                 #reads in csv file then creates an array out of the headers
                 try:
-                    inputFrame = pd.read_csv(os.path.join(root, subdir, file), encoding='ansi', dtype='str', na_values=None, keep_default_na=False)
+                    inputFrame = pd.read_csv(os.path.join(root, subdir, file), encoding='ansi', dtype='str', na_values=None, keep_default_na=False, engine='python')
                     inputFrame = inputFrame.where(pd.notnull(inputFrame), None)
                     columnArray = np.asarray(list(inputFrame))
 
@@ -269,7 +277,7 @@ else: # NOT wStatus
                     #log.write("{0} SQL_UPDATE: {1} with {2} rows\n".format( timestamp(), file, df.shape[0] ))
                     archive_file = pd.read_csv( os.path.join(archive_path, subdir, lastarchive_filename), 
                                                 encoding='ansi', dtype='str', 
-                                                na_values=None, keep_default_na=False )
+                                                na_values=None, keep_default_na=False, engine='python' )
 
                     df = export.createDiff( inputFrame, archive_file )
                 else:

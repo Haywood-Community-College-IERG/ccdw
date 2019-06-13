@@ -11,8 +11,16 @@ import export
 import sqlalchemy
 from sqlalchemy import exc
 
-with open("config.yml","r") as ymlfile:
-    meta_cfg = yaml.load(ymlfile)
+import functools
+print = functools.partial(print, flush=True)
+
+global cfg
+
+import config
+cfg = config.cfg 
+
+#with open("config.yml","r") as ymlfile:
+#    cfg = yaml.load(ymlfile)
 
 def loadLookupList(refresh=False):
     global lookuplist 
@@ -24,12 +32,12 @@ def loadLookupList(refresh=False):
 
     except NameError:
         # Read all files in the meta folder
-        meta_path = meta_cfg['informer']['export_path_meta']
+        meta_path = cfg['informer']['export_path_meta']
         all_files = glob.glob(os.path.join(meta_path, "*_CDD*csv"))
         df_from_each_file = (pd.read_csv(f,encoding = "ansi", dtype='str') for f in all_files)
         lookuplist = pd.concat(df_from_each_file, ignore_index=True)
         
-        meta_custom = meta_cfg['informer']['meta_custom']
+        meta_custom = cfg['ccdw']['meta_custom']
         meta_custom_csv = pd.read_csv(meta_custom,encoding = "ansi", dtype='str')
 
         metaList = set(meta_custom_csv['ids'].copy())
@@ -88,7 +96,7 @@ def getDataTypes(file=''):
     dataDecimalLength = dtLookuplist['Dt2 '].replace('', '0', regex=True).copy()
 
     for index, types in enumerate(dataType):
-        if usageType[index] == 'A' or usageType[index] == 'Q':
+        if usageType[index] == 'A' or usageType[index] == 'Q' or usageType[index] == 'L':
             if types == 'S' or types == '' or types == None:
                 dtypers = 'VARCHAR(%s)' % (dataLength[index])
             elif types == 'U':
@@ -102,7 +110,7 @@ def getDataTypes(file=''):
             elif types == 'DT':
                 dtypers = 'DATETIME'
             typers[index] = dtypers
-            types = sqlalchemy.types.String(8000)
+            types = sqlalchemy.types.String(None) # changed from 8000
         elif types == 'S' or types == '' or types == None:
             types = sqlalchemy.types.String(dataLength[index]) #types = sqlalchemy.types.String(8000)
         elif types == 'U':
