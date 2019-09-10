@@ -10,6 +10,7 @@ import glob
 import export
 import sqlalchemy
 from sqlalchemy import exc
+from loguru import logger
 
 import functools
 print = functools.partial(print, flush=True)
@@ -22,6 +23,7 @@ cfg = config.cfg
 #with open("config.yml","r") as ymlfile:
 #    cfg = yaml.load(ymlfile)
 
+@logger.catch
 def loadLookupList(refresh=False):
     global lookuplist 
 
@@ -53,17 +55,22 @@ def loadLookupList(refresh=False):
 
         if refresh:
             print( "Update CDD in meta" )
+            logger.debug( "Update CDD in meta" )
             cddEngine = export.engine()
             print( "...delete old data" )
+            logger.debug( "...delete old data" )
             cddEngine.execute( 'DELETE FROM meta.CDD' )
             print( "...push new data" )
+            logger.debug( "...push new data" )
             lookuplist.to_sql( 'CDD', cddEngine, flavor=None, schema='meta', if_exists='append',
                                index=False, index_label=None, chunksize=None )
             print( "...Update CDD in meta [DONE]" )
+            logger.debug( "...Update CDD in meta [DONE]" )
 
 #loadLookupList()
 
 # Return the key(s) for the specified fle
+@logger.catch
 def getKeyFields(file=''):
     global lookuplist
 
@@ -76,6 +83,7 @@ def getKeyFields(file=''):
 
     return(list(set(fl.ids.tolist())))
 
+@logger.catch
 def getDataTypes(file=''):
     global lookuplist
 
@@ -96,7 +104,8 @@ def getDataTypes(file=''):
     dataDecimalLength = dtLookuplist['Dt2 '].replace('', '0', regex=True).copy()
 
     for index, types in enumerate(dataType):
-        if usageType[index] == 'A' or usageType[index] == 'Q' or usageType[index] == 'L':
+        dtypers = 'VARCHAR(MAX)'
+        if usageType[index] == 'A' or usageType[index] == 'Q' or usageType[index] == 'L' or usageType[index] == 'I' or usageType[index] == 'C':
             if types == 'S' or types == '' or types == None:
                 dtypers = 'VARCHAR(%s)' % (dataLength[index])
             elif types == 'U':

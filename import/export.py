@@ -19,6 +19,7 @@ from email.mime.text import MIMEText
 from getpass         import getpass
 import ssl
 import numpy as np
+from loguru import logger
 
 import functools
 print = functools.partial(print, flush=True)
@@ -36,37 +37,53 @@ sql_schema = cfg['sql']['schema']
 sql_schema_history = cfg['sql']['schema_history']
 
 # executeSQL_INSERT() - attempts to create SQL code from csv files and push it to the SQL server
+# @ logger.catch
 def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
     
-    print( "Create blank dataframe to create SQL table {0}\n".format( sqlName ) )    
-
-    #attempt to push a blank data frame in order to make sure the table exists on the server
-    blankFrame = pd.DataFrame(columns=df.columns)
     try:
-        blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema, if_exists='fail',
+        print( "Create blank dataframe to create SQL table {0}\n".format( sqlName ) )    
+        logger.debug( "Create blank dataframe to create SQL table {0}".format( sqlName ) )    
+
+        #attempt to push a blank data frame in order to make sure the table exists on the server
+        blankFrame = pd.DataFrame(columns=df.columns)
+    except:
+        print("Error creating blankFrame: ",sys.exc_info()[0])
+        logger.exception("Error creating blankFrame: ",sys.exc_info()[0])
+
+    try:
+        blankFrame.to_sql(sqlName, engine, schema=sql_schema, if_exists='fail',
                  index=False, index_label=None, chunksize=None, dtype=dTyper)
     except ValueError as er:
         # Add code to check for any errors other than the table exists and raise those.
         print("ValueError: Either the table {0}.{1} already exists or another error occured [{2}]".format(sql_schema,sqlName,er))
         log.write("ValueError: Either the table {0}.{1} already exists or another error occured [{2}]\n".format(sql_schema,sqlName,er))
+        logger.exception("ValueError: Either the table {0}.{1} already exists or another error occured [{2}]".format(sql_schema,sqlName,er))
         pass
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
         print("-Error Creating Table ["+str(er.args[0])+"]" )
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
+        logger.exception("Error in File: \t %s \n\n Error: %s \n\n" % (sqlName,er))
         raise
 
-    print("Fix all non-string columns, replace blanks with NAs which become NULLs in DB, and remove commas")
-    nonstring_columns = [key for key, value in dTyper.items() if type(dTyper[key]) != sqlalchemy.sql.sqltypes.String]
-    df[nonstring_columns] = df[nonstring_columns].replace({'':np.nan, ',':''}, regex=True) # 2018-06-18 C DMO
+    try:
+        print("Fix all non-string columns, replace blanks with NAs which become NULLs in DB, and remove commas")
+        logger.debug("Fix all non-string columns, replace blanks with NAs which become NULLs in DB, and remove commas")
+        nonstring_columns = [key for key, value in dTyper.items() if type(dTyper[key]) != sqlalchemy.sql.sqltypes.String]
+        df[nonstring_columns] = df[nonstring_columns].replace({'':np.nan, ',':''}, regex=True) # 2018-06-18 C DMO
+    except:
+        print("Unknown error in executeSQLAppend: ",sys.exc_info()[0])
+        logger.exception("Unknown error in executeSQLAppend: ",sys.exc_info()[0])
 
     #Attempt to push the new data to the existing SQL Table.
     try:
         print( "Push {0} data to SQL schema {1}".format( sqlName, sql_schema ) )
+        logger.debug( "Push {0} data to SQL schema {1}".format( sqlName, sql_schema ) )
 
         executeSQLAppend(engine, blankFrame, sqlName, dTyper, log, sql_schema)
     except:
         print("Unknown error in executeSQLAppend: ",sys.exc_info()[0])
         log.write("Unknown error in executeSQLAppend: ",sys.exc_info()[0])
+        logger.exception("Unknown error in executeSQLAppend: ",sys.exc_info()[0])
         ef = open('MergeError_%s.sql' % (sqlName), 'w')
         ef.write(result)
         ef.close()
@@ -75,12 +92,14 @@ def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
 
     try:
         print(".creating SQL from df")
-        df.to_sql(sqlName, engine, flavor=None, schema=sql_schema, if_exists='append',
+        logger.debug(".creating SQL from df")
+        df.to_sql(sqlName, engine, schema=sql_schema, if_exists='append',
                  index=False, index_label=None, chunksize=None, dtype=dTyper)
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
         print (".creating SQL from df - skipped SQL Alchemy ERROR ["+str(er.args[0])+"]" )
         # log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName,er))
+        logger.exception("Error in File: \t %s \n\n Error: %s \n DataTypes: %s \n\n" % (sqlName,er, dTyper))
         sys.stdout.flush()
         log.write("Error in File: \t %s \n\n Error: %s \n DataTypes: %s \n\n\n" % (sqlName,er, dTyper))
         sys.stdout.flush()
@@ -88,14 +107,17 @@ def executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log):
     except:
         print("Unknown error in executeSQL_INSERT: ",sys.exc_info()[0])
         log.write("Unknown error in executeSQL_INSERT: ",sys.exc_info()[0])
+        logger.exception("Unknown error in executeSQL_INSERT: ",sys.exc_info()[0])
         raise    
 
 # executeSQL_MERGE() - Creates SQL Code based on current Table/Dataframe by using a Template then pushes to History
+# @ logger.catch
 def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers, log):
     # Create String to pass to Template file to generate SQL Code
     TableKeys= list(kLister.keys()) 
 
     log.write( "Create blank dataframe for output\n" )    
+    logger.debug( "Create blank dataframe for output\n" )    
 
     # Create and push a blankFrame with no data to SQL Database for History Tables
     blankFrame = pd.DataFrame(columns=df.columns)
@@ -152,17 +174,19 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
     #code for first time creation of history table only
     for num in range(1):
         try:
-            blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema_history, if_exists='fail',
+            blankFrame.to_sql(sqlName, engine, schema=sql_schema_history, if_exists='fail',
                              index=False, index_label=None, chunksize=None, dtype=blankTyper)
 
         except:
             print('--History created skipping key and view creation--')
+            logger.exception('--History created skipping key and view creation--')
             break
 
         else:
             #if it is the first time the history table is created then create a view as well
             try:
                 print('--Creating History Keys')
+                logger.debug('--Creating History Keys')
                 #set keys to not null
                 for i in kLister:
                     if type(dTyper[i]) == sqlalchemy.sql.sqltypes.String:
@@ -182,6 +206,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
 
             except:
                 print ("-Error Creating History Keys for SQL Table" )
+                logger.debug("-Error Creating History Keys for SQL Table" )
                 print(notNull)
                 print(resultKeys)
                 raise
@@ -190,10 +215,12 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
             try:
                 dropView = 'DROP VIEW IF EXISTS {0}.{1}'.format(sql_schema_history, flds['viewName'])
                 print('--Creating History View {0}.{1} (dropping if exists)'.format(sql_schema_history, flds['viewName']))
+                logger.debug('--Creating History View {0}.{1} (dropping if exists)'.format(sql_schema_history, flds['viewName']))
                 #drop sql view if exits
                 engine.execute(dropView)
 
                 print("View {0}.{1} DDL:".format(sql_schema_history, flds['viewName']))
+                logger.debug("View {0}.{1} DDL:".format(sql_schema_history, flds['viewName']))
                 print(result)
 
                 log.write("View {0}.{1} DDL:\n".format(sql_schema_history, flds['viewName']))
@@ -204,6 +231,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
 
             except:
                 print ("-Error Creating View of SQL Table" )
+                logger.exception ("-Error Creating View of SQL Table" )
                 print(dropView)
                 print(result)
                 raise
@@ -218,6 +246,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                 for x in s: 
                     print("Processing association {0}".format(x))
                     log.write("Processing association {0}\n".format(x))
+                    logger.debug("Processing association {0}".format(x))
                     associationKey = ''
                     lastelement = ''
                     str1 = ''
@@ -228,6 +257,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                     for i, k in enumerate(list(aNames)):
                         if (aNames[k] == x):
                             print("Found element of association: {0}".format(k))
+                            logger.debug("Found element of association: {0}".format(k))
                             counter += 1
 
                             # associationGroup = aNames[]
@@ -236,6 +266,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
 
                             if(counter > 1):
                                 print("Counter > 1, adding comparison of 1 and {0}".format(counter))
+                                logger.debug("Counter > 1, adding comparison of 1 and {0}".format(counter))
                                 str3 += 'AND CA1.ItemNumber=CA{0}.ItemNumber\n'.format(counter)
 
                             # If single MV is not a key, need to force it to be one
@@ -245,6 +276,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                                 associationKey = k
                                 view_Name = aNames[k]
                                 print("Add key {0} to association {1}".format(k, view_Name.replace('.', '_')))
+                                logger.debug("Add key {0} to association {1}".format(k, view_Name.replace('.', '_')))
 
                     if (associationKey == ''):
                         if (lastelement != ''):
@@ -252,10 +284,12 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                             view_Name = aNames[associationKey]
                             print("Setting associationKey to {0} for association {1}".format(lastelement, view_Name.replace('.', '_')))
                             log.write("Setting associationKey to {0} for association {1}\n".format(lastelement, view_Name.replace('.', '_')))
+                            logger.debug("Setting associationKey to {0} for association {1}".format(lastelement, view_Name.replace('.', '_')))
 
                         else:
                             print("No associationKey to set for association {1}".format(x))
                             log.write("No associationKey to set for association {1}\n".format(x))
+                            logger.debug("No associationKey to set for association {1}".format(x))
                             raise(AssertionError)
 
                     flds2 = {
@@ -274,6 +308,7 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
                     result2 = src2.substitute(flds2)
 
                     print("View {0} DDL:".format(view_Name.replace('.', '_')))
+                    logger.debug("View {0} DDL:".format(view_Name.replace('.', '_')))
                     print(result2)
 
                     log.write("View {0} DDL:\n".format(view_Name.replace('.', '_')))
@@ -281,32 +316,39 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
 
                     dropView = 'DROP VIEW IF EXISTS {0}.{1}'.format(sql_schema_history, view_Name.replace('.', '_'))
                     print('--Creating History View2 {0}.{1} (dropping if exists)'.format(sql_schema_history, view_Name.replace('.', '_')))
+                    logger.debug('--Creating History View2 {0}.{1} (dropping if exists)'.format(sql_schema_history, view_Name.replace('.', '_')))
                     #drop sql view if exits
                     engine.execute(dropView)
                     engine.execute(result2)
 
             except:
                 print('Creating View2 failed')
+                logger.exception('Creating View2 failed')
                 raise
                 break
 
     try:
         print("..creating History Table")
-        blankFrame.to_sql(sqlName, engine, flavor=None, schema=sql_schema_history, if_exists='append',
+        logger.debug("..creating History Table")
+        blankFrame.to_sql(sqlName, engine, schema=sql_schema_history, if_exists='append',
                          index=False, index_label=None, chunksize=None, dtype=blankTyper)
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
         print ("-creating SQL from df - skippeSd SQL Alchemy ERROR ["+str(er.args[0])+"]" )
+        logger.error ("-creating SQL from df - skippeSd SQL Alchemy ERROR ["+str(er.args[0])+"]" )
         log.write("Error in File: \t %s \n\n Error: %s \n DataTypes: %s \n\n\n" % (sqlName, er, dTyper))
+        logger.exception("Error in File: \t %s \n\n Error: %s \n DataTypes: %s \n\n" % (sqlName, er, dTyper))
         raise
 
     print("..wrote to table")
+    logger.debug("..wrote to table")
 
     #Attempt to push the Column data to the existing SQL Table if there are new Columns to be added.
     try:
         executeSQLAppend(engine, blankFrame, sqlName, dTyper, log, sql_schema_history)
     except:
         print('append didnt work')
+        logger.exception('append didnt work')
         raise
 
     filein = open(cfg['sql']['merge_scd2'],"r")
@@ -316,11 +358,14 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
     # Attempt to execute generated SQL MERGE code
     try:
         print("...executing sql command")
+        logger.debug("...executing sql command")
         rtn = engine.execute(result)
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError, pyodbc.Error, pyodbc.ProgrammingError) as er:
         print ("---executing sql command - skipped SQL ERROR ["+str(er.args[0])+"]" )
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
+        logger.error("---executing sql command - skipped SQL ERROR ["+str(er.args[0])+"]" )
+        logger.exception("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
         ef = open('MergeError_%s.sql' % (sqlName), 'w')
         ef.write(result)
         ef.close()
@@ -329,27 +374,34 @@ def executeSQL_MERGE(engine, df, sqlName, dTyper,kLister, aTypes, aNames, typers
     # Deletes Tables from SQL Database if coppied to the history table
     try:
        print("...executing delete command")
+       logger.debug("...executing delete command")
        rtn = engine.execute("DELETE FROM [{0}].[{1}]\n\nCOMMIT".format(sql_schema,sqlName))
 
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError, pyodbc.Error, pyodbc.ProgrammingError) as er:
         print ("---executing DELETE command - skipped SQL ERROR ["+str(er.args[0])+"]" )
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
+        logger.error("---executing DELETE command - skipped SQL ERROR ["+str(er.args[0])+"]" )
+        logger.exception("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
         raise
     print('....wrote to history')
+    logger.debug('....wrote to history')
 
 
 # executeSQL_UPDATE() - calls both executeSQL_INSERT and executeSQL_MERGE in attempt to update the SQL Tables 
+# @ logger.catch
 def executeSQL_UPDATE(engine, df, sqlName, dTyper, kLister, aTypes, aNames, typers, log):
     try:
         executeSQL_INSERT(engine, df, sqlName, dTyper, typers, log)
     except:
         print('XXXXXXX failed on executeSQL_INSERT XXXXXXX')
+        logger.exception('XXXXXXX failed on executeSQL_INSERT XXXXXXX')
         raise
     try:
         executeSQL_MERGE(engine, df, sqlName, dTyper, kLister, aTypes, aNames, typers, log)
         pass
     except:
         print('XXXXXXX failed on executeSQL_MERGE XXXXXXX')
+        logger.exception('XXXXXXX failed on executeSQL_MERGE XXXXXXX')
         raise
 
 
@@ -359,6 +411,7 @@ def ig_f(dir, files):
 
 
 # archive() - Archives files after they are processed
+@logger.catch
 def archive(df, subdir, file, exportPath, archivePath, log, diffs = True, createInitial = True):
     # Create the path in the archive based on the location of the CSV
     if not os.path.isdir(os.path.join(archivePath, subdir)):
@@ -386,6 +439,7 @@ def archive(df, subdir, file, exportPath, archivePath, log, diffs = True, create
             if (len(archive_filelist) == 0):
                 print("\t\t\tINITALARCHIVE: Creating...")
                 log.write("INITALARCHIVE: Creating...\n")
+                logger.debug("INITALARCHIVE: Creating...")
                 df.to_csv( os.path.join(archivePath, subdir, subdir + '_Initial.csv'), 
                            index = False, date_format="%Y-%m-%dT%H:%M:%SZ" )
 
@@ -398,6 +452,7 @@ def archive(df, subdir, file, exportPath, archivePath, log, diffs = True, create
 
 
 # engine() - creates an engine to be used to interact with the SQL Server
+@logger.catch
 def engine( driver = cfg['sql']['driver'],
             server = cfg['sql']['server'],
             db = cfg['sql']['db'],
@@ -447,6 +502,7 @@ def sendEmail(emailFrom, emailTo, emailSubject, file):
 
 
 # executeSQLAppend() - Attempts to execute an Append statement to the SQL Database with new Columns
+@logger.catch
 def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
     TableColumns= list(df.columns) 
     newColumnCheck = False
@@ -455,25 +511,31 @@ def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
     sqlStrings = "SELECT * FROM {0}.{1}".format(schema, sqlName)
     sqlRead = pd.read_sql(sqlStrings, engine)
     print('--Diff:')
+    logger.debug('--Diff:')
     existingColumns = list(sqlRead.columns)
     newnames = list(df[df.columns.difference(existingColumns)].columns)
     print("Newnames = {0}".format( newnames ))
+    logger.debug("Newnames = {0}".format( newnames ))
 
     if not newnames:
         print("No new columns")
+        logger.debug("No new columns")
         return()
 
     #attemp to create a dataframe and string of columns that need to be added to SQL Server
     try:
         updateList = list(set(list(sqlRead)).symmetric_difference(set(list(df))))
         print("new columns: {0}".updateList)
+        logger.debug("new columns: {0}".updateList)
         updateFrame = pd.DataFrame(columns=updateList)
         updateColumns= list(updateFrame.columns)
         updateColumns1 = ',\n\t'.join("[{0}] {1}".format(c,dTyper[c]) for c in reversed(updateColumns))
     except:
         print('ERROR!!!!')
+        logger.exception('ERROR!!!!')
 
     print(updateColumns1)
+    logger.debug(updateColumns1)
     
     #create SQL File based on tempalte to ALTER current SQL Table and append new Columns
     flds = {'TableSchema'          : schema, 
@@ -497,6 +559,8 @@ def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
     except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
         print ("-Error Updating Columns in SQL Table - ["+str(er.args[0])+"]" )
         log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
+        logger.error("-Error Updating Columns in SQL Table - ["+str(er.args[0])+"]" )
+        logger.exception("Error in File: \t %s \n\n Error: %s \n\n" % (sqlName, er))
         raise
     if (updateColumns):
         filein = open(cfg['sql']['create_view'],"r")
@@ -505,6 +569,7 @@ def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
         dropView = 'DROP VIEW IF EXISTS %s' % (flds['viewName'])
         try:
             print('----Creating Current View')
+            logger.debug('----Creating Current View')
             #drop sql view if exits
             engine.execute(dropView)
             #create new sql view
@@ -513,15 +578,19 @@ def executeSQLAppend(engine, df, sqlName, dTyper, log, schema):
         except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
             print ("-Error Creating View of SQL Table - ["+str(er.args[0])+"]" )
             log.write("Error in Table: \t %s \n\n Error: %s \n\n\n" % (sqlName, er))
+            logger.error("-Error Creating View of SQL Table - ["+str(er.args[0])+"]" )
+            logger.exception("Error in Table: \t %s \n\n Error: %s \n\n" % (sqlName, er))
             raise
 
 # numericalSort() - Is used to properly sort files based on numbers correctly
+@logger.catch
 def numericalSort(value):
     numbers = re.compile(r'(\d+)')
     parts = numbers.split(value)
     parts[1::2] = map(int, parts[1::2])
     return parts
 
+@logger.catch
 def createDiff( cf, lf ):
     if (lf.shape[0] == 0) | (cf.shape[0] == 0):
         return( cf )
