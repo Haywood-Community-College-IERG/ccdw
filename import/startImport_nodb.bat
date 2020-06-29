@@ -1,1 +1,0 @@
-C:\Python\Python37\python.exe \\helix\divisions\IERG\ccdw\import\import.py --nodb %* 2>&1 > \\helix\divisions\IERG\ccdw\import\output.txt

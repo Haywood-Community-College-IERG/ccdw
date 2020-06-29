@@ -1,1 +1,0 @@
-C:\Python\Miniconda3\python.exe \\helix\divisions\IERG\ccdw\import\import.py --path="%~dp0" %*

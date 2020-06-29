@@ -1,0 +1,19 @@
+USE IERG
+GO
+
+CREATE SCHEMA dw_util
+GO
+CREATE SCHEMA dw_dim
+GO
+CREATE SCHEMA history
+GO                
+CREATE SCHEMA input
+GO
+CREATE SCHEMA local
+GO
+CREATE SCHEMA meta
+GO
+CREATE SCHEMA archive
+GO
+CREATE SCHEMA util
+GO  

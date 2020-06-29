@@ -1,0 +1,14 @@
+IF OBJECT_ID('history.[STUDENT_EQUIV_EVALS__STUDENT_ACAD_CRED]', 'V') IS NOT NULL
+    DROP VIEW history.[STUDENT_EQUIV_EVALS__STUDENT_ACAD_CRED]
+GO
+
+CREATE VIEW history.[STUDENT_EQUIV_EVALS__STUDENT_ACAD_CRED] AS 
+    SELECT [STUDENT.EQUIV.EVALS.ID]
+         , CAST(LTRIM(RTRIM(CA1.Item)) AS VARCHAR(10)) AS [STE.STUDENT.ACAD.CRED]
+         , CA1.ItemNumber AS ItemNumber
+         , EffectiveDatetime
+      FROM [history].[STUDENT_EQUIV_EVALS] 
+     CROSS APPLY dw_util.DelimitedSplit8K([STE.STUDENT.ACAD.CRED], ', ') CA1 
+     WHERE COALESCE ([STE.STUDENT.ACAD.CRED], '') != '' 
+     --  AND CA1.ItemNumber = CA2.ItemNumber 
+     

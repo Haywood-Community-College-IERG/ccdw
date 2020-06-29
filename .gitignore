@@ -240,17 +240,42 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-/import/log/log*
-/import/config.yml
-support
 _Archive.zip
-archive/*.csv
-/data
+/archive/*
+!/archive/*.md
+/data/*
+!/data/*.md
 /data___wStatus
 /diffs
 /diffs_SAV
-/archive
-/archive_SAV
+error/*
+/error/*
+zip/*
+/zip/*
+/!error/*.md
 /temp
 /data_old
-etl
+/etl
+/import/config.yml
+.idea/workspace.xml
+.idea/workspace.xml
+<<<<<<< Updated upstream
+/import/__pycache__/*
+.idea/workspace.xml
+__pycache__
+import/.vscode/launch.json
+setup/output.txt
+import/.vscode/settings.json
+/import/*.sql
+/import/.gitignore
+*.pyc
+=======
+/import/__pycache__/export.cpython-37.pyc
+.idea/workspace.xml
+/import/__pycache__/export.cpython-37.pyc
+__pycache__
+/import/.vscode/launch.json
+/setup/output.txt
+/import/.vscode/settings.json
+/import/startImport.bat
+>>>>>>> Stashed changes

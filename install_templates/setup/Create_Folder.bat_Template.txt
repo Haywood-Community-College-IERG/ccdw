@@ -1,0 +1,8 @@
+@ECHO OFF
+
+MD {{ config["ccdw"]["archive_path"] }} 2> NUL
+MD {{ config["ccdw"]["error_path"] }} 2> NUL
+
+MD {{ config["ccdw"]["archive_path"] }}\wStatus 2> NUL
+MD {{ config["ccdw"]["archive_path"] }}\wStatus_INVALID 2> NUL
+MD {{ config["ccdw"]["log_path"] }} 2> NUL

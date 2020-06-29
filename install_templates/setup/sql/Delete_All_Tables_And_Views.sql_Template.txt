@@ -1,0 +1,33 @@
+USE {{ config["sql"]["db"] }}
+GO
+
+DECLARE @sql NVARCHAR(2000)
+
+--WHILE(EXISTS(SELECT * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_TYPE='FOREIGN KEY'))
+--BEGIN
+--    SELECT TOP 1 @sql=('ALTER TABLE ' + TABLE_SCHEMA + '.[' + TABLE_NAME + '] DROP CONSTRAINT [' + CONSTRAINT_NAME + ']')
+--    FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+--    WHERE CONSTRAINT_TYPE = 'FOREIGN KEY'
+--    EXEC(@sql)
+--    PRINT @sql
+--END
+
+WHILE(EXISTS(SELECT * from INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'VIEW' AND TABLE_SCHEMA IN ('{{ config["sql"]["schema_input"] }}','{{ config["sql"]["schema_history"] }}')))
+BEGIN
+    SELECT TOP 1 @sql=('DROP VIEW ' + TABLE_SCHEMA + '.[' + TABLE_NAME + ']')
+    FROM INFORMATION_SCHEMA.TABLES
+	WHERE TABLE_TYPE = 'VIEW' 
+	  AND TABLE_SCHEMA IN ('{{ config["sql"]["schema_input"] }}','{{ config["sql"]["schema_history"] }}')
+    EXEC(@sql)
+    PRINT @sql
+END
+
+WHILE(EXISTS(SELECT * from INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA IN ('{{ config["sql"]["schema_input"] }}','{{ config["sql"]["schema_history"] }}')))
+BEGIN
+    SELECT TOP 1 @sql=('DROP TABLE ' + TABLE_SCHEMA + '.[' + TABLE_NAME + ']')
+    FROM INFORMATION_SCHEMA.TABLES
+	WHERE TABLE_TYPE = 'BASE TABLE' 
+	  AND TABLE_SCHEMA IN ('{{ config["sql"]["schema_input"] }}','{{ config["sql"]["schema_history"] }}')
+    EXEC(@sql)
+    PRINT @sql
+END

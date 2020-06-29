@@ -1,0 +1,3 @@
+@ECHO OFF
+SET PTH="%~dp0"
+"{{ config["__local"]["python_path"] }}" .\ccdw.py --path="%~dp0" --wStatus %*

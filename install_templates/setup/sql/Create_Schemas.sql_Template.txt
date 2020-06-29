@@ -1,0 +1,15 @@
+USE {{ config["sql"]["db"] }}
+GO
+
+CREATE SCHEMA dw_util
+GO
+CREATE SCHEMA dw_dim
+GO
+CREATE SCHEMA dw_fact
+GO
+CREATE SCHEMA history
+GO                
+CREATE SCHEMA input
+GO
+CREATE SCHEMA local
+GO

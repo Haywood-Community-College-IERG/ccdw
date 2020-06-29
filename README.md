@@ -5,61 +5,40 @@
     Using Tortoise GIT, right click in the folder where you want the CCDW folder created.
     Choose Git Clone... from the menu and enter the URL below into the URL field. Leave 
     all other defaults as they are.
-
-    URL: https://github.com/haywood-ierg/ccdw-csc289
-
+ 
+    URL: https://github.com/haywood-ierg/ccdw
+ 
     The folder that is created will be referred as CCDW from now on.
-
-2. Create the following folders within the CCDW folder:
-
-    archive
-    data
-    meta
-
-3. Copy the base data from the *basedata* folder into the data folder.
-
-4. In the *import* folder, copy the *config_remote_template.yml* to *config.yml* and make the following changes:
+ 
+2. Edit *config.yml*, making the following changes:
 
     In the *sql* section, update the following items:
 
-        * server: <Enter the server address>
-        * db: CCDW_CSC289
+        * server: <Enter the server address or localhost if running on the local server>
+        * db: CCDW_HIST
+        * driver: <Enter the proper driver for the installed version of SQL Server>
     
     In the *informer* section, update the following items:
 
-        * export_path: <Full path to CCDW folder>/data
-        * export_path_wStatus: <Full path to CCDW folder>/data
-        * export_path_meta: <Full path to CCDW folder>/meta
+        * export_path: <Full path to data folder>
+        * export_path_wStatus: <Full path to data with Statuses folder>
+        * export_path_meta: <Full path to metadata folder>
 
-5. On the SQL Server, create the *CCDW_CSC289* database. All the tables will be created within this database.
-   (IT may have done this for you)
+    In the *ccdw* section, update the following items:
 
-6. Run setup/Create_Folders.bat.
+        * log_path: <Full directory path to location for log files with trailing slash '/'>
+        * archive_path: <Full directory path to location for archive files with trailing slash '/'>
+        * archive_path_wStatus: <Full directory path to location for with Status archive files with trailing slash '/'>
+        * invalid_path_wStatus: <Full directory path to location for with Status Invalid data files with trailing slash '/'>
+        * error_path: <Full directory path to location for error files with trailing slash '/'>
+        * log_path: <Full directory path to location for log files with trailing slash '/'>
 
-7. Create shared drive space on Informer report server for CCDW export reports.
+    In the remaining sections, update as necessary. You can delete the *school* section if you will not be using this file for anything else. 
 
-    The folder should contain a folder for each of the configured reports. A script is provided to create these folders.
+3. If your *config.yml* file is stored in the *CCDW* directory, run *setup.py*. If your *config.yml* file is stored in a different location than the *CCDW* directory, run *setup.py --path=<path to config.yml file>*
 
-8. Install the Informer reports to your Informer report server.
+4. Install Informer reports and schedule each to run according to the Informer Setup document (*Informer_Setup.md*).
 
-    Configure each of the reports to export their data to their respective folder onthe Informer server.
+5. Run With Status reports in Informer. After With Status reports have run, validate the files with CCDW by running *ccdw.py --wStatusValidate"*. Any invalid records will be stored in the folder you specified in the *config.yml* file. Modify the With Status Informer reports with invalid data to correct the data or make changes in the stored CSV files. Once all validation errors are corrected, run *ccdw.py --wStatus* or use the *startImport_wStatus.bat* batch file.
 
-9. Install the following into the SQL Server database:
-
-    * _Create_Schemas.sql
-    * dbo.DelimitedSplit8K.sql
-    * dw_util.GetEasterHolidays.sql
-    * dw_util.Update_Date.sql
-
-    To install each of these, open each in SQL Server Management Studio, ensure the *CCDW_CSC289* database is selected and submit the statements.
-
-10. Run and install the TERMS data.
-
-    In Informer, run the TERMS report.
-
-    In the CCDW folder, run startimport.bat. This will load the TERMS table with the data from Colleague.
-
-11. Return to SQL Server Management Studio and load *dw.Update_DimDate.StoredProcedure.sql*.
-    
-    Highlight the *REBUILD* section of *dw.Update_DimDate.StoredProcedure.sql* and submit. This will build the date table.
-
+6. Schedule *statImport.bat* to run after the Informer reports are complete.
