@@ -1,0 +1,67 @@
+ # Define school specific parameters
+school:
+  name: Haywood Community College
+  abbrev: HCC
+  ipeds: 198668
+  fice: "008083"
+  usgov: 37087
+  ncccs: 842
+  instid: "0019844"
+  branch: "00"
+
+# Define database specific parameters
+sql:
+  # Name of the database server
+  server: researchvm.haywood.edu
+  # Name of the database on the above server
+  db: IERG
+  # Driver for ODBC connections
+  driver: ODBC Driver 13 for SQL Server
+
+  ### You should not have to change the following items
+
+  # Schema in above database where loaded data will be uploaded
+  schema: input
+  # Schema in above database where loaded data will be moved to history
+  schema_history: history
+  # Schema in above database where final data wharehouse data will be uploaded
+  schema_ccdw: ccdw
+  # Schema in above database where local data will be uploaded
+  schema_local: local
+
+  # Template file names for create, merge, and alter table statements
+  merge_scd1: ../templates/SQL_MERGE_TEMPLATE_SCD1.sql
+  merge_scd2: ../templates/SQL_MERGE_TEMPLATE_SCD2.sql
+  add_Columns: ../templates/SQL_ALTER_TEMPLATE.sql
+  create_view: ../templates/SQL_VIEW_TEMPLATE.sql
+  create_view2: ../templates/SQL_VIEW2_TEMPLATE.sql
+  create_keys: ../templates/SQL_PRIMARY_KEY_TEMPLATE.sql
+
+# Define informer specific parameters
+informer:
+  export_path: K:/DW/
+  export_path_wStatus: K:/DW___wStatus/
+  export_path_meta: K:/META/
+  export_path_meta_cdd: K:/META/
+  log_path: log/
+  meta_custom: META__CUSTOM_CDD.csv
+  new_fields_fn: NEW_FIELDS.csv
+
+
+  # Paths for output and archive files
+  archive_path: ../archive/import/
+  archive_path_wStatus: ../archive/wStatus/
+  invalid_path_wStatus: ../archive/wStatus_INVALID/
+  archive_type: move # Can be move or zip
+
+  ###
+  ### You should not have to change the following items
+  ###
+  
+  # Prefix for all informer reports
+  prefix: DW_
+  # The latest version of reports that appear in the above location
+  latest_version: 1001
+
+R:
+  scripts_path: L:/IERG/R/scripts/

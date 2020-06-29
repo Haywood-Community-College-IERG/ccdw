@@ -1,0 +1,51 @@
+USE [IERG]
+GO
+
+/****** Object:  View [history].[SA_ACYR__AWARD_LIST]    Script Date: 1/17/2020 2:07:13 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--DROP VIEW [history].[SA_ACYR__AWARD_LIST]
+CREATE VIEW [history].[SA_ACYR__AWARD_LIST] AS
+SELECT [SA.STUDENT.ID], [SA.YEAR]
+       
+, CAST(LTRIM(RTRIM(CA1.Item)) AS DATE) AS [SA.DATE]
+, CAST(CASE WHEN LTRIM(RTRIM(CA2.Item)) = '' THEN '0.00' ELSE LTRIM(RTRIM(CA2.Item)) END AS NUMERIC(8,2)) AS [SA.AMOUNT]
+, CAST(LTRIM(RTRIM(CA3.Item)) AS VARCHAR(5)) AS [SA.AWARD]
+, CAST(LTRIM(RTRIM(CA5.Item)) AS VARCHAR(1)) AS [SA.ACTION]
+, CAST(CASE WHEN LTRIM(RTRIM(CA6.Item)) = '' THEN '0.00' ELSE LTRIM(RTRIM(CA6.Item)) END AS NUMERIC(8,2)) AS [SA.XMIT.AMT]
+
+, CAST(LTRIM(RTRIM(CA7.Item)) AS VARCHAR(5)) AS [X.SA.AWARD.CATEGORY]
+, CAST(LTRIM(RTRIM(CA8.Item)) AS VARCHAR(4)) AS [X.SA.AWARD.DESTINATION]
+, CAST(LTRIM(RTRIM(CA9.Item)) AS VARCHAR(5)) AS [X.SA.AWARD.TYPE]
+
+     , CA1.ItemNumber AS ItemNumber
+     , EffectiveDatetime
+  FROM [history].[SA_ACYR]
+  
+ CROSS APPLY dbo.DelimitedSplit8K([SA.DATE],', ') CA1
+ CROSS APPLY dbo.DelimitedSplit8K([SA.AMOUNT],', ') CA2
+ CROSS APPLY dbo.DelimitedSplit8K([SA.AWARD],', ') CA3
+ CROSS APPLY dbo.DelimitedSplit8K([SA.AWARD.CATEGORY],', ') CA4
+ CROSS APPLY dbo.DelimitedSplit8K([SA.ACTION],', ') CA5
+ CROSS APPLY dbo.DelimitedSplit8K([SA.XMIT.AMT],', ') CA6
+ CROSS APPLY dbo.DelimitedSplit8K([X.SA.AWARD.CATEGORY],', ') CA7
+ CROSS APPLY dbo.DelimitedSplit8K([X.SA.AWARD.DESTINATION],', ') CA8
+ CROSS APPLY dbo.DelimitedSplit8K([X.SA.AWARD.TYPE],', ') CA9
+ WHERE COALESCE([SA.AWARD],'') != ''
+       AND CA1.ItemNumber=CA2.ItemNumber
+AND CA1.ItemNumber=CA3.ItemNumber
+AND CA1.ItemNumber=CA4.ItemNumber
+AND CA1.ItemNumber=CA5.ItemNumber
+AND CA1.ItemNumber=CA6.ItemNumber
+AND CA1.ItemNumber=CA7.ItemNumber
+AND CA1.ItemNumber=CA8.ItemNumber
+AND CA1.ItemNumber=CA9.ItemNumber
+
+
+GO
+
+

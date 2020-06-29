@@ -54,17 +54,13 @@ def loadLookupList(refresh=False):
         lookuplist.set_index('ids')
 
         if refresh:
-            print( "Update CDD in meta" )
             logger.debug( "Update CDD in meta" )
             cddEngine = export.engine()
-            print( "...delete old data" )
             logger.debug( "...delete old data" )
             cddEngine.execute( 'DELETE FROM meta.CDD' )
-            print( "...push new data" )
             logger.debug( "...push new data" )
             lookuplist.to_sql( 'CDD', cddEngine, flavor=None, schema='meta', if_exists='append',
                                index=False, index_label=None, chunksize=None )
-            print( "...Update CDD in meta [DONE]" )
             logger.debug( "...Update CDD in meta [DONE]" )
 
 #loadLookupList()
@@ -113,11 +109,13 @@ def getDataTypes(file=''):
             elif types == 'T':
                 dtypers = 'TIME'
             elif types == 'N':
-                dtypers = 'NUMERIC(%s,%s)' % (dataLength[index], dataDecimalLength[index])
+                dtypers = 'NUMERIC(%s,%s)' % (dataLength[index], dataDecimalLength[index] if dataDecimalLength[index]  else 0)
             elif types == 'D':
                 dtypers = 'DATE'
             elif types == 'DT':
                 dtypers = 'DATETIME'
+            else:
+                dtypers = 'VARCHAR(MAX)'
             typers[index] = dtypers
             types = sqlalchemy.types.String(None) # changed from 8000
         elif types == 'S' or types == '' or types == None:
@@ -132,13 +130,15 @@ def getDataTypes(file=''):
             types = sqlalchemy.types.Date()  # 'DATE'
         elif types == 'DT':
             types = sqlalchemy.types.DateTime()
+        else:
+            types = 'VARCHAR(MAX)'
         dataType[index] = types
 
-    keyList = pd.concat([fieldNames,usageType], axis=1)
-    aTypes = pd.concat([fieldNames,aType], axis=1)
-    typers = pd.concat([fieldNames,typers], axis=1)
-    aNames = pd.concat([fieldNames,aName], axis=1)
-    result = pd.concat([fieldNames,dataType], axis=1)
+    keyList = pd.concat([fieldNames,usageType], axis=1, sort=True)
+    aTypes = pd.concat([fieldNames,aType], axis=1, sort=True)
+    typers = pd.concat([fieldNames,typers], axis=1, sort=True)
+    aNames = pd.concat([fieldNames,aName], axis=1, sort=True)
+    result = pd.concat([fieldNames,dataType], axis=1, sort=True)
 
 
     aTypes = list(aTypes.set_index('ids').to_dict().values()).pop()

@@ -25,7 +25,13 @@ SELECT [STUDENTS.ID]
                  ELSE LTRIM(RTRIM(CA3.Item)) END AS DATE) AS [STU.TYPE.END.DATES]
      , CA1.ItemNumber AS ItemNumber
      , EffectiveDatetime
-  FROM [history].[STUDENTS] 
+  FROM (SELECT [STUDENTS.ID]
+             , [STU.TYPES]
+             , [STU.TYPE.DATES]
+             , CASE WHEN [STUDENTS.ID] = '1150867' AND  [STU.TYPE.END.DATES]=' 2016-07-01 2014-08-18' THEN ', 2016-07-01, 2014-08-18'
+                    ELSE [STU.TYPE.END.DATES] END AS [STU.TYPE.END.DATES]
+             , EffectiveDatetime
+          FROM [history].[STUDENTS]) S
  CROSS APPLY dbo.DelimitedSplit8K([STU.TYPES], ', ') CA1 
  CROSS APPLY dbo.DelimitedSplit8K([STU.TYPE.DATES], ', ') CA2 
  CROSS APPLY dbo.DelimitedSplit8K([STU.TYPE.END.DATES], ', ') CA3
@@ -46,11 +52,11 @@ GO
 
 UPDATE history.STUDENTS
 SET [STU.TYPE.END.DATES] = REPLACE([STU.TYPE.END.DATES],' ',', ')
-      ,[STU.CLASS]
-      ,[STU.SSN]
-      ,[EffectiveDatetime]
-      ,[ExpirationDatetime]
-      ,[CurrentFlag]
+--      ,[STU.CLASS]
+--      ,[STU.SSN]
+--      ,[EffectiveDatetime]
+--      ,[ExpirationDatetime]
+--      ,[CurrentFlag]
     WHERE Sql#.RegEx_IsMatch4k( [STU.TYPE.END.DATES], '^(?:\s\d{4}-\d{2}-\d{2})+$', 1, '') > 0
 
 -- */

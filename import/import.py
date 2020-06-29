@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import glob
 import sys
 import yaml
@@ -17,16 +18,11 @@ print = functools.partial(print, flush=True)
 global writedb
 global diffs
 global refresh
-global log
 global cfg
 
 run_datetime = datetime.datetime.now().strftime("%Y-%m-%d_%H%M%S%f")
 def timestamp():
     return( datetime.datetime.now().isoformat() )
-
-import config
-config.load_cfg()
-cfg = config.cfg 
 
 #with open("//helix/divisions/IERG/Data/config.yml","r") as ymlfile:
 #    cfg = yaml.load(ymlfile)
@@ -39,9 +35,19 @@ parser.add_argument('--diffs', dest='diffs', action='store_true', default=False,
 parser.add_argument('--refresh', dest='refresh', action='store_true', default=False,
                     help='Refresh table and view structures (default: don''t refresh)')
 parser.add_argument('--wStatus', dest='wStatus', action='store_true', default=False,
-                    help='Refresh table and view structures (default: don''t refresh)')
+                    help='Update database using wStatus files')
 parser.add_argument('--updateConfig', dest='updateConfig', action='store_true', default=False,
                     help='Refresh configuration in database (default: don''t refresh)')
+parser.add_argument('--outputErrorDF', dest='outputErrorDF', action='store_true', default=False,
+                    help='Output dataframes that cause errors')
+parser.add_argument('--debug', dest='debug_flag', action="store_true", default=False,
+                    help='Turn on debugging in logging output')
+parser.add_argument('--logging', dest='logger_level', default="INFO",
+                    choices=['TRACE','DEBUG','INFO','SUCCESS','WARNING','ERROR','CRITICAL'],
+                    help='Specify which level of logging to use in logging output')
+parser.add_argument('--path', dest='config_path', default=".",
+                    help='Specify the path to the config.yml file')
+
 args = parser.parse_args()
 
 writedb = args.writedb
@@ -49,23 +55,47 @@ diffs = args.diffs
 refresh = args.refresh
 wStatus = args.wStatus
 updateConfig = args.updateConfig
+outputErrorDF = args.outputErrorDF
+debug_flag = "DEBUG" if args.debug_flag else "CRITICAL"
+cmd_log_level = args.logger_level
+config_path = Path(args.config_path.replace('"',"").strip()) / "config.yml"
+
+import config
+config.load_cfg(config_path)
+cfg = config.cfg
 
 wStatus_suffix = "_wStatus" if wStatus else ""
 
+global export_path
+global archive_path
+global error_path
+global log_path
+
 export_path = cfg['informer']['export_path' + wStatus_suffix]
 archive_path = cfg['ccdw']['archive_path' + wStatus_suffix]
+error_path = cfg['ccdw']['error_path']
 log_path = cfg['ccdw']['log_path']
 
 prefix = cfg['informer']['prefix']
 
-log = open(os.path.join(log_path,"log_{0}{1}.txt".format( run_datetime, wStatus_suffix )), "w", 1)
+cfg_log_level = cfg['ccdw']['log_level'].upper()
+logger_types = ['TRACE','DEBUG','INFO','SUCCESS','WARNING','ERROR','CRITICAL']
+if not cfg_log_level in logger_types:
+    if cmd_log_level:
+        logger_level = cmd_log_level
+    else:
+        logger_level = 'INFO'
+else:
+    logger_idx = min([logger_types.index(i) for i in [cfg_log_level,cmd_log_level,debug_flag]])
+    logger_level = logger_types[logger_idx]
+
+#log = open(os.path.join(log_path,"log_{0}{1}.txt".format( run_datetime, wStatus_suffix )), "w", 1)
 logger_log = open(os.path.join(log_path,"logger.log_{0}{1}.txt".format( run_datetime, wStatus_suffix )), "w", 1)
 
 logger.remove()
 # logger.add( "logger.log_{time}{wStatus_suffix}.txt", wStatus_suffix )
-logger.add(logger_log, enqueue=True, backtrace=True, diagnose=True) # Set last 2 to False
-logger.debug( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}], updateConfig=[{4}]".format( writedb, diffs, refresh, wStatus, updateConfig ) )
-log.write( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}], updateConfig=[{4}]\n".format( writedb, diffs, refresh, wStatus, updateConfig ) )
+logger.add(logger_log, level=logger_level, enqueue=True, backtrace=True, diagnose=True) # Set last 2 to False
+logger.debug( "Arguments: writedb = [{0}], diffs = [{1}], refresh = [{2}], wStatus = [{3}], updateConfig=[{4}], outputErrorDF = [{5}], debug_flag = [{6}], logger_level = [{7}]".format( writedb, diffs, refresh, wStatus, updateConfig , outputErrorDF, debug_flag, logger_level) )
     
 # Import local packages
 import meta
@@ -79,13 +109,14 @@ if refresh:
 kList, dTypes, aTypes, aNames, typers = meta.getDataTypes()
 
 if updateConfig:
-    #print("Update configuration")
     logger.info("Update configuration")
-    log.write("Update configuration")
     school = cfg['school']
     schooldf = pd.DataFrame(school, index = ['config'])
     schooldf.to_sql('config', engine, flavor=None, schema='local', if_exists='replace',
                  index=False, index_label=None, chunksize=None)
+
+if (outputErrorDF):
+    logger.info( 'Writing error DFs to folder {0}'.format(error_path) )
 
 if wStatus:
     invalid_path = cfg['ccdw']['invalid_path_wStatus']
@@ -93,16 +124,17 @@ if wStatus:
     pattern = r'{0}(?P<fnpat>.*)___.*|(?P<fnpat>.*)___.*'.format(prefix)
 
     # Some files have dates that are way out there. Let's mark as invalid those that are more than a year out
-    invalid_date = date.today() + timedelta(365)
+    invalid_date = pd.Timestamp(date.today() + timedelta(365))
 
     # All the status fields in association with one another
     status_fields = { 
-            'ACAD_PROGRAMS'     : ['ACPG.STATUS', 'ACPG.STATUS.DATE'],
-            'APPLICATIONS'      : ['APPL.STATUS', 'APPL.STATUS.DATE', 'APPL.STATUS.TIME'],
-            'COURSES'           : ['CRS.STATUS',  'CRS.STATUS.DATE'],
-            'STUDENT_ACAD_CRED' : ['STC.STATUS',  'STC.STATUS.DATE',  'STC.STATUS.TIME', 'STC.STATUS.REASON'],
-            'STUDENT_PROGRAMS'  : ['STPR.STATUS', 'STPR.STATUS.DATE', 'STPR.STATUS.CHGOPR'],
-            'STUDENT_TERMS'     : ['STTR.STATUS', 'STTR.STATUS.DATE']
+            'ACAD_PROGRAMS'        : ['ACPG.STATUS', 'ACPG.STATUS.DATE'],
+            'APPLICATIONS'         : ['APPL.STATUS', 'APPL.STATUS.DATE', 'APPL.STATUS.TIME'],
+            'COURSES'              : ['CRS.STATUS',  'CRS.STATUS.DATE'],
+            'STUDENT_ACAD_CRED'    : ['STC.STATUS',  'STC.STATUS.DATE',  'STC.STATUS.TIME', 'STC.STATUS.REASON'],
+            'STUDENT_PROGRAMS'     : ['STPR.STATUS', 'STPR.STATUS.DATE', 'STPR.STATUS.CHGOPR'],
+            'STUDENT_TERMS'        : ['STTR.STATUS', 'STTR.STATUS.DATE'],
+            'XCC_ACAD_PROG_REQMTS' : ['XCCAPR.STATUS', 'XCCAPR.STATUS.DATE']
         }
 
     # Extract just the date and time fields
@@ -113,7 +145,6 @@ if wStatus:
         status_datetime_fields[key] = [ f for f in fields if date_regex.match(f) ]
 
     def processfile(df, fn, d):
-        print("Updating fn = "+fn+", d = "+d)
         logger.debug("Updating fn = "+fn+", d = "+d)
         columnHeaders = list(df.columns.values)
         columnArray = np.asarray(columnHeaders)
@@ -138,37 +169,41 @@ if wStatus:
 
         try:
             # export.executeSQL_UPDATE(engine, df, fn, dTyper, kLister, log)
+            logger.debug("{0} SQL_UPDATE: {1} with {2} rows".format( timestamp(), fn, df.shape[0] ))
             export.executeSQL_UPDATE(engine, df, fn, dTyper, kLister, aTypesr, aNamesr, typersr, log)
+            logger.debug("{0} SQL_UPDATE: {1} with {2} rows [DONE]".format( timestamp(), file, df.shape[0] ))
 
             # Define and create the directory for all the output files
             # directory = '{path}/{folder}'.format(path=invalid_path,folder=fn)
             # os.makedirs(directory,exist_ok=True)
             # df.to_csv('{path}/{fn}_{dt}.csv'.format(path=directory,fn=fn,dt=d), index = False)
 
+            #df.to_csv('{path}/{fn}_{dt}.csv'.format(path=invalid_path,fn=fn,dt=d), index = False)
+
         except:
+            logger.debug("{0} SQL_UPDATE: No updated data for {1}".format( timestamp(), fn ))
             logger.error('---Error in file: %s the folder will be skipped' % file)
-            print('\t ---Error in file: %s the folder will be skipped' % file)
             raise
 
         return
 
     # Cycle through all the files in the folder
+    logger.info('Export Path: ' + export_path)
     for root, subdirs, files in os.walk(export_path):
         for file in files:
+            logger.info('File: ' + file)
             with open(root + '/' + file, "r") as csvinput:
                 # We only want to process files that match the pattern for wStatus files
                 m = regex.match(pattern,file)
                 if m==None:
                     continue
                 fn = m.expandf("{fnpat}")
+                logger.info('Processing file ' + fn + '...')
 
                 # Get status and datetime fields for this file
                 df_status = status_fields[fn]
                 df_status_datetime = status_datetime_fields[fn]
                 df_status_only = set(df_status).symmetric_difference(set(df_status_datetime))
-
-                logger.debug("Processing "+fn+"...")
-                print("Processing "+fn+"...")
 
                 df = pd.read_csv(csvinput,encoding='ansi',dtype='str',engine='python')
                 file_keys = meta.getKeyFields(fn.replace('_','.'))
@@ -196,6 +231,8 @@ if wStatus:
                 # Make datetime variable an actual datetime instead of a string, then sort
                 df.sort_values(by='DataDatetime')
 
+                #df.to_csv('{path}/{fn}_ALL.csv'.format(path=invalid_path,fn=fn))
+
                 # Define and create the directory for the INVALID output file
                 os.makedirs(invalid_path,exist_ok=True)
 
@@ -204,10 +241,13 @@ if wStatus:
                 df[pd.to_datetime(df[df_status_datetime[0]])>invalid_date].to_csv('{path}/{fn}_INVALID.csv'.format(path=invalid_path,fn=fn))
                 df = df[pd.to_datetime(df[df_status_datetime[0]])<=invalid_date]
 
+                wStatus_Error = 0
+
                 # Now, group by the date field and create cumulative files for each date in the file
                 try:
                     # This keeps the last record per day
                     for d in sorted(df['DataDatetime'].dt.strftime('%Y-%m-%d').unique()):
+                        logger.debug("Processing datetime of {0}".format( d ) )
                         processfile(df.loc[df[df_status_datetime[0]] == d].groupby(file_keys,as_index=False).last(), fn, d)
 
                     # If you want cumulative files (i.e., all the most recent records up to this date), use this
@@ -215,29 +255,26 @@ if wStatus:
                     #    processfile(df.loc[df[df_status_datetime[0]] <= d].groupby(file_keys,as_index=False).last(), fn, d)
                 except:
                     logger.error('---Error in file: %s' % fn)
-                    print('\t ---Error in file: %s' % fn)
+                    wStatus_Error = 1
 
             logger.info(".....closing file "+file)
-            print(".....closing file "+file)
             csvinput.close()
 
-            logger.info(".....archiving file "+file)
-            print(".....archiving file "+file)
-            export.archive(df, "", file, export_path, archive_path, log, createInitial = True)
+            if (wStatus_Error == 0):
+                logger.info(".....archiving file "+file)
+                export.archive(df, "", file, export_path, archive_path, log, createInitial = True)
 
 else: # NOT wStatus
     # !!!
     # !!! Needs to check for existence of schemas before trying to create any tables
     # !!!
 
-    print('=========begin loop===========')
+    logger.debug('=========begin loop===========')
     #loops through each directory and subDirectory pass by each file.
     for root, subdirs, files in os.walk(export_path):
         sys.stdout.flush()
 
         for subdir in subdirs:
-            print('\tProcessing folder ' + subdir + '...')
-            log.write('Processing folder ' + subdir + '...\n')
             logger.info('Processing folder ' + subdir + '...')
 
             filelist = sorted(glob.iglob(os.path.join(root, subdir, '*.csv')), key=os.path.getmtime)
@@ -246,8 +283,6 @@ else: # NOT wStatus
                 file = os.path.basename( filelist[i] )
 
                 # for file in sorted(files, key=export.numericalSort):
-                print("\t\tProcessing file " + file + "...")
-                log.write("Processing file " + file + "...\n")
                 logger.info("Processing file " + file + "...")
 
                 #reads in csv file then creates an array out of the headers
@@ -257,8 +292,6 @@ else: # NOT wStatus
                     columnArray = np.asarray(list(inputFrame))
 
                 except UnicodeDecodeError as er:
-                    print ("\t\t\tERROR Reading File - ["+str(er.args[0])+"]" )
-                    log.write("Error in File: \t %s \n\n Error: %s \n\n\n" % (file,er))
                     logger.error("Error in File: \t %s \n\n Error: %s \n\n" % (file,er))
                     break
 
@@ -272,14 +305,12 @@ else: # NOT wStatus
 
                 for k, v in list(aNamesr.items()):
                     if v == None:
-                        #print("Deleting {0} from aNamesr, aTypesr, and typersr".format(k))
                         del aNamesr[k]
                         del aTypesr[k]
                         del typersr[k]
 
                 for k, v in list(kLister.items()):
                     if v != 'K':
-                        #print("Deleting {0} from kLister".format(k))
                         del kLister[k]
 
                 sqlName = subdir[:-5]
@@ -287,10 +318,7 @@ else: # NOT wStatus
                 archive_filelist = sorted(glob.iglob(os.path.join(archive_path, subdir, subdir + '.csv')), key=os.path.getctime)
                 if (len(archive_filelist) > 0) and not diffs:
                     lastarchive_filename = os.path.basename( archive_filelist[-1] )
-                    print("\t\t\t{0} LASTARCHIVE: {1}".format( timestamp(), lastarchive_filename ))
-                    log.write("{0} LASTARCHIVE: {1}\n".format( timestamp(), lastarchive_filename ))
                     logger.debug("{0} LASTARCHIVE: {1}".format( timestamp(), lastarchive_filename ))
-                    #log.write("{0} SQL_UPDATE: {1} with {2} rows\n".format( timestamp(), file, df.shape[0] ))
                     archive_file = pd.read_csv( os.path.join(archive_path, subdir, lastarchive_filename), 
                                                 encoding='ansi', dtype='str', 
                                                 na_values=None, keep_default_na=False, engine='python' )
@@ -308,44 +336,30 @@ else: # NOT wStatus
                     #attempts to execute code catching any errors that may arrise then breaks out of loop of folder    
                     if df.shape[0] > 0:
                         try:
-                            print("\t\t\t{0} SQL_UPDATE: {1} with {2} rows".format( timestamp(), file, df.shape[0] ))
-                            log.write("{0} SQL_UPDATE: {1} with {2} rows\n".format( timestamp(), file, df.shape[0] ))
                             logger.debug("{0} SQL_UPDATE: {1} with {2} rows".format( timestamp(), file, df.shape[0] ))
 
-                            export.executeSQL_UPDATE(engine, df, sqlName, dTyper, kLister, aTypesr, aNamesr, typersr, log)
+                            export.executeSQL_UPDATE(engine, df, sqlName, dTyper, kLister, aTypesr, aNamesr, typersr)
 
-                            print("\t\t\t{0} SQL_UPDATE: {1} with {2} rows [DONE]".format( timestamp(), file, df.shape[0] ))
-                            log.write("{0} SQL_UPDATE: {1} with {2} rows [DONE]\n".format( timestamp(), file, df.shape[0] ))
                             logger.debug("{0} SQL_UPDATE: {1} with {2} rows [DONE]".format( timestamp(), file, df.shape[0] ))
                         except:
-                            print('\t\t\t---Error in file: %s the folder will be skipped' % file)
-                            log.write('---Error in file: %s the folder will be skipped\n' % file)
+                            if (outputErrorDF):
+                                logger.error('Writing DF with Error for file: %s' % file)
+                                df.to_csv('{error_path}{file}'.format(error_path=error_path,file=file), index = False)
+
                             logger.error('---Error in file: %s the folder will be skipped' % file)
                             break
                     else:
-                        print("\t\t\t{0} SQL_UPDATE: No updated data for {1}".format( timestamp(), file ))
-                        log.write("{0} SQL_UPDATE: No updated data for {1}\n".format( timestamp(), file ))
                         logger.debug("{0} SQL_UPDATE: No updated data for {1}".format( timestamp(), file ))
                     
                 #archives the files in another directory if their are no exceptions
-                print("\t\t\t{0} Archive: {1}".format( timestamp(), file ))
-                log.write("{0} Archive: {1}\n".format( timestamp(), file ))
                 logger.debug("{0} Archive: {1}".format( timestamp(), file ))
 
-                export.archive(df, subdir, file, export_path, archive_path, log, diffs = diffs)
+                export.archive(df, subdir, file, export_path, archive_path, diffs = diffs)
 
-                print("\t\t\t{0} Archive: {1} [DONE]\n".format( timestamp(), file ))
-                log.write("{0} Archive: {1} [DONE]\n".format( timestamp(), file ))
                 logger.debug("{0} Archive: {1} [DONE]".format( timestamp(), file ))
                     
-                print("\t\tProcessing file " + file + "...[DONE]")
-                log.write("Processing file " + file + "...[DONE]\n")
                 logger.info("Processing file " + file + "...[DONE]")
 
-            print('\tProcessing folder ' + subdir + '...[DONE]')
-            log.write('Processing folder ' + subdir + '...[DONE]\n')
             logger.info('Processing folder ' + subdir + '...[DONE]')
     
-print("DONE!!!!")
-log.write("DONE.\n")
 logger.info("DONE.")

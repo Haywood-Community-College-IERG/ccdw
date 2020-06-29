@@ -1,1 +1,1 @@
-C:\Python\Python37\python.exe \\helix\divisions\IERG\ccdw\import\import.py %* 2>&1 > \\helix\divisions\IERG\ccdw\import\output.txt
+C:\Python\Miniconda3\python.exe \\helix\divisions\IERG\ccdw\import\import.py --path="%~dp0" %*
