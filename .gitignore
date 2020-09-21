@@ -259,7 +259,6 @@ zip/*
 /import/config.yml
 .idea/workspace.xml
 .idea/workspace.xml
-<<<<<<< Updated upstream
 /import/__pycache__/*
 .idea/workspace.xml
 __pycache__
@@ -269,13 +268,11 @@ import/.vscode/settings.json
 /import/*.sql
 /import/.gitignore
 *.pyc
-=======
-/import/__pycache__/export.cpython-37.pyc
-.idea/workspace.xml
-/import/__pycache__/export.cpython-37.pyc
-__pycache__
-/import/.vscode/launch.json
-/setup/output.txt
-/import/.vscode/settings.json
-/import/startImport.bat
->>>>>>> Stashed changes
+/data_stage
+/data_stage_OLD
+/log/*
+all_meta.xlsx
+all_meta-no-custom.csv
+all_meta-no-custom.xlsx
+all_meta-with-custom.csv
+all_meta-with-custom.xlsx

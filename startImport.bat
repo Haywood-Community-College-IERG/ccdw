@@ -1,3 +1,2 @@
 @ECHO OFF
-SET PTH="%~dp0"
-"C:\Python\Miniconda3\python.exe" .\ccdw.py --path="%~dp0" %*
+"E:\Python\Python38\python.exe" \\helix\Divisions\IERG\ccdw\ccdw.py --path="\\helix\Divisions\IERG\ccdw\" %*

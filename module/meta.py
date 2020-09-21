@@ -31,7 +31,7 @@ class CCDW_Meta:
         if not self.__lookuplist or refresh:
             # Read all files in the meta folder
             meta_path = self.__cfg["informer"]["export_path_meta"]
-            all_files = glob.glob(os.path.join(meta_path, "*_CDD*csv"))
+            all_files = glob.glob(os.path.join(meta_path, "META_*_CDD*csv"))
             df_from_each_file = (pd.read_csv(f,encoding = "ansi", dtype="str", index_col=0) for f in all_files)
             self.__lookuplist = pd.concat(df_from_each_file)
             

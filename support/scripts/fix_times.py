@@ -10,11 +10,18 @@ import argparse
 import fileinput
 import regex as re
 
+#
+# Example Call:
+#
+# python .\fix_times.py --filefolder=.\t --debug
+#
+
 parser = argparse.ArgumentParser(description="Fix times on CCDW data")
-parser.add_argument('--folder', dest='folder', default="./data",help="Name of file to correct")
+parser.add_argument('--folder', dest='folder', default="",help="Name of file to correct")
 parser.add_argument('--filefolder', dest='filefolder', default="",help="Name of file to correct")
 parser.add_argument('--datepattern', dest='datepattern', default=r".*_([0-9][0-9]?)_([0-9][0-9]?)_([12][0-9][0-9][0-9]).*", help="File name pattern for date values")
 parser.add_argument('--dayoffset', dest='dayoffset', default=1, help="Correct the day of the month")
+parser.add_argument('--debug', dest='debug', action="store_false", default=False,help='Turn on debug flag')
 
 args = parser.parse_args()
 
@@ -22,10 +29,15 @@ datepattern = args.datepattern
 folder = args.folder
 filefolder = args.filefolder
 dayoffset = args.dayoffset
+debug = args.debug
 
 def process_filefolder( filefolder_path ):
+    if debug:
+        print(f'Processing {filefolder_path}')
+
     for root, subdirs, files in os.walk(filefolder_path):
-        #print(f"Found directory {root}")
+        if debug:
+            print(f"Found directory {root}")
 
         for fname in files:
             file = filefolder_path / fname

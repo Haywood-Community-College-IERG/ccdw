@@ -63,13 +63,13 @@ WITH t AS (
                  WHEN dd.Term_Abbreviation = 'SU' THEN 'CE2'
                  WHEN dd.Term_Abbreviation = 'FA' THEN 'CE3'
                  ELSE NULL END AS Corresponding_Term
-      FROM dw_dim.Date dd
+      FROM dw_dim.Dates dd
       LEFT JOIN (SELECT DISTINCT 
                         ddc.Term_ID
                       , ddc.Full_Date AS Term_Census_Date
                       , ddc.Date_Key AS Term_Census_Date_Key
                       , ddc.Term_Census_Calculated AS Term_Census_Date_Calculated
-                   FROM dw_dim.Date ddc
+                   FROM dw_dim.Dates ddc
                   WHERE [Is_Term_Census_Date] = 'Y') census
            ON (census.Term_ID = dd.Term_ID)
      WHERE dd.Term_ID <> 'None'
