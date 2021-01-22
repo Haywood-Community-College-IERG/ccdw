@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 import sys
 import os
-from pathlib import Path
+from pathlib import Path #, PurePosixPath
 import shutil
 import glob
 import pandas as pd
@@ -140,7 +140,8 @@ def ccdw() -> None:
     # Setup the new logger
     logger.remove()
     logger.add(
-        os.path.join(log_path, f"log_{wStatus_suffix}_{{time}}.txt"),
+        # os.path.join(log_path, f"log_{wStatus_suffix}_{{time}}.txt"),
+        Path(log_path) / f"log_{wStatus_suffix}_{{time}}.txt",
         enqueue=True,
         backtrace=True,
         diagnose=True,
@@ -346,7 +347,9 @@ def ccdw() -> None:
 
                 # Get all the files in the folder
                 filelist = sorted(
-                    glob.iglob(os.path.join(root, subdir, "*.csv")),
+                    #glob.iglob(os.path.join(root, subdir, "*.csv")),
+                    #glob.iglob(str(Path(root) / subdir / "*.csv")),
+                    (Path(root) / subdir).glob("*.csv"),
                     key=os.path.getmtime,
                 )
 
@@ -362,7 +365,8 @@ def ccdw() -> None:
                     # Reads in csv file then creates an array out of the headers
                     try:
                         inputFrame = pd.read_csv(
-                            os.path.join(root, subdir, file),
+                            #os.path.join(root, subdir, file),
+                            Path(root) / subdir / file,
                             encoding="ansi",
                             dtype="str",
                             na_values=None,
@@ -389,9 +393,11 @@ def ccdw() -> None:
                     # We need to know if this is the first time this file is being processed.
                     # If it is not, this file is the shadow copy of the most recent records in the database.
                     archive_filelist = sorted(
-                        glob.iglob(
-                            os.path.join(archive_path, subdir, subdir + "_LF.csv")
-                        ),
+                        #glob.iglob(
+                            #os.path.join(archive_path, subdir, subdir + "_LF.csv")
+                        #    str(Path(archive_path) / subdir / "*_LF.csv")
+                        #),
+                        (Path(archive_path) / subdir).glob("*_LF.csv"),
                         key=os.path.getctime,
                     )
 
@@ -403,7 +409,8 @@ def ccdw() -> None:
                             f"{timestamp()} LASTARCHIVE: {lastarchive_filename}"
                         )
                         archive_file = pd.read_csv(
-                            os.path.join(archive_path, subdir, lastarchive_filename),
+                            #os.path.join(archive_path, subdir, lastarchive_filename),
+                            Path(archive_path) / subdir / lastarchive_filename,
                             encoding="ansi",
                             dtype="str",
                             na_values=None,
@@ -411,7 +418,7 @@ def ccdw() -> None:
                             engine="python",
                         )
 
-                        # Create a diff of the current datafram against the existing shadow copy
+                        # Create a diff of the current dataframe against the existing shadow copy
                         df = createDiff(inputFrame, archive_file)
                     else:
                         # No previous copy, so use the current dataframe
@@ -516,57 +523,74 @@ def archive(
 
     # ig_f() - Used to find files to be ignored when copying the dir tree
     def ig_f(dir, files):
-        return [f for f in files if os.path.isfile(os.path.join(dir, f))]
+        # return [f for f in files if os.path.isfile(os.path.join(dir, f))]
+        return [f for f in files if (Path(dir) / f).is_file()]
 
     # Create the path in the archive based on the location of the CSV
-    if not os.path.isdir(os.path.join(archive_path, subdir)):
+    if not (Path(archive_path) / subdir).is_dir():
+#    if not os.path.isdir(os.path.join(archive_path, subdir)):
         shutil.copytree(
-            os.path.join(export_path, subdir),
-            os.path.join(archive_path, subdir),
+            #os.path.join(export_path, subdir),
+            Path(export_path) / subdir,
+            #os.path.join(archive_path, subdir),
+            Path(archive_path) / subdir,
             ignore=ig_f,
         )
 
     if cfg["ccdw"]["archive_type"] == "zip":
-        if not os.path.isfile(os.path.join(archive_path, subdir, file)):
+        #if not os.path.isfile(os.path.join(archive_path, subdir, file)):
+        if not (Path(archive_path) / subdir / file).is_file():
             try:
                 # Create a zip'd version of the CSV
                 zFi = zipfile.ZipFile(
-                    os.path.join(export_path, subdir, (file[:-4] + ".zip")),
+                    #os.path.join(export_path, subdir, (file[:-4] + ".zip")),
+                    Path(export_path) / subdir / f"{file[:-4]}.zip",
                     "w",
                     zipfile.ZIP_DEFLATED,
                 )
-                zFi.write(os.path.join(export_path, subdir, file), file)
+                #zFi.write(os.path.join(export_path, subdir, file), file)
+                zFi.write(Path(export_path) / subdir / file, file)
                 zFi.close()
 
                 # Move the zip file to the archive location
                 shutil.move(
-                    os.path.join(export_path, subdir, (file[:-4] + ".zip")),
-                    os.path.join(archive_path, subdir, (file[:-4] + ".zip")),
+                    #os.path.join(export_path, subdir, (file[:-4] + ".zip")),
+                    #os.path.join(archive_path, subdir, (file[:-4] + ".zip")),
+                    Path(export_path) / subdir / f"{file[:-4]}.zip",
+                    Path(archive_path) / subdir / f"{file[:-4]}.zip",
                 )
 
                 # Remove the CSV file from the export folder
                 os.remove(
-                    os.path.join(export_path, subdir, file)
+                    #os.path.join(export_path, subdir, file)
+                    Path(export_path) / subdir / file
                 )  # comment this out if you want to keep files
             except:
                 raise
     else:
         if cfg["ccdw"]["archive_type"] == "move":
-            old_archive_file = glob.glob(os.path.join(archive_path, subdir, "*_LF.csv"))
+            #old_archive_file = glob.glob(os.path.join(archive_path, subdir, "*_LF.csv"))
+            old_archive_file = sorted((Path(archive_path) / subdir).glob("*_LF.csv"),key=os.path.getctime)
 
             if diffs:
                 shutil.move(
-                    os.path.join(export_path, subdir, file),
-                    os.path.join(archive_path, subdir, file),
+                    #os.path.join(export_path, subdir, file),
+                    #os.path.join(archive_path, subdir, file),
+                    Path(export_path) / subdir / file,
+                    Path(archive_path) / subdir / file,
+
                 )
             else:
                 # Move the file to the archive location
                 shutil.move(
-                    os.path.join(export_path, subdir, file),
-                    os.path.join(archive_path, subdir, file[:-4] + "_LF.csv"),
+                    #os.path.join(export_path, subdir, file),
+                    #os.path.join(archive_path, subdir, file[:-4] + "_LF.csv"),
+                    Path(export_path) / subdir / file,
+                    Path(archive_path) / subdir / f"{file[:-4]}_LF.csv",
                 )
                 df.to_csv(
-                    os.path.join(archive_path, subdir, file),
+                    #os.path.join(archive_path, subdir, file),
+                    Path(archive_path) / subdir / file,
                     index=False,
                     date_format="%Y-%m-%dT%H:%M:%SZ",
                 )

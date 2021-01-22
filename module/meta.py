@@ -169,7 +169,10 @@ class CCDW_Meta:
         usageType = dtLookuplist["DATABASE.USAGE.TYPE"].copy()
         elementAssocType = dtLookuplist["ELEMENT.ASSOC.TYPE"].copy()
         elementAssocName = dtLookuplist["ELEMENT.ASSOC.NAME"].copy()
-        dataDecimalLength = dtLookuplist["DT2"].replace('', '0', regex=True).copy()
+        dataDecimalLength = dtLookuplist["DT2"].copy()
+        
+        if not dataDecimalLength.isnull().values.all():
+            dataDecimalLength = dataDecimalLength.replace(regex={'':'0'})
 
         if len(columns) == 0:
             columns = fieldNames.copy()

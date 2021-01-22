@@ -272,8 +272,12 @@ class CCDW_Export:
             raise
 
         self.__logger.debug("Fix all non-string columns, replace blanks with NAs which become NULLs in DB, and remove commas")
-        nonstring_columns = [key for key in self.dataTypes.keys() & self.df_columns if type(self.dataTypes[key]) != sqlalchemy.sql.sqltypes.String]
-        df[nonstring_columns] = df[nonstring_columns].replace({'':np.nan, ',':''}, regex=True) # 2018-06-18 C DMO
+
+        # TODO: nonstring_columns seems to be getting the wrong columns in some instances. This seemst to 
+        #       be related to the keys being incorrect for some tables.
+        nonstring_columns = [key for key in self.dataTypes.keys() & self.df_columns if type(self.dataTypes[key]) not in [sqlalchemy.sql.sqltypes.VARCHAR,sqlalchemy.sql.sqltypes.String]]
+        df[nonstring_columns] = df[nonstring_columns].replace('',np.nan,regex=True) 
+        df[nonstring_columns] = df[nonstring_columns].replace(',','',regex=True) # 2018-06-18 C DMO
 
         # Attempt to push the new data to the existing SQL Table.
         try:
@@ -329,7 +333,7 @@ class CCDW_Export:
         else:
             self.__logger.info(f"New column names = {newnames}")
 
-        #attemp to create a dataframe and string of columns that need to be added to SQL Server
+        #attempt to create a dataframe and string of columns that need to be added to SQL Server
         try:
             updateFrame = pd.DataFrame(columns=newnames)
             updateColumns= list(updateFrame.columns)   # "_wStatus" if wStatus else ""

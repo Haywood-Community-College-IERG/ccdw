@@ -80,6 +80,8 @@ DENY.ACCESS.EXCEPT.TO.CLASS_PROCESS.DESCRIPTION,,,S,A,,500,,,,,,,,,,DENY_ACCESS,
 DENY.ACCESS.EXCEPT.TO.CLASS,,,,L,N,35,Privileged,,N,,,,,,,DENY_ACCESS,S,,,8,,35L,32,List of elements which can only be seen/altered by this clas,Privileged,SECLASS,N,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
 DERIVED.SEC.PTR,,,,L,,65,,,,,,,,,,,,,,103,,30L,30,,,TOOLCDD,,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
 DIV.DESC,,,,,,500,,,,,,,,,,,,,,,,,,,,,,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
+"EARNTYPE.ADD.OPERATOR","","","","D","N","8","Add Operator","","N","","","","","","","","","","","11","","3L","15","MIO Add/Change Date/Operator stamp support","Added By","EARNTYPE","N","","1991-05-24","DLE","","","2020-11-10T18:25:31.619Z"
+"EARNTYPE.CHANGE.OPERATOR","","","","D","N","8","Change Operator","","N","","","","","","","","","","","13","","3L","15","MIO Add/Change Date/Operator stamp support","Changed By","EARNTYPE","N","","1991-05-24","DLE","","","2020-11-10T18:25:31.327Z"
 ELEMENT.ASSOC.NAME,,,,D,,25,Association,,,,,,,,,,,,,27,,8L,28,Name of group of associated multivalues (when DBU type=A),,TOOLCDD,,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
 ELEMENT.POINTED.FROM,,,,D,,32,Pointed to from Element,,,,,,,,,,,,,30,,28L,32,Name of a data element which points back to this element,,TOOLCDD,,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
 ELEMENT.POINTED.TO,,,,D,,32,Points to Element,,,,,,,,,,,,,29,,28L,32,Name of the data element (KEY type) this X/Q element points,,TOOLCDD,,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
@@ -129,6 +131,21 @@ INQUIRY.ONLY.PROCESS.LIST_PROCESS.DESCRIPTION,,,S,A,,500,,,,,,,,,,INQUIRY_ONLY,S
 INQUIRY.ONLY.PROCESS.LIST,,,,L,N,6,Inquiry Only,,N,,,,,,,INQUIRY_ONLY,S,,,3,,6L,32,List of processes for which input is iqnored for this class,Inquiry Only,SECLASS,N,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
 INSTA.ACAD.CREDENTIALS,,,,Q,,100,,,,,,,,,,,,,ACAD.CREDENTIALS.ID,16,,7R,10,,,,,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
 "INSTA.EXT.GPA","","","N","D","N","10","External GPA","2.345","N","","N","3","N","N","","","","","","10","MD3","7R","6","Contains an external GPA.  If you have ACAD.CREDENTIALS, for this INSTITUTIONS.ATTEND record then this field, shouldn't be used.  The GPA would be recorded with the, Credentials.  This field is mainly used to record High, School GPA.","External, GPA","INSTITUTIONS.ATTEND","N","","1995-06-08","STEVEN",2020-06-01,CCDW,2020-10-21T00:00:00.000Z
+"INSTITUTIONS.ADD.DATE","","","D","D","N","8","","","N","","","","","","","","","","","12","D2/","8R","0","","","INSTITUTIONS","N","","1995-05-12","STEVEN","","","2020-11-02T15:03:32.157Z"
+JH.COMPLETIONTIME,,,DT,,,19,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JH.DESCRIPTION,,,,,,200,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JH.EXECUTIONTIME,,,DT,,,19,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JH.ID,,,,K,,9,,,,,,0,,,,,,,,,,,,,,META__JOBHISTORY,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JH.JOBGROUP,,,,,,20,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JH.JOBID,,,,,,40,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JH.OWNER,,,,,,40,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JH.SCHEDULEDEXECUTIONTIME,,,DT,,,19,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T09:34:00.000Z
+JH.STATUS,,,,,,1,,,,,,0,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JHD.ERROR,,,,,,1,,,,,,0,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JHD.ID,,,,K,,9,,,,,,0,,,,,,,,,,,,,,META__JOBHISTORYDETAIL,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JHD.JH.ID,,,,,,9,,,,,,0,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JHD.MESSAGE,,,,,,250,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
+JHD.STACKTRACE,,,,,,8000,,,,,,,,,,,,,,,,,,,,SOURCE,,,2020-11-16,CCDW,2020-11-16,CCDW,2020-11-16T00:00:00.000Z
 INVI.DESC,,,,T,N,200,Description,,N,,,,,,,,,,,1,,30L,80,"Description of the invoice item.  Defaults from AR, code description, but can be changed.  Displays on, item lists and resolution screens.",Description,AR.INVOICE.ITEMS,N,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
 INVI.EXT.CR.AMT,,,N,A,N,12,Credit Amt,,N,,Y,2,N,N,,,,,,8,"MD2,",12R,0,"This is the quantity times the credit amount.  The, extended amount is the amount by which an AR account, balance is reduced.",Ext Credit Amt,AR.INVOICE.ITEMS,N,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
 LAST.NAME,,,,D,,250,,,,,,,,,,,,,,1,,25L,57,,,,,,2020-06-01,CCDW,2020-06-01,CCDW,2020-10-21T00:00:00.000Z
