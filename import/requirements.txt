@@ -37,6 +37,6 @@ regex == 2019.06.08
 # importData.py: 4
 # importData_wStatus.py: 2
 # meta.py: 4
-PyYaml == 5.3
+PyYaml == 5.4
 
            
