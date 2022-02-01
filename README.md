@@ -42,3 +42,5 @@
 5. Run With Status reports in Informer. After With Status reports have run, validate the files with CCDW by running *ccdw.py --wStatusValidate"*. Any invalid records will be stored in the folder you specified in the *config.yml* file. Modify the With Status Informer reports with invalid data to correct the data or make changes in the stored CSV files. Once all validation errors are corrected, run *ccdw.py --wStatus* or use the *startImport_wStatus.bat* batch file.
 
 6. Schedule *statImport.bat* to run after the Informer reports are complete.
+
+NOTE: To use git-sync, be sure to setup your Git remote to be the same as the branch you are using. Modify git-sync-setup.bat to modify the date format for the commit messages.
