@@ -43,4 +43,4 @@
 
 6. Schedule *statImport.bat* to run after the Informer reports are complete.
 
-NOTE: To use git-sync, be sure to setup your Git remote to be the same as the branch you are using. Modify git-sync-setup.bat to modify the date format for the commit messages. Run ./git-sync.bat and follow the instructions.
+NOTE: To use git-sync, be sure to setup your Git remote to be the same as the branch you are using. Modify git-sync-setup.bat to modify the date format for the commit messages. Run ./git-sync.bat and follow the instructions. It should be obvious that you need to have Git for Windows installed with the bash shell in the path.
