@@ -1,0 +1,60 @@
+
+PRINT 'Delete exiting history schema tables';
+IF OBJECT_ID('history.[ACAD_PROGRAMS]', 'U') IS NOT NULL
+    DROP TABLE history.[ACAD_PROGRAMS]
+IF OBJECT_ID('history.[COURSE_SECTIONS]', 'U') IS NOT NULL
+    DROP TABLE history.COURSE_SECTIONS
+IF OBJECT_ID('history.[NON_COURSE]', 'U') IS NOT NULL
+    DROP TABLE history.NON_COURSE
+IF OBJECT_ID('history.[TERMS]', 'U') IS NOT NULL
+    DROP TABLE history.TERMS
+
+PRINT 'Delete exiting input schema tables';
+IF OBJECT_ID('input.[ACAD_PROGRAMS]', 'U') IS NOT NULL
+    DROP TABLE input.[ACAD_PROGRAMS]
+IF OBJECT_ID('input.[COURSE_SECTIONS]', 'U') IS NOT NULL
+    DROP TABLE input.COURSE_SECTIONS
+IF OBJECT_ID('input.[NON_COURSE]', 'U') IS NOT NULL
+    DROP TABLE input.NON_COURSE
+IF OBJECT_ID('input.[TERMS]', 'U') IS NOT NULL
+    DROP TABLE input.TERMS
+
+PRINT 'Delete exiting history schema tables';
+IF OBJECT_ID('base_history.[ACAD_PROGRAMS]', 'U') IS NOT NULL
+    DROP TABLE base_history.[ACAD_PROGRAMS]
+IF OBJECT_ID('base_history.[COURSE_SECTIONS]', 'U') IS NOT NULL
+    DROP TABLE base_history.COURSE_SECTIONS
+IF OBJECT_ID('base_history.[NON_COURSE]', 'U') IS NOT NULL
+    DROP TABLE base_history.NON_COURSE
+IF OBJECT_ID('base_history.[TERMS]', 'U') IS NOT NULL
+    DROP TABLE base_history.TERMS
+
+PRINT 'Delete exiting input schema tables';
+IF OBJECT_ID('base_input.[ACAD_PROGRAMS]', 'U') IS NOT NULL
+    DROP TABLE base_input.[ACAD_PROGRAMS]
+IF OBJECT_ID('base_input.[COURSE_SECTIONS]', 'U') IS NOT NULL
+    DROP TABLE base_input.COURSE_SECTIONS
+IF OBJECT_ID('base_input.[NON_COURSE]', 'U') IS NOT NULL
+    DROP TABLE base_input.NON_COURSE
+IF OBJECT_ID('base_input.[TERMS]', 'U') IS NOT NULL
+    DROP TABLE base_input.TERMS
+
+PRINT 'Delete exiting history schema views';
+IF OBJECT_ID('history.[ACAD_PROGRAMS__ACPG_ADMISSION]', 'V') IS NOT NULL
+    DROP VIEW history.ACAD_PROGRAMS__ACPG_ADMISSION
+IF OBJECT_ID('history.[ACAD_PROGRAMS__ACPG_STANDING_RULES]', 'V') IS NOT NULL
+    DROP VIEW history.ACAD_PROGRAMS__ACPG_STANDING_RULES
+IF OBJECT_ID('history.[ACAD_PROGRAMS__PROGRAM_STATUS]', 'V') IS NOT NULL
+    DROP VIEW history.ACAD_PROGRAMS__PROGRAM_STATUS
+IF OBJECT_ID('history.[ACAD_PROGRAMS_Current]', 'V') IS NOT NULL
+    DROP VIEW history.[ACAD_PROGRAMS_Current]
+IF OBJECT_ID('history.[COURSE_SECTIONS__SEC_CONTACT]', 'V') IS NOT NULL
+    DROP VIEW history.COURSE_SECTIONS__SEC_CONTACT
+IF OBJECT_ID('history.[COURSE_SECTIONS__SEC_STATUSES]', 'V') IS NOT NULL
+    DROP VIEW history.COURSE_SECTIONS__SEC_STATUSES
+IF OBJECT_ID('history.[COURSE_SECTIONS_Current]', 'V') IS NOT NULL
+    DROP VIEW history.COURSE_SECTIONS_Current
+IF OBJECT_ID('history.[NON_COURSE_Current]', 'V') IS NOT NULL
+    DROP VIEW history.NON_COURSE_Current
+IF OBJECT_ID('history.[TERMS_Current]', 'V') IS NOT NULL
+    DROP VIEW history.TERMS_Current

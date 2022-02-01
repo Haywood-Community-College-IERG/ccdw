@@ -14,6 +14,7 @@ from loguru import logger
 
 # Import other local packages
 from module.exceptions import FileValidationError
+from module.exceptions import DataTruncationError
 from module.config import load_cfg
 from module.meta import CCDW_Meta, MetaObject
 from module.export import CCDW_Export
@@ -444,6 +445,12 @@ def ccdw() -> None:
                             except FileValidationError as er:
                                 logger.error(
                                     f"Source: {er.source}, Validation: {er.validation}"
+                                )
+                                error_flag = "Y"
+
+                            except DataTruncationError as er:
+                                logger.error(
+                                    f"Source: {er.source}, File: {er.file}"
                                 )
                                 error_flag = "Y"
 

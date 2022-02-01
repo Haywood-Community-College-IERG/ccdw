@@ -19,6 +19,7 @@ from loguru import logger
 from pathlib import Path
 
 from module.exceptions import FileValidationError
+from module.exceptions import DataTruncationError
 from module.meta import MetaObject
 
 from typing import TypeVar
@@ -231,6 +232,7 @@ class CCDW_Export:
         try:
             self.__executeSQL_INSERT( sqlName, df ) 
 
+
         except:
             self.__logger.exception("XXXXXXX failed on executeSQL_INSERT XXXXXXX")
             self.error_flag = 'Y'
@@ -297,9 +299,9 @@ class CCDW_Export:
             df.to_sql(sqlName, self.engine, schema=self.sql_schema_input, if_exists="append",
                     index=False, index_label=None, chunksize=None, dtype=self.dataTypes)
 
-        except (exc.SQLAlchemyError, exc.DBAPIError, exc.ProgrammingError) as er:
+        except (exc.ProgrammingError) as er:
             # This is a temporary line. Needs to be for ProgrammingError ONLY!
-            self.__logger.debug( f"Error Msg: {str(er.orig.args[1])}" )
+            self.__logger.debug( f"Error Msg (ProgrammingError): {str(er.orig.args[1])}" )
             self.__logger.exception( f"Error in File:\t{sqlName}\n\n Error: {er}\n DataTypes: {self.dataTypes}\n\n" )
             # TODO: Write out error CSV to InsertError_input.<file>.csv
             if self.__outputErrorDF:
@@ -307,6 +309,67 @@ class CCDW_Export:
                 df.to_csv(er_name,index=False)
             self.table_error_flag = 'Y'
             raise
+
+        except (exc.SQLAlchemyError, exc.DBAPIError) as er:
+            self.__logger.error( f"Error Msg: {str(er.orig.args[1])}" )
+            self.__logger.error( f"Error in File: {sqlName}" )
+            
+            original_error = er.orig.args[0]
+
+            if original_error == '22001':
+                lengths_dict = dict(
+                    [
+                        #create a tuple such that (column name, max length of values in column)
+                        (v, df[v].apply(lambda r: len(str(r)) if r!=None else 0).max()) 
+                            for v in df.columns.values #iterates over all column values
+                    ])
+
+                type_map = self.dataTypes.copy()
+
+                # Now create a dictionary for the column types
+                for col, typ in type_map.items():
+                    if typ == mssql.TINYINT:
+                        type_map[col] = 2
+                    elif typ == mssql.SMALLINT:
+                        type_map[col] = 4
+                    elif typ == mssql.INTEGER:
+                        type_map[col] = 9
+                    elif typ == mssql.BIGINT:
+                        type_map[col] = 16
+                    elif typ == mssql.DATE:
+                        type_map[col] = 10
+                    elif typ == mssql.DATETIME:
+                        type_map[col] = 24
+                    elif typ == mssql.TIME:
+                        type_map[col] = 5
+                    elif typ.python_type == str:
+                        if typ.length is None:
+                            type_map[col] = 2147483647
+                        else:
+                            type_map[col] = int(typ.length)
+                    elif isinstance(typ, mssql.NUMERIC):
+                        type_map[col]  = typ.precision + typ.scale
+                    else:
+                        type_map[col] = 0
+
+                column_errors = ""
+                for col, col_len in lengths_dict.items():
+                    if col_len > type_map[col]:
+                        column_errors += f", {col} [{col_len}] {type(self.dataTypes[col])} [{type_map[col]}]"
+
+                if column_errors != "":
+                    self.__logger.error( f"Column Errors: {column_errors[2:]}" )
+                else:
+                    self.__logger.error( "Database structure is out of sync with metadata" )
+
+                self.table_error_flag = 'Y'
+                raise(DataTruncationError(source="__executeSQL_INSERT", file=f"{sqlName}"))
+
+    
+            else:
+                self.__logger.exception( f"Error: {er}\n DataTypes: {self.dataTypes}\n\n" )
+                self.table_error_flag = 'Y'
+                raise
 
         except:
             self.__logger.exception( f"Unknown error in executeSQL_INSERT: {sys.exc_info()[0]}" )

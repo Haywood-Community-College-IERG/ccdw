@@ -276,3 +276,7 @@ all_meta-no-custom.csv
 all_meta-no-custom.xlsx
 all_meta-with-custom.csv
 all_meta-with-custom.xlsx
+/startImport_LAP18.bat
+/startImport_C.bat
+/.vscode
+/config
