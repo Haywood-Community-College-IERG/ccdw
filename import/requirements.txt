@@ -15,7 +15,7 @@ loguru == 0.3.2
 # importData.py: 7
 # importData_wStatus.py: 4
 # meta.py: 7
-numpy == 1.16.4
+numpy == 1.22.0
 
 # export.py: 5
 # import.py: 5
