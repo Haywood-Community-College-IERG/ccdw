@@ -8,7 +8,7 @@ SQLAlchemy == 1.3.4
 # export.py: 22
 # import.py: 12
 # meta.py: 13
-loguru == 0.3.2
+loguru == 0.5.3
 
 # export.py: 6,21
 # import.py: 7
