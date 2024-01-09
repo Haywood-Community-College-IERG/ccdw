@@ -5,6 +5,7 @@ from pathlib import Path #, PurePosixPath
 import shutil
 import glob
 import pandas as pd
+from pandas.errors import EmptyDataError
 import zipfile
 import datetime
 import argparse
@@ -354,8 +355,13 @@ def ccdw() -> None:
                     key=os.path.getmtime,
                 )
 
+                File_Error = False
+
                 # This block processes each Colleague File export. These are exported each day as CSV files.
                 for i in range(len(filelist)):
+                    if File_Error:
+                        break 
+
                     file = os.path.basename(filelist[i])
 
                     logger.info(f"Processing file {file}...")
@@ -380,7 +386,30 @@ def ccdw() -> None:
 
                     # The most common error has been that there is an error in the Unicode so handle this
                     except UnicodeDecodeError as er:
-                        logger.error(f"Error in File: \t {file}\n\n Error: {er}\n\n")
+                        logger.error(f"UnicodeDecodeError in File: \t {file}\n\n Error: {er}\n")
+                        File_Error = True
+                        break
+
+                    except EmptyDataError:
+                        logger.error(f"No data in File: \t {file}")
+                        File_Error = True
+                        logger.debug(f"{timestamp()} Move to Archive: {file}")
+                        archive(
+                            None,
+                            subdir,
+                            file,
+                            archive_path,
+                            export_path,
+                            cfg,
+                            diffs=True,
+                            createInitial=False
+                        )
+                        logger.debug(f"{timestamp()} Move to Archive: {file} [DONE]")
+                        break
+
+                    except Exception as er:
+                        logger.error(f"Error in File: \t {file}\n\n Error: {er}\n")
+                        File_Error = True
                         break
 
                     # If there is no DataDatetime column in the current dataframe, add one using the current date
